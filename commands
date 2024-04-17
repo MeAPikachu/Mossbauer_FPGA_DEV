@@ -1,0 +1,7 @@
+make project PRJ=v0.94 MODEL=Z10
+#echo all:{ red_pitaya_top.bit } >  red_pitaya_top.bif
+#bootgen -image red_pitaya_top.bif -arch zynq -process_bitstream bin -o red_pitaya_top.bit.bin -w
+echo -n "all:{ red_pitaya_top.bit }" >  red_pitaya_top.bif
+bootgen -image red_pitaya_top.bif -arch zynq -process_bitstream bin -o red_pitaya_top.bit.bin -w
+
+/opt/redpitaya/bin/fpgautil -b Led_counter.bit.bin
