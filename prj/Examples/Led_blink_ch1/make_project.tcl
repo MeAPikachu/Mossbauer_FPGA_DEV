@@ -78,8 +78,8 @@ apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_ex
 
 connect_bd_net [get_bd_pins c_counter_binary_0/Q] [get_bd_pins xlslice_0/Din]
 connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins c_counter_binary_0/CLK]
-connect_bd_net [get_bd_ports led_o] [get_bd_pins xlslice_0/Dout]
-
+# connect_bd_net [get_bd_ports led_o] [get_bd_pins xlslice_0/Dout]
+connect_bd_net [get_bd_ports led_1] [get_bd_pins xlslice_0/Dout]
 connect_bd_net [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
 connect_bd_net [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
 

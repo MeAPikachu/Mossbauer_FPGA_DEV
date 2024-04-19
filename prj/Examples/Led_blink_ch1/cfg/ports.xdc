@@ -219,3 +219,6 @@ set_property PACKAGE_PIN K14 [get_ports {led_o[4]}]
 set_property PACKAGE_PIN G14 [get_ports {led_o[5]}]
 set_property PACKAGE_PIN J15 [get_ports {led_o[6]}]
 set_property PACKAGE_PIN J14 [get_ports {led_o[7]}]
+
+set_property IOSTANDARD LVCMOS33 [get_ports {led_1[0]}]
+set_property PACKAGE_PIN F17 [get_ports {led_1[0]}]

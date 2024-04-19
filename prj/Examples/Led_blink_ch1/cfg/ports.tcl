@@ -49,3 +49,4 @@ create_bd_port -dir I -from 1 -to 0 daisy_n_i
 ### LED
 
 create_bd_port -dir O -from 7 -to 0 led_o
+create_bd_port -dir O -from 0 -to 0 led_1 
