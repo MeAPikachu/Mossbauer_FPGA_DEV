@@ -64,7 +64,7 @@ endgroup
 # slice
 startgroup
 create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice xlslice_0
-set_property -dict [list CONFIG.DIN_TO {23} CONFIG.DIN_FROM {23} CONFIG.DIN_WITDH {32} CONFIG.DOUT_WIDTH {1}] [get_bd_cells xlslice_0]
+set_property -dict [list CONFIG.DIN_TO {25} CONFIG.DIN_FROM {25} CONFIG.DIN_WITDH {32} CONFIG.DOUT_WIDTH {1}] [get_bd_cells xlslice_0]
 endgroup
 
 # We will use only one LED

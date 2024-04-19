@@ -29,6 +29,7 @@ module knight_rider(
     parameter DIR_INIT = 1;
     
     reg [9:0] leds = LEDS_INIT; // register for led output
+    reg [9:0] led_real = LEDS_INIT; 
     reg [3:0] position = DIR_INIT*8; // state counter 0->15 
     reg direction = DIR_INIT;   // direction indicator
 
@@ -44,12 +45,14 @@ module knight_rider(
 
     always @ (position) begin       // change direction 
         if (position < 8) begin     // in the second half 
+            led_real = leds ; 
             direction = 0;
         end else begin
+            led_real = 10'b0 ; 
             direction = 1;
         end
     end
 
-    assign led_out = leds[8:1]; // wire output and leds register
+    assign led_out = led_real[8:1]; // wire output and leds register
     
 endmodule
