@@ -112,6 +112,27 @@ connect_bd_net [get_bd_pins knight_rider_1/led_out] [get_bd_pins util_vector_log
 connect_bd_net [get_bd_pins knight_rider_1/clk] [get_bd_pins xlslice_0/Dout]
 connect_bd_net [get_bd_ports led_o] [get_bd_pins util_vector_logic_0/Res]
 
+# Add something useless 
+delete_bd_objs [get_bd_nets util_vector_logic_0_Res]
+
+# Add another logic operator 
+start group 
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_1
+set_property -dict [list CONFIG.C_OPERATION {and} CONFIG.C_SIZE {8}] [get_bd_cells util_vector_logic_1]
+endgroup 
+
+# Connect a Constant 
+start group 
+create_bd_cell -type ip -vlnv xlinx.com:ip:xlconstant:1.1 xlconstant_0 
+set_property -dict [list CONFIG.CONST_VAL {255} CONFIG.CONST_WIDTH {8}] [get_bd_cells xlconstant_0]
+endgroup 
+
+# Block Connections 
+connect_bd_net [get_bd_pins util_vector_logic_0/Res] [get_bd_pins util_vector_logic_1/Op1]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins util_vector_logic_1/Op2]
+connect_bd_net [get_bd_ports led_o] [get_bd_pins util_vector_logic_1/Res]
+
+
 
 # ====================================================================================
 # Generate output products and wrapper, add constraint 
