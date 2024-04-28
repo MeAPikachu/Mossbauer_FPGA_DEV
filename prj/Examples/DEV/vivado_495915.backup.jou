@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Apr 23 13:19:27 2024
+# Process ID: 495915
+# Current directory: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Frequency_counter
+# Command line: vivado
+# Log file: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Frequency_counter/vivado.log
+# Journal file: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Frequency_counter/vivado.jou
+#-----------------------------------------------------------
+start_gui
+ls
+source make_project.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+save_bd_design

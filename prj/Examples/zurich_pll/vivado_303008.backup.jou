@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sun Apr 21 22:48:58 2024
+# Process ID: 303008
+# Current directory: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/zurich_pll
+# Command line: vivado
+# Log file: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/zurich_pll/vivado.log
+# Journal file: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/zurich_pll/vivado.jou
+#-----------------------------------------------------------
+start_gui
+ls
+source create_project.tcl
+update_compile_order -fileset sources_1
