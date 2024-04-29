@@ -28,6 +28,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
    catch {common::send_msg_id "BD_TCL-109" "ERROR" "This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."}
    return 1
 }
+# This part has been changed , the original is 2016.2 
 
 ################################################################
 # START
@@ -40,6 +41,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 # The design that will be created by this Tcl script contains the following 
 # module references:
 # sum_limit, sum_limit, axis_red_pitaya_adc, axis_red_pitaya_dac, dac_out_switch, pid_w_range, pid_w_range, dec_filter, exp_avg_filter_order, exp_avg_filter_order, mult_n_1, mult_n_1, freq_div, nco_driver_2, waveform_gen, weight_sum, dec_filter, exp_avg_filter_order, exp_avg_filter_order, mult_n_1, mult_n_1, freq_div, nco_driver_2, waveform_gen, weight_sum
+# Under the mode of IP integrator , we create block cells and make block connections
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -587,6 +589,7 @@ CONFIG.N_WEIGHTS {8} \
 }
 
 # Hierarchical cell: phase_det
+# It is quite strange here, we have the phase_det and phase_det_1 
 proc create_hier_cell_phase_det { parentCell nameHier } {
 
   variable script_folder

@@ -1,4 +1,4 @@
-# Zynq Processing System 
+# This tcl script is only to add cores and make connections . 
 
 
 

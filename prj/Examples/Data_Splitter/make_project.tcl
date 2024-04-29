@@ -3,6 +3,21 @@ set project_name mossbauer_v1
 set part_name xc7z010clg400-1 
 set bd_path tmp/$project_name/$project_name.srcs/sources_1/bd/system 
 
+# Create Project 
+file delete -force tmp/$project_name
+create_project $project_name tmp/$project_name -part $part_name
+create_bd_design system
+# open_bd_design {$bd_path/system.bd}
+
+# Load RedPitaya ports
+source cfg/ports.tcl
+# Set Path for the custom IP cores
+set_property IP_REPO_PATHS tmp/cores [current_project]
+update_ip_catalog
+
+
+
+
 
 # Add sources files 
 # slow_clock_generator , adc_smooth_mossbauer , 
@@ -21,19 +36,7 @@ add_files /cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v
 add_files -fileset constrs_1 -norecurse {cfg/clocks.xdc cfg/ports.xdc}
 
 
-source cfg/ports.tcl 
-
 source block_design.tcl
-
-
-
-
-
-
-
-
-
-
 
 
 

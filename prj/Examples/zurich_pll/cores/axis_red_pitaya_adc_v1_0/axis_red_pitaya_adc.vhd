@@ -73,31 +73,7 @@ begin
       );
       
   adc_csn <= '1';
-  
-  --m_axis_tvalid <= '1';
-  
-  --int_m_axis_tdata <= 
-  --    zero_padding & 
-  --    int_dat_b_reg(ADC_DATA_WIDTH-1 downto ADC_DATA_WIDTH-1) & 
-  --    not(int_dat_b_reg(ADC_DATA_WIDTH-2 downto 0)) & 
-  --    zero_padding & 
-  --    int_dat_a_reg(ADC_DATA_WIDTH-1 downto ADC_DATA_WIDTH-1) & 
-  --    not(int_dat_a_reg(ADC_DATA_WIDTH-2 downto 0)); 
-  
- -- out_gen : for I in 0 to ADC_DATA_WIDTH-2 generate
- --   int_m_axis_tdata(I) <= not(int_dat_a_reg(I));
- --   int_m_axis_tdata(I+AXIS_TDATA_WIDTH/2) <= not(int_dat_b_reg(I));
- -- end generate out_gen;
- -- 
- -- int_m_axis_tdata(ADC_DATA_WIDTH-1) <= int_dat_a_reg(ADC_DATA_WIDTH-1);
- -- int_m_axis_tdata(ADC_DATA_WIDTH+AXIS_TDATA_WIDTH/2-1) <= int_dat_b_reg(ADC_DATA_WIDTH-1);
- -- 
- -- zero_gen : for I in ADC_DATA_WIDTH to AXIS_TDATA_WIDTH/2-1 generate
- --   int_m_axis_tdata(I) <= '0';
- --   int_m_axis_tdata(I+AXIS_TDATA_WIDTH/2) <= '0';
- -- end generate zero_gen;
    
-      
   process(int_clk)
   begin
     if rising_edge(int_clk) then
