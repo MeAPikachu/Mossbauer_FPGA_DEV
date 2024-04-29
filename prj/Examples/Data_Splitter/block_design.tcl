@@ -79,16 +79,6 @@ connect_bd_net [get_bd_pins axi_gpio_4/s_axi_aclk] [get_bd_pins processing_syste
 connect_bd_net [get_bd_pins axi_gpio_4/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
 create_bd_addr_seg -range 0x00001000 -offset 0x42400000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_4/S_AXI/Reg] SEG_axi_gpio_4_Reg
 
-
-# Connections 
-
-
-
-
-
-
-
-
 # Daisy Chain 
 # Buffers for differential IOs - Dasychain
 startgroup
