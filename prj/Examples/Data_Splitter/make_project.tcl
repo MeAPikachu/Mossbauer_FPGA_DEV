@@ -27,7 +27,7 @@ if {[llength $files] >0 } {
 }
 update_compile_order -fileset sources_1 
 # Add ADC Files
-add_files /cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v 
+add_files cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v 
 # Add constraint files 
 add_files -fileset constrs_1 -norecurse {cfg/clocks.xdc cfg/ports.xdc}
 
