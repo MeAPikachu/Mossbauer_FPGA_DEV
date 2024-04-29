@@ -1,5 +1,5 @@
 # Make_Project.tcl 
-set project_name mossbauer_v1 
+set project_name Data_Splitter 
 set part_name xc7z010clg400-1 
 set bd_path tmp/$project_name/$project_name.srcs/sources_1/bd/system 
 
@@ -15,7 +15,8 @@ source cfg/ports.tcl
 set_property IP_REPO_PATHS tmp/cores [current_project]
 update_ip_catalog
 
-
+# Add IP cores 
+source make_cores.tcl
 
 # Add sources files 
 # slow_clock_generator , adc_smooth_mossbauer , 
@@ -26,11 +27,12 @@ if {[llength $files] >0 } {
     add_files -norecurse  $files 
 }
 update_compile_order -fileset sources_1 
-# Add ADC Files
-add_files cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v 
+
 # Add constraint files 
 add_files -fileset constrs_1 -norecurse {cfg/clocks.xdc cfg/ports.xdc}
 
+# Add ADC files 
+add_files -norecurse cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v
 
 # Create Connections 
 source block_design.tcl
@@ -42,3 +44,5 @@ make_wrapper -files [get_files $bd_path/system.bd] -top
 add_files -norecurse $bd_path/hdl/system_wrapper.v 
 set_property top system_wrapper [current_fileset]
 save_bd_design 
+
+
