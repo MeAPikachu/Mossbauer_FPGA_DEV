@@ -17,8 +17,6 @@ update_ip_catalog
 
 
 
-
-
 # Add sources files 
 # slow_clock_generator , adc_smooth_mossbauer , 
 # trigger_mossbauer , rising , high_threshold , low_threshold 
@@ -28,14 +26,13 @@ if {[llength $files] >0 } {
     add_files -norecurse  $files 
 }
 update_compile_order -fileset sources_1 
-
 # Add ADC Files
 add_files /cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v 
-
 # Add constraint files 
 add_files -fileset constrs_1 -norecurse {cfg/clocks.xdc cfg/ports.xdc}
 
 
+# Create Connections 
 source block_design.tcl
 
 
