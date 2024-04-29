@@ -11,14 +11,47 @@ endgroup
 
 # PS7 axi periph 
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph 
-set_property -dict [list CONFIG.NUM_MI {8} ] [get_bd_cells ps7_0_axi_periph]
+set_property -dict [list CONFIG.NUM_MI {5} ] [get_bd_cells ps7_0_axi_periph]
 
 # ps7_0_125M 
 create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_125M
 
 # AXI GPIO IP Core 
+# AXI_GPIO_0 
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_0
+connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+create_bd_addr_seg -range 0x00001000 -offset 0x42000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] SEG_axi_gpio_1_Reg
 
 
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_1
+connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+create_bd_addr_seg -range 0x00001000 -offset 0x42100000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_1/S_AXI/Reg] SEG_axi_gpio_1_Reg
+
+
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_2
+connect_bd_net [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+create_bd_addr_seg -range 0x00001000 -offset 0x42200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_2/S_AXI/Reg] SEG_axi_gpio_1_Reg
+
+
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_3
+connect_bd_net [get_bd_pins axi_gpio_3/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_3/s_axi_aclk] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+create_bd_addr_seg -range 0x00001000 -offset 0x42300000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_3/S_AXI/Reg] SEG_axi_gpio_1_Reg
+
+
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_4
+connect_bd_net [get_bd_pins axi_gpio_4/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axi_gpio_4/s_axi_aclk] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+create_bd_addr_seg -range 0x00001000 -offset 0x42400000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_4/S_AXI/Reg] SEG_axi_gpio_1_Reg
+
+
+# Connections 
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] 
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
 
 
 
