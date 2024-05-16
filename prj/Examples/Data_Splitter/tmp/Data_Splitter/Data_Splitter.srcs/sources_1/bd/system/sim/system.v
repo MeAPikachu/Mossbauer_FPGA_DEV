@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Thu May  9 00:14:37 2024
-//Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+//Date        : Thu May 16 16:36:43 2024
+//Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -1106,7 +1106,7 @@ module s00_couplers_imp_11SE3QO
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=50,numReposBlks=42,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=9,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=47,numReposBlks=39,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -1234,7 +1234,6 @@ module system
   wire adc_clk_p_i_1;
   wire [13:0]adc_dat_a_i_1;
   wire [13:0]adc_dat_b_i_1;
-  wire [31:0]adc_smooth_mossbauer_0_axis_adc_a;
   wire [31:0]adc_smooth_mossbauer_0_smooth_data;
   wire [31:0]axi_gpio_2_gpio_io_o;
   wire [31:0]axi_gpio_3_gpio_io_o;
@@ -1378,7 +1377,8 @@ module system
   wire ps7_0_axi_periph_M05_AXI_WREADY;
   wire [3:0]ps7_0_axi_periph_M05_AXI_WSTRB;
   wire ps7_0_axi_periph_M05_AXI_WVALID;
-  wire [13:0]red_pitaya_dfilt1_0_adc_dat_o;
+  wire [13:0]rc_filter_0_adc_filt_a;
+  wire [13:0]rc_filter_1_adc_filt_a;
   wire [0:0]reset_dout;
   wire rising32_0_falling;
   wire rising32_0_rising;
@@ -1391,11 +1391,8 @@ module system
   wire [1:0]util_ds_buf_2_OBUF_DS_N;
   wire [1:0]util_ds_buf_2_OBUF_DS_P;
   wire [7:0]xlconcat_0_dout;
+  wire [31:0]xlconcat_1_dout;
   wire [7:0]xlconstant_0_dout;
-  wire [17:0]xlconstant_1_dout;
-  wire [24:0]xlconstant_2_dout;
-  wire [24:0]xlconstant_3_dout;
-  wire [24:0]xlconstant_4_dout;
   wire [17:0]xlconstant_5_dout;
   wire [13:0]xlslice_0_Dout;
   wire [15:0]xlslice_CH1_Dout;
@@ -1415,8 +1412,7 @@ module system
   assign led_o[7:0] = led_concat_dout;
   system_adc_smooth_mossbauer_0_0 adc_smooth_mossbauer_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
-        .adc_dat_a(signal_split_0_M_AXIS_PORT1_tdata),
-        .axis_adc_a(adc_smooth_mossbauer_0_axis_adc_a),
+        .adc_dat_a(xlconcat_1_dout),
         .smooth_data(adc_smooth_mossbauer_0_smooth_data));
   system_axi_gpio_0_0 axi_gpio_0
        (.gpio_io_i(data_concat_dout),
@@ -1580,7 +1576,7 @@ module system
         .Dout(high_threshold_Dout));
   system_high_threshold_0_0 high_threshold_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
-        .adc_dat_a(adc_smooth_mossbauer_0_axis_adc_a),
+        .adc_dat_a(signal_split_0_M_AXIS_PORT1_tdata),
         .input_high(high_threshold_Dout),
         .rst(reset_dout),
         .vlh(high_threshold_0_vlh));
@@ -1599,7 +1595,7 @@ module system
         .Dout(low_threshold_Dout));
   system_low_threshold_0_0 low_threshold_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
-        .adc_dat_a(adc_smooth_mossbauer_0_axis_adc_a),
+        .adc_dat_a(signal_split_0_M_AXIS_PORT1_tdata),
         .input_low(low_threshold_Dout),
         .rst(reset_dout),
         .vgl(low_threshold_0_vgl));
@@ -1859,15 +1855,16 @@ module system
         .S00_AXI_wready(S00_AXI_1_WREADY),
         .S00_AXI_wstrb(S00_AXI_1_WSTRB),
         .S00_AXI_wvalid(S00_AXI_1_WVALID));
-  system_red_pitaya_dfilt1_0_0 red_pitaya_dfilt1_0
-       (.adc_clk_i(axis_red_pitaya_adc_0_adc_clk),
-        .adc_dat_i(xlslice_0_Dout),
-        .adc_dat_o(red_pitaya_dfilt1_0_adc_dat_o),
-        .adc_rstn_i(reset_dout),
-        .cfg_aa_i(xlconstant_1_dout),
-        .cfg_bb_i(xlconstant_2_dout),
-        .cfg_kk_i(xlconstant_3_dout),
-        .cfg_pp_i(xlconstant_4_dout));
+  system_rc_filter_0_0 rc_filter_0
+       (.adc_dat_a(xlslice_0_Dout),
+        .adc_filt_a(rc_filter_0_adc_filt_a),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .reset(reset_dout));
+  system_rc_filter_0_1 rc_filter_1
+       (.adc_dat_a(rc_filter_0_adc_filt_a),
+        .adc_filt_a(rc_filter_1_adc_filt_a),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .reset(reset_dout));
   system_reset_0 reset
        (.dout(reset_dout));
   system_rising32_0_0 rising32_0
@@ -1919,18 +1916,11 @@ module system
         .In7(1'b0),
         .dout(xlconcat_0_dout));
   system_xlconcat_1_0 xlconcat_1
-       (.In0(red_pitaya_dfilt1_0_adc_dat_o),
-        .In1(xlconstant_5_dout));
+       (.In0(rc_filter_1_adc_filt_a),
+        .In1(xlconstant_5_dout),
+        .dout(xlconcat_1_dout));
   system_xlconstant_0_0 xlconstant_0
        (.dout(xlconstant_0_dout));
-  system_xlconstant_1_0 xlconstant_1
-       (.dout(xlconstant_1_dout));
-  system_xlconstant_1_1 xlconstant_2
-       (.dout(xlconstant_2_dout));
-  system_xlconstant_1_2 xlconstant_3
-       (.dout(xlconstant_3_dout));
-  system_xlconstant_1_3 xlconstant_4
-       (.dout(xlconstant_4_dout));
   system_xlconstant_5_0 xlconstant_5
        (.dout(xlconstant_5_dout));
   system_xlslice_0_1 xlslice_0

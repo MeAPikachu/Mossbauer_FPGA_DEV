@@ -40,9 +40,9 @@ wire signed [ADC_WIDTH-1 :0] data;
 assign data = adc_dat_a[ADC_WIDTH-1:0];
 
 
-reg [ADC_WIDTH-1 :0 ] input_signal ; 
-reg [ADC_WIDTH-1 :0 ] sync_1 ; 
-reg [ADC_WIDTH-1 :0 ] previous_data ;  
+reg signed [ADC_WIDTH-1 :0 ] input_signal ; 
+reg signed [ADC_WIDTH-1 :0 ] sync_1 ; 
+reg signed [ADC_WIDTH-1 :0 ] previous_data ;  
 
 // Data Sync 
 always@(posedge slow_clk) begin 
@@ -51,14 +51,14 @@ always@(posedge slow_clk) begin
 end
 
 always@(posedge slow_clk) begin
-    if ( input_signal > previous_data + 10 ) 
+    if ( input_signal > previous_data + 3 ) 
         rising <= 1'b1 ; 
-    else if ( input_signal < previous_data - 10 )
+    else if ( input_signal < previous_data - 3 )
         rising <= 1'b0 ; 
     
-    if (input_signal < previous_data - 10 ) 
+    if (input_signal < previous_data - 3) 
         falling <= 1'b1; 
-    else if (input_signal > previous_data + 10 )
+    else if (input_signal > previous_data + 3 )
         falling <= 1'b0 ;     
     
     previous_data <= input_signal ; 

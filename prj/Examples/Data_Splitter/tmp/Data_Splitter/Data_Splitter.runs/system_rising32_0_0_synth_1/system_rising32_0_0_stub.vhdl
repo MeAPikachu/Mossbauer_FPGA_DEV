@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Wed May  8 23:44:14 2024
--- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+-- Date        : Thu May 16 14:51:21 2024
+-- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 -- Command     : write_vhdl -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_rising32_0_0_stub.vhdl
 -- Design      : system_rising32_0_0

@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Thu May  9 00:17:03 2024
-| Host         : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+| Date         : Thu May 16 16:37:54 2024
+| Host         : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
 | Device       : xc7z010clg400-1
@@ -23,13 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 148
+             Violations found: 152
 +-----------+------------------+-------------------------------------------------+------------+
 | Rule      | Severity         | Description                                     | Violations |
 +-----------+------------------+-------------------------------------------------+------------+
 | TIMING-6  | Critical Warning | No common primary clock between related clocks  | 1          |
 | TIMING-7  | Critical Warning | No common node between related clocks           | 1          |
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                     | 98         |
+| TIMING-16 | Warning          | Large setup violation                           | 4          |
 | TIMING-18 | Warning          | Missing input or output delay                   | 44         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten | 4          |
 +-----------+------------------+-------------------------------------------------+------------+
@@ -534,6 +535,26 @@ Related violations: <none>
 TIMING-17#98 Critical Warning
 Non-clocked sequential cell  
 The clock pin system_i/rising32_0/inst/sync_1_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.007 ns between system_i/rc_filter_1/inst/y2/CLK (clocked by adc_clk) and system_i/rc_filter_1/inst/y0/B[14] (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.007 ns between system_i/rc_filter_1/inst/y2/CLK (clocked by adc_clk) and system_i/rc_filter_1/inst/y0/B[16] (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -1.026 ns between system_i/rc_filter_1/inst/y2/CLK (clocked by adc_clk) and system_i/rc_filter_1/inst/y0/A[26] (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -1.039 ns between system_i/rc_filter_1/inst/y2/CLK (clocked by adc_clk) and system_i/rc_filter_1/inst/y0/B[12] (clocked by adc_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

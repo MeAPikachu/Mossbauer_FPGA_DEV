@@ -61,7 +61,7 @@ output wire [17 : 0] dout;
 
   xlconstant_v1_1_7_xlconstant #(
     .CONST_WIDTH(18),
-    .CONST_VAL('H00008)
+    .CONST_VAL('H00000)
   ) inst (
     .dout(dout)
   );

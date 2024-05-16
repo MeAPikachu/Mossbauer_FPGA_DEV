@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# adc_smooth_mossbauer, trigger_mossbauer, trigger_mossbauer, high_threshold, low_threshold, red_pitaya_dfilt1, rising32, signal_split, slow_clock_generator
+# adc_smooth_mossbauer, trigger_mossbauer, trigger_mossbauer, high_threshold, low_threshold, rc_filter, rc_filter, rising32, signal_split, slow_clock_generator
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -226,7 +226,7 @@ proc create_root_design { parentCell } {
   set axi_gpio_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2 ]
   set_property -dict [ list \
    CONFIG.C_ALL_OUTPUTS {1} \
-   CONFIG.C_DOUT_DEFAULT {0x09600320} \
+   CONFIG.C_DOUT_DEFAULT {0x09600160} \
  ] $axi_gpio_2
 
   # Create instance: axi_gpio_3, and set properties
@@ -245,6 +245,9 @@ proc create_root_design { parentCell } {
 
   # Create instance: axi_gpio_5, and set properties
   set axi_gpio_5 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_5 ]
+  set_property -dict [ list \
+   CONFIG.C_ALL_INPUTS {1} \
+ ] $axi_gpio_5
 
   # Create instance: axis_red_pitaya_adc_0, and set properties
   set axis_red_pitaya_adc_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_red_pitaya_adc:1.0 axis_red_pitaya_adc_0 ]
@@ -994,13 +997,24 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_MI {6} \
  ] $ps7_0_axi_periph
 
-  # Create instance: red_pitaya_dfilt1_0, and set properties
-  set block_name red_pitaya_dfilt1
-  set block_cell_name red_pitaya_dfilt1_0
-  if { [catch {set red_pitaya_dfilt1_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: rc_filter_0, and set properties
+  set block_name rc_filter
+  set block_cell_name rc_filter_0
+  if { [catch {set rc_filter_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $red_pitaya_dfilt1_0 eq "" } {
+   } elseif { $rc_filter_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: rc_filter_1, and set properties
+  set block_name rc_filter
+  set block_cell_name rc_filter_1
+  if { [catch {set rc_filter_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $rc_filter_1 eq "" } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -1092,38 +1106,10 @@ proc create_root_design { parentCell } {
    CONFIG.CONST_WIDTH {8} \
  ] $xlconstant_0
 
-  # Create instance: xlconstant_1, and set properties
-  set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {16901} \
-   CONFIG.CONST_WIDTH {18} \
- ] $xlconstant_1
-
-  # Create instance: xlconstant_2, and set properties
-  set xlconstant_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_2 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {193419} \
-   CONFIG.CONST_WIDTH {25} \
- ] $xlconstant_2
-
-  # Create instance: xlconstant_3, and set properties
-  set xlconstant_3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_3 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {14260634} \
-   CONFIG.CONST_WIDTH {25} \
- ] $xlconstant_3
-
-  # Create instance: xlconstant_4, and set properties
-  set xlconstant_4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_4 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {9830} \
-   CONFIG.CONST_WIDTH {25} \
- ] $xlconstant_4
-
   # Create instance: xlconstant_5, and set properties
   set xlconstant_5 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_5 ]
   set_property -dict [ list \
-   CONFIG.CONST_VAL {8} \
+   CONFIG.CONST_VAL {0} \
    CONFIG.CONST_WIDTH {18} \
  ] $xlconstant_5
 
@@ -1166,12 +1152,11 @@ proc create_root_design { parentCell } {
   connect_bd_net -net adc_clk_p_i_1 [get_bd_ports adc_clk_p_i] [get_bd_pins axis_red_pitaya_adc_0/adc_clk_p]
   connect_bd_net -net adc_dat_a_i_1 [get_bd_ports adc_dat_a_i] [get_bd_pins axis_red_pitaya_adc_0/adc_dat_a]
   connect_bd_net -net adc_dat_b_i_1 [get_bd_ports adc_dat_b_i] [get_bd_pins axis_red_pitaya_adc_0/adc_dat_b]
-  connect_bd_net -net adc_smooth_mossbauer_0_axis_adc_a [get_bd_pins adc_smooth_mossbauer_0/axis_adc_a] [get_bd_pins high_threshold_0/adc_dat_a] [get_bd_pins low_threshold_0/adc_dat_a]
   connect_bd_net -net adc_smooth_mossbauer_0_smooth_data [get_bd_pins adc_smooth_mossbauer_0/smooth_data] [get_bd_pins axi_gpio_1/gpio_io_i] [get_bd_pins rising32_0/adc_dat_a]
   connect_bd_net -net axi_gpio_2_gpio_io_o [get_bd_pins axi_gpio_2/gpio_io_o] [get_bd_pins high_threshold/Din] [get_bd_pins low_threshold/Din]
   connect_bd_net -net axi_gpio_3_gpio_io_o [get_bd_pins axi_gpio_3/gpio_io_o] [get_bd_pins slow_clock_generator_0/max]
   connect_bd_net -net axi_gpio_4_gpio_io_o [get_bd_pins axi_gpio_4/gpio_io_o] [get_bd_pins back_skim/DURATION] [get_bd_pins forward_skim/DURATION]
-  connect_bd_net -net axis_red_pitaya_adc_0_adc_clk [get_bd_pins adc_smooth_mossbauer_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk] [get_bd_pins back_skim/clk] [get_bd_pins forward_skim/clk] [get_bd_pins high_threshold_0/adc_clk] [get_bd_pins low_threshold_0/adc_clk] [get_bd_pins red_pitaya_dfilt1_0/adc_clk_i] [get_bd_pins rising32_0/adc_clk] [get_bd_pins slow_clock_generator_0/adc_clk]
+  connect_bd_net -net axis_red_pitaya_adc_0_adc_clk [get_bd_pins adc_smooth_mossbauer_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk] [get_bd_pins back_skim/clk] [get_bd_pins forward_skim/clk] [get_bd_pins high_threshold_0/adc_clk] [get_bd_pins low_threshold_0/adc_clk] [get_bd_pins rc_filter_0/clk] [get_bd_pins rc_filter_1/clk] [get_bd_pins rising32_0/adc_clk] [get_bd_pins slow_clock_generator_0/adc_clk]
   connect_bd_net -net axis_red_pitaya_adc_0_adc_csn [get_bd_ports adc_csn_o] [get_bd_pins axis_red_pitaya_adc_0/adc_csn]
   connect_bd_net -net back_skim_enable [get_bd_pins back_skim/enable] [get_bd_pins led_concat/In6] [get_bd_pins xlconcat_0/In1]
   connect_bd_net -net daisy_n_i_1 [get_bd_ports daisy_n_i] [get_bd_pins util_ds_buf_1/IBUF_DS_N]
@@ -1185,12 +1170,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net low_threshold_Dout [get_bd_pins low_threshold/Dout] [get_bd_pins low_threshold_0/input_low]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins axi_gpio_3/s_axi_aclk] [get_bd_pins axi_gpio_4/s_axi_aclk] [get_bd_pins axi_gpio_5/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_125M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_125M/ext_reset_in]
-  connect_bd_net -net red_pitaya_dfilt1_0_adc_dat_o [get_bd_pins red_pitaya_dfilt1_0/adc_dat_o] [get_bd_pins xlconcat_1/In0]
-  connect_bd_net -net reset_dout [get_bd_pins high_threshold_0/rst] [get_bd_pins low_threshold_0/rst] [get_bd_pins red_pitaya_dfilt1_0/adc_rstn_i] [get_bd_pins reset/dout] [get_bd_pins rising32_0/rst]
+  connect_bd_net -net rc_filter_0_adc_filt_a [get_bd_pins rc_filter_0/adc_filt_a] [get_bd_pins rc_filter_1/adc_dat_a]
+  connect_bd_net -net rc_filter_1_adc_filt_a [get_bd_pins rc_filter_1/adc_filt_a] [get_bd_pins xlconcat_1/In0]
+  connect_bd_net -net reset_dout [get_bd_pins high_threshold_0/rst] [get_bd_pins low_threshold_0/rst] [get_bd_pins rc_filter_0/reset] [get_bd_pins rc_filter_1/reset] [get_bd_pins reset/dout] [get_bd_pins rising32_0/rst]
   connect_bd_net -net rising32_0_falling [get_bd_pins back_skim/mask] [get_bd_pins backward_skim_voltage/Op2] [get_bd_pins led_concat/In3] [get_bd_pins rising32_0/falling] [get_bd_pins xlconcat_0/In4]
   connect_bd_net -net rising32_0_rising [get_bd_pins forward_skim/mask] [get_bd_pins forward_skim_voltage/Op1] [get_bd_pins led_concat/In2] [get_bd_pins rising32_0/rising] [get_bd_pins xlconcat_0/In3]
   connect_bd_net -net sign_Dout [get_bd_pins led_concat/In7] [get_bd_pins sign/Dout]
-  connect_bd_net -net signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a] [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_CH1/Din]
+  connect_bd_net -net signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins high_threshold_0/adc_dat_a] [get_bd_pins low_threshold_0/adc_dat_a] [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_CH1/Din]
   connect_bd_net -net signal_split_0_M_AXIS_PORT2_tdata [get_bd_pins signal_split_0/M_AXIS_PORT2_tdata] [get_bd_pins xlslice_CH2/Din]
   connect_bd_net -net skim_voltage_Res [get_bd_pins backward_skim_voltage/Op1] [get_bd_pins forward_skim_voltage/Op2] [get_bd_pins led_concat/In4] [get_bd_pins skim_voltage/Res] [get_bd_pins xlconcat_0/In2]
   connect_bd_net -net slow_clock_generator_0_slow_clk [get_bd_pins rising32_0/slow_clk] [get_bd_pins slow_clock_generator_0/slow_clk]
@@ -1198,23 +1184,20 @@ proc create_root_design { parentCell } {
   connect_bd_net -net util_ds_buf_2_OBUF_DS_N [get_bd_ports daisy_n_o] [get_bd_pins util_ds_buf_2/OBUF_DS_N]
   connect_bd_net -net util_ds_buf_2_OBUF_DS_P [get_bd_ports daisy_p_o] [get_bd_pins util_ds_buf_2/OBUF_DS_P]
   connect_bd_net -net xlconcat_0_dout [get_bd_ports exp_p_tri_io] [get_bd_pins xlconcat_0/dout]
+  connect_bd_net -net xlconcat_1_dout [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net xlconstant_0_dout [get_bd_ports exp_n_tri_io] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net xlconstant_1_dout [get_bd_pins red_pitaya_dfilt1_0/cfg_aa_i] [get_bd_pins xlconstant_1/dout]
-  connect_bd_net -net xlconstant_2_dout [get_bd_pins red_pitaya_dfilt1_0/cfg_bb_i] [get_bd_pins xlconstant_2/dout]
-  connect_bd_net -net xlconstant_3_dout [get_bd_pins red_pitaya_dfilt1_0/cfg_kk_i] [get_bd_pins xlconstant_3/dout]
-  connect_bd_net -net xlconstant_4_dout [get_bd_pins red_pitaya_dfilt1_0/cfg_pp_i] [get_bd_pins xlconstant_4/dout]
   connect_bd_net -net xlconstant_5_dout [get_bd_pins xlconcat_1/In1] [get_bd_pins xlconstant_5/dout]
-  connect_bd_net -net xlslice_0_Dout [get_bd_pins red_pitaya_dfilt1_0/adc_dat_i] [get_bd_pins xlslice_0/Dout]
+  connect_bd_net -net xlslice_0_Dout [get_bd_pins rc_filter_0/adc_dat_a] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net xlslice_CH1_Dout [get_bd_pins data_concat/In0] [get_bd_pins sign/Din] [get_bd_pins xlslice_CH1/Dout]
   connect_bd_net -net xlslice_CH2_Dout [get_bd_pins data_concat/In1] [get_bd_pins xlslice_CH2/Dout]
 
   # Create address segments
-  assign_bd_address -offset 0x42000000 -range 0x00001000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] -force
-  assign_bd_address -offset 0x42100000 -range 0x00001000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_1/S_AXI/Reg] -force
-  assign_bd_address -offset 0x42200000 -range 0x00001000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_2/S_AXI/Reg] -force
-  assign_bd_address -offset 0x42300000 -range 0x00001000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_3/S_AXI/Reg] -force
-  assign_bd_address -offset 0x42400000 -range 0x00001000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_4/S_AXI/Reg] -force
-  assign_bd_address -offset 0x42500000 -range 0x00001000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_5/S_AXI/Reg] -force
+  assign_bd_address -offset 0x42000000 -range 0x00000400 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] -force
+  assign_bd_address -offset 0x42100000 -range 0x00000400 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_1/S_AXI/Reg] -force
+  assign_bd_address -offset 0x42200000 -range 0x00000400 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_2/S_AXI/Reg] -force
+  assign_bd_address -offset 0x42300000 -range 0x00000400 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_3/S_AXI/Reg] -force
+  assign_bd_address -offset 0x42400000 -range 0x00000400 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_4/S_AXI/Reg] -force
+  assign_bd_address -offset 0x42500000 -range 0x00000400 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_5/S_AXI/Reg] -force
 
 
   # Restore current instance

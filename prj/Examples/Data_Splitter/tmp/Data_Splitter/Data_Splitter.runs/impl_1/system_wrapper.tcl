@@ -114,7 +114,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 
 OPTRACE "Implementation" START { ROLLUP_1 }
@@ -123,7 +122,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 1
+  set_param chipscope.maxJobs 6
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]

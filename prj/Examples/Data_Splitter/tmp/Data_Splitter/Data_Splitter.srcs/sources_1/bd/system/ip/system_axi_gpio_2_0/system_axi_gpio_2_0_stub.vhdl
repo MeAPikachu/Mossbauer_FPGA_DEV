@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Wed May  8 19:27:56 2024
--- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
--- Command     : write_vhdl -force -mode synth_stub -rename_top system_axi_gpio_2_0 -prefix
---               system_axi_gpio_2_0_ system_axi_gpio_2_0_stub.vhdl
+-- Date        : Thu May 16 15:16:47 2024
+-- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+-- Command     : write_vhdl -force -mode synth_stub
+--               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axi_gpio_2_0/system_axi_gpio_2_0_stub.vhdl
 -- Design      : system_axi_gpio_2_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1
