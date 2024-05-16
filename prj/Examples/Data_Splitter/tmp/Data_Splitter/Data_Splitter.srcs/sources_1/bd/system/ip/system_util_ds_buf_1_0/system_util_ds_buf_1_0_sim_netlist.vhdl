@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Sun Apr 28 20:40:16 2024
+-- Date        : Wed May  8 19:24:11 2024
 -- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_util_ds_buf_1_0 -prefix
+--               system_util_ds_buf_1_0_ system_util_ds_buf_1_0_sim_netlist.vhdl
 -- Design      : system_util_ds_buf_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -117,8 +117,6 @@ entity system_util_ds_buf_1_0_util_ds_buf is
   attribute C_SIM_DEVICE of system_util_ds_buf_1_0_util_ds_buf : entity is "VERSAL_AI_CORE_ES1";
   attribute C_SIZE : integer;
   attribute C_SIZE of system_util_ds_buf_1_0_util_ds_buf : entity is 2;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_util_ds_buf_1_0_util_ds_buf : entity is "util_ds_buf";
 end system_util_ds_buf_1_0_util_ds_buf;
 
 architecture STRUCTURE of system_util_ds_buf_1_0_util_ds_buf is

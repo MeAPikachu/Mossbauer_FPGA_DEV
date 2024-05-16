@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Apr 28 20:41:06 2024
+// Date        : Wed May  8 19:24:09 2024
 // Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_axis_red_pitaya_adc_0_0 -prefix
+//               system_axis_red_pitaya_adc_0_0_ system_axis_red_pitaya_adc_0_0_sim_netlist.v
 // Design      : system_axis_red_pitaya_adc_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,56 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_axis_red_pitaya_adc_0_0,axis_red_pitaya_adc,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "axis_red_pitaya_adc,Vivado 2020.1" *) 
-(* NotValidForBitStream *)
-module system_axis_red_pitaya_adc_0_0
-   (adc_clk,
-    adc_csn,
-    adc_clk_p,
-    adc_clk_n,
-    adc_dat_a,
-    adc_dat_b,
-    m_axis_tvalid,
-    m_axis_tdata);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk, ASSOCIATED_BUSIF M_AXIS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) output adc_clk;
-  output adc_csn;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk_p CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk_p, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, INSERT_VIP 0" *) input adc_clk_p;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk_n CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, INSERT_VIP 0" *) input adc_clk_n;
-  input [13:0]adc_dat_a;
-  input [13:0]adc_dat_b;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *) output m_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) output [31:0]m_axis_tdata;
-
-  wire \<const1> ;
-  wire adc_clk;
-  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) wire adc_clk_n;
-  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) wire adc_clk_p;
-  wire [13:0]adc_dat_a;
-  wire [13:0]adc_dat_b;
-  wire [31:0]\^m_axis_tdata ;
-
-  assign adc_csn = \<const1> ;
-  assign m_axis_tdata[31] = \^m_axis_tdata [31];
-  assign m_axis_tdata[30] = \^m_axis_tdata [31];
-  assign m_axis_tdata[29] = \^m_axis_tdata [31];
-  assign m_axis_tdata[28:15] = \^m_axis_tdata [28:15];
-  assign m_axis_tdata[14] = \^m_axis_tdata [15];
-  assign m_axis_tdata[13] = \^m_axis_tdata [15];
-  assign m_axis_tdata[12:0] = \^m_axis_tdata [12:0];
-  assign m_axis_tvalid = \<const1> ;
-  VCC VCC
-       (.P(\<const1> ));
-  system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc inst
-       (.adc_clk(adc_clk),
-        .adc_clk_n(adc_clk_n),
-        .adc_clk_p(adc_clk_p),
-        .adc_dat_a(adc_dat_a),
-        .adc_dat_b(adc_dat_b),
-        .m_axis_tdata({\^m_axis_tdata [31],\^m_axis_tdata [28:15],\^m_axis_tdata [12:0]}));
-endmodule
-
-(* ORIG_REF_NAME = "axis_red_pitaya_adc" *) 
 module system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc
    (adc_clk,
     m_axis_tdata,
@@ -422,6 +372,55 @@ module system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc
     \m_axis_tdata[9]_INST_0 
        (.I0(\int_dat_a_reg_reg_n_0_[9] ),
         .O(m_axis_tdata[9]));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_axis_red_pitaya_adc_0_0,axis_red_pitaya_adc,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "axis_red_pitaya_adc,Vivado 2020.1" *) 
+(* NotValidForBitStream *)
+module system_axis_red_pitaya_adc_0_0
+   (adc_clk,
+    adc_csn,
+    adc_clk_p,
+    adc_clk_n,
+    adc_dat_a,
+    adc_dat_b,
+    m_axis_tvalid,
+    m_axis_tdata);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk, ASSOCIATED_BUSIF M_AXIS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) output adc_clk;
+  output adc_csn;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk_p CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk_p, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, INSERT_VIP 0" *) input adc_clk_p;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk_n CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, INSERT_VIP 0" *) input adc_clk_n;
+  input [13:0]adc_dat_a;
+  input [13:0]adc_dat_b;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *) output m_axis_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, LAYERED_METADATA undef, INSERT_VIP 0" *) output [31:0]m_axis_tdata;
+
+  wire \<const1> ;
+  wire adc_clk;
+  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) wire adc_clk_n;
+  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) wire adc_clk_p;
+  wire [13:0]adc_dat_a;
+  wire [13:0]adc_dat_b;
+  wire [31:0]\^m_axis_tdata ;
+
+  assign adc_csn = \<const1> ;
+  assign m_axis_tdata[31] = \^m_axis_tdata [31];
+  assign m_axis_tdata[30] = \^m_axis_tdata [31];
+  assign m_axis_tdata[29] = \^m_axis_tdata [31];
+  assign m_axis_tdata[28:15] = \^m_axis_tdata [28:15];
+  assign m_axis_tdata[14] = \^m_axis_tdata [15];
+  assign m_axis_tdata[13] = \^m_axis_tdata [15];
+  assign m_axis_tdata[12:0] = \^m_axis_tdata [12:0];
+  assign m_axis_tvalid = \<const1> ;
+  VCC VCC
+       (.P(\<const1> ));
+  system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc inst
+       (.adc_clk(adc_clk),
+        .adc_clk_n(adc_clk_n),
+        .adc_clk_p(adc_clk_p),
+        .adc_dat_a(adc_dat_a),
+        .adc_dat_b(adc_dat_b),
+        .m_axis_tdata({\^m_axis_tdata [31],\^m_axis_tdata [28:15],\^m_axis_tdata [12:0]}));
 endmodule
 `ifndef GLBL
 `define GLBL

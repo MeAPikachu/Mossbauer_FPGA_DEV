@@ -328,18 +328,18 @@
       <xilinx:vendorDisplayName>Pavel Demin</xilinx:vendorDisplayName>
       <xilinx:vendorURL>https://github.com/pavel-demin/red-pitaya-notes</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-04-29T03:35:41Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-05-09T02:13:43Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@20ef44a1_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d2b1b63_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@22008d9a_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@23ee0438_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@1eb9b75d_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@56d10b0a_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ce87b9e_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cc9c14d_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bd858c1_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@64e15088_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c8d151_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77d2c513_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c266b39_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e6a1492_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@377edf2f_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@704edf99_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58a06559_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1273d630_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@714d6c85_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@143e282_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

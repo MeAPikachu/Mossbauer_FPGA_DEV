@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Apr 28 20:38:19 2024" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May  9 00:14:38 2024" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -247,6 +247,7 @@
       <PARAMETERS>
         <PARAMETER NAME="ADC_WIDTH" VALUE="14"/>
         <PARAMETER NAME="AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="ACC_WIDTH" VALUE="32"/>
         <PARAMETER NAME="N" VALUE="1024"/>
         <PARAMETER NAME="Component_Name" VALUE="system_adc_smooth_mossbauer_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -266,6 +267,13 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_gpio_1" PORT="gpio_io_i"/>
             <CONNECTION INSTANCE="rising32_0" PORT="adc_dat_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="short_smooth" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="31" NAME="axis_adc_a" RIGHT="0" SIGIS="undef" SIGNAME="adc_smooth_mossbauer_0_axis_adc_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="low_threshold_0" PORT="adc_dat_a"/>
+            <CONNECTION INSTANCE="high_threshold_0" PORT="adc_dat_a"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2420,13 +2428,14 @@
       <PORTS>
         <PORT CLKFREQUENCY="125000000" DIR="O" NAME="adc_clk" SIGIS="clk" SIGNAME="axis_red_pitaya_adc_0_adc_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="adc_clk"/>
             <CONNECTION INSTANCE="slow_clock_generator_0" PORT="adc_clk"/>
-            <CONNECTION INSTANCE="high_threshold_0" PORT="adc_clk"/>
-            <CONNECTION INSTANCE="low_threshold_0" PORT="adc_clk"/>
-            <CONNECTION INSTANCE="rising32_0" PORT="adc_clk"/>
             <CONNECTION INSTANCE="forward_skim" PORT="clk"/>
             <CONNECTION INSTANCE="back_skim" PORT="clk"/>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="adc_clk_i"/>
+            <CONNECTION INSTANCE="low_threshold_0" PORT="adc_clk"/>
+            <CONNECTION INSTANCE="high_threshold_0" PORT="adc_clk"/>
+            <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="adc_clk"/>
+            <CONNECTION INSTANCE="rising32_0" PORT="adc_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="adc_csn" SIGIS="undef" SIGNAME="axis_red_pitaya_adc_0_adc_csn">
@@ -2517,6 +2526,7 @@
         <PORT DIR="O" NAME="enable" SIGIS="undef" SIGNAME="back_skim_enable">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconcat_0" PORT="In1"/>
+            <CONNECTION INSTANCE="led_concat" PORT="In6"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2542,11 +2552,7 @@
             <CONNECTION INSTANCE="rising32_0" PORT="falling"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="backward_skim_voltage_Res">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="led_concat" PORT="In6"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -2639,6 +2645,7 @@
         <PORT DIR="O" NAME="enable" SIGIS="undef" SIGNAME="forward_skim_enable">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
+            <CONNECTION INSTANCE="led_concat" PORT="In5"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2664,11 +2671,7 @@
             <CONNECTION INSTANCE="skim_voltage" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="forward_skim_voltage_Res">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="led_concat" PORT="In5"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -2711,9 +2714,9 @@
             <CONNECTION INSTANCE="axis_red_pitaya_adc_0" PORT="adc_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="adc_dat_a" RIGHT="0" SIGIS="undef" SIGNAME="signal_split_0_M_AXIS_PORT1_tdata">
+        <PORT DIR="I" LEFT="31" NAME="adc_dat_a" RIGHT="0" SIGIS="undef" SIGNAME="adc_smooth_mossbauer_0_axis_adc_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="signal_split_0" PORT="M_AXIS_PORT1_tdata"/>
+            <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="axis_adc_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="13" NAME="input_high" RIGHT="0" SIGIS="undef" SIGNAME="high_threshold_Dout">
@@ -2802,14 +2805,14 @@
             <CONNECTION INSTANCE="skim_voltage" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="In5" RIGHT="0" SIGIS="undef" SIGNAME="forward_skim_voltage_Res">
+        <PORT DIR="I" LEFT="0" NAME="In5" RIGHT="0" SIGIS="undef" SIGNAME="forward_skim_enable">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="forward_skim_voltage" PORT="Res"/>
+            <CONNECTION INSTANCE="forward_skim" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="In6" RIGHT="0" SIGIS="undef" SIGNAME="backward_skim_voltage_Res">
+        <PORT DIR="I" LEFT="0" NAME="In6" RIGHT="0" SIGIS="undef" SIGNAME="back_skim_enable">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="backward_skim_voltage" PORT="Res"/>
+            <CONNECTION INSTANCE="back_skim" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="In7" RIGHT="0" SIGIS="undef" SIGNAME="sign_Dout">
@@ -2864,9 +2867,9 @@
             <CONNECTION INSTANCE="axis_red_pitaya_adc_0" PORT="adc_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="adc_dat_a" RIGHT="0" SIGIS="undef" SIGNAME="signal_split_0_M_AXIS_PORT1_tdata">
+        <PORT DIR="I" LEFT="31" NAME="adc_dat_a" RIGHT="0" SIGIS="undef" SIGNAME="adc_smooth_mossbauer_0_axis_adc_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="signal_split_0" PORT="M_AXIS_PORT1_tdata"/>
+            <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="axis_adc_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="reset_dout">
@@ -5975,6 +5978,56 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/red_pitaya_dfilt1_0" HWVERSION="1.0" INSTANCE="red_pitaya_dfilt1_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="red_pitaya_dfilt1" VLNV="xilinx.com:module_ref:red_pitaya_dfilt1:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_red_pitaya_dfilt1_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="adc_clk_i" SIGIS="undef" SIGNAME="axis_red_pitaya_adc_0_adc_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_red_pitaya_adc_0" PORT="adc_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="adc_rstn_i" SIGIS="undef" SIGNAME="reset_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="reset" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="adc_dat_i" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="adc_dat_o" RIGHT="0" SIGIS="undef" SIGNAME="red_pitaya_dfilt1_0_adc_dat_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="17" NAME="cfg_aa_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="24" NAME="cfg_bb_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_2" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="24" NAME="cfg_kk_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_3_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_3" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="24" NAME="cfg_pp_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_4_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_4" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="7" FULLNAME="/reset" HWVERSION="1.1" INSTANCE="reset" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -5986,8 +6039,9 @@
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="reset_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="high_threshold_0" PORT="rst"/>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="adc_rstn_i"/>
             <CONNECTION INSTANCE="low_threshold_0" PORT="rst"/>
+            <CONNECTION INSTANCE="high_threshold_0" PORT="rst"/>
             <CONNECTION INSTANCE="rising32_0" PORT="rst"/>
           </CONNECTIONS>
         </PORT>
@@ -6105,8 +6159,8 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="DIN_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="DIN_FROM" VALUE="15"/>
-        <PARAMETER NAME="DIN_TO" VALUE="15"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="13"/>
+        <PARAMETER NAME="DIN_TO" VALUE="13"/>
         <PARAMETER NAME="Component_Name" VALUE="system_sign_0"/>
         <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -6146,10 +6200,9 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M_AXIS_PORT1_tdata" RIGHT="0" SIGIS="undef" SIGNAME="signal_split_0_M_AXIS_PORT1_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="adc_dat_a"/>
             <CONNECTION INSTANCE="xlslice_CH1" PORT="Din"/>
-            <CONNECTION INSTANCE="high_threshold_0" PORT="adc_dat_a"/>
-            <CONNECTION INSTANCE="low_threshold_0" PORT="adc_dat_a"/>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Din"/>
+            <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="adc_dat_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXIS_PORT1_tvalid" SIGIS="undef"/>
@@ -6430,6 +6483,61 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="3" FULLNAME="/xlconcat_1" HWVERSION="2.1" INSTANCE="xlconcat_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="14"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="32"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="2"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlconcat_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="13" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="red_pitaya_dfilt1_0_adc_dat_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="adc_dat_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="17" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_5_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_5" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="dout" RIGHT="0" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="7" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -6442,6 +6550,115 @@
         <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="exp_n_tri_io"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x04205"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlconstant_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="17" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="cfg_aa_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_2" HWVERSION="1.1" INSTANCE="xlconstant_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="25"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x002F38B"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlconstant_1_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="24" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="cfg_bb_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_3" HWVERSION="1.1" INSTANCE="xlconstant_3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="25"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0D9999A"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlconstant_1_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="24" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_3_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="cfg_kk_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_4" HWVERSION="1.1" INSTANCE="xlconstant_4" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="25"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0002666"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlconstant_1_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="24" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_4_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="cfg_pp_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_5" HWVERSION="1.1" INSTANCE="xlconstant_5" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00008"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlconstant_5_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="17" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_5_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/xlslice_0" HWVERSION="1.0" INSTANCE="xlslice_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="13"/>
+        <PARAMETER NAME="DIN_TO" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_xlslice_0_1"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="14"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="signal_split_0_M_AXIS_PORT1_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="signal_split_0" PORT="M_AXIS_PORT1_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="red_pitaya_dfilt1_0" PORT="adc_dat_i"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

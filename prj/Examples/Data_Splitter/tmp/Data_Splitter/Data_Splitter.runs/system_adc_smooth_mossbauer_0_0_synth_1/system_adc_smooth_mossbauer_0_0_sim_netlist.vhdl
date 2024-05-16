@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Sun Apr 28 20:40:32 2024
+-- Date        : Wed May  8 23:29:01 2024
 -- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_adc_smooth_mossbauer_0_0_sim_netlist.vhdl
@@ -23,6 +23,14 @@ entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer is
 end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer;
 
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer is
+  signal \acc_average_reg_n_0_[13]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[14]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[15]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[16]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[17]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[18]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[19]\ : STD_LOGIC;
+  signal \acc_average_reg_n_0_[20]\ : STD_LOGIC;
   signal \accumulator0_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \accumulator0_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \accumulator0_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -163,6 +171,7 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_m
   signal \accumulator_reg_n_0_[7]\ : STD_LOGIC;
   signal \accumulator_reg_n_0_[8]\ : STD_LOGIC;
   signal \accumulator_reg_n_0_[9]\ : STD_LOGIC;
+  signal p_0_in : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal p_0_in0 : STD_LOGIC;
   signal \shift_reg_reg[1022][0]_srl31_n_0\ : STD_LOGIC;
   signal \shift_reg_reg[1022][10]_srl31_n_0\ : STD_LOGIC;
@@ -1997,6 +2006,248 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_m
   attribute srl_bus_name of \shift_reg_reg[991][9]_srl32\ : label is "\inst/shift_reg_reg[991] ";
   attribute srl_name of \shift_reg_reg[991][9]_srl32\ : label is "\inst/shift_reg_reg[991][9]_srl32 ";
 begin
+\acc_average_reg[0]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[10]\,
+      Q => p_0_in(0),
+      R => '0'
+    );
+\acc_average_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[20]\,
+      Q => p_0_in(10),
+      R => '0'
+    );
+\acc_average_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[21]\,
+      Q => p_0_in(11),
+      R => '0'
+    );
+\acc_average_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[22]\,
+      Q => p_0_in(12),
+      R => '0'
+    );
+\acc_average_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[23]\,
+      Q => \acc_average_reg_n_0_[13]\,
+      R => '0'
+    );
+\acc_average_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[24]\,
+      Q => \acc_average_reg_n_0_[14]\,
+      R => '0'
+    );
+\acc_average_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[25]\,
+      Q => \acc_average_reg_n_0_[15]\,
+      R => '0'
+    );
+\acc_average_reg[16]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[26]\,
+      Q => \acc_average_reg_n_0_[16]\,
+      R => '0'
+    );
+\acc_average_reg[17]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[27]\,
+      Q => \acc_average_reg_n_0_[17]\,
+      R => '0'
+    );
+\acc_average_reg[18]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[28]\,
+      Q => \acc_average_reg_n_0_[18]\,
+      R => '0'
+    );
+\acc_average_reg[19]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[29]\,
+      Q => \acc_average_reg_n_0_[19]\,
+      R => '0'
+    );
+\acc_average_reg[1]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[11]\,
+      Q => p_0_in(1),
+      R => '0'
+    );
+\acc_average_reg[20]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[30]\,
+      Q => \acc_average_reg_n_0_[20]\,
+      R => '0'
+    );
+\acc_average_reg[2]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[12]\,
+      Q => p_0_in(2),
+      R => '0'
+    );
+\acc_average_reg[31]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => p_0_in0,
+      Q => p_0_in(13),
+      R => '0'
+    );
+\acc_average_reg[3]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[13]\,
+      Q => p_0_in(3),
+      R => '0'
+    );
+\acc_average_reg[4]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[14]\,
+      Q => p_0_in(4),
+      R => '0'
+    );
+\acc_average_reg[5]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[15]\,
+      Q => p_0_in(5),
+      R => '0'
+    );
+\acc_average_reg[6]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[16]\,
+      Q => p_0_in(6),
+      R => '0'
+    );
+\acc_average_reg[7]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[17]\,
+      Q => p_0_in(7),
+      R => '0'
+    );
+\acc_average_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[18]\,
+      Q => p_0_in(8),
+      R => '0'
+    );
+\acc_average_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => adc_clk,
+      CE => '1',
+      D => \accumulator_reg_n_0_[19]\,
+      Q => p_0_in(9),
+      R => '0'
+    );
 accumulator0_carry: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
@@ -7121,7 +7372,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[10]\,
+      D => p_0_in(0),
       Q => smooth_data(0),
       R => '0'
     );
@@ -7129,7 +7380,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[20]\,
+      D => p_0_in(10),
       Q => smooth_data(10),
       R => '0'
     );
@@ -7137,7 +7388,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[21]\,
+      D => p_0_in(11),
       Q => smooth_data(11),
       R => '0'
     );
@@ -7145,7 +7396,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[22]\,
+      D => p_0_in(12),
       Q => smooth_data(12),
       R => '0'
     );
@@ -7153,7 +7404,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[23]\,
+      D => \acc_average_reg_n_0_[13]\,
       Q => smooth_data(13),
       R => '0'
     );
@@ -7161,7 +7412,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[24]\,
+      D => \acc_average_reg_n_0_[14]\,
       Q => smooth_data(14),
       R => '0'
     );
@@ -7169,7 +7420,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[25]\,
+      D => \acc_average_reg_n_0_[15]\,
       Q => smooth_data(15),
       R => '0'
     );
@@ -7177,7 +7428,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[26]\,
+      D => \acc_average_reg_n_0_[16]\,
       Q => smooth_data(16),
       R => '0'
     );
@@ -7185,7 +7436,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[27]\,
+      D => \acc_average_reg_n_0_[17]\,
       Q => smooth_data(17),
       R => '0'
     );
@@ -7193,7 +7444,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[28]\,
+      D => \acc_average_reg_n_0_[18]\,
       Q => smooth_data(18),
       R => '0'
     );
@@ -7201,7 +7452,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[29]\,
+      D => \acc_average_reg_n_0_[19]\,
       Q => smooth_data(19),
       R => '0'
     );
@@ -7209,7 +7460,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[11]\,
+      D => p_0_in(1),
       Q => smooth_data(1),
       R => '0'
     );
@@ -7217,7 +7468,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[30]\,
+      D => \acc_average_reg_n_0_[20]\,
       Q => smooth_data(20),
       R => '0'
     );
@@ -7225,7 +7476,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[12]\,
+      D => p_0_in(2),
       Q => smooth_data(2),
       R => '0'
     );
@@ -7233,7 +7484,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => p_0_in0,
+      D => p_0_in(13),
       Q => smooth_data(21),
       R => '0'
     );
@@ -7241,7 +7492,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[13]\,
+      D => p_0_in(3),
       Q => smooth_data(3),
       R => '0'
     );
@@ -7249,7 +7500,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[14]\,
+      D => p_0_in(4),
       Q => smooth_data(4),
       R => '0'
     );
@@ -7257,7 +7508,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[15]\,
+      D => p_0_in(5),
       Q => smooth_data(5),
       R => '0'
     );
@@ -7265,7 +7516,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[16]\,
+      D => p_0_in(6),
       Q => smooth_data(6),
       R => '0'
     );
@@ -7273,7 +7524,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[17]\,
+      D => p_0_in(7),
       Q => smooth_data(7),
       R => '0'
     );
@@ -7281,7 +7532,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[18]\,
+      D => p_0_in(8),
       Q => smooth_data(8),
       R => '0'
     );
@@ -7289,7 +7540,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \accumulator_reg_n_0_[19]\,
+      D => p_0_in(9),
       Q => smooth_data(9),
       R => '0'
     );
@@ -7302,7 +7553,9 @@ entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   port (
     adc_clk : in STD_LOGIC;
     adc_dat_a : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    smooth_data : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    smooth_data : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    short_smooth : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    axis_adc_a : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is true;
@@ -7317,12 +7570,35 @@ entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
 end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
-  signal \^smooth_data\ : STD_LOGIC_VECTOR ( 30 downto 0 );
+  signal \^short_smooth\ : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal \^smooth_data\ : STD_LOGIC_VECTOR ( 30 downto 13 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of adc_clk : signal is "xilinx.com:signal:clock:1.0 adc_clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of adc_clk : signal is "XIL_INTERFACENAME adc_clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0";
 begin
+  axis_adc_a(31) <= \^smooth_data\(30);
+  axis_adc_a(30) <= \^smooth_data\(30);
+  axis_adc_a(29) <= \^smooth_data\(30);
+  axis_adc_a(28) <= \^smooth_data\(30);
+  axis_adc_a(27) <= \^smooth_data\(30);
+  axis_adc_a(26) <= \^smooth_data\(30);
+  axis_adc_a(25) <= \^smooth_data\(30);
+  axis_adc_a(24) <= \^smooth_data\(30);
+  axis_adc_a(23) <= \^smooth_data\(30);
+  axis_adc_a(22) <= \^smooth_data\(30);
+  axis_adc_a(21) <= \^smooth_data\(30);
+  axis_adc_a(20) <= \^smooth_data\(30);
+  axis_adc_a(19) <= \^smooth_data\(30);
+  axis_adc_a(18) <= \^smooth_data\(30);
+  axis_adc_a(17) <= \^smooth_data\(30);
+  axis_adc_a(16) <= \^smooth_data\(30);
+  axis_adc_a(15) <= \^smooth_data\(30);
+  axis_adc_a(14) <= \^smooth_data\(30);
+  axis_adc_a(13) <= \^smooth_data\(30);
+  axis_adc_a(12 downto 0) <= \^short_smooth\(12 downto 0);
+  short_smooth(13) <= \^smooth_data\(30);
+  short_smooth(12 downto 0) <= \^short_smooth\(12 downto 0);
   smooth_data(31) <= \^smooth_data\(30);
   smooth_data(30) <= \^smooth_data\(30);
   smooth_data(29) <= \^smooth_data\(30);
@@ -7334,12 +7610,14 @@ begin
   smooth_data(23) <= \^smooth_data\(30);
   smooth_data(22) <= \^smooth_data\(30);
   smooth_data(21) <= \^smooth_data\(30);
-  smooth_data(20 downto 0) <= \^smooth_data\(20 downto 0);
+  smooth_data(20 downto 13) <= \^smooth_data\(20 downto 13);
+  smooth_data(12 downto 0) <= \^short_smooth\(12 downto 0);
 inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer
      port map (
       adc_clk => adc_clk,
       adc_dat_a(13 downto 0) => adc_dat_a(13 downto 0),
       smooth_data(21) => \^smooth_data\(30),
-      smooth_data(20 downto 0) => \^smooth_data\(20 downto 0)
+      smooth_data(20 downto 13) => \^smooth_data\(20 downto 13),
+      smooth_data(12 downto 0) => \^short_smooth\(12 downto 0)
     );
 end STRUCTURE;

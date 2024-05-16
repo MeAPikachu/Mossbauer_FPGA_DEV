@@ -45,8 +45,10 @@ always@(posedge adc_clk)
 begin 
     if (~rst)
         vlh <= 1'b0;
-    else
-        vlh <= (data < d_high_t);
+    else if ( data < d_high_t )
+        vlh <= 1'b1 ;
+    else if ( data > d_high_t + 10 )
+        vlh <= 1'b0 ; 
 
 end
     

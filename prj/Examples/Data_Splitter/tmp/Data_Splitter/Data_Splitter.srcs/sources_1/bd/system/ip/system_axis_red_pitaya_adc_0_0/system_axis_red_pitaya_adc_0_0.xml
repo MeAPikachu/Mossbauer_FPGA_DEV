@@ -395,7 +395,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 03:38:18 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 02:21:55 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -426,7 +426,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 03:38:18 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 02:21:55 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -445,7 +445,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 03:38:18 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 02:21:55 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -465,7 +465,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 03:38:18 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 02:21:55 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -483,7 +483,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 29 03:41:06 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 03:24:36 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -657,22 +657,16 @@
     <spirit:fileSet>
       <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>system_axis_red_pitaya_adc_0_0.dcp</spirit:name>
-        <spirit:userFileType>dcp</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>system_axis_red_pitaya_adc_0_0_stub.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>system_axis_red_pitaya_adc_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:name>system_axis_red_pitaya_adc_0_0.dcp</spirit:name>
+        <spirit:userFileType>dcp</spirit:userFileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
@@ -687,6 +681,12 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>system_axis_red_pitaya_adc_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -716,16 +716,16 @@
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c9f78e6_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@63f509a2_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@73d7debf_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bf44bf4_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@22935983_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2cf2d4fe_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@454f20cc_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@57f4af0b_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a3f79de_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@775e16ef_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ec9cf5_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fada0b6_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39efb440_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@526e5122_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@195c783f_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@674d7726_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dba62b9_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40261549_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@759e1f3b_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71d2327e_ARCHIVE_LOCATION">/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores/axis_red_pitaya_adc_v1_0</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ADC_CLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>

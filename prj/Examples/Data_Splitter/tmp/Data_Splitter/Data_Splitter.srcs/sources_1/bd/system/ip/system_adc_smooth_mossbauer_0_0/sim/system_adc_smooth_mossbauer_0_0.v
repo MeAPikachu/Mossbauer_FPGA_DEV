@@ -57,7 +57,9 @@
 module system_adc_smooth_mossbauer_0_0 (
   adc_clk,
   adc_dat_a,
-  smooth_data
+  smooth_data,
+  short_smooth,
+  axis_adc_a
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
@@ -65,14 +67,19 @@ module system_adc_smooth_mossbauer_0_0 (
 input wire adc_clk;
 input wire [31 : 0] adc_dat_a;
 output wire [31 : 0] smooth_data;
+output wire [13 : 0] short_smooth;
+output wire [31 : 0] axis_adc_a;
 
   adc_smooth_mossbauer #(
     .ADC_WIDTH(14),
     .AXIS_TDATA_WIDTH(32),
+    .ACC_WIDTH(32),
     .N(1024)
   ) inst (
     .adc_clk(adc_clk),
     .adc_dat_a(adc_dat_a),
-    .smooth_data(smooth_data)
+    .smooth_data(smooth_data),
+    .short_smooth(short_smooth),
+    .axis_adc_a(axis_adc_a)
   );
 endmodule

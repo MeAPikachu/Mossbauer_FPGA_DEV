@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Apr 28 20:40:33 2024
+// Date        : Wed May  8 23:29:01 2024
 // Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_adc_smooth_mossbauer_0_0/system_adc_smooth_mossbauer_0_0_sim_netlist.v
@@ -18,15 +18,42 @@
 module system_adc_smooth_mossbauer_0_0
    (adc_clk,
     adc_dat_a,
-    smooth_data);
+    smooth_data,
+    short_smooth,
+    axis_adc_a);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 adc_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME adc_clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input adc_clk;
   input [31:0]adc_dat_a;
   output [31:0]smooth_data;
+  output [13:0]short_smooth;
+  output [31:0]axis_adc_a;
 
   wire adc_clk;
   wire [31:0]adc_dat_a;
-  wire [30:0]\^smooth_data ;
+  wire [12:0]\^short_smooth ;
+  wire [30:13]\^smooth_data ;
 
+  assign axis_adc_a[31] = \^smooth_data [30];
+  assign axis_adc_a[30] = \^smooth_data [30];
+  assign axis_adc_a[29] = \^smooth_data [30];
+  assign axis_adc_a[28] = \^smooth_data [30];
+  assign axis_adc_a[27] = \^smooth_data [30];
+  assign axis_adc_a[26] = \^smooth_data [30];
+  assign axis_adc_a[25] = \^smooth_data [30];
+  assign axis_adc_a[24] = \^smooth_data [30];
+  assign axis_adc_a[23] = \^smooth_data [30];
+  assign axis_adc_a[22] = \^smooth_data [30];
+  assign axis_adc_a[21] = \^smooth_data [30];
+  assign axis_adc_a[20] = \^smooth_data [30];
+  assign axis_adc_a[19] = \^smooth_data [30];
+  assign axis_adc_a[18] = \^smooth_data [30];
+  assign axis_adc_a[17] = \^smooth_data [30];
+  assign axis_adc_a[16] = \^smooth_data [30];
+  assign axis_adc_a[15] = \^smooth_data [30];
+  assign axis_adc_a[14] = \^smooth_data [30];
+  assign axis_adc_a[13] = \^smooth_data [30];
+  assign axis_adc_a[12:0] = \^short_smooth [12:0];
+  assign short_smooth[13] = \^smooth_data [30];
+  assign short_smooth[12:0] = \^short_smooth [12:0];
   assign smooth_data[31] = \^smooth_data [30];
   assign smooth_data[30] = \^smooth_data [30];
   assign smooth_data[29] = \^smooth_data [30];
@@ -38,11 +65,12 @@ module system_adc_smooth_mossbauer_0_0
   assign smooth_data[23] = \^smooth_data [30];
   assign smooth_data[22] = \^smooth_data [30];
   assign smooth_data[21] = \^smooth_data [30];
-  assign smooth_data[20:0] = \^smooth_data [20:0];
+  assign smooth_data[20:13] = \^smooth_data [20:13];
+  assign smooth_data[12:0] = \^short_smooth [12:0];
   system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer inst
        (.adc_clk(adc_clk),
         .adc_dat_a(adc_dat_a[13:0]),
-        .smooth_data({\^smooth_data [30],\^smooth_data [20:0]}));
+        .smooth_data({\^smooth_data [30],\^smooth_data [20:13],\^short_smooth }));
 endmodule
 
 (* ORIG_REF_NAME = "adc_smooth_mossbauer" *) 
@@ -54,6 +82,14 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   input [13:0]adc_dat_a;
   input adc_clk;
 
+  wire \acc_average_reg_n_0_[13] ;
+  wire \acc_average_reg_n_0_[14] ;
+  wire \acc_average_reg_n_0_[15] ;
+  wire \acc_average_reg_n_0_[16] ;
+  wire \acc_average_reg_n_0_[17] ;
+  wire \acc_average_reg_n_0_[18] ;
+  wire \acc_average_reg_n_0_[19] ;
+  wire \acc_average_reg_n_0_[20] ;
   wire accumulator0_carry__0_i_1_n_0;
   wire accumulator0_carry__0_i_2_n_0;
   wire accumulator0_carry__0_i_3_n_0;
@@ -196,6 +232,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   wire \accumulator_reg_n_0_[9] ;
   wire adc_clk;
   wire [13:0]adc_dat_a;
+  wire [13:0]p_0_in;
   wire p_0_in0;
   wire \shift_reg_reg[1022][0]_srl31_n_0 ;
   wire \shift_reg_reg[1022][10]_srl31_n_0 ;
@@ -1097,6 +1134,182 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   wire \NLW_shift_reg_reg[991][8]_srl32_Q_UNCONNECTED ;
   wire \NLW_shift_reg_reg[991][9]_srl32_Q_UNCONNECTED ;
 
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[0] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[10] ),
+        .Q(p_0_in[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[10] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[20] ),
+        .Q(p_0_in[10]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[11] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[21] ),
+        .Q(p_0_in[11]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[12] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[22] ),
+        .Q(p_0_in[12]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[13] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[23] ),
+        .Q(\acc_average_reg_n_0_[13] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[14] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[24] ),
+        .Q(\acc_average_reg_n_0_[14] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[15] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[25] ),
+        .Q(\acc_average_reg_n_0_[15] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[16] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[26] ),
+        .Q(\acc_average_reg_n_0_[16] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[17] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[27] ),
+        .Q(\acc_average_reg_n_0_[17] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[18] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[28] ),
+        .Q(\acc_average_reg_n_0_[18] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[19] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[29] ),
+        .Q(\acc_average_reg_n_0_[19] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[1] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[11] ),
+        .Q(p_0_in[1]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[20] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[30] ),
+        .Q(\acc_average_reg_n_0_[20] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[2] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[12] ),
+        .Q(p_0_in[2]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[31] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(p_0_in0),
+        .Q(p_0_in[13]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[3] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[13] ),
+        .Q(p_0_in[3]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[4] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[14] ),
+        .Q(p_0_in[4]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[5] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[15] ),
+        .Q(p_0_in[5]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[6] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[16] ),
+        .Q(p_0_in[6]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[7] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[17] ),
+        .Q(p_0_in[7]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[8] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[18] ),
+        .Q(p_0_in[8]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \acc_average_reg[9] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(\accumulator_reg_n_0_[19] ),
+        .Q(p_0_in[9]),
+        .R(1'b0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 accumulator0_carry
        (.CI(1'b0),
@@ -5880,133 +6093,133 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   FDRE \smooth_data_reg[0] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[10] ),
+        .D(p_0_in[0]),
         .Q(smooth_data[0]),
         .R(1'b0));
   FDRE \smooth_data_reg[10] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[20] ),
+        .D(p_0_in[10]),
         .Q(smooth_data[10]),
         .R(1'b0));
   FDRE \smooth_data_reg[11] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[21] ),
+        .D(p_0_in[11]),
         .Q(smooth_data[11]),
         .R(1'b0));
   FDRE \smooth_data_reg[12] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[22] ),
+        .D(p_0_in[12]),
         .Q(smooth_data[12]),
         .R(1'b0));
   FDRE \smooth_data_reg[13] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[23] ),
+        .D(\acc_average_reg_n_0_[13] ),
         .Q(smooth_data[13]),
         .R(1'b0));
   FDRE \smooth_data_reg[14] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[24] ),
+        .D(\acc_average_reg_n_0_[14] ),
         .Q(smooth_data[14]),
         .R(1'b0));
   FDRE \smooth_data_reg[15] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[25] ),
+        .D(\acc_average_reg_n_0_[15] ),
         .Q(smooth_data[15]),
         .R(1'b0));
   FDRE \smooth_data_reg[16] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[26] ),
+        .D(\acc_average_reg_n_0_[16] ),
         .Q(smooth_data[16]),
         .R(1'b0));
   FDRE \smooth_data_reg[17] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[27] ),
+        .D(\acc_average_reg_n_0_[17] ),
         .Q(smooth_data[17]),
         .R(1'b0));
   FDRE \smooth_data_reg[18] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[28] ),
+        .D(\acc_average_reg_n_0_[18] ),
         .Q(smooth_data[18]),
         .R(1'b0));
   FDRE \smooth_data_reg[19] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[29] ),
+        .D(\acc_average_reg_n_0_[19] ),
         .Q(smooth_data[19]),
         .R(1'b0));
   FDRE \smooth_data_reg[1] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[11] ),
+        .D(p_0_in[1]),
         .Q(smooth_data[1]),
         .R(1'b0));
   FDRE \smooth_data_reg[20] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[30] ),
+        .D(\acc_average_reg_n_0_[20] ),
         .Q(smooth_data[20]),
         .R(1'b0));
   FDRE \smooth_data_reg[2] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[12] ),
+        .D(p_0_in[2]),
         .Q(smooth_data[2]),
         .R(1'b0));
   FDRE \smooth_data_reg[31] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(p_0_in0),
+        .D(p_0_in[13]),
         .Q(smooth_data[21]),
         .R(1'b0));
   FDRE \smooth_data_reg[3] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[13] ),
+        .D(p_0_in[3]),
         .Q(smooth_data[3]),
         .R(1'b0));
   FDRE \smooth_data_reg[4] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[14] ),
+        .D(p_0_in[4]),
         .Q(smooth_data[4]),
         .R(1'b0));
   FDRE \smooth_data_reg[5] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[15] ),
+        .D(p_0_in[5]),
         .Q(smooth_data[5]),
         .R(1'b0));
   FDRE \smooth_data_reg[6] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[16] ),
+        .D(p_0_in[6]),
         .Q(smooth_data[6]),
         .R(1'b0));
   FDRE \smooth_data_reg[7] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[17] ),
+        .D(p_0_in[7]),
         .Q(smooth_data[7]),
         .R(1'b0));
   FDRE \smooth_data_reg[8] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[18] ),
+        .D(p_0_in[8]),
         .Q(smooth_data[8]),
         .R(1'b0));
   FDRE \smooth_data_reg[9] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\accumulator_reg_n_0_[19] ),
+        .D(p_0_in[9]),
         .Q(smooth_data[9]),
         .R(1'b0));
 endmodule

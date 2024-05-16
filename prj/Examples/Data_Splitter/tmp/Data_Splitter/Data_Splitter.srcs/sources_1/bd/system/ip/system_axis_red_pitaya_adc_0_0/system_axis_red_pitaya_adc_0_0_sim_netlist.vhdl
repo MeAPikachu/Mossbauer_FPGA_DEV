@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Sun Apr 28 20:41:06 2024
+-- Date        : Wed May  8 19:24:10 2024
 -- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axis_red_pitaya_adc_0_0 -prefix
+--               system_axis_red_pitaya_adc_0_0_ system_axis_red_pitaya_adc_0_0_sim_netlist.vhdl
 -- Design      : system_axis_red_pitaya_adc_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -23,8 +23,6 @@ entity system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc is
     adc_dat_a : in STD_LOGIC_VECTOR ( 13 downto 0 );
     adc_dat_b : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc : entity is "axis_red_pitaya_adc";
 end system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc;
 
 architecture STRUCTURE of system_axis_red_pitaya_adc_0_0_axis_red_pitaya_adc is

@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Sun Apr 28 20:39:30 2024
+-- Date        : Wed May  8 19:24:10 2024
 -- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 -- Command     : write_vhdl -force -mode synth_stub -rename_top system_axi_gpio_0_0 -prefix
 --               system_axi_gpio_0_0_ system_axi_gpio_1_0_stub.vhdl

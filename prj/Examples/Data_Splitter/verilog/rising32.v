@@ -51,14 +51,14 @@ always@(posedge slow_clk) begin
 end
 
 always@(posedge slow_clk) begin
-    if ( input_signal > previous_data) 
+    if ( input_signal > previous_data + 10 ) 
         rising <= 1'b1 ; 
-    else
+    else if ( input_signal < previous_data - 10 )
         rising <= 1'b0 ; 
     
-    if (input_signal < previous_data) 
+    if (input_signal < previous_data - 10 ) 
         falling <= 1'b1; 
-    else 
+    else if (input_signal > previous_data + 10 )
         falling <= 1'b0 ;     
     
     previous_data <= input_signal ; 

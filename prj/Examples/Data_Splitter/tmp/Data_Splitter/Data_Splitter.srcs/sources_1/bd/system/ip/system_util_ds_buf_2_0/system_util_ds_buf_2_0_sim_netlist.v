@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Apr 28 20:40:40 2024
+// Date        : Wed May  8 19:28:10 2024
 // Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_util_ds_buf_2_0 -prefix
+//               system_util_ds_buf_2_0_ system_util_ds_buf_2_0_sim_netlist.v
 // Design      : system_util_ds_buf_2_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -160,7 +160,7 @@ endmodule
 
 (* C_BUFGCE_DIV = "1" *) (* C_BUFG_GT_SYNC = "0" *) (* C_BUF_TYPE = "OBUFDS" *) 
 (* C_OBUFDS_GTE5_ADV = "2'b00" *) (* C_REFCLK_ICNTL_TX = "5'b00000" *) (* C_SIM_DEVICE = "VERSAL_AI_CORE_ES1" *) 
-(* C_SIZE = "2" *) (* ORIG_REF_NAME = "util_ds_buf" *) 
+(* C_SIZE = "2" *) 
 module system_util_ds_buf_2_0_util_ds_buf
    (IBUF_DS_P,
     IBUF_DS_N,

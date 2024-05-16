@@ -1,0 +1,1767 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed May  8 19:05:35 2024
+# Process ID: 3743
+# Current directory: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter
+# Command line: vivado
+# Log file: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/vivado.log
+# Journal file: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/vivado.jou
+#-----------------------------------------------------------
+start_gui
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bit
+block_design.tcl
+cfg
+cores
+make_cores.tcl
+make_project.tcl
+python
+scripts
+tmp
+verilog
+vivado.jou
+vivado.log
+vivado_pid3743.str
+source make_project.tcl
+# set project_name Data_Splitter 
+# set part_name xc7z010clg400-1 
+# set bd_path tmp/$project_name/$project_name.srcs/sources_1/bd/system 
+# file delete -force tmp/$project_name
+# create_project $project_name tmp/$project_name -part $part_name
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+# create_bd_design system
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+# source cfg/ports.tcl
+## create_bd_port -dir I -from 13 -to 0 adc_dat_a_i
+## create_bd_port -dir I -from 13 -to 0 adc_dat_b_i
+## create_bd_port -dir I adc_clk_p_i
+## create_bd_port -dir I adc_clk_n_i
+## create_bd_port -dir O adc_enc_p_o
+## create_bd_port -dir O adc_enc_n_o
+## create_bd_port -dir O adc_csn_o
+## create_bd_port -dir O -from 13 -to 0 dac_dat_o
+## create_bd_port -dir O dac_clk_o
+## create_bd_port -dir O dac_rst_o
+## create_bd_port -dir O dac_sel_o
+## create_bd_port -dir O dac_wrt_o
+## create_bd_port -dir O -from 3 -to 0 dac_pwm_o
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 Vp_Vn
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 Vaux0
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 Vaux1
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 Vaux9
+## create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 Vaux8
+## create_bd_port -dir O -from 7 -to 0 exp_p_tri_io
+## create_bd_port -dir O -from 7 -to 0 exp_n_tri_io
+## create_bd_port -dir O -from 1 -to 0 daisy_p_o
+## create_bd_port -dir O -from 1 -to 0 daisy_n_o
+## create_bd_port -dir I -from 1 -to 0 daisy_p_i
+## create_bd_port -dir I -from 1 -to 0 daisy_n_i
+## create_bd_port -dir O -from 7 -to 0 led_o
+# set_property IP_REPO_PATHS tmp/cores [current_project]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+# source make_cores.tcl
+## set part_name xc7z010clg400-1
+## if {! [file exists cores]} {
+## 	puts "Failed !";
+## 	puts "Please change directory to red-pitaya-notes-master/";
+## 	return
+## } 
+## cd cores
+## set core_names [glob -type d *]
+## cd ..
+## foreach core $core_names {
+## 	set argv "$core $part_name"
+## 	puts "Generating $core";
+## 	puts "===========================";
+## 	
+## 	source scripts/core.tcl
+## }
+Generating axis_red_pitaya_adc_v1_0
+===========================
+### set core_name [lindex $argv 0]
+### set part_name [lindex $argv 1]
+### set elements [split $core_name _]
+### set project_name [join [lrange $elements 0 end-2] _]
+### set version [string trimleft [join [lrange $elements end-1 end] .] v]
+### file delete -force tmp/cores/$core_name tmp/cores/$project_name.cache tmp/cores/$project_name.hw tmp/cores/$project_name.xpr tmp/cores/$project_name.sim
+### create_project -force -part $part_name $project_name tmp/cores
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+### add_files -norecurse [glob cores/$core_name/*.v]
+### ipx::package_project -import_files -root_dir tmp/cores/$core_name
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk_n' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk_p' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3158] Bus Interface 'm_axis': FREQ_HZ bus parameter missing from AXI interface when interface is not associated to a clock.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-4751] Bus Interface 'adc_clk': FREQ_HZ bus parameter is missing for output clock interface.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk_n' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk_p' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+### set core [ipx::current_core]
+### set_property VERSION $version $core
+### set_property NAME $project_name $core
+### set_property LIBRARY {user} $core
+### set_property SUPPORTED_FAMILIES {zynq Production} $core
+### proc core_parameter {name display_name description} {
+###   set core [ipx::current_core]
+### 
+###   set parameter [ipx::get_user_parameters $name -of_objects $core]
+###   set_property DISPLAY_NAME $display_name $parameter
+###   set_property DESCRIPTION $description $parameter
+### 
+###   set parameter [ipgui::get_guiparamspec -name $name -component $core]
+###   set_property DISPLAY_NAME $display_name $parameter
+###   set_property TOOLTIP $description $parameter
+### }
+### source cores/$core_name/core_config.tcl
+#### set display_name {AXI4-Stream Red Pitaya ADC}
+#### set core [ipx::current_core]
+#### set_property DISPLAY_NAME $display_name $core
+#### set_property DESCRIPTION $display_name $core
+#### set_property VENDOR {pavel-demin} $core
+#### set_property VENDOR_DISPLAY_NAME {Pavel Demin} $core
+#### set_property COMPANY_URL {https://github.com/pavel-demin/red-pitaya-notes} $core
+#### core_parameter AXIS_TDATA_WIDTH {AXIS TDATA WIDTH} {Width of the M_AXIS data bus.}
+#### core_parameter ADC_DATA_WIDTH {ADC DATA WIDTH} {Width of the ADC data bus.}
+#### set bus [ipx::get_bus_interfaces -of_objects $core m_axis]
+#### set_property NAME M_AXIS $bus
+#### set_property INTERFACE_MODE master $bus
+#### set bus [ipx::get_bus_interfaces adc_clk]
+#### set parameter [ipx::add_bus_parameter ASSOCIATED_BUSIF $bus]
+#### set_property VALUE M_AXIS $parameter
+#### set parameter [ipx::add_bus_parameter FREQ_HZ $bus]
+#### set_property VALUE 125000000 $parameter
+### rename core_parameter {}
+### ipx::create_xgui_files $core
+### ipx::update_checksums $core
+### ipx::save_core $core
+### close_project
+Generating axis_red_pitaya_dac_v1_0
+===========================
+### set core_name [lindex $argv 0]
+### set part_name [lindex $argv 1]
+### set elements [split $core_name _]
+### set project_name [join [lrange $elements 0 end-2] _]
+### set version [string trimleft [join [lrange $elements end-1 end] .] v]
+### file delete -force tmp/cores/$core_name tmp/cores/$project_name.cache tmp/cores/$project_name.hw tmp/cores/$project_name.xpr tmp/cores/$project_name.sim
+### create_project -force -part $part_name $project_name tmp/cores
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+### add_files -norecurse [glob cores/$core_name/*.v]
+### ipx::package_project -import_files -root_dir tmp/cores/$core_name
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'dac_rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'dac_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'ddr_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'dac_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'dac_rst'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'dac_clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-4751] Bus Interface 'dac_clk': FREQ_HZ bus parameter is missing for output clock interface.
+WARNING: [IP_Flow 19-5661] Bus Interface 'ddr_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+### set core [ipx::current_core]
+### set_property VERSION $version $core
+### set_property NAME $project_name $core
+### set_property LIBRARY {user} $core
+### set_property SUPPORTED_FAMILIES {zynq Production} $core
+### proc core_parameter {name display_name description} {
+###   set core [ipx::current_core]
+### 
+###   set parameter [ipx::get_user_parameters $name -of_objects $core]
+###   set_property DISPLAY_NAME $display_name $parameter
+###   set_property DESCRIPTION $description $parameter
+### 
+###   set parameter [ipgui::get_guiparamspec -name $name -component $core]
+###   set_property DISPLAY_NAME $display_name $parameter
+###   set_property TOOLTIP $description $parameter
+### }
+### source cores/$core_name/core_config.tcl
+#### set display_name {AXI4-Stream Red Pitaya DAC}
+#### set core [ipx::current_core]
+#### set_property DISPLAY_NAME $display_name $core
+#### set_property DESCRIPTION $display_name $core
+#### set_property VENDOR {pavel-demin} $core
+#### set_property VENDOR_DISPLAY_NAME {Pavel Demin} $core
+#### set_property COMPANY_URL {https://github.com/pavel-demin/red-pitaya-notes} $core
+#### core_parameter AXIS_TDATA_WIDTH {AXIS TDATA WIDTH} {Width of the S_AXIS data bus.}
+#### core_parameter DAC_DATA_WIDTH {DAC DATA WIDTH} {Width of the DAC data bus.}
+#### set bus [ipx::get_bus_interfaces -of_objects $core s_axis]
+#### set_property NAME S_AXIS $bus
+#### set_property INTERFACE_MODE slave $bus
+#### set bus [ipx::get_bus_interfaces aclk]
+#### set parameter [ipx::get_bus_parameters -of_objects $bus ASSOCIATED_BUSIF]
+#### set_property VALUE S_AXIS $parameter
+### rename core_parameter {}
+### ipx::create_xgui_files $core
+### ipx::update_checksums $core
+### ipx::save_core $core
+### close_project
+# set files [glob -nocomplain verilog/*.v]
+# if {[llength $files] >0 } {
+#     add_files -norecurse  $files 
+# }
+# update_compile_order -fileset sources_1 
+# add_files -fileset constrs_1 -norecurse {cfg/clocks.xdc cfg/ports.xdc}
+# add_files -norecurse cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v
+# source block_design.tcl
+## startgroup
+## create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7 processing_system7_0
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+## set_property -dict [list CONFIG.PCW_USE_S_AXI_HP0 {1}] [get_bd_cells processing_system7_0]
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+## set_property -dict [list CONFIG.PCW_IMPORT_BOARD_PRESET {cfg/red_pitaya.xml}] [get_bd_cells processing_system7_0]
+INFO: [PS7-1] Applying Custom Preset cfg/red_pitaya.xml...
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+## endgroup
+## apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+## connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] 
+## connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph 
+## set_property -dict [list CONFIG.NUM_MI {6} ] [get_bd_cells ps7_0_axi_periph]
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_125M
+## connect_bd_net [get_bd_pins rst_ps7_0_125M/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins rst_ps7_0_125M/ext_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## connect_bd_net [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_0
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/M00_AXI] [get_bd_intf_pins axi_gpio_0/S_AXI]
+## connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_addr_seg -range 0x00001000 -offset 0x42000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] SEG_axi_gpio_0_Reg
+## set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_0]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_1
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/M01_AXI] [get_bd_intf_pins axi_gpio_1/S_AXI]
+## connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_addr_seg -range 0x00001000 -offset 0x42100000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_1/S_AXI/Reg] SEG_axi_gpio_1_Reg
+## set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_1]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_2
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/M02_AXI] [get_bd_intf_pins axi_gpio_2/S_AXI]
+## connect_bd_net [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins axi_gpio_2/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_addr_seg -range 0x00001000 -offset 0x42200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_2/S_AXI/Reg] SEG_axi_gpio_2_Reg
+## set_property -dict [list CONFIG.C_ALL_OUTPUTS {1}] [get_bd_cells axi_gpio_2]
+## set_property -dict [list CONFIG.C_DOUT_DEFAULT {0x09600320}] [get_bd_cells axi_gpio_2]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_3
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/M03_AXI] [get_bd_intf_pins axi_gpio_3/S_AXI]
+## connect_bd_net [get_bd_pins axi_gpio_3/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins axi_gpio_3/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_addr_seg -range 0x00001000 -offset 0x42300000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_3/S_AXI/Reg] SEG_axi_gpio_3_Reg
+## set_property CONFIG.C_ALL_OUTPUTS 1 [get_bd_cells /axi_gpio_3]
+## set_property -dict [list CONFIG.C_DOUT_DEFAULT {0x00200000}] [get_bd_cells axi_gpio_3]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_4
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/M04_AXI] [get_bd_intf_pins axi_gpio_4/S_AXI]
+## connect_bd_net [get_bd_pins axi_gpio_4/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins axi_gpio_4/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_addr_seg -range 0x00001000 -offset 0x42400000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_4/S_AXI/Reg] SEG_axi_gpio_4_Reg
+## set_property -dict [list CONFIG.C_DOUT_DEFAULT {0x0EE6B280} CONFIG.C_ALL_OUTPUTS {1}] [get_bd_cells axi_gpio_4]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio axi_gpio_5
+## connect_bd_intf_net -boundary_type upper [get_bd_intf_pins ps7_0_axi_periph/M05_AXI] [get_bd_intf_pins axi_gpio_5/S_AXI]
+## connect_bd_net [get_bd_pins axi_gpio_5/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+## connect_bd_net [get_bd_pins axi_gpio_5/s_axi_aresetn] [get_bd_pins rst_ps7_0_125M/peripheral_aresetn]
+## create_bd_addr_seg -range 0x00001000 -offset 0x42500000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_5/S_AXI/Reg] SEG_axi_gpio_5_Reg
+## startgroup
+## create_bd_cell -type ip -vlnv xilinx.com:ip:util_ds_buf util_ds_buf_1
+## set_property -dict [list CONFIG.C_SIZE {2}] [get_bd_cells util_ds_buf_1]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:util_ds_buf util_ds_buf_2
+## set_property -dict [list CONFIG.C_SIZE {2}] [get_bd_cells util_ds_buf_2]
+## set_property -dict [list CONFIG.C_BUF_TYPE {OBUFDS}] [get_bd_cells util_ds_buf_2]
+## endgroup
+## connect_bd_net [get_bd_ports daisy_p_i] [get_bd_pins util_ds_buf_1/IBUF_DS_P]
+WARNING: [BD 41-1306] The connection to interface pin /util_ds_buf_1/IBUF_DS_P is being overridden by the user. This pin will not be connected as a part of interface connection CLK_IN_D
+## connect_bd_net [get_bd_ports daisy_n_i] [get_bd_pins util_ds_buf_1/IBUF_DS_N]
+WARNING: [BD 41-1306] The connection to interface pin /util_ds_buf_1/IBUF_DS_N is being overridden by the user. This pin will not be connected as a part of interface connection CLK_IN_D
+## connect_bd_net [get_bd_ports daisy_p_o] [get_bd_pins util_ds_buf_2/OBUF_DS_P]
+## connect_bd_net [get_bd_ports daisy_n_o] [get_bd_pins util_ds_buf_2/OBUF_DS_N]
+## connect_bd_net [get_bd_pins util_ds_buf_1/IBUF_OUT] [get_bd_pins util_ds_buf_2/OBUF_IN]
+## create_bd_cell -type ip -vlnv pavel-demin:user:axis_red_pitaya_adc axis_red_pitaya_adc_0
+## connect_bd_net [get_bd_ports adc_dat_a_i] [get_bd_pins axis_red_pitaya_adc_0/adc_dat_a]
+## connect_bd_net [get_bd_ports adc_dat_b_i] [get_bd_pins axis_red_pitaya_adc_0/adc_dat_b]
+## connect_bd_net [get_bd_ports adc_clk_p_i] [get_bd_pins axis_red_pitaya_adc_0/adc_clk_p]
+## connect_bd_net [get_bd_ports adc_clk_n_i] [get_bd_pins axis_red_pitaya_adc_0/adc_clk_n]
+## connect_bd_net [get_bd_ports adc_csn_o] [get_bd_pins axis_red_pitaya_adc_0/adc_csn]
+## create_bd_cell -type module -reference signal_split signal_split_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS_PORT1' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS_PORT2' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXIS_PORT1': Added interface parameter 'FREQ_HZ' with value '125000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXIS_PORT2': Added interface parameter 'FREQ_HZ' with value '125000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXIS': Added interface parameter 'FREQ_HZ' with value '125000000'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## connect_bd_intf_net [get_bd_intf_pins signal_split_0/S_AXIS] [get_bd_intf_pins axis_red_pitaya_adc_0/m_axis]
+## create_bd_cell -type module -reference adc_smooth_mossbauer adc_smooth_mossbauer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## connect_bd_net [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata] [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]
+WARNING: [BD 41-1306] The connection to interface pin /signal_split_0/M_AXIS_PORT1_tdata is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_PORT1
+## connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/smooth_data] [get_bd_pins axi_gpio_1/gpio_io_i]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_1/gpio_io_i is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+## create_bd_cell -type module -reference slow_clock_generator slow_clock_generator_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'slow_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'slow_clk' does not have any bus interfaces associated with it.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'slow_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## connect_bd_net [get_bd_pins slow_clock_generator_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins axi_gpio_3/gpio_io_o] [get_bd_pins slow_clock_generator_0/max]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_3/gpio_io_o is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 reset
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_CH1
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_CH2
+## set_property -dict [list CONFIG.DIN_FROM {15} CONFIG.DOUT_WIDTH {16}] [get_bd_cells xlslice_CH1]
+## set_property -dict [list CONFIG.DIN_FROM {15} CONFIG.DOUT_WIDTH {16}] [get_bd_cells xlslice_CH2]
+## connect_bd_net [get_bd_pins xlslice_CH1/Din] [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata]
+## connect_bd_net [get_bd_pins xlslice_CH2/Din] [get_bd_pins signal_split_0/M_AXIS_PORT2_tdata]
+WARNING: [BD 41-1306] The connection to interface pin /signal_split_0/M_AXIS_PORT2_tdata is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_PORT2
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 data_concat
+## set_property CONFIG.IN0_WIDTH 16 [get_bd_cells /data_concat]
+## set_property CONFIG.IN1_WIDTH 16 [get_bd_cells /data_concat]
+## connect_bd_net [get_bd_pins xlslice_CH1/Dout] [get_bd_pins data_concat/In0]
+## connect_bd_net [get_bd_pins data_concat/In1] [get_bd_pins xlslice_CH2/Dout]
+## connect_bd_net [get_bd_pins axi_gpio_0/gpio_io_i] [get_bd_pins data_concat/dout]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_0/gpio_io_i is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 sign
+## set_property -dict [list CONFIG.DIN_TO {15} CONFIG.DIN_FROM {15} CONFIG.DIN_WIDTH {16} CONFIG.DOUT_WIDTH {1}] [get_bd_cells sign]
+## connect_bd_net [get_bd_pins sign/Din] [get_bd_pins xlslice_CH1/Dout]
+## startgroup
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+## endgroup
+## startgroup
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_1
+## endgroup
+## set_property -dict [list CONFIG.DIN_FROM {13} CONFIG.DOUT_WIDTH {14}] [get_bd_cells xlslice_0]
+## set_property -dict [list CONFIG.DIN_TO {16} CONFIG.DIN_FROM {29} CONFIG.DOUT_WIDTH {14}] [get_bd_cells xlslice_1]
+## connect_bd_net [get_bd_pins axi_gpio_2/gpio_io_o] [get_bd_pins xlslice_0/Din]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_2/gpio_io_o is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+## connect_bd_net [get_bd_pins xlslice_1/Din] [get_bd_pins axi_gpio_2/gpio_io_o]
+## set_property name high_threshold [get_bd_cells xlslice_1]
+## set_property name low_threshold [get_bd_cells xlslice_0]
+## create_bd_cell -type module -reference high_threshold high_threshold_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'adc_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## connect_bd_net [get_bd_pins high_threshold/Dout] [get_bd_pins high_threshold_0/input_high]
+## connect_bd_net [get_bd_pins high_threshold_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata] [get_bd_pins high_threshold_0/adc_dat_a]
+## connect_bd_net [get_bd_pins high_threshold_0/rst] [get_bd_pins reset/dout]
+## create_bd_cell -type module -reference low_threshold low_threshold_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'adc_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## connect_bd_net [get_bd_pins low_threshold_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata] [get_bd_pins low_threshold_0/adc_dat_a]
+## connect_bd_net [get_bd_pins low_threshold_0/rst] [get_bd_pins reset/dout]
+## connect_bd_net [get_bd_pins low_threshold/Dout] [get_bd_pins low_threshold_0/input_low]
+## create_bd_cell -type module -reference rising32 rising32_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'slow_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'slow_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## connect_bd_net [get_bd_pins slow_clock_generator_0/slow_clk] [get_bd_pins rising32_0/slow_clk]
+## connect_bd_net [get_bd_pins rising32_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/smooth_data] [get_bd_pins rising32_0/adc_dat_a]
+## connect_bd_net [get_bd_pins rising32_0/rst] [get_bd_pins reset/dout]
+## create_bd_cell -type module -reference trigger_mossbauer trigger_mossbauer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+## set_property name forward_skim [get_bd_cells trigger_mossbauer_0]
+## connect_bd_net [get_bd_pins forward_skim/clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins forward_skim/trigger] [get_bd_pins low_threshold_0/vgl]
+## connect_bd_net [get_bd_pins forward_skim/mask] [get_bd_pins rising32_0/rising]
+## connect_bd_net [get_bd_pins axi_gpio_4/gpio_io_o] [get_bd_pins forward_skim/DURATION]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_4/gpio_io_o is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+## create_bd_cell -type module -reference trigger_mossbauer trigger_mossbauer_0
+## set_property name back_skim [get_bd_cells trigger_mossbauer_0]
+## connect_bd_net [get_bd_pins back_skim/clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+## connect_bd_net [get_bd_pins back_skim/trigger] [get_bd_pins high_threshold_0/vlh]
+## connect_bd_net [get_bd_pins back_skim/mask] [get_bd_pins rising32_0/falling]
+## connect_bd_net [get_bd_pins back_skim/DURATION] [get_bd_pins axi_gpio_4/gpio_io_o]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+## set_property -dict [list CONFIG.C_SIZE {1}] [get_bd_cells util_vector_logic_0]
+## set_property name skim_voltage [get_bd_cells util_vector_logic_0]
+## connect_bd_net [get_bd_pins skim_voltage/Op1] [get_bd_pins low_threshold_0/vgl]
+## connect_bd_net [get_bd_pins skim_voltage/Op2] [get_bd_pins high_threshold_0/vlh]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+## set_property name forward_skim_voltage [get_bd_cells util_vector_logic_0]
+## set_property -dict [list CONFIG.C_SIZE {1}] [get_bd_cells forward_skim_voltage]
+## connect_bd_net [get_bd_pins forward_skim_voltage/Op2] [get_bd_pins skim_voltage/Res]
+## connect_bd_net [get_bd_pins forward_skim_voltage/Op1] [get_bd_pins rising32_0/rising]
+## startgroup
+## create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+## endgroup
+## set_property name backward_skim_voltage [get_bd_cells util_vector_logic_0]
+## set_property -dict [list CONFIG.C_SIZE {1}] [get_bd_cells backward_skim_voltage]
+## connect_bd_net [get_bd_pins backward_skim_voltage/Op1] [get_bd_pins skim_voltage/Res]
+## connect_bd_net [get_bd_pins backward_skim_voltage/Op2] [get_bd_pins rising32_0/falling]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0
+## set_property -dict [list CONFIG.NUM_PORTS {8}] [get_bd_cells xlconcat_0]
+## set_property name led_concat [get_bd_cells xlconcat_0]
+## connect_bd_net [get_bd_pins led_concat/In0] [get_bd_pins low_threshold_0/vgl]
+## connect_bd_net [get_bd_pins led_concat/In1] [get_bd_pins high_threshold_0/vlh]
+## connect_bd_net [get_bd_pins led_concat/In2] [get_bd_pins rising32_0/rising]
+## connect_bd_net [get_bd_pins led_concat/In3] [get_bd_pins rising32_0/falling]
+## connect_bd_net [get_bd_pins led_concat/In4] [get_bd_pins skim_voltage/Res]
+## connect_bd_net [get_bd_pins led_concat/In5] [get_bd_pins forward_skim_voltage/Res]
+## connect_bd_net [get_bd_pins led_concat/In6] [get_bd_pins backward_skim_voltage/Res]
+## connect_bd_net [get_bd_pins led_concat/In7] [get_bd_pins sign/Dout]
+## connect_bd_net [get_bd_ports led_o] [get_bd_pins led_concat/dout]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+## set_property -dict [list CONFIG.CONST_WIDTH {8} CONFIG.CONST_VAL {0}] [get_bd_cells xlconstant_0]
+## connect_bd_net [get_bd_ports exp_n_tri_io] [get_bd_pins xlconstant_0/dout]
+## create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0
+## set_property -dict [list CONFIG.NUM_PORTS {8}] [get_bd_cells xlconcat_0]
+## connect_bd_net [get_bd_pins xlconcat_0/In0] [get_bd_pins forward_skim/enable]
+## connect_bd_net [get_bd_pins xlconcat_0/In1] [get_bd_pins back_skim/enable]
+## connect_bd_net [get_bd_pins xlconcat_0/In2] [get_bd_pins skim_voltage/Res]
+## connect_bd_net [get_bd_pins xlconcat_0/In3] [get_bd_pins rising32_0/rising]
+## connect_bd_net [get_bd_pins xlconcat_0/In4] [get_bd_pins rising32_0/falling]
+## connect_bd_net [get_bd_ports exp_p_tri_io] [get_bd_pins xlconcat_0/dout]
+# regenerate_bd_layout 
+# make_wrapper -files [get_files $bd_path/system.bd] -top 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+# add_files -norecurse $bd_path/hdl/system_wrapper.v 
+# set_property top system_wrapper [current_fileset]
+# save_bd_design 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference red_pitaya_dfilt1 red_pitaya_dfilt1_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+disconnect_bd_net /signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]
+undo
+INFO: [Common 17-17] undo 'disconnect_bd_net /signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]'
+disconnect_bd_net /signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+set_property location {3 1145 1390} [get_bd_cells xlslice_0]
+set_property -dict [list CONFIG.DIN_FROM {13} CONFIG.DOUT_WIDTH {14}] [get_bd_cells xlslice_0]
+connect_bd_net [get_bd_pins xlslice_0/Din] [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata]
+connect_bd_net [get_bd_pins xlslice_0/Dout] [get_bd_pins red_pitaya_dfilt1_0/adc_dat_i]
+connect_bd_net [get_bd_pins red_pitaya_dfilt1_0/adc_dat_o] [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]
+set_property location {4 1505 531} [get_bd_cells red_pitaya_dfilt1_0]
+connect_bd_net [get_bd_pins reset/dout] [get_bd_pins red_pitaya_dfilt1_0/adc_rstn_i]
+connect_bd_net [get_bd_pins red_pitaya_dfilt1_0/adc_clk_i] [get_bd_pins axis_red_pitaya_adc_0/adc_clk]
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axis_red_pitaya_adc_0/adc_clk(clk) and /red_pitaya_dfilt1_0/adc_clk_i(undef)
+set_property location {4 1462 1445} [get_bd_cells red_pitaya_dfilt1_0]
+set_property location {4 1437 1594} [get_bd_cells red_pitaya_dfilt1_0]
+set_property location {3 1048 1574} [get_bd_cells xlslice_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1
+endgroup
+copy_bd_objs /  [get_bd_cells {xlconstant_1}]
+copy_bd_objs /  [get_bd_cells {xlconstant_1}]
+copy_bd_objs /  [get_bd_cells {xlconstant_1}]
+set_property location {3 1079 1865} [get_bd_cells xlconstant_2]
+set_property location {3 1086 1970} [get_bd_cells xlconstant_3]
+set_property location {3 1035 2045} [get_bd_cells xlconstant_4]
+set_property location {4 1462 1564} [get_bd_cells red_pitaya_dfilt1_0]
+set_property -dict [list CONFIG.CONST_WIDTH {18}] [get_bd_cells xlconstant_1]
+set_property -dict [list CONFIG.CONST_WIDTH {25}] [get_bd_cells xlconstant_2]
+set_property -dict [list CONFIG.CONST_WIDTH {25}] [get_bd_cells xlconstant_3]
+set_property -dict [list CONFIG.CONST_WIDTH {25}] [get_bd_cells xlconstant_4]
+set_property -dict [list CONFIG.CONST_VAL {16901}] [get_bd_cells xlconstant_1]
+set_property -dict [list CONFIG.CONST_VAL {193419}] [get_bd_cells xlconstant_2]
+set_property -dict [list CONFIG.CONST_VAL {14260634}] [get_bd_cells xlconstant_3]
+set_property -dict [list CONFIG.CONST_VAL {9830}] [get_bd_cells xlconstant_4]
+connect_bd_net [get_bd_pins xlconstant_4/dout] [get_bd_pins red_pitaya_dfilt1_0/cfg_pp_i]
+connect_bd_net [get_bd_pins xlconstant_3/dout] [get_bd_pins red_pitaya_dfilt1_0/cfg_kk_i]
+connect_bd_net [get_bd_pins xlconstant_2/dout] [get_bd_pins red_pitaya_dfilt1_0/cfg_bb_i]
+connect_bd_net [get_bd_pins xlconstant_1/dout] [get_bd_pins red_pitaya_dfilt1_0/cfg_aa_i]
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_GP0'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI_HP0'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_125M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_4 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_5 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block util_ds_buf_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block util_ds_buf_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_red_pitaya_adc_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block signal_split_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block adc_smooth_mossbauer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block slow_clock_generator_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_CH1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_CH2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block data_concat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block sign .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block low_threshold .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block high_threshold .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block high_threshold_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block low_threshold_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rising32_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block forward_skim .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block back_skim .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block skim_voltage .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block forward_skim_voltage .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block backward_skim_voltage .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block led_concat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block red_pitaya_dfilt1_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_4 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+[Wed May  8 19:22:37 2024] Launched system_rst_ps7_0_125M_0_synth_1, system_util_vector_logic_0_0_synth_1, system_util_vector_logic_0_1_synth_1, system_util_vector_logic_0_2_synth_1, system_trigger_mossbauer_0_1_synth_1, system_trigger_mossbauer_0_0_synth_1, system_rising32_0_0_synth_1, system_low_threshold_0_0_synth_1, system_high_threshold_0_0_synth_1, system_red_pitaya_dfilt1_0_0_synth_1, system_xbar_0_synth_1, system_axi_gpio_1_0_synth_1, system_axi_gpio_0_0_synth_1, system_util_ds_buf_1_0_synth_1, system_axis_red_pitaya_adc_0_0_synth_1, system_slow_clock_generator_0_0_synth_1, system_adc_smooth_mossbauer_0_0_synth_1, system_axi_gpio_4_0_synth_1, system_axi_gpio_3_0_synth_1, system_axi_gpio_2_0_synth_1, system_axi_gpio_5_0_synth_1, system_processing_system7_0_0_synth_1, system_util_ds_buf_2_0_synth_1, system_signal_split_0_0_synth_1, system_auto_pc_0_synth_1, synth_1...
+Run output will be captured here:
+system_rst_ps7_0_125M_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rst_ps7_0_125M_0_synth_1/runme.log
+system_util_vector_logic_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_vector_logic_0_0_synth_1/runme.log
+system_util_vector_logic_0_1_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_vector_logic_0_1_synth_1/runme.log
+system_util_vector_logic_0_2_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_vector_logic_0_2_synth_1/runme.log
+system_trigger_mossbauer_0_1_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_trigger_mossbauer_0_1_synth_1/runme.log
+system_trigger_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_trigger_mossbauer_0_0_synth_1/runme.log
+system_rising32_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rising32_0_0_synth_1/runme.log
+system_low_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_low_threshold_0_0_synth_1/runme.log
+system_high_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_high_threshold_0_0_synth_1/runme.log
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+system_xbar_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_xbar_0_synth_1/runme.log
+system_axi_gpio_1_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_1_0_synth_1/runme.log
+system_axi_gpio_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_0_0_synth_1/runme.log
+system_util_ds_buf_1_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_ds_buf_1_0_synth_1/runme.log
+system_axis_red_pitaya_adc_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axis_red_pitaya_adc_0_0_synth_1/runme.log
+system_slow_clock_generator_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_slow_clock_generator_0_0_synth_1/runme.log
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+system_axi_gpio_4_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_4_0_synth_1/runme.log
+system_axi_gpio_3_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_3_0_synth_1/runme.log
+system_axi_gpio_2_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_2_0_synth_1/runme.log
+system_axi_gpio_5_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_5_0_synth_1/runme.log
+system_processing_system7_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_processing_system7_0_0_synth_1/runme.log
+system_util_ds_buf_2_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_ds_buf_2_0_synth_1/runme.log
+system_signal_split_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_signal_split_0_0_synth_1/runme.log
+system_auto_pc_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_auto_pc_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 19:22:37 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:24 ; elapsed = 00:01:04 . Memory (MB): peak = 7433.469 ; gain = 172.949 ; free physical = 9742 ; free virtual = 31407
+reset_run synth_1
+reset_run system_util_vector_logic_0_1_synth_1
+reset_run system_util_vector_logic_0_2_synth_1
+reset_run system_high_threshold_0_0_synth_1
+reset_run system_red_pitaya_dfilt1_0_0_synth_1
+reset_run system_axi_gpio_0_0_synth_1
+reset_run system_axi_gpio_4_0_synth_1
+reset_run system_axi_gpio_3_0_synth_1
+reset_run system_axi_gpio_2_0_synth_1
+reset_run system_axi_gpio_5_0_synth_1
+reset_run system_processing_system7_0_0_synth_1
+reset_run system_util_ds_buf_2_0_synth_1
+reset_run system_signal_split_0_0_synth_1
+reset_run system_auto_pc_0_synth_1
+reset_run system_rst_ps7_0_125M_0_synth_1
+reset_run system_util_vector_logic_0_0_synth_1
+reset_run system_trigger_mossbauer_0_1_synth_1
+reset_run system_trigger_mossbauer_0_0_synth_1
+reset_run system_rising32_0_0_synth_1
+reset_run system_low_threshold_0_0_synth_1
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'reset_runs' was cancelled
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_5
+endgroup
+set_property -dict [list CONFIG.CONST_WIDTH {18} CONFIG.CONST_VAL {0}] [get_bd_cells xlconstant_5]
+delete_bd_objs [get_bd_nets red_pitaya_dfilt1_0_adc_dat_o]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_1
+endgroup
+set_property CONFIG.IN0_WIDTH 14 [get_bd_cells /xlconcat_1]
+set_property CONFIG.IN1_WIDTH 18 [get_bd_cells /xlconcat_1]
+connect_bd_net [get_bd_pins red_pitaya_dfilt1_0/adc_dat_o] [get_bd_pins xlconcat_1/In0]
+connect_bd_net [get_bd_pins xlconstant_5/dout] [get_bd_pins xlconcat_1/In1]
+connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a] [get_bd_pins xlconcat_1/dout]
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+delete_bd_objs: Time (s): cpu = 00:00:29 ; elapsed = 00:00:16 . Memory (MB): peak = 7609.777 ; gain = 0.000 ; free physical = 9643 ; free virtual = 31395
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_5 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_1 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_vector_logic_0_1, cache-ID = b5378d094421f21a; cache size = 1.397 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_0_0, cache-ID = fd3f1171e5a43e9d; cache size = 1.397 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_vector_logic_0_2, cache-ID = b5378d094421f21a; cache size = 1.397 MB.
+[Wed May  8 19:26:18 2024] Launched system_rst_ps7_0_125M_0_synth_1, system_util_vector_logic_0_0_synth_1, system_trigger_mossbauer_0_1_synth_1, system_trigger_mossbauer_0_0_synth_1, system_rising32_0_0_synth_1, system_low_threshold_0_0_synth_1, system_high_threshold_0_0_synth_1, system_red_pitaya_dfilt1_0_0_synth_1, system_axi_gpio_4_0_synth_1, system_axi_gpio_3_0_synth_1, system_axi_gpio_2_0_synth_1, system_axi_gpio_5_0_synth_1, system_processing_system7_0_0_synth_1, system_util_ds_buf_2_0_synth_1, system_signal_split_0_0_synth_1, system_auto_pc_0_synth_1, synth_1...
+Run output will be captured here:
+system_rst_ps7_0_125M_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rst_ps7_0_125M_0_synth_1/runme.log
+system_util_vector_logic_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_vector_logic_0_0_synth_1/runme.log
+system_trigger_mossbauer_0_1_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_trigger_mossbauer_0_1_synth_1/runme.log
+system_trigger_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_trigger_mossbauer_0_0_synth_1/runme.log
+system_rising32_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rising32_0_0_synth_1/runme.log
+system_low_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_low_threshold_0_0_synth_1/runme.log
+system_high_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_high_threshold_0_0_synth_1/runme.log
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+system_axi_gpio_4_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_4_0_synth_1/runme.log
+system_axi_gpio_3_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_3_0_synth_1/runme.log
+system_axi_gpio_2_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_2_0_synth_1/runme.log
+system_axi_gpio_5_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_axi_gpio_5_0_synth_1/runme.log
+system_processing_system7_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_processing_system7_0_0_synth_1/runme.log
+system_util_ds_buf_2_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_util_ds_buf_2_0_synth_1/runme.log
+system_signal_split_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_signal_split_0_0_synth_1/runme.log
+system_auto_pc_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_auto_pc_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 19:26:18 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:20 ; elapsed = 00:00:53 . Memory (MB): peak = 7632.789 ; gain = 23.012 ; free physical = 9618 ; free virtual = 31371
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bit
+block_design.tcl
+cfg
+cores
+make_cores.tcl
+make_project.tcl
+python
+scripts
+tmp
+verilog
+vivado.jou
+vivado.log
+vivado_pid3743.str
+cd tmp
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+cores
+Data_Splitter
+mossbauer_v1
+cd Data_Splitter
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+Data_Splitter.cache
+Data_Splitter.hbs
+Data_Splitter.hw
+Data_Splitter.ip_user_files
+Data_Splitter.runs
+Data_Splitter.sim
+Data_Splitter.srcs
+Data_Splitter.xpr
+cd Data_Splitter.runs
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+impl_1
+synth_1
+system_adc_smooth_mossbauer_0_0_synth_1
+system_auto_pc_0_synth_1
+system_axi_gpio_1_0_synth_1
+system_axi_gpio_2_0_synth_1
+system_axi_gpio_3_0_synth_1
+system_axi_gpio_4_0_synth_1
+system_axi_gpio_5_0_synth_1
+system_axis_red_pitaya_adc_0_0_synth_1
+system_high_threshold_0_0_synth_1
+system_low_threshold_0_0_synth_1
+system_processing_system7_0_0_synth_1
+system_red_pitaya_dfilt1_0_0_synth_1
+system_rising32_0_0_synth_1
+system_rst_ps7_0_125M_0_synth_1
+system_signal_split_0_0_synth_1
+system_slow_clock_generator_0_0_synth_1
+system_trigger_mossbauer_0_0_synth_1
+system_trigger_mossbauer_0_1_synth_1
+system_util_ds_buf_1_0_synth_1
+system_util_ds_buf_2_0_synth_1
+system_util_vector_logic_0_0_synth_1
+system_xbar_0_synth_1
+cd impl_1
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+gen_run.xml
+htr.txt
+init_design.pb
+ISEWrap.js
+ISEWrap.sh
+job.id.log
+opt_design.pb
+phys_opt_design.pb
+place_design.pb
+project.wdf
+route_design.pb
+rundef.js
+runme.bat
+runme.log
+runme.sh
+system_wrapper.bit
+system_wrapper_bus_skew_routed.pb
+system_wrapper_bus_skew_routed.rpt
+system_wrapper_bus_skew_routed.rpx
+system_wrapper_clock_utilization_routed.rpt
+system_wrapper_control_sets_placed.rpt
+system_wrapper_drc_opted.pb
+system_wrapper_drc_opted.rpt
+system_wrapper_drc_opted.rpx
+system_wrapper_drc_routed.pb
+system_wrapper_drc_routed.rpt
+system_wrapper_drc_routed.rpx
+system_wrapper.hwdef
+system_wrapper_io_placed.rpt
+system_wrapper_methodology_drc_routed.pb
+system_wrapper_methodology_drc_routed.rpt
+system_wrapper_methodology_drc_routed.rpx
+system_wrapper_opt.dcp
+system_wrapper_physopt.dcp
+system_wrapper_placed.dcp
+system_wrapper_power_routed.rpt
+system_wrapper_power_routed.rpx
+system_wrapper_power_summary_routed.pb
+system_wrapper_routed.dcp
+system_wrapper_route_status.pb
+system_wrapper_route_status.rpt
+system_wrapper.tcl
+system_wrapper_timing_summary_routed.pb
+system_wrapper_timing_summary_routed.rpt
+system_wrapper_timing_summary_routed.rpx
+system_wrapper_utilization_placed.pb
+system_wrapper_utilization_placed.rpt
+system_wrapper.vdi
+usage_statistics_webtalk.html
+usage_statistics_webtalk.xml
+vivado.jou
+vivado.pb
+write_bitstream.pb
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+pwd
+/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1
+pwd
+/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1
+delete_bd_objs [get_bd_nets red_pitaya_dfilt1_0_adc_dat_o] [get_bd_nets xlconstant_5_dout] [get_bd_nets xlconcat_1_dout] [get_bd_cells xlconcat_1]
+update_module_reference system_adc_smooth_mossbauer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_adc_smooth_mossbauer_0_0 from adc_smooth_mossbauer_v1_0 1.0 to adc_smooth_mossbauer_v1_0 1.0
+WARNING: [IP_Flow 19-4706] Upgraded port 'adc_dat_a' width 14 differs from original width 32
+WARNING: [IP_Flow 19-4706] Upgraded port 'smooth_data' width 14 differs from original width 32
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'system_adc_smooth_mossbauer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'system_adc_smooth_mossbauer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_module_reference: Time (s): cpu = 00:00:19 ; elapsed = 00:00:12 . Memory (MB): peak = 7632.789 ; gain = 0.000 ; free physical = 9483 ; free virtual = 31302
+connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a] [get_bd_pins red_pitaya_dfilt1_0/adc_dat_o]
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/rising32_0/adc_dat_a'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/rising32_0/adc_dat_a'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block adc_smooth_mossbauer_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 19:38:49 2024] Launched system_adc_smooth_mossbauer_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 19:38:49 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:49 ; elapsed = 00:00:35 . Memory (MB): peak = 7767.855 ; gain = 135.066 ; free physical = 9519 ; free virtual = 31322
+reset_run synth_1
+reset_run system_adc_smooth_mossbauer_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed May  8 19:39:43 2024] Launched system_adc_smooth_mossbauer_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 19:39:43 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+reset_run synth_1
+update_module_reference system_adc_smooth_mossbauer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_adc_smooth_mossbauer_0_0 from adc_smooth_mossbauer_v1_0 1.0 to adc_smooth_mossbauer_v1_0 1.0
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/rising32_0/adc_dat_a'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/rising32_0/adc_dat_a'(32) to pin '/adc_smooth_mossbauer_0/smooth_data'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block adc_smooth_mossbauer_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 19:44:21 2024] Launched system_adc_smooth_mossbauer_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 19:44:21 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:50 ; elapsed = 00:00:37 . Memory (MB): peak = 7767.855 ; gain = 0.000 ; free physical = 9490 ; free virtual = 31294
+update_module_reference system_adc_smooth_mossbauer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_adc_smooth_mossbauer_0_0 from adc_smooth_mossbauer_v1_0 1.0 to adc_smooth_mossbauer_v1_0 1.0
+WARNING: [IP_Flow 19-4706] Upgraded port 'adc_dat_a' width 32 differs from original width 14
+WARNING: [IP_Flow 19-4706] Upgraded port 'smooth_data' width 32 differs from original width 14
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'system_adc_smooth_mossbauer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'system_adc_smooth_mossbauer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block adc_smooth_mossbauer_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 19:49:56 2024] Launched system_adc_smooth_mossbauer_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 19:49:56 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:48 ; elapsed = 00:00:34 . Memory (MB): peak = 7767.855 ; gain = 0.000 ; free physical = 9514 ; free virtual = 31317
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+disconnect_bd_net /adc_smooth_mossbauer_0_smooth_data [get_bd_pins axi_gpio_1/gpio_io_i]
+connect_bd_net [get_bd_pins axi_gpio_1/gpio_io_i] [get_bd_pins red_pitaya_dfilt1_0/adc_dat_o]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_1/gpio_io_i is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 20:07:27 2024] Launched synth_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 20:07:27 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:05 ; elapsed = 00:00:35 . Memory (MB): peak = 7778.871 ; gain = 11.016 ; free physical = 9174 ; free virtual = 31032
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+update_module_reference system_red_pitaya_dfilt1_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_red_pitaya_dfilt1_0_0 from red_pitaya_dfilt1_v1_0 1.0 to red_pitaya_dfilt1_v1_0 1.0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axis_red_pitaya_adc_0/adc_clk(clk) and /red_pitaya_dfilt1_0_upgraded_ipi/adc_clk_i(undef)
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_module_reference: Time (s): cpu = 00:00:25 ; elapsed = 00:00:21 . Memory (MB): peak = 7778.871 ; gain = 0.000 ; free physical = 9126 ; free virtual = 31001
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block red_pitaya_dfilt1_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 20:20:08 2024] Launched system_red_pitaya_dfilt1_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 20:20:08 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:50 ; elapsed = 00:00:36 . Memory (MB): peak = 7922.930 ; gain = 144.059 ; free physical = 9150 ; free virtual = 31009
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_1
+endgroup
+set_property CONFIG.IN0_WIDTH 14 [get_bd_cells /xlconcat_1]
+set_property CONFIG.IN1_WIDTH 18 [get_bd_cells /xlconcat_1]
+connect_bd_net [get_bd_pins xlconcat_1/In0] [get_bd_pins red_pitaya_dfilt1_0/adc_dat_o]
+connect_bd_net [get_bd_pins xlconstant_5/dout] [get_bd_pins xlconcat_1/In1]
+expected number but got ""
+ERROR: [IP_Flow 19-3317] Tcl Error found in 'validate_PARAM_VALUE.CONST_VAL' method. expected number but got ""
+startgroup
+set_property -dict [list CONFIG.CONST_VAL {8}] [get_bd_cells xlconstant_5]
+endgroup
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [Common 17-365] Interrupt caught but 'launch_runs' cannot be canceled. Please wait for command to finish.
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/axi_gpio_1/gpio_io_i'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1171] User-interrupt detected : Generation halted successfully for IP Integrator design /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd
+INFO: [Common 17-681] Processing pending cancel.
+disconnect_bd_net /red_pitaya_dfilt1_0_adc_dat_o [get_bd_pins axi_gpio_1/gpio_io_i]
+connect_bd_net [get_bd_pins axi_gpio_1/gpio_io_i] [get_bd_pins xlconcat_1/dout]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_1/gpio_io_i is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_5 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_1 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_0_0, cache-ID = fd3f1171e5a43e9d; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_ds_buf_1_0, cache-ID = 5664a654ee54232b; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_1_0, cache-ID = fd3f1171e5a43e9d; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_ds_buf_2_0, cache-ID = 55b5ad8b6bb6af72; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_2_0, cache-ID = f45e3e09f895f825; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_vector_logic_0_2, cache-ID = b5378d094421f21a; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_3_0, cache-ID = a3d54c4c15556f5f; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_xbar_0, cache-ID = dc262fd7d5b9537c; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_4_0, cache-ID = 18b0831a790fbc74; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axi_gpio_5_0, cache-ID = 3dc40d59316ef7a5; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_axis_red_pitaya_adc_0_0, cache-ID = 128915b81ef98248; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_vector_logic_0_1, cache-ID = b5378d094421f21a; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_processing_system7_0_0, cache-ID = 7827c82619603596; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_rst_ps7_0_125M_0, cache-ID = a124e74a1caa3adf; cache size = 4.656 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_util_vector_logic_0_0, cache-ID = b5378d094421f21a; cache size = 4.656 MB.
+[Wed May  8 20:25:05 2024] Launched system_trigger_mossbauer_0_1_synth_1, system_trigger_mossbauer_0_0_synth_1, system_rising32_0_0_synth_1, system_low_threshold_0_0_synth_1, system_high_threshold_0_0_synth_1, system_slow_clock_generator_0_0_synth_1, system_signal_split_0_0_synth_1, system_adc_smooth_mossbauer_0_0_synth_1, system_red_pitaya_dfilt1_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_trigger_mossbauer_0_1_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_trigger_mossbauer_0_1_synth_1/runme.log
+system_trigger_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_trigger_mossbauer_0_0_synth_1/runme.log
+system_rising32_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rising32_0_0_synth_1/runme.log
+system_low_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_low_threshold_0_0_synth_1/runme.log
+system_high_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_high_threshold_0_0_synth_1/runme.log
+system_slow_clock_generator_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_slow_clock_generator_0_0_synth_1/runme.log
+system_signal_split_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_signal_split_0_0_synth_1/runme.log
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 20:25:05 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:18 ; elapsed = 00:00:42 . Memory (MB): peak = 7922.930 ; gain = 0.000 ; free physical = 9143 ; free virtual = 30997
+add_files -norecurse /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/red_pitaya_dfilt2.sv
+update_compile_order -fileset sources_1
+open_bd_design {/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd}
+update_module_reference system_red_pitaya_dfilt1_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_red_pitaya_dfilt1_0_0 from red_pitaya_dfilt1_v1_0 1.0 to red_pitaya_dfilt1_v1_0 1.0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axis_red_pitaya_adc_0/adc_clk(clk) and /red_pitaya_dfilt1_0_upgraded_ipi/adc_clk_i(undef)
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+upgrade_ip: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 7922.930 ; gain = 0.000 ; free physical = 8904 ; free virtual = 30817
+update_module_reference: Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 7922.930 ; gain = 0.000 ; free physical = 8904 ; free virtual = 30817
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block red_pitaya_dfilt1_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 20:50:44 2024] Launched system_red_pitaya_dfilt1_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 20:50:44 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:48 ; elapsed = 00:00:42 . Memory (MB): peak = 7922.930 ; gain = 0.000 ; free physical = 8945 ; free virtual = 30844
+import_files /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/red_pitaya_dfilt2.sv
+reset_run synth_1
+reset_run system_red_pitaya_dfilt1_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed May  8 20:57:05 2024] Launched system_red_pitaya_dfilt1_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 20:57:05 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:00 ; elapsed = 00:00:44 . Memory (MB): peak = 7922.930 ; gain = 0.000 ; free physical = 8934 ; free virtual = 30833
+update_module_reference system_red_pitaya_dfilt1_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_red_pitaya_dfilt1_0_0 from red_pitaya_dfilt1_v1_0 1.0 to red_pitaya_dfilt1_v1_0 1.0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axis_red_pitaya_adc_0/adc_clk(clk) and /red_pitaya_dfilt1_0_upgraded_ipi/adc_clk_i(undef)
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/adc_smooth_mossbauer_0/adc_dat_a'(32) to pin '/red_pitaya_dfilt1_0/adc_dat_o'(14) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block red_pitaya_dfilt1_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 21:01:19 2024] Launched system_red_pitaya_dfilt1_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_red_pitaya_dfilt1_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_red_pitaya_dfilt1_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 21:01:19 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:51 ; elapsed = 00:00:39 . Memory (MB): peak = 8037.078 ; gain = 0.000 ; free physical = 8921 ; free virtual = 30821
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+open_bd_design {/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd}
+disconnect_bd_net /red_pitaya_dfilt1_0_adc_dat_o [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]
+delete_bd_objs [get_bd_nets xlconcat_1_dout]
+connect_bd_net [get_bd_pins xlconcat_1/dout] [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a]
+connect_bd_net [get_bd_pins axi_gpio_1/gpio_io_i] [get_bd_pins adc_smooth_mossbauer_0/smooth_data]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_1/gpio_io_i is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 21:20:15 2024] Launched synth_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 21:20:15 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:03 ; elapsed = 00:00:35 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8881 ; free virtual = 30795
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+startgroup
+set_property -dict [list CONFIG.DIN_TO {13} CONFIG.DIN_FROM {13}] [get_bd_cells sign]
+endgroup
+update_module_reference system_rising32_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'slow_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'slow_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+delete_fileset: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8813 ; free virtual = 30763
+delete_ip_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8813 ; free virtual = 30763
+INFO: [IP_Flow 19-1972] Upgraded system_rising32_0_0 from rising32_v1_0 1.0 to rising32_v1_0 1.0
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+upgrade_ip: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8810 ; free virtual = 30759
+update_module_reference: Time (s): cpu = 00:00:30 ; elapsed = 00:00:16 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8810 ; free virtual = 30759
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block sign .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rising32_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 22:05:47 2024] Launched system_rising32_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_rising32_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rising32_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 22:05:47 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:49 ; elapsed = 00:00:36 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8824 ; free virtual = 30757
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+update_module_reference system_low_threshold_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'adc_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_low_threshold_0_0 from low_threshold_v1_0 1.0 to low_threshold_v1_0 1.0
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_module_reference: Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8786 ; free virtual = 30740
+update_module_reference system_high_threshold_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'adc_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_high_threshold_0_0 from high_threshold_v1_0 1.0 to high_threshold_v1_0 1.0
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_module_reference: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 8238.336 ; gain = 0.000 ; free physical = 8779 ; free virtual = 30732
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v:35]
+update_module_reference system_adc_smooth_mossbauer_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v:35]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'adc_smooth_mossbauer'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v:35]
+update_module_reference system_adc_smooth_mossbauer_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v:35]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/adc_smooth_mossbauer.v'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'adc_smooth_mossbauer'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+update_module_reference system_adc_smooth_mossbauer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_adc_smooth_mossbauer_0_0 from adc_smooth_mossbauer_v1_0 1.0 to adc_smooth_mossbauer_v1_0 1.0
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'short_smooth'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'system_adc_smooth_mossbauer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'system_adc_smooth_mossbauer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_module_reference system_adc_smooth_mossbauer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_adc_smooth_mossbauer_0_0 from adc_smooth_mossbauer_v1_0 1.0 to adc_smooth_mossbauer_v1_0 1.0
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+update_module_reference system_adc_smooth_mossbauer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_adc_smooth_mossbauer_0_0 from adc_smooth_mossbauer_v1_0 1.0 to adc_smooth_mossbauer_v1_0 1.0
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axis_adc_a'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'system_adc_smooth_mossbauer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'system_adc_smooth_mossbauer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+disconnect_bd_net /signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins low_threshold_0/adc_dat_a]
+startgroup
+connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/axis_adc_a] [get_bd_pins low_threshold_0/adc_dat_a]
+endgroup
+disconnect_bd_net /signal_split_0_M_AXIS_PORT1_tdata [get_bd_pins high_threshold_0/adc_dat_a]
+connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/axis_adc_a] [get_bd_pins high_threshold_0/adc_dat_a]
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block adc_smooth_mossbauer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block high_threshold_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block low_threshold_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 23:28:13 2024] Launched system_low_threshold_0_0_synth_1, system_high_threshold_0_0_synth_1, system_adc_smooth_mossbauer_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_low_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_low_threshold_0_0_synth_1/runme.log
+system_high_threshold_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_high_threshold_0_0_synth_1/runme.log
+system_adc_smooth_mossbauer_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_adc_smooth_mossbauer_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 23:28:13 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:49 ; elapsed = 00:00:41 . Memory (MB): peak = 8484.453 ; gain = 123.059 ; free physical = 8676 ; free virtual = 30621
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+update_module_reference system_rising32_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'slow_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'adc_clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'slow_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/cores'.
+Upgrading '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_rising32_0_0 from rising32_v1_0 1.0 to rising32_v1_0 1.0
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rising32_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 23:43:42 2024] Launched system_rising32_0_0_synth_1, synth_1...
+Run output will be captured here:
+system_rising32_0_0_synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/system_rising32_0_0_synth_1/runme.log
+synth_1: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 23:43:42 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:53 ; elapsed = 00:00:41 . Memory (MB): peak = 8513.469 ; gain = 0.000 ; free physical = 8699 ; free virtual = 30648
+delete_bd_objs [get_bd_nets forward_skim_voltage_Res]
+delete_bd_objs [get_bd_nets backward_skim_voltage_Res]
+connect_bd_net [get_bd_pins led_concat/In6] [get_bd_pins back_skim/enable]
+connect_bd_net [get_bd_pins led_concat/In5] [get_bd_pins forward_skim/enable]
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Wed May  8 23:51:49 2024] Launched synth_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Wed May  8 23:51:49 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:08 ; elapsed = 00:00:41 . Memory (MB): peak = 8513.469 ; gain = 0.000 ; free physical = 8689 ; free virtual = 30640
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+delete_bd_objs [get_bd_nets xlconcat_1_dout]
+connect_bd_net [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a] [get_bd_pins signal_split_0/M_AXIS_PORT1_tdata]
+save_bd_design
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /low_threshold_0/adc_clk have been updated from connected ip, but BD cell '/low_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </low_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /high_threshold_0/adc_clk have been updated from connected ip, but BD cell '/high_threshold_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </high_threshold_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /adc_smooth_mossbauer_0/adc_clk have been updated from connected ip, but BD cell '/adc_smooth_mossbauer_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </adc_smooth_mossbauer_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /rising32_0/adc_clk have been updated from connected ip, but BD cell '/rising32_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 125000000 
+Please resolve any mismatches by directly setting properties on BD cell </rising32_0> to completely resolve these warnings.
+Wrote  : </home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hdl/system_wrapper.v
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/synth/system.hwdef
+WARNING: [BD 41-2265] Clock pin for protocol instance pin S_AXIS could not be determined. Make sure that ASSOCIATED_BUSIF and ASSOCIATED_RESET properties are set or propagated on clock pins of block /signal_split_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = 4334efbd1258b0fe; cache size = 4.656 MB.
+[Thu May  9 00:15:02 2024] Launched synth_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/synth_1/runme.log
+[Thu May  9 00:15:02 2024] Launched impl_1...
+Run output will be captured here: /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:16 ; elapsed = 00:00:38 . Memory (MB): peak = 8517.371 ; gain = 0.000 ; free physical = 8667 ; free virtual = 30621
+echo -n "all:{ system_wrapper.bit }" >  system_wrapper.bif
+WARNING: [Common 17-259] Unknown Tcl command 'echo -n all:{ system_wrapper.bit } > system_wrapper.bif' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w
+WARNING: [Common 17-259] Unknown Tcl command 'bootgen -image system_wrapper.bif -arch zynq -process_bitstream bin -o system_wrapper.bit.bin -w' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+
+
+****** Xilinx Bootgen v2020.1
+  **** Build date : May 27 2020-20:33:36
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully

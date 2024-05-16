@@ -110,6 +110,30 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconsta
 # IP: bd/system/ip/system_xlconcat_0_1/system_xlconcat_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconcat_0_1 || ORIG_REF_NAME==system_xlconcat_0_1} -quiet] -quiet
 
+# IP: bd/system/ip/system_red_pitaya_dfilt1_0_0/system_red_pitaya_dfilt1_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_red_pitaya_dfilt1_0_0 || ORIG_REF_NAME==system_red_pitaya_dfilt1_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlslice_0_1/system_xlslice_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlslice_0_1 || ORIG_REF_NAME==system_xlslice_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconstant_1_0/system_xlconstant_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconstant_1_0 || ORIG_REF_NAME==system_xlconstant_1_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconstant_1_1/system_xlconstant_1_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconstant_1_1 || ORIG_REF_NAME==system_xlconstant_1_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconstant_1_2/system_xlconstant_1_2.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconstant_1_2 || ORIG_REF_NAME==system_xlconstant_1_2} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconstant_1_3/system_xlconstant_1_3.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconstant_1_3 || ORIG_REF_NAME==system_xlconstant_1_3} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconstant_5_0/system_xlconstant_5_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconstant_5_0 || ORIG_REF_NAME==system_xlconstant_5_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconcat_1_0/system_xlconcat_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconcat_1_0 || ORIG_REF_NAME==system_xlconcat_1_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
 
