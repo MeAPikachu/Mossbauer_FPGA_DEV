@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1715902608">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1715915461">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BITSTR-SYSDEF" Name="system_wrapper.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
@@ -133,6 +133,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/bessel_filter.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/system/system.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -214,8 +221,10 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="system_bessel_filter_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_adc_smooth_mossbauer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_rising32_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_bessel_filter_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_low_threshold_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_signal_split_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>

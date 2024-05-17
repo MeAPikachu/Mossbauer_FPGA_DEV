@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# adc_smooth_mossbauer, trigger_mossbauer, trigger_mossbauer, high_threshold, low_threshold, rc_filter, rc_filter, rising32, signal_split, slow_clock_generator
+# adc_smooth_mossbauer, trigger_mossbauer, bessel_filter, bessel_filter, trigger_mossbauer, high_threshold, low_threshold, rc_filter, rc_filter, rising32, signal_split, slow_clock_generator
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -269,6 +269,28 @@ proc create_root_design { parentCell } {
    CONFIG.C_SIZE {1} \
  ] $backward_skim_voltage
 
+  # Create instance: bessel_filter_0, and set properties
+  set block_name bessel_filter
+  set block_cell_name bessel_filter_0
+  if { [catch {set bessel_filter_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $bessel_filter_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: bessel_filter_1, and set properties
+  set block_name bessel_filter
+  set block_cell_name bessel_filter_1
+  if { [catch {set bessel_filter_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $bessel_filter_1 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: data_concat, and set properties
   set data_concat [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 data_concat ]
   set_property -dict [ list \
@@ -1156,9 +1178,11 @@ proc create_root_design { parentCell } {
   connect_bd_net -net axi_gpio_2_gpio_io_o [get_bd_pins axi_gpio_2/gpio_io_o] [get_bd_pins high_threshold/Din] [get_bd_pins low_threshold/Din]
   connect_bd_net -net axi_gpio_3_gpio_io_o [get_bd_pins axi_gpio_3/gpio_io_o] [get_bd_pins slow_clock_generator_0/max]
   connect_bd_net -net axi_gpio_4_gpio_io_o [get_bd_pins axi_gpio_4/gpio_io_o] [get_bd_pins back_skim/DURATION] [get_bd_pins forward_skim/DURATION]
-  connect_bd_net -net axis_red_pitaya_adc_0_adc_clk [get_bd_pins adc_smooth_mossbauer_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk] [get_bd_pins back_skim/clk] [get_bd_pins forward_skim/clk] [get_bd_pins high_threshold_0/adc_clk] [get_bd_pins low_threshold_0/adc_clk] [get_bd_pins rc_filter_0/clk] [get_bd_pins rc_filter_1/clk] [get_bd_pins rising32_0/adc_clk] [get_bd_pins slow_clock_generator_0/adc_clk]
+  connect_bd_net -net axis_red_pitaya_adc_0_adc_clk [get_bd_pins adc_smooth_mossbauer_0/adc_clk] [get_bd_pins axis_red_pitaya_adc_0/adc_clk] [get_bd_pins back_skim/clk] [get_bd_pins bessel_filter_0/clk] [get_bd_pins bessel_filter_1/clk] [get_bd_pins forward_skim/clk] [get_bd_pins high_threshold_0/adc_clk] [get_bd_pins low_threshold_0/adc_clk] [get_bd_pins rc_filter_0/clk] [get_bd_pins rc_filter_1/clk] [get_bd_pins rising32_0/adc_clk] [get_bd_pins slow_clock_generator_0/adc_clk]
   connect_bd_net -net axis_red_pitaya_adc_0_adc_csn [get_bd_ports adc_csn_o] [get_bd_pins axis_red_pitaya_adc_0/adc_csn]
   connect_bd_net -net back_skim_enable [get_bd_pins back_skim/enable] [get_bd_pins led_concat/In6] [get_bd_pins xlconcat_0/In1]
+  connect_bd_net -net bessel_filter_0_adc_filt_a [get_bd_pins bessel_filter_0/adc_filt_a] [get_bd_pins bessel_filter_1/adc_dat_a]
+  connect_bd_net -net bessel_filter_1_adc_filt_a [get_bd_pins bessel_filter_1/adc_filt_a] [get_bd_pins xlconcat_1/In0]
   connect_bd_net -net daisy_n_i_1 [get_bd_ports daisy_n_i] [get_bd_pins util_ds_buf_1/IBUF_DS_N]
   connect_bd_net -net daisy_p_i_1 [get_bd_ports daisy_p_i] [get_bd_pins util_ds_buf_1/IBUF_DS_P]
   connect_bd_net -net data_concat_dout [get_bd_pins axi_gpio_0/gpio_io_i] [get_bd_pins data_concat/dout]
@@ -1171,8 +1195,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins axi_gpio_3/s_axi_aclk] [get_bd_pins axi_gpio_4/s_axi_aclk] [get_bd_pins axi_gpio_5/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_125M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_125M/ext_reset_in]
   connect_bd_net -net rc_filter_0_adc_filt_a [get_bd_pins rc_filter_0/adc_filt_a] [get_bd_pins rc_filter_1/adc_dat_a]
-  connect_bd_net -net rc_filter_1_adc_filt_a [get_bd_pins rc_filter_1/adc_filt_a] [get_bd_pins xlconcat_1/In0]
-  connect_bd_net -net reset_dout [get_bd_pins high_threshold_0/rst] [get_bd_pins low_threshold_0/rst] [get_bd_pins rc_filter_0/reset] [get_bd_pins rc_filter_1/reset] [get_bd_pins reset/dout] [get_bd_pins rising32_0/rst]
+  connect_bd_net -net reset_dout [get_bd_pins bessel_filter_0/reset] [get_bd_pins bessel_filter_1/reset] [get_bd_pins high_threshold_0/rst] [get_bd_pins low_threshold_0/rst] [get_bd_pins rc_filter_0/reset] [get_bd_pins rc_filter_1/reset] [get_bd_pins reset/dout] [get_bd_pins rising32_0/rst]
   connect_bd_net -net rising32_0_falling [get_bd_pins back_skim/mask] [get_bd_pins backward_skim_voltage/Op2] [get_bd_pins led_concat/In3] [get_bd_pins rising32_0/falling] [get_bd_pins xlconcat_0/In4]
   connect_bd_net -net rising32_0_rising [get_bd_pins forward_skim/mask] [get_bd_pins forward_skim_voltage/Op1] [get_bd_pins led_concat/In2] [get_bd_pins rising32_0/rising] [get_bd_pins xlconcat_0/In3]
   connect_bd_net -net sign_Dout [get_bd_pins led_concat/In7] [get_bd_pins sign/Dout]
@@ -1187,7 +1210,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconcat_1_dout [get_bd_pins adc_smooth_mossbauer_0/adc_dat_a] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net xlconstant_0_dout [get_bd_ports exp_n_tri_io] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlconstant_5_dout [get_bd_pins xlconcat_1/In1] [get_bd_pins xlconstant_5/dout]
-  connect_bd_net -net xlslice_0_Dout [get_bd_pins rc_filter_0/adc_dat_a] [get_bd_pins xlslice_0/Dout]
+  connect_bd_net -net xlslice_0_Dout [get_bd_pins bessel_filter_0/adc_dat_a] [get_bd_pins rc_filter_0/adc_dat_a] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net xlslice_CH1_Dout [get_bd_pins data_concat/In0] [get_bd_pins sign/Din] [get_bd_pins xlslice_CH1/Dout]
   connect_bd_net -net xlslice_CH2_Dout [get_bd_pins data_concat/In1] [get_bd_pins xlslice_CH2/Dout]
 

@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Thu May 16 16:36:43 2024
+//Date        : Thu May 16 20:10:52 2024
 //Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -1106,7 +1106,7 @@ module s00_couplers_imp_11SE3QO
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=47,numReposBlks=39,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=49,numReposBlks=41,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -1243,6 +1243,8 @@ module system
   wire axis_red_pitaya_adc_0_adc_clk;
   wire axis_red_pitaya_adc_0_adc_csn;
   wire back_skim_enable;
+  wire [13:0]bessel_filter_0_adc_filt_a;
+  wire [13:0]bessel_filter_1_adc_filt_a;
   wire [1:0]daisy_n_i_1;
   wire [1:0]daisy_p_i_1;
   wire [31:0]data_concat_dout;
@@ -1378,7 +1380,6 @@ module system
   wire [3:0]ps7_0_axi_periph_M05_AXI_WSTRB;
   wire ps7_0_axi_periph_M05_AXI_WVALID;
   wire [13:0]rc_filter_0_adc_filt_a;
-  wire [13:0]rc_filter_1_adc_filt_a;
   wire [0:0]reset_dout;
   wire rising32_0_falling;
   wire rising32_0_rising;
@@ -1558,6 +1559,16 @@ module system
   system_util_vector_logic_0_2 backward_skim_voltage
        (.Op1(skim_voltage_Res),
         .Op2(rising32_0_falling));
+  system_bessel_filter_0_0 bessel_filter_0
+       (.adc_dat_a(xlslice_0_Dout),
+        .adc_filt_a(bessel_filter_0_adc_filt_a),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .reset(reset_dout));
+  system_bessel_filter_1_0 bessel_filter_1
+       (.adc_dat_a(bessel_filter_0_adc_filt_a),
+        .adc_filt_a(bessel_filter_1_adc_filt_a),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .reset(reset_dout));
   system_data_concat_0 data_concat
        (.In0(xlslice_CH1_Dout),
         .In1(xlslice_CH2_Dout),
@@ -1862,7 +1873,6 @@ module system
         .reset(reset_dout));
   system_rc_filter_0_1 rc_filter_1
        (.adc_dat_a(rc_filter_0_adc_filt_a),
-        .adc_filt_a(rc_filter_1_adc_filt_a),
         .clk(axis_red_pitaya_adc_0_adc_clk),
         .reset(reset_dout));
   system_reset_0 reset
@@ -1916,7 +1926,7 @@ module system
         .In7(1'b0),
         .dout(xlconcat_0_dout));
   system_xlconcat_1_0 xlconcat_1
-       (.In0(rc_filter_1_adc_filt_a),
+       (.In0(bessel_filter_1_adc_filt_a),
         .In1(xlconstant_5_dout),
         .dout(xlconcat_1_dout));
   system_xlconstant_0_0 xlconstant_0

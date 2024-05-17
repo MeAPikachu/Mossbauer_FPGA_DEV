@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.67592",
-   "Default View_TopLeft":"864,361",
+   "Default View_TopLeft":"864,1150",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
@@ -62,14 +62,16 @@ preplace inst led_concat -pg 1 -lvl 9 -x 3320 -y 450 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 9 -x 3320 -y 1410 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 9 -x 3320 -y 210 -defaultsOSRD
 preplace inst xlslice_0 -pg 1 -lvl 3 -x 1110 -y 1590 -defaultsOSRD
-preplace inst xlconstant_5 -pg 1 -lvl 4 -x 1520 -y 1810 -defaultsOSRD
+preplace inst xlconstant_5 -pg 1 -lvl 5 -x 1850 -y 2020 -defaultsOSRD
 preplace inst xlconcat_1 -pg 1 -lvl 6 -x 2230 -y 1640 -defaultsOSRD
 preplace inst low_threshold_0 -pg 1 -lvl 6 -x 2230 -y 260 -defaultsOSRD
 preplace inst high_threshold_0 -pg 1 -lvl 6 -x 2230 -y 100 -defaultsOSRD
 preplace inst rc_filter_0 -pg 1 -lvl 4 -x 1520 -y 1570 -defaultsOSRD
-preplace inst rc_filter_1 -pg 1 -lvl 5 -x 1850 -y 1560 -defaultsOSRD
+preplace inst rc_filter_1 -pg 1 -lvl 5 -x 1850 -y 1550 -defaultsOSRD
 preplace inst rising32_0 -pg 1 -lvl 7 -x 2610 -y 440 -defaultsOSRD
 preplace inst adc_smooth_mossbauer_0 -pg 1 -lvl 6 -x 2230 -y 410 -defaultsOSRD
+preplace inst bessel_filter_0 -pg 1 -lvl 4 -x 1520 -y 1760 -defaultsOSRD
+preplace inst bessel_filter_1 -pg 1 -lvl 5 -x 1850 -y 1740 -defaultsOSRD
 preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 -10 970 500 310 870
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 0 980 480
 preplace netloc ARESETN_1 1 1 2 490 300 880
@@ -84,7 +86,7 @@ preplace netloc adc_clk_p_i_1 1 0 1 0J 1210n
 preplace netloc adc_clk_n_i_1 1 0 1 0J 1230n
 preplace netloc axis_red_pitaya_adc_0_adc_csn 1 1 9 510 1140 N 1140 1320J 1060 NJ 1060 2020 1050 2420J 1040 NJ 1040 NJ 1040 NJ
 preplace netloc signal_split_0_M_AXIS_PORT1_tdata 1 2 5 880 1340 1300 930 N 930 2050 930 NJ
-preplace netloc axis_red_pitaya_adc_0_adc_clk 1 1 7 N 1250 850 1480 1300J 1480 1690 690 2020 0 2430 60 2810
+preplace netloc axis_red_pitaya_adc_0_adc_clk 1 1 7 N 1250 850 1480 1310J 1480 1690 690 2020 0 2430 60 2810
 preplace netloc adc_smooth_mossbauer_0_smooth_data 1 3 4 1320 490 N 490 N 490 2400
 preplace netloc axi_gpio_3_gpio_io_o 1 3 3 1300 680 NJ 680 N
 preplace netloc signal_split_0_M_AXIS_PORT2_tdata 1 3 3 1310 990 NJ 990 N
@@ -93,7 +95,7 @@ preplace netloc xlslice_CH2_Dout 1 6 2 NJ 990 2770
 preplace netloc data_concat_dout 1 3 6 NJ 1070 NJ 1070 2050 1060 2440J 1050 NJ 1050 3140
 preplace netloc axi_gpio_2_gpio_io_o 1 3 1 1320 110n
 preplace netloc high_threshold_Dout 1 4 2 N 110 N
-preplace netloc reset_dout 1 3 4 1310 1490 1680 270 2030 10 2410J
+preplace netloc reset_dout 1 3 4 1320 1490 1680 270 2030 10 2410J
 preplace netloc low_threshold_Dout 1 4 2 N 250 2040
 preplace netloc slow_clock_generator_0_slow_clk 1 6 1 2420 410n
 preplace netloc low_threshold_0_vgl 1 6 3 2440 350 2800 380 NJ
@@ -108,11 +110,12 @@ preplace netloc xlconstant_0_dout 1 9 1 NJ 1410
 preplace netloc forward_skim_enable 1 8 1 3110 90n
 preplace netloc back_skim_enable 1 8 1 3120 160n
 preplace netloc xlconcat_0_dout 1 9 1 NJ 210
-preplace netloc xlconstant_5_dout 1 4 2 1680 1650 N
+preplace netloc xlconstant_5_dout 1 5 1 2050 1650n
 preplace netloc xlconcat_1_dout 1 5 2 2060 500 2400
-preplace netloc xlslice_0_Dout 1 3 1 N 1590
-preplace netloc rc_filter_0_adc_filt_a 1 4 1 1690 1570n
-preplace netloc rc_filter_1_adc_filt_a 1 5 1 2040 1560n
+preplace netloc xlslice_0_Dout 1 3 1 1300 1590n
+preplace netloc rc_filter_0_adc_filt_a 1 4 1 N 1570
+preplace netloc bessel_filter_0_adc_filt_a 1 4 1 N 1760
+preplace netloc bessel_filter_1_adc_filt_a 1 5 1 2020 1630n
 preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 2 N 1230 N
 preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 860 540n
 preplace netloc processing_system7_0_DDR 1 1 9 530J 750 840J 660 NJ 660 NJ 660 2010 750 NJ 750 NJ 750 NJ 750 NJ

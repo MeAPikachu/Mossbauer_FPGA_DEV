@@ -125,6 +125,12 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_rc_filte
 # IP: bd/system/ip/system_rc_filter_0_1/system_rc_filter_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_rc_filter_0_1 || ORIG_REF_NAME==system_rc_filter_0_1} -quiet] -quiet
 
+# IP: bd/system/ip/system_bessel_filter_0_0/system_bessel_filter_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_bessel_filter_0_0 || ORIG_REF_NAME==system_bessel_filter_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_bessel_filter_1_0/system_bessel_filter_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_bessel_filter_1_0 || ORIG_REF_NAME==system_bessel_filter_1_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
 

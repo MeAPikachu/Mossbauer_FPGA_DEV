@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 16 16:36:44 2024" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 16 20:10:52 2024" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -2428,6 +2428,8 @@
             <CONNECTION INSTANCE="rc_filter_1" PORT="clk"/>
             <CONNECTION INSTANCE="rising32_0" PORT="adc_clk"/>
             <CONNECTION INSTANCE="adc_smooth_mossbauer_0" PORT="adc_clk"/>
+            <CONNECTION INSTANCE="bessel_filter_0" PORT="clk"/>
+            <CONNECTION INSTANCE="bessel_filter_1" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="adc_csn" SIGIS="undef" SIGNAME="axis_red_pitaya_adc_0_adc_csn">
@@ -2545,6 +2547,72 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/bessel_filter_0" HWVERSION="1.0" INSTANCE="bessel_filter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="bessel_filter" VLNV="xilinx.com:module_ref:bessel_filter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="ADC_WIDTH" VALUE="14"/>
+        <PARAMETER NAME="AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="B" VALUE="1079"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_bessel_filter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="axis_red_pitaya_adc_0_adc_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_red_pitaya_adc_0" PORT="adc_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="reset_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="reset" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="adc_dat_a" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="adc_filt_a" RIGHT="0" SIGIS="undef" SIGNAME="bessel_filter_0_adc_filt_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="bessel_filter_1" PORT="adc_dat_a"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/bessel_filter_1" HWVERSION="1.0" INSTANCE="bessel_filter_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="bessel_filter" VLNV="xilinx.com:module_ref:bessel_filter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="ADC_WIDTH" VALUE="14"/>
+        <PARAMETER NAME="AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="B" VALUE="1079"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_bessel_filter_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="axis_red_pitaya_adc_0_adc_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_red_pitaya_adc_0" PORT="adc_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="reset_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="reset" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="adc_dat_a" RIGHT="0" SIGIS="undef" SIGNAME="bessel_filter_0_adc_filt_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="bessel_filter_0" PORT="adc_filt_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="adc_filt_a" RIGHT="0" SIGIS="undef" SIGNAME="bessel_filter_1_adc_filt_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -5836,11 +5904,7 @@
             <CONNECTION INSTANCE="rc_filter_0" PORT="adc_filt_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="13" NAME="adc_filt_a" RIGHT="0" SIGIS="undef" SIGNAME="rc_filter_1_adc_filt_a">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconcat_1" PORT="In0"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="13" NAME="adc_filt_a" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -5860,6 +5924,8 @@
             <CONNECTION INSTANCE="rc_filter_0" PORT="reset"/>
             <CONNECTION INSTANCE="rc_filter_1" PORT="reset"/>
             <CONNECTION INSTANCE="rising32_0" PORT="rst"/>
+            <CONNECTION INSTANCE="bessel_filter_0" PORT="reset"/>
+            <CONNECTION INSTANCE="bessel_filter_1" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6342,9 +6408,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="13" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="rc_filter_1_adc_filt_a">
+        <PORT DIR="I" LEFT="13" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="bessel_filter_1_adc_filt_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rc_filter_1" PORT="adc_filt_a"/>
+            <CONNECTION INSTANCE="bessel_filter_1" PORT="adc_filt_a"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="17" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_5_dout">
@@ -6413,6 +6479,7 @@
         <PORT DIR="O" LEFT="13" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rc_filter_0" PORT="adc_dat_a"/>
+            <CONNECTION INSTANCE="bessel_filter_0" PORT="adc_dat_a"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
