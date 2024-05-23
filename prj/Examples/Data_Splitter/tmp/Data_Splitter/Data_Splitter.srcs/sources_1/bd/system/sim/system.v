@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Thu May 16 20:10:52 2024
+//Date        : Thu May 23 13:37:13 2024
 //Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -1106,7 +1106,7 @@ module s00_couplers_imp_11SE3QO
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=49,numReposBlks=41,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=55,numReposBlks=47,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -1236,8 +1236,10 @@ module system
   wire [13:0]adc_dat_b_i_1;
   wire [31:0]adc_smooth_mossbauer_0_smooth_data;
   wire [31:0]axi_gpio_2_gpio_io_o;
+  wire [31:0]axi_gpio_3_gpio2_io_o;
   wire [31:0]axi_gpio_3_gpio_io_o;
   wire [31:0]axi_gpio_4_gpio_io_o;
+  wire [31:0]axi_gpio_5_gpio_io_o;
   wire [31:0]axis_red_pitaya_adc_0_M_AXIS_TDATA;
   wire axis_red_pitaya_adc_0_M_AXIS_TVALID;
   wire axis_red_pitaya_adc_0_adc_clk;
@@ -1245,12 +1247,19 @@ module system
   wire back_skim_enable;
   wire [13:0]bessel_filter_0_adc_filt_a;
   wire [13:0]bessel_filter_1_adc_filt_a;
+  wire [13:0]c_ht_Dout;
+  wire [31:0]cycle_counter_0_for_count;
+  wire [31:0]cycle_counter_1_for_count;
   wire [1:0]daisy_n_i_1;
   wire [1:0]daisy_p_i_1;
   wire [31:0]data_concat_dout;
+  wire event_convert_0_schmitt_event;
+  wire [31:0]event_count_0_backward_count;
+  wire [31:0]event_count_0_forward_count;
   wire forward_skim_enable;
   wire high_threshold_0_vlh;
   wire [13:0]high_threshold_Dout;
+  wire [13:0]l_ht_Dout;
   wire [7:0]led_concat_dout;
   wire low_threshold_0_vgl;
   wire [13:0]low_threshold_Dout;
@@ -1379,10 +1388,12 @@ module system
   wire ps7_0_axi_periph_M05_AXI_WREADY;
   wire [3:0]ps7_0_axi_periph_M05_AXI_WSTRB;
   wire ps7_0_axi_periph_M05_AXI_WVALID;
-  wire [13:0]rc_filter_0_adc_filt_a;
+  wire [0:0]reset1_dout;
   wire [0:0]reset_dout;
   wire rising32_0_falling;
   wire rising32_0_rising;
+  wire [0:0]run_enable_Dout;
+  wire [0:0]run_reset_Dout;
   wire [0:0]sign_Dout;
   wire [31:0]signal_split_0_M_AXIS_PORT1_tdata;
   wire [31:0]signal_split_0_M_AXIS_PORT2_tdata;
@@ -1397,6 +1408,7 @@ module system
   wire [17:0]xlconstant_5_dout;
   wire [13:0]xlslice_0_Dout;
   wire [15:0]xlslice_CH1_Dout;
+  wire [13:0]xlslice_CH2_14_Dout;
   wire [15:0]xlslice_CH2_Dout;
 
   assign adc_clk_n_i_1 = adc_clk_n_i;
@@ -1416,7 +1428,8 @@ module system
         .adc_dat_a(xlconcat_1_dout),
         .smooth_data(adc_smooth_mossbauer_0_smooth_data));
   system_axi_gpio_0_0 axi_gpio_0
-       (.gpio_io_i(data_concat_dout),
+       (.gpio2_io_i(adc_smooth_mossbauer_0_smooth_data),
+        .gpio_io_i(data_concat_dout),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[8:0]),
         .s_axi_aresetn(ARESETN_1),
@@ -1437,7 +1450,8 @@ module system
         .s_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
   system_axi_gpio_1_0 axi_gpio_1
-       (.gpio_io_i(adc_smooth_mossbauer_0_smooth_data),
+       (.gpio2_io_i(cycle_counter_1_for_count),
+        .gpio_io_i(cycle_counter_0_for_count),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M01_AXI_ARADDR[8:0]),
         .s_axi_aresetn(ARESETN_1),
@@ -1458,7 +1472,8 @@ module system
         .s_axi_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M01_AXI_WVALID));
   system_axi_gpio_2_0 axi_gpio_2
-       (.gpio_io_o(axi_gpio_2_gpio_io_o),
+       (.gpio2_io_o(axi_gpio_4_gpio_io_o),
+        .gpio_io_o(axi_gpio_2_gpio_io_o),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR[8:0]),
         .s_axi_aresetn(ARESETN_1),
@@ -1479,7 +1494,8 @@ module system
         .s_axi_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M02_AXI_WVALID));
   system_axi_gpio_3_0 axi_gpio_3
-       (.gpio_io_o(axi_gpio_3_gpio_io_o),
+       (.gpio2_io_o(axi_gpio_3_gpio2_io_o),
+        .gpio_io_o(axi_gpio_3_gpio_io_o),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M03_AXI_ARADDR[8:0]),
         .s_axi_aresetn(ARESETN_1),
@@ -1500,7 +1516,8 @@ module system
         .s_axi_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M03_AXI_WVALID));
   system_axi_gpio_4_0 axi_gpio_4
-       (.gpio_io_o(axi_gpio_4_gpio_io_o),
+       (.gpio2_io_i(event_count_0_backward_count),
+        .gpio_io_i(event_count_0_forward_count),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M04_AXI_ARADDR[8:0]),
         .s_axi_aresetn(ARESETN_1),
@@ -1521,7 +1538,7 @@ module system
         .s_axi_wstrb(ps7_0_axi_periph_M04_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M04_AXI_WVALID));
   system_axi_gpio_5_0 axi_gpio_5
-       (.gpio_io_i({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+       (.gpio_io_o(axi_gpio_5_gpio_io_o),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M05_AXI_ARADDR[8:0]),
         .s_axi_aresetn(ARESETN_1),
@@ -1556,32 +1573,56 @@ module system
         .enable(back_skim_enable),
         .mask(rising32_0_falling),
         .trigger(high_threshold_0_vlh));
-  system_util_vector_logic_0_2 backward_skim_voltage
-       (.Op1(skim_voltage_Res),
-        .Op2(rising32_0_falling));
   system_bessel_filter_0_0 bessel_filter_0
        (.adc_dat_a(xlslice_0_Dout),
         .adc_filt_a(bessel_filter_0_adc_filt_a),
         .clk(axis_red_pitaya_adc_0_adc_clk),
-        .reset(reset_dout));
+        .reset(reset1_dout));
   system_bessel_filter_1_0 bessel_filter_1
        (.adc_dat_a(bessel_filter_0_adc_filt_a),
         .adc_filt_a(bessel_filter_1_adc_filt_a),
         .clk(axis_red_pitaya_adc_0_adc_clk),
-        .reset(reset_dout));
+        .reset(reset1_dout));
+  system_xlslice_1_3 c_ht
+       (.Din(axi_gpio_5_gpio_io_o),
+        .Dout(c_ht_Dout));
+  system_cycle_counter_0_0 cycle_counter_0
+       (.clk(axis_red_pitaya_adc_0_adc_clk),
+        .for_count(cycle_counter_0_for_count),
+        .r_enable(run_enable_Dout),
+        .rst(run_reset_Dout),
+        .skim(forward_skim_enable));
+  system_cycle_counter_0_1 cycle_counter_1
+       (.clk(axis_red_pitaya_adc_0_adc_clk),
+        .for_count(cycle_counter_1_for_count),
+        .r_enable(run_enable_Dout),
+        .rst(run_reset_Dout),
+        .skim(back_skim_enable));
   system_data_concat_0 data_concat
        (.In0(xlslice_CH1_Dout),
         .In1(xlslice_CH2_Dout),
         .dout(data_concat_dout));
+  system_event_convert_0_0 event_convert_0
+       (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
+        .adc_dat_b(xlslice_CH2_14_Dout),
+        .high_threshold(c_ht_Dout),
+        .low_threshold(l_ht_Dout),
+        .schmitt_event(event_convert_0_schmitt_event));
+  system_event_count_0_0 event_count_0
+       (.backward_count(event_count_0_backward_count),
+        .bs(back_skim_enable),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .event_schmitt(event_convert_0_schmitt_event),
+        .forward_count(event_count_0_forward_count),
+        .fs(forward_skim_enable),
+        .run_enable(run_enable_Dout),
+        .run_rst(run_reset_Dout));
   system_trigger_mossbauer_0_0 forward_skim
        (.DURATION(axi_gpio_4_gpio_io_o),
         .clk(axis_red_pitaya_adc_0_adc_clk),
         .enable(forward_skim_enable),
         .mask(rising32_0_rising),
         .trigger(low_threshold_0_vgl));
-  system_util_vector_logic_0_1 forward_skim_voltage
-       (.Op1(rising32_0_rising),
-        .Op2(skim_voltage_Res));
   system_xlslice_1_0 high_threshold
        (.Din(axi_gpio_2_gpio_io_o),
         .Dout(high_threshold_Dout));
@@ -1591,6 +1632,9 @@ module system
         .input_high(high_threshold_Dout),
         .rst(reset_dout),
         .vlh(high_threshold_0_vlh));
+  system_xlslice_1_4 l_ht
+       (.Din(axi_gpio_5_gpio_io_o),
+        .Dout(l_ht_Dout));
   system_xlconcat_0_0 led_concat
        (.In0(low_threshold_0_vgl),
         .In1(high_threshold_0_vlh),
@@ -1866,17 +1910,10 @@ module system
         .S00_AXI_wready(S00_AXI_1_WREADY),
         .S00_AXI_wstrb(S00_AXI_1_WSTRB),
         .S00_AXI_wvalid(S00_AXI_1_WVALID));
-  system_rc_filter_0_0 rc_filter_0
-       (.adc_dat_a(xlslice_0_Dout),
-        .adc_filt_a(rc_filter_0_adc_filt_a),
-        .clk(axis_red_pitaya_adc_0_adc_clk),
-        .reset(reset_dout));
-  system_rc_filter_0_1 rc_filter_1
-       (.adc_dat_a(rc_filter_0_adc_filt_a),
-        .clk(axis_red_pitaya_adc_0_adc_clk),
-        .reset(reset_dout));
   system_reset_0 reset
        (.dout(reset_dout));
+  system_reset_1 reset1
+       (.dout(reset1_dout));
   system_rising32_0_0 rising32_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
         .adc_dat_a(adc_smooth_mossbauer_0_smooth_data),
@@ -1891,6 +1928,12 @@ module system
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(ARESETN_1),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
+  system_xlslice_1_2 run_enable
+       (.Din(axi_gpio_3_gpio2_io_o),
+        .Dout(run_enable_Dout));
+  system_xlslice_1_1 run_reset
+       (.Din(axi_gpio_3_gpio2_io_o),
+        .Dout(run_reset_Dout));
   system_sign_0 sign
        (.Din(xlslice_CH1_Dout),
         .Dout(sign_Dout));
@@ -1942,6 +1985,9 @@ module system
   system_xlslice_CH2_0 xlslice_CH2
        (.Din(signal_split_0_M_AXIS_PORT2_tdata),
         .Dout(xlslice_CH2_Dout));
+  system_xlslice_CH2_1 xlslice_CH2_14
+       (.Din(signal_split_0_M_AXIS_PORT2_tdata),
+        .Dout(xlslice_CH2_14_Dout));
 endmodule
 
 module system_ps7_0_axi_periph_0

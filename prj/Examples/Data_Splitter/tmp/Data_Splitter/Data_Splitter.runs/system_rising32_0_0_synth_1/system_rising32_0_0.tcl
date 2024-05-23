@@ -91,7 +91,7 @@ set_property ip_output_repo /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/rising32.v
+read_verilog -library xil_defaultlib /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/imports/Data_Splitter/verilog/rising32.v
 read_ip -quiet /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_rising32_0_0/system_rising32_0_0.xci
 
 OPTRACE "Adding files" END { }

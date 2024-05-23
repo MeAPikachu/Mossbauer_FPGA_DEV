@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1715915458">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1716496638">
   <File Type="VDS-TIMING-PB" Name="system_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="system_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="system_wrapper.dcp"/>
@@ -11,63 +11,98 @@
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../verilog/signal_split.v">
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/signal_split.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/signal_split.v"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/adc_smooth_mossbauer.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/adc_smooth_mossbauer.v"/>
+        <Attr Name="ImportTime" Val="1715901146"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/slow_clock_generator.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/slow_clock_generator.v"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/high_threshold.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/high_threshold.v"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/low_threshold.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/low_threshold.v"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/rising32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/rising32.v"/>
+        <Attr Name="ImportTime" Val="1715896244"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/trigger_mossbauer.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/trigger_mossbauer.v"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../verilog/bessel_filter2.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../verilog/adc_smooth_mossbauer.v">
+    <File Path="$PPRDIR/../../verilog/bessel_filter.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../verilog/slow_clock_generator.v">
+    <File Path="$PSRCDIR/sources_1/new/cycle_counter.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../verilog/high_threshold.v">
+    <File Path="$PSRCDIR/sources_1/new/event_convert.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../verilog/low_threshold.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../verilog/rising32.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../verilog/trigger_mossbauer.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/rc_filter.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/bessel_filter.v">
+    <File Path="$PSRCDIR/sources_1/new/event_count.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -98,15 +133,27 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../verilog/red_pitaya_dfilt1.v">
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/verilog/red_pitaya_dfilt1.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/red_pitaya_dfilt1.v"/>
+        <Attr Name="ImportTime" Val="1715895168"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v">
+    <File Path="$PSRCDIR/sources_1/imports/Data_Splitter/cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../cores/axis_red_pitaya_adc_v1_0/axis_red_pitaya_adc.v"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../verilog/rc_filter.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -121,14 +168,18 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../../cfg/clocks.xdc">
+    <File Path="$PSRCDIR/constrs_1/imports/cfg/clocks.xdc">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../cfg/clocks.xdc"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../cfg/ports.xdc">
+    <File Path="$PSRCDIR/constrs_1/imports/cfg/ports.xdc">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../cfg/ports.xdc"/>
+        <Attr Name="ImportTime" Val="1715875678"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
@@ -147,18 +198,23 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="system_event_count_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_5_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_event_convert_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_rising32_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_4_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_cycle_counter_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_cycle_counter_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_trigger_mossbauer_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_bessel_filter_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_adc_smooth_mossbauer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_rising32_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_bessel_filter_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_low_threshold_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_signal_split_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_2_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_high_threshold_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_slow_clock_generator_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_rc_filter_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_low_threshold_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_bessel_filter_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_signal_split_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_trigger_mossbauer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_rc_filter_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_trigger_mossbauer_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_slow_clock_generator_0_0"/>
 </GenRun>

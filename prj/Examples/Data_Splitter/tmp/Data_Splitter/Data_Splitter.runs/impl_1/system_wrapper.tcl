@@ -144,8 +144,8 @@ OPTRACE "add files" START { }
   add_files /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/system.bd
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/cfg/clocks.xdc
-  read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/cfg/ports.xdc
+  read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/constrs_1/imports/cfg/clocks.xdc
+  read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/constrs_1/imports/cfg/ports.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

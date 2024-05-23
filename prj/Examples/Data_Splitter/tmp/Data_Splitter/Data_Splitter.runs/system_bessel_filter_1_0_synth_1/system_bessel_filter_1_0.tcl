@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_bessel_filter_1_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 6
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -91,7 +92,8 @@ set_property ip_output_repo /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/new/bessel_filter.v
+read_verilog -library xil_defaultlib -sv /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/bessel_filter2.sv
+read_verilog -library xil_defaultlib /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/verilog/bessel_filter.v
 read_ip -quiet /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_bessel_filter_1_0/system_bessel_filter_1_0.xci
 
 OPTRACE "Adding files" END { }

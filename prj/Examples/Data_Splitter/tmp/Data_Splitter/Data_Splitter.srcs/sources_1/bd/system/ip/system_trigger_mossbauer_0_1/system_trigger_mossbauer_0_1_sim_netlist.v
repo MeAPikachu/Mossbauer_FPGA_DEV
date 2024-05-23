@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Wed May  8 20:25:55 2024
-// Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+// Date        : Tue May 21 18:24:28 2024
+// Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_trigger_mossbauer_0_1/system_trigger_mossbauer_0_1_sim_netlist.v
 // Design      : system_trigger_mossbauer_0_1
@@ -1283,7 +1283,7 @@ module system_trigger_mossbauer_0_1_trigger_mossbauer
         .I2(prev_signal),
         .O(prev_signal_i_1_n_0));
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     prev_signal_reg
        (.C(clk),
         .CE(1'b1),

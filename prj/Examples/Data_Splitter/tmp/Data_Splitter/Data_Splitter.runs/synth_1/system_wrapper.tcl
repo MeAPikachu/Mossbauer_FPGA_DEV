@@ -131,11 +131,11 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/cfg/clocks.xdc
-set_property used_in_implementation false [get_files /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/cfg/clocks.xdc]
+read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/constrs_1/imports/cfg/clocks.xdc
+set_property used_in_implementation false [get_files /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/constrs_1/imports/cfg/clocks.xdc]
 
-read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/cfg/ports.xdc
-set_property used_in_implementation false [get_files /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/cfg/ports.xdc]
+read_xdc /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/constrs_1/imports/cfg/ports.xdc
+set_property used_in_implementation false [get_files /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/constrs_1/imports/cfg/ports.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

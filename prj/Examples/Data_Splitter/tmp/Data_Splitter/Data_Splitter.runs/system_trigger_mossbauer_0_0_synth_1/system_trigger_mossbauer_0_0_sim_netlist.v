@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Wed May  8 20:25:55 2024
-// Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+// Date        : Tue May 21 18:24:27 2024
+// Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_trigger_mossbauer_0_0_sim_netlist.v
 // Design      : system_trigger_mossbauer_0_0
@@ -1282,7 +1282,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_trigger_mossbauer
         .I2(prev_signal),
         .O(prev_signal_i_1_n_0));
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     prev_signal_reg
        (.C(clk),
         .CE(1'b1),

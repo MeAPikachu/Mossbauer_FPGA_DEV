@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Wed May  8 20:25:55 2024
--- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+-- Date        : Tue May 21 18:24:27 2024
+-- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_trigger_mossbauer_0_1_sim_netlist.vhdl
 -- Design      : system_trigger_mossbauer_0_1
@@ -1775,7 +1775,7 @@ prev_signal_i_1: unisim.vcomponents.LUT3
     );
 prev_signal_reg: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => clk,
