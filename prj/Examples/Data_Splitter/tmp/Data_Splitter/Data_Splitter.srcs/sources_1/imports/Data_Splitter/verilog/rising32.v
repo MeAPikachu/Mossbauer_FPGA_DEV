@@ -61,14 +61,14 @@ reg signed [ADC_WIDTH-1:0] previous_data;
 // Noise : 0.8 ;  
 // So, here we use another schmitt trigger to solve this , to judge the direction precisely .
 always@(posedge slow_clk) begin
-    if ( input_signal > previous_data + 4 ) 
+    if ( input_signal > previous_data + 5 ) 
         rising <= 1'b1 ; 
-    else if ( input_signal < previous_data - 4 )
+    else if ( input_signal < previous_data - 5 )
         rising <= 1'b0 ; 
     
-    if (input_signal < previous_data - 3) 
+    if (input_signal < previous_data - 5) 
         falling <= 1'b1; 
-    else if (input_signal > previous_data + 3 )
+    else if (input_signal > previous_data + 5 )
         falling <= 1'b0 ;     
     
     previous_data <= input_signal ; 

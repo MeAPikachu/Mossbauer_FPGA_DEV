@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Wed May 22 16:41:15 2024
--- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+-- Date        : Thu May 23 14:57:58 2024
+-- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axi_gpio_2_0/system_axi_gpio_2_0_sim_netlist.vhdl
 -- Design      : system_axi_gpio_2_0
@@ -1477,27 +1477,27 @@ begin
       Q => \^gpio_io_o\(9),
       R => SS(0)
     );
-\Dual.gpio_Data_Out_reg[23]\: unisim.vcomponents.FDSE
-    generic map(
-      INIT => '1'
-    )
-        port map (
-      C => s_axi_aclk,
-      CE => E(0),
-      D => s_axi_wdata(8),
-      Q => \^gpio_io_o\(8),
-      S => SS(0)
-    );
-\Dual.gpio_Data_Out_reg[24]\: unisim.vcomponents.FDRE
+\Dual.gpio_Data_Out_reg[23]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
     )
         port map (
       C => s_axi_aclk,
       CE => E(0),
+      D => s_axi_wdata(8),
+      Q => \^gpio_io_o\(8),
+      R => SS(0)
+    );
+\Dual.gpio_Data_Out_reg[24]\: unisim.vcomponents.FDSE
+    generic map(
+      INIT => '1'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => E(0),
       D => s_axi_wdata(7),
       Q => \^gpio_io_o\(7),
-      R => SS(0)
+      S => SS(0)
     );
 \Dual.gpio_Data_Out_reg[25]\: unisim.vcomponents.FDRE
     generic map(
@@ -1598,16 +1598,16 @@ begin
       Q => \^gpio_io_o\(28),
       R => SS(0)
     );
-\Dual.gpio_Data_Out_reg[4]\: unisim.vcomponents.FDRE
+\Dual.gpio_Data_Out_reg[4]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => E(0),
       D => s_axi_wdata(27),
       Q => \^gpio_io_o\(27),
-      R => SS(0)
+      S => SS(0)
     );
 \Dual.gpio_Data_Out_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -3975,7 +3975,7 @@ entity system_axi_gpio_2_0_axi_gpio is
   attribute C_ALL_OUTPUTS_2 : integer;
   attribute C_ALL_OUTPUTS_2 of system_axi_gpio_2_0_axi_gpio : entity is 1;
   attribute C_DOUT_DEFAULT : integer;
-  attribute C_DOUT_DEFAULT of system_axi_gpio_2_0_axi_gpio : entity is 37749024;
+  attribute C_DOUT_DEFAULT of system_axi_gpio_2_0_axi_gpio : entity is 171966624;
   attribute C_DOUT_DEFAULT_2 : integer;
   attribute C_DOUT_DEFAULT_2 of system_axi_gpio_2_0_axi_gpio : entity is 312500000;
   attribute C_FAMILY : string;
@@ -4578,7 +4578,7 @@ architecture STRUCTURE of system_axi_gpio_2_0 is
   attribute C_ALL_OUTPUTS_2 : integer;
   attribute C_ALL_OUTPUTS_2 of U0 : label is 1;
   attribute C_DOUT_DEFAULT : integer;
-  attribute C_DOUT_DEFAULT of U0 : label is 37749024;
+  attribute C_DOUT_DEFAULT of U0 : label is 171966624;
   attribute C_DOUT_DEFAULT_2 : integer;
   attribute C_DOUT_DEFAULT_2 of U0 : label is 312500000;
   attribute C_FAMILY : string;

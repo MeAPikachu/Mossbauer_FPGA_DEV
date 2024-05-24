@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Wed May 22 16:05:25 2024
--- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+-- Date        : Thu May 23 20:44:10 2024
+-- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_event_convert_0_0/system_event_convert_0_0_sim_netlist.vhdl
 -- Design      : system_event_convert_0_0
@@ -17,9 +17,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_event_convert_0_0_event_convert is
   port (
     schmitt_event : out STD_LOGIC;
+    adc_dat_b : in STD_LOGIC_VECTOR ( 13 downto 0 );
     adc_clk : in STD_LOGIC;
     low_threshold : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    adc_dat_b : in STD_LOGIC_VECTOR ( 13 downto 0 );
     high_threshold : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -27,6 +27,7 @@ entity system_event_convert_0_0_event_convert is
 end system_event_convert_0_0_event_convert;
 
 architecture STRUCTURE of system_event_convert_0_0_event_convert is
+  signal input_signal : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal p_0_in : STD_LOGIC;
   signal p_1_in : STD_LOGIC;
   signal schmitt : STD_LOGIC;
@@ -71,6 +72,7 @@ architecture STRUCTURE of system_event_convert_0_0_event_convert is
   signal schmitt0_carry_n_2 : STD_LOGIC;
   signal schmitt0_carry_n_3 : STD_LOGIC;
   signal schmitt_i_1_n_0 : STD_LOGIC;
+  signal sync_1 : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal \NLW_schmitt0__6_carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_schmitt0__6_carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_schmitt0__6_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -83,6 +85,118 @@ architecture STRUCTURE of system_event_convert_0_0_event_convert is
   attribute COMPARATOR_THRESHOLD of schmitt0_carry : label is 11;
   attribute COMPARATOR_THRESHOLD of \schmitt0_carry__0\ : label is 11;
 begin
+\input_signal_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(0),
+      Q => input_signal(0),
+      R => '0'
+    );
+\input_signal_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(10),
+      Q => input_signal(10),
+      R => '0'
+    );
+\input_signal_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(11),
+      Q => input_signal(11),
+      R => '0'
+    );
+\input_signal_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(12),
+      Q => input_signal(12),
+      R => '0'
+    );
+\input_signal_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(13),
+      Q => input_signal(13),
+      R => '0'
+    );
+\input_signal_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(1),
+      Q => input_signal(1),
+      R => '0'
+    );
+\input_signal_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(2),
+      Q => input_signal(2),
+      R => '0'
+    );
+\input_signal_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(3),
+      Q => input_signal(3),
+      R => '0'
+    );
+\input_signal_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(4),
+      Q => input_signal(4),
+      R => '0'
+    );
+\input_signal_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(5),
+      Q => input_signal(5),
+      R => '0'
+    );
+\input_signal_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(6),
+      Q => input_signal(6),
+      R => '0'
+    );
+\input_signal_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(7),
+      Q => input_signal(7),
+      R => '0'
+    );
+\input_signal_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(8),
+      Q => input_signal(8),
+      R => '0'
+    );
+\input_signal_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => sync_1(9),
+      Q => input_signal(9),
+      R => '0'
+    );
 \schmitt0__6_carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
@@ -124,9 +238,9 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(12),
+      I0 => input_signal(12),
       I1 => high_threshold(12),
-      I2 => adc_dat_b(13),
+      I2 => input_signal(13),
       I3 => high_threshold(13),
       O => \schmitt0__6_carry__0_i_1_n_0\
     );
@@ -135,10 +249,10 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(10),
+      I0 => input_signal(10),
       I1 => high_threshold(10),
       I2 => high_threshold(11),
-      I3 => adc_dat_b(11),
+      I3 => input_signal(11),
       O => \schmitt0__6_carry__0_i_2_n_0\
     );
 \schmitt0__6_carry__0_i_3\: unisim.vcomponents.LUT4
@@ -146,10 +260,10 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(8),
+      I0 => input_signal(8),
       I1 => high_threshold(8),
       I2 => high_threshold(9),
-      I3 => adc_dat_b(9),
+      I3 => input_signal(9),
       O => \schmitt0__6_carry__0_i_3_n_0\
     );
 \schmitt0__6_carry__0_i_4\: unisim.vcomponents.LUT4
@@ -157,10 +271,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(12),
+      I0 => input_signal(12),
       I1 => high_threshold(12),
       I2 => high_threshold(13),
-      I3 => adc_dat_b(13),
+      I3 => input_signal(13),
       O => \schmitt0__6_carry__0_i_4_n_0\
     );
 \schmitt0__6_carry__0_i_5\: unisim.vcomponents.LUT4
@@ -168,9 +282,9 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(10),
+      I0 => input_signal(10),
       I1 => high_threshold(10),
-      I2 => adc_dat_b(11),
+      I2 => input_signal(11),
       I3 => high_threshold(11),
       O => \schmitt0__6_carry__0_i_5_n_0\
     );
@@ -179,9 +293,9 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(8),
+      I0 => input_signal(8),
       I1 => high_threshold(8),
-      I2 => adc_dat_b(9),
+      I2 => input_signal(9),
       I3 => high_threshold(9),
       O => \schmitt0__6_carry__0_i_6_n_0\
     );
@@ -190,10 +304,10 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(6),
+      I0 => input_signal(6),
       I1 => high_threshold(6),
       I2 => high_threshold(7),
-      I3 => adc_dat_b(7),
+      I3 => input_signal(7),
       O => \schmitt0__6_carry_i_1_n_0\
     );
 \schmitt0__6_carry_i_2\: unisim.vcomponents.LUT4
@@ -201,10 +315,10 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(4),
+      I0 => input_signal(4),
       I1 => high_threshold(4),
       I2 => high_threshold(5),
-      I3 => adc_dat_b(5),
+      I3 => input_signal(5),
       O => \schmitt0__6_carry_i_2_n_0\
     );
 \schmitt0__6_carry_i_3\: unisim.vcomponents.LUT4
@@ -212,10 +326,10 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(2),
+      I0 => input_signal(2),
       I1 => high_threshold(2),
       I2 => high_threshold(3),
-      I3 => adc_dat_b(3),
+      I3 => input_signal(3),
       O => \schmitt0__6_carry_i_3_n_0\
     );
 \schmitt0__6_carry_i_4\: unisim.vcomponents.LUT4
@@ -223,10 +337,10 @@ begin
       INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_b(0),
+      I0 => input_signal(0),
       I1 => high_threshold(0),
       I2 => high_threshold(1),
-      I3 => adc_dat_b(1),
+      I3 => input_signal(1),
       O => \schmitt0__6_carry_i_4_n_0\
     );
 \schmitt0__6_carry_i_5\: unisim.vcomponents.LUT4
@@ -234,9 +348,9 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(6),
+      I0 => input_signal(6),
       I1 => high_threshold(6),
-      I2 => adc_dat_b(7),
+      I2 => input_signal(7),
       I3 => high_threshold(7),
       O => \schmitt0__6_carry_i_5_n_0\
     );
@@ -245,9 +359,9 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(4),
+      I0 => input_signal(4),
       I1 => high_threshold(4),
-      I2 => adc_dat_b(5),
+      I2 => input_signal(5),
       I3 => high_threshold(5),
       O => \schmitt0__6_carry_i_6_n_0\
     );
@@ -256,9 +370,9 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(2),
+      I0 => input_signal(2),
       I1 => high_threshold(2),
-      I2 => adc_dat_b(3),
+      I2 => input_signal(3),
       I3 => high_threshold(3),
       O => \schmitt0__6_carry_i_7_n_0\
     );
@@ -267,9 +381,9 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => adc_dat_b(0),
+      I0 => input_signal(0),
       I1 => high_threshold(0),
-      I2 => adc_dat_b(1),
+      I2 => input_signal(1),
       I3 => high_threshold(1),
       O => \schmitt0__6_carry_i_8_n_0\
     );
@@ -315,9 +429,9 @@ schmitt0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => low_threshold(12),
-      I1 => adc_dat_b(12),
+      I1 => input_signal(12),
       I2 => low_threshold(13),
-      I3 => adc_dat_b(13),
+      I3 => input_signal(13),
       O => \schmitt0_carry__0_i_1_n_0\
     );
 \schmitt0_carry__0_i_2\: unisim.vcomponents.LUT4
@@ -326,8 +440,8 @@ schmitt0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => low_threshold(10),
-      I1 => adc_dat_b(10),
-      I2 => adc_dat_b(11),
+      I1 => input_signal(10),
+      I2 => input_signal(11),
       I3 => low_threshold(11),
       O => \schmitt0_carry__0_i_2_n_0\
     );
@@ -337,8 +451,8 @@ schmitt0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => low_threshold(8),
-      I1 => adc_dat_b(8),
-      I2 => adc_dat_b(9),
+      I1 => input_signal(8),
+      I2 => input_signal(9),
       I3 => low_threshold(9),
       O => \schmitt0_carry__0_i_3_n_0\
     );
@@ -348,8 +462,8 @@ schmitt0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => low_threshold(12),
-      I1 => adc_dat_b(12),
-      I2 => adc_dat_b(13),
+      I1 => input_signal(12),
+      I2 => input_signal(13),
       I3 => low_threshold(13),
       O => \schmitt0_carry__0_i_4_n_0\
     );
@@ -359,9 +473,9 @@ schmitt0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => low_threshold(10),
-      I1 => adc_dat_b(10),
+      I1 => input_signal(10),
       I2 => low_threshold(11),
-      I3 => adc_dat_b(11),
+      I3 => input_signal(11),
       O => \schmitt0_carry__0_i_5_n_0\
     );
 \schmitt0_carry__0_i_6\: unisim.vcomponents.LUT4
@@ -370,9 +484,9 @@ schmitt0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => low_threshold(8),
-      I1 => adc_dat_b(8),
+      I1 => input_signal(8),
       I2 => low_threshold(9),
-      I3 => adc_dat_b(9),
+      I3 => input_signal(9),
       O => \schmitt0_carry__0_i_6_n_0\
     );
 schmitt0_carry_i_1: unisim.vcomponents.LUT4
@@ -381,8 +495,8 @@ schmitt0_carry_i_1: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(6),
-      I1 => adc_dat_b(6),
-      I2 => adc_dat_b(7),
+      I1 => input_signal(6),
+      I2 => input_signal(7),
       I3 => low_threshold(7),
       O => schmitt0_carry_i_1_n_0
     );
@@ -392,8 +506,8 @@ schmitt0_carry_i_2: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(4),
-      I1 => adc_dat_b(4),
-      I2 => adc_dat_b(5),
+      I1 => input_signal(4),
+      I2 => input_signal(5),
       I3 => low_threshold(5),
       O => schmitt0_carry_i_2_n_0
     );
@@ -403,8 +517,8 @@ schmitt0_carry_i_3: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(2),
-      I1 => adc_dat_b(2),
-      I2 => adc_dat_b(3),
+      I1 => input_signal(2),
+      I2 => input_signal(3),
       I3 => low_threshold(3),
       O => schmitt0_carry_i_3_n_0
     );
@@ -414,8 +528,8 @@ schmitt0_carry_i_4: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(0),
-      I1 => adc_dat_b(0),
-      I2 => adc_dat_b(1),
+      I1 => input_signal(0),
+      I2 => input_signal(1),
       I3 => low_threshold(1),
       O => schmitt0_carry_i_4_n_0
     );
@@ -425,9 +539,9 @@ schmitt0_carry_i_5: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(6),
-      I1 => adc_dat_b(6),
+      I1 => input_signal(6),
       I2 => low_threshold(7),
-      I3 => adc_dat_b(7),
+      I3 => input_signal(7),
       O => schmitt0_carry_i_5_n_0
     );
 schmitt0_carry_i_6: unisim.vcomponents.LUT4
@@ -436,9 +550,9 @@ schmitt0_carry_i_6: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(4),
-      I1 => adc_dat_b(4),
+      I1 => input_signal(4),
       I2 => low_threshold(5),
-      I3 => adc_dat_b(5),
+      I3 => input_signal(5),
       O => schmitt0_carry_i_6_n_0
     );
 schmitt0_carry_i_7: unisim.vcomponents.LUT4
@@ -447,9 +561,9 @@ schmitt0_carry_i_7: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(2),
-      I1 => adc_dat_b(2),
+      I1 => input_signal(2),
       I2 => low_threshold(3),
-      I3 => adc_dat_b(3),
+      I3 => input_signal(3),
       O => schmitt0_carry_i_7_n_0
     );
 schmitt0_carry_i_8: unisim.vcomponents.LUT4
@@ -458,9 +572,9 @@ schmitt0_carry_i_8: unisim.vcomponents.LUT4
     )
         port map (
       I0 => low_threshold(0),
-      I1 => adc_dat_b(0),
+      I1 => input_signal(0),
       I2 => low_threshold(1),
-      I3 => adc_dat_b(1),
+      I3 => input_signal(1),
       O => schmitt0_carry_i_8_n_0
     );
 schmitt_event_reg: unisim.vcomponents.FDRE
@@ -490,6 +604,118 @@ schmitt_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => schmitt_i_1_n_0,
       Q => schmitt,
+      R => '0'
+    );
+\sync_1_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(0),
+      Q => sync_1(0),
+      R => '0'
+    );
+\sync_1_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(10),
+      Q => sync_1(10),
+      R => '0'
+    );
+\sync_1_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(11),
+      Q => sync_1(11),
+      R => '0'
+    );
+\sync_1_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(12),
+      Q => sync_1(12),
+      R => '0'
+    );
+\sync_1_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(13),
+      Q => sync_1(13),
+      R => '0'
+    );
+\sync_1_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(1),
+      Q => sync_1(1),
+      R => '0'
+    );
+\sync_1_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(2),
+      Q => sync_1(2),
+      R => '0'
+    );
+\sync_1_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(3),
+      Q => sync_1(3),
+      R => '0'
+    );
+\sync_1_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(4),
+      Q => sync_1(4),
+      R => '0'
+    );
+\sync_1_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(5),
+      Q => sync_1(5),
+      R => '0'
+    );
+\sync_1_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(6),
+      Q => sync_1(6),
+      R => '0'
+    );
+\sync_1_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(7),
+      Q => sync_1(7),
+      R => '0'
+    );
+\sync_1_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(8),
+      Q => sync_1(8),
+      R => '0'
+    );
+\sync_1_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => adc_clk,
+      CE => '1',
+      D => adc_dat_b(9),
+      Q => sync_1(9),
       R => '0'
     );
 end STRUCTURE;

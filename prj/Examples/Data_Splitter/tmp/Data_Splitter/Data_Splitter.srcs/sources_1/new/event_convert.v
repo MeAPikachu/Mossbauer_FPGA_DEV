@@ -33,9 +33,9 @@ module event_convert #(
 // For the fast clock , we still use the register buffer to improve the clock performance  
 wire signed [ADC_WIDTH-1 :0] data;  
 assign data = adc_dat_b[ADC_WIDTH-1:0];
+
 reg signed [ADC_WIDTH-1 :0 ] input_signal ; 
 reg signed [ADC_WIDTH-1 :0 ] sync_1 ;    
-    // Data Sync 
 always@(posedge adc_clk) begin 
     sync_1 <= data ;
     input_signal <= sync_1;
@@ -44,10 +44,10 @@ end
 reg schmitt = 1 ;
 
 always @(posedge adc_clk) begin 
-    if (adc_dat_b > high_threshold ) begin 
+    if (input_signal > high_threshold ) begin 
         schmitt <= 1 ;
     end 
-    else if (adc_dat_b < low_threshold ) begin 
+    else if (input_signal < low_threshold ) begin 
         schmitt <= 0; 
     end
     

@@ -70,7 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "system_axi_gpio_2_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 6
+set_param chipscope.maxJobs 1
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run

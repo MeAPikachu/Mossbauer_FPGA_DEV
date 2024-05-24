@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Wed May 22 16:05:25 2024
-// Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+// Date        : Thu May 23 20:44:09 2024
+// Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_event_convert_0_0_sim_netlist.v
 // Design      : system_event_convert_0_0
@@ -14,19 +14,20 @@
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_event_convert
    (schmitt_event,
+    adc_dat_b,
     adc_clk,
     low_threshold,
-    adc_dat_b,
     high_threshold);
   output schmitt_event;
+  input [13:0]adc_dat_b;
   input adc_clk;
   input [13:0]low_threshold;
-  input [13:0]adc_dat_b;
   input [13:0]high_threshold;
 
   wire adc_clk;
   wire [13:0]adc_dat_b;
   wire [13:0]high_threshold;
+  wire [13:0]input_signal;
   wire [13:0]low_threshold;
   wire p_0_in;
   wire p_1_in;
@@ -73,6 +74,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_event_convert
   wire schmitt0_carry_n_3;
   wire schmitt_event;
   wire schmitt_i_1_n_0;
+  wire [13:0]sync_1;
   wire [3:0]NLW_schmitt0__6_carry_O_UNCONNECTED;
   wire [3:3]NLW_schmitt0__6_carry__0_CO_UNCONNECTED;
   wire [3:0]NLW_schmitt0__6_carry__0_O_UNCONNECTED;
@@ -80,6 +82,90 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_event_convert
   wire [3:3]NLW_schmitt0_carry__0_CO_UNCONNECTED;
   wire [3:0]NLW_schmitt0_carry__0_O_UNCONNECTED;
 
+  FDRE \input_signal_reg[0] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[0]),
+        .Q(input_signal[0]),
+        .R(1'b0));
+  FDRE \input_signal_reg[10] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[10]),
+        .Q(input_signal[10]),
+        .R(1'b0));
+  FDRE \input_signal_reg[11] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[11]),
+        .Q(input_signal[11]),
+        .R(1'b0));
+  FDRE \input_signal_reg[12] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[12]),
+        .Q(input_signal[12]),
+        .R(1'b0));
+  FDRE \input_signal_reg[13] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[13]),
+        .Q(input_signal[13]),
+        .R(1'b0));
+  FDRE \input_signal_reg[1] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[1]),
+        .Q(input_signal[1]),
+        .R(1'b0));
+  FDRE \input_signal_reg[2] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[2]),
+        .Q(input_signal[2]),
+        .R(1'b0));
+  FDRE \input_signal_reg[3] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[3]),
+        .Q(input_signal[3]),
+        .R(1'b0));
+  FDRE \input_signal_reg[4] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[4]),
+        .Q(input_signal[4]),
+        .R(1'b0));
+  FDRE \input_signal_reg[5] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[5]),
+        .Q(input_signal[5]),
+        .R(1'b0));
+  FDRE \input_signal_reg[6] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[6]),
+        .Q(input_signal[6]),
+        .R(1'b0));
+  FDRE \input_signal_reg[7] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[7]),
+        .Q(input_signal[7]),
+        .R(1'b0));
+  FDRE \input_signal_reg[8] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[8]),
+        .Q(input_signal[8]),
+        .R(1'b0));
+  FDRE \input_signal_reg[9] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(sync_1[9]),
+        .Q(input_signal[9]),
+        .R(1'b0));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 schmitt0__6_carry
        (.CI(1'b0),
@@ -99,113 +185,113 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_event_convert
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry__0_i_1
-       (.I0(adc_dat_b[12]),
+       (.I0(input_signal[12]),
         .I1(high_threshold[12]),
-        .I2(adc_dat_b[13]),
+        .I2(input_signal[13]),
         .I3(high_threshold[13]),
         .O(schmitt0__6_carry__0_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry__0_i_2
-       (.I0(adc_dat_b[10]),
+       (.I0(input_signal[10]),
         .I1(high_threshold[10]),
         .I2(high_threshold[11]),
-        .I3(adc_dat_b[11]),
+        .I3(input_signal[11]),
         .O(schmitt0__6_carry__0_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry__0_i_3
-       (.I0(adc_dat_b[8]),
+       (.I0(input_signal[8]),
         .I1(high_threshold[8]),
         .I2(high_threshold[9]),
-        .I3(adc_dat_b[9]),
+        .I3(input_signal[9]),
         .O(schmitt0__6_carry__0_i_3_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry__0_i_4
-       (.I0(adc_dat_b[12]),
+       (.I0(input_signal[12]),
         .I1(high_threshold[12]),
         .I2(high_threshold[13]),
-        .I3(adc_dat_b[13]),
+        .I3(input_signal[13]),
         .O(schmitt0__6_carry__0_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry__0_i_5
-       (.I0(adc_dat_b[10]),
+       (.I0(input_signal[10]),
         .I1(high_threshold[10]),
-        .I2(adc_dat_b[11]),
+        .I2(input_signal[11]),
         .I3(high_threshold[11]),
         .O(schmitt0__6_carry__0_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry__0_i_6
-       (.I0(adc_dat_b[8]),
+       (.I0(input_signal[8]),
         .I1(high_threshold[8]),
-        .I2(adc_dat_b[9]),
+        .I2(input_signal[9]),
         .I3(high_threshold[9]),
         .O(schmitt0__6_carry__0_i_6_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry_i_1
-       (.I0(adc_dat_b[6]),
+       (.I0(input_signal[6]),
         .I1(high_threshold[6]),
         .I2(high_threshold[7]),
-        .I3(adc_dat_b[7]),
+        .I3(input_signal[7]),
         .O(schmitt0__6_carry_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry_i_2
-       (.I0(adc_dat_b[4]),
+       (.I0(input_signal[4]),
         .I1(high_threshold[4]),
         .I2(high_threshold[5]),
-        .I3(adc_dat_b[5]),
+        .I3(input_signal[5]),
         .O(schmitt0__6_carry_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry_i_3
-       (.I0(adc_dat_b[2]),
+       (.I0(input_signal[2]),
         .I1(high_threshold[2]),
         .I2(high_threshold[3]),
-        .I3(adc_dat_b[3]),
+        .I3(input_signal[3]),
         .O(schmitt0__6_carry_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0__6_carry_i_4
-       (.I0(adc_dat_b[0]),
+       (.I0(input_signal[0]),
         .I1(high_threshold[0]),
         .I2(high_threshold[1]),
-        .I3(adc_dat_b[1]),
+        .I3(input_signal[1]),
         .O(schmitt0__6_carry_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry_i_5
-       (.I0(adc_dat_b[6]),
+       (.I0(input_signal[6]),
         .I1(high_threshold[6]),
-        .I2(adc_dat_b[7]),
+        .I2(input_signal[7]),
         .I3(high_threshold[7]),
         .O(schmitt0__6_carry_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry_i_6
-       (.I0(adc_dat_b[4]),
+       (.I0(input_signal[4]),
         .I1(high_threshold[4]),
-        .I2(adc_dat_b[5]),
+        .I2(input_signal[5]),
         .I3(high_threshold[5]),
         .O(schmitt0__6_carry_i_6_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry_i_7
-       (.I0(adc_dat_b[2]),
+       (.I0(input_signal[2]),
         .I1(high_threshold[2]),
-        .I2(adc_dat_b[3]),
+        .I2(input_signal[3]),
         .I3(high_threshold[3]),
         .O(schmitt0__6_carry_i_7_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0__6_carry_i_8
-       (.I0(adc_dat_b[0]),
+       (.I0(input_signal[0]),
         .I1(high_threshold[0]),
-        .I2(adc_dat_b[1]),
+        .I2(input_signal[1]),
         .I3(high_threshold[1]),
         .O(schmitt0__6_carry_i_8_n_0));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -228,113 +314,113 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_event_convert
     .INIT(16'h2F02)) 
     schmitt0_carry__0_i_1
        (.I0(low_threshold[12]),
-        .I1(adc_dat_b[12]),
+        .I1(input_signal[12]),
         .I2(low_threshold[13]),
-        .I3(adc_dat_b[13]),
+        .I3(input_signal[13]),
         .O(schmitt0_carry__0_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0_carry__0_i_2
        (.I0(low_threshold[10]),
-        .I1(adc_dat_b[10]),
-        .I2(adc_dat_b[11]),
+        .I1(input_signal[10]),
+        .I2(input_signal[11]),
         .I3(low_threshold[11]),
         .O(schmitt0_carry__0_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0_carry__0_i_3
        (.I0(low_threshold[8]),
-        .I1(adc_dat_b[8]),
-        .I2(adc_dat_b[9]),
+        .I1(input_signal[8]),
+        .I2(input_signal[9]),
         .I3(low_threshold[9]),
         .O(schmitt0_carry__0_i_3_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry__0_i_4
        (.I0(low_threshold[12]),
-        .I1(adc_dat_b[12]),
-        .I2(adc_dat_b[13]),
+        .I1(input_signal[12]),
+        .I2(input_signal[13]),
         .I3(low_threshold[13]),
         .O(schmitt0_carry__0_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry__0_i_5
        (.I0(low_threshold[10]),
-        .I1(adc_dat_b[10]),
+        .I1(input_signal[10]),
         .I2(low_threshold[11]),
-        .I3(adc_dat_b[11]),
+        .I3(input_signal[11]),
         .O(schmitt0_carry__0_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry__0_i_6
        (.I0(low_threshold[8]),
-        .I1(adc_dat_b[8]),
+        .I1(input_signal[8]),
         .I2(low_threshold[9]),
-        .I3(adc_dat_b[9]),
+        .I3(input_signal[9]),
         .O(schmitt0_carry__0_i_6_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0_carry_i_1
        (.I0(low_threshold[6]),
-        .I1(adc_dat_b[6]),
-        .I2(adc_dat_b[7]),
+        .I1(input_signal[6]),
+        .I2(input_signal[7]),
         .I3(low_threshold[7]),
         .O(schmitt0_carry_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0_carry_i_2
        (.I0(low_threshold[4]),
-        .I1(adc_dat_b[4]),
-        .I2(adc_dat_b[5]),
+        .I1(input_signal[4]),
+        .I2(input_signal[5]),
         .I3(low_threshold[5]),
         .O(schmitt0_carry_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0_carry_i_3
        (.I0(low_threshold[2]),
-        .I1(adc_dat_b[2]),
-        .I2(adc_dat_b[3]),
+        .I1(input_signal[2]),
+        .I2(input_signal[3]),
         .I3(low_threshold[3]),
         .O(schmitt0_carry_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     schmitt0_carry_i_4
        (.I0(low_threshold[0]),
-        .I1(adc_dat_b[0]),
-        .I2(adc_dat_b[1]),
+        .I1(input_signal[0]),
+        .I2(input_signal[1]),
         .I3(low_threshold[1]),
         .O(schmitt0_carry_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry_i_5
        (.I0(low_threshold[6]),
-        .I1(adc_dat_b[6]),
+        .I1(input_signal[6]),
         .I2(low_threshold[7]),
-        .I3(adc_dat_b[7]),
+        .I3(input_signal[7]),
         .O(schmitt0_carry_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry_i_6
        (.I0(low_threshold[4]),
-        .I1(adc_dat_b[4]),
+        .I1(input_signal[4]),
         .I2(low_threshold[5]),
-        .I3(adc_dat_b[5]),
+        .I3(input_signal[5]),
         .O(schmitt0_carry_i_6_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry_i_7
        (.I0(low_threshold[2]),
-        .I1(adc_dat_b[2]),
+        .I1(input_signal[2]),
         .I2(low_threshold[3]),
-        .I3(adc_dat_b[3]),
+        .I3(input_signal[3]),
         .O(schmitt0_carry_i_7_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     schmitt0_carry_i_8
        (.I0(low_threshold[0]),
-        .I1(adc_dat_b[0]),
+        .I1(input_signal[0]),
         .I2(low_threshold[1]),
-        .I3(adc_dat_b[1]),
+        .I3(input_signal[1]),
         .O(schmitt0_carry_i_8_n_0));
   FDRE schmitt_event_reg
        (.C(adc_clk),
@@ -356,6 +442,90 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_event_convert
         .CE(1'b1),
         .D(schmitt_i_1_n_0),
         .Q(schmitt),
+        .R(1'b0));
+  FDRE \sync_1_reg[0] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[0]),
+        .Q(sync_1[0]),
+        .R(1'b0));
+  FDRE \sync_1_reg[10] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[10]),
+        .Q(sync_1[10]),
+        .R(1'b0));
+  FDRE \sync_1_reg[11] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[11]),
+        .Q(sync_1[11]),
+        .R(1'b0));
+  FDRE \sync_1_reg[12] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[12]),
+        .Q(sync_1[12]),
+        .R(1'b0));
+  FDRE \sync_1_reg[13] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[13]),
+        .Q(sync_1[13]),
+        .R(1'b0));
+  FDRE \sync_1_reg[1] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[1]),
+        .Q(sync_1[1]),
+        .R(1'b0));
+  FDRE \sync_1_reg[2] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[2]),
+        .Q(sync_1[2]),
+        .R(1'b0));
+  FDRE \sync_1_reg[3] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[3]),
+        .Q(sync_1[3]),
+        .R(1'b0));
+  FDRE \sync_1_reg[4] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[4]),
+        .Q(sync_1[4]),
+        .R(1'b0));
+  FDRE \sync_1_reg[5] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[5]),
+        .Q(sync_1[5]),
+        .R(1'b0));
+  FDRE \sync_1_reg[6] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[6]),
+        .Q(sync_1[6]),
+        .R(1'b0));
+  FDRE \sync_1_reg[7] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[7]),
+        .Q(sync_1[7]),
+        .R(1'b0));
+  FDRE \sync_1_reg[8] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[8]),
+        .Q(sync_1[8]),
+        .R(1'b0));
+  FDRE \sync_1_reg[9] 
+       (.C(adc_clk),
+        .CE(1'b1),
+        .D(adc_dat_b[9]),
+        .Q(sync_1[9]),
         .R(1'b0));
 endmodule
 

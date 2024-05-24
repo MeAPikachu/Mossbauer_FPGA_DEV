@@ -60,12 +60,13 @@
       "back_skim": "",
       "cycle_counter_0": "",
       "cycle_counter_1": "",
-      "rising32_0": "",
       "xlslice_CH2": "",
       "xlslice_CH2_14": "",
-      "event_convert_0": "",
       "c_ht": "",
-      "l_ht": "",
+      "c_lt": "",
+      "rising32_0": "",
+      "util_vector_logic_0": "",
+      "event_convert_0": "",
       "event_count_0": ""
     },
     "interface_ports": {
@@ -2056,16 +2057,16 @@
               }
             },
             "interface_nets": {
-              "auto_pc_to_s00_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "auto_pc/M_AXI"
-                ]
-              },
               "s00_couplers_to_auto_pc": {
                 "interface_ports": [
                   "S_AXI",
                   "auto_pc/S_AXI"
+                ]
+              },
+              "auto_pc_to_s00_couplers": {
+                "interface_ports": [
+                  "M_AXI",
+                  "auto_pc/M_AXI"
                 ]
               }
             },
@@ -2410,10 +2411,16 @@
           }
         },
         "interface_nets": {
-          "m01_couplers_to_ps7_0_axi_periph": {
+          "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
-              "M01_AXI",
-              "m01_couplers/M_AXI"
+              "S00_AXI",
+              "s00_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m04_couplers": {
+            "interface_ports": [
+              "xbar/M04_AXI",
+              "m04_couplers/S_AXI"
             ]
           },
           "m02_couplers_to_ps7_0_axi_periph": {
@@ -2422,58 +2429,16 @@
               "m02_couplers/M_AXI"
             ]
           },
-          "ps7_0_axi_periph_to_s00_couplers": {
-            "interface_ports": [
-              "S00_AXI",
-              "s00_couplers/S_AXI"
-            ]
-          },
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
-            ]
-          },
           "m05_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
               "M05_AXI",
               "m05_couplers/M_AXI"
             ]
           },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
-            ]
-          },
-          "xbar_to_m02_couplers": {
-            "interface_ports": [
-              "xbar/M02_AXI",
-              "m02_couplers/S_AXI"
-            ]
-          },
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
-          "m03_couplers_to_ps7_0_axi_periph": {
-            "interface_ports": [
-              "M03_AXI",
-              "m03_couplers/M_AXI"
-            ]
-          },
           "xbar_to_m05_couplers": {
             "interface_ports": [
               "xbar/M05_AXI",
               "m05_couplers/S_AXI"
-            ]
-          },
-          "m00_couplers_to_ps7_0_axi_periph": {
-            "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
             ]
           },
           "m04_couplers_to_ps7_0_axi_periph": {
@@ -2488,10 +2453,46 @@
               "m03_couplers/S_AXI"
             ]
           },
-          "xbar_to_m04_couplers": {
+          "m00_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
-              "xbar/M04_AXI",
-              "m04_couplers/S_AXI"
+              "M00_AXI",
+              "m00_couplers/M_AXI"
+            ]
+          },
+          "s00_couplers_to_xbar": {
+            "interface_ports": [
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
+            ]
+          },
+          "xbar_to_m02_couplers": {
+            "interface_ports": [
+              "xbar/M02_AXI",
+              "m02_couplers/S_AXI"
+            ]
+          },
+          "m01_couplers_to_ps7_0_axi_periph": {
+            "interface_ports": [
+              "M01_AXI",
+              "m01_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
+            ]
+          },
+          "m03_couplers_to_ps7_0_axi_periph": {
+            "interface_ports": [
+              "M03_AXI",
+              "m03_couplers/M_AXI"
             ]
           }
         },
@@ -2583,7 +2584,7 @@
             "value": "1"
           },
           "C_DOUT_DEFAULT": {
-            "value": "0x02400120"
+            "value": "0x0a4000a0"
           },
           "C_DOUT_DEFAULT_2": {
             "value": "0x12a05f20"
@@ -2643,7 +2644,7 @@
             "value": "1"
           },
           "C_DOUT_DEFAULT": {
-            "value": "0xFE9F0160"
+            "value": "0x02000100"
           },
           "C_IS_DUAL": {
             "value": "1"
@@ -3187,7 +3188,13 @@
           "axis_adc_a": {
             "direction": "O",
             "left": "31",
-            "right": "0"
+            "right": "0",
+            "parameters": {
+              "PortWidth": {
+                "value": "32",
+                "value_src": "ip_prop"
+              }
+            }
           }
         }
       },
@@ -3472,6 +3479,60 @@
           }
         }
       },
+      "xlslice_CH2": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "system_xlslice_CH2_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "15"
+          },
+          "DOUT_WIDTH": {
+            "value": "16"
+          }
+        }
+      },
+      "xlslice_CH2_14": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "system_xlslice_CH2_1",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "13"
+          },
+          "DOUT_WIDTH": {
+            "value": "14"
+          }
+        }
+      },
+      "c_ht": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "system_xlslice_1_3",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "29"
+          },
+          "DIN_TO": {
+            "value": "16"
+          },
+          "DOUT_WIDTH": {
+            "value": "14"
+          }
+        }
+      },
+      "c_lt": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "system_xlslice_1_4",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "13"
+          },
+          "DIN_TO": {
+            "value": "0"
+          },
+          "DOUT_WIDTH": {
+            "value": "14"
+          }
+        }
+      },
       "rising32_0": {
         "vlnv": "xilinx.com:module_ref:rising32:1.0",
         "xci_name": "system_rising32_0_0",
@@ -3528,27 +3589,15 @@
           }
         }
       },
-      "xlslice_CH2": {
-        "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "system_xlslice_CH2_0",
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "system_util_vector_logic_0_1",
         "parameters": {
-          "DIN_FROM": {
-            "value": "15"
+          "C_OPERATION": {
+            "value": "or"
           },
-          "DOUT_WIDTH": {
-            "value": "16"
-          }
-        }
-      },
-      "xlslice_CH2_14": {
-        "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "system_xlslice_CH2_1",
-        "parameters": {
-          "DIN_FROM": {
-            "value": "13"
-          },
-          "DOUT_WIDTH": {
-            "value": "14"
+          "C_SIZE": {
+            "value": "1"
           }
         }
       },
@@ -3592,33 +3641,6 @@
           },
           "schmitt_event": {
             "direction": "O"
-          }
-        }
-      },
-      "c_ht": {
-        "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "system_xlslice_1_3",
-        "parameters": {
-          "DIN_FROM": {
-            "value": "13"
-          },
-          "DOUT_WIDTH": {
-            "value": "14"
-          }
-        }
-      },
-      "l_ht": {
-        "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "system_xlslice_1_4",
-        "parameters": {
-          "DIN_FROM": {
-            "value": "29"
-          },
-          "DIN_TO": {
-            "value": "16"
-          },
-          "DOUT_WIDTH": {
-            "value": "14"
           }
         }
       },
@@ -3848,9 +3870,7 @@
         "ports": [
           "signal_split_0/M_AXIS_PORT1_tdata",
           "xlslice_CH1/Din",
-          "xlslice_0/Din",
-          "low_threshold_0/adc_dat_a",
-          "high_threshold_0/adc_dat_a"
+          "xlslice_0/Din"
         ]
       },
       "axis_red_pitaya_adc_0_adc_clk": {
@@ -3904,24 +3924,12 @@
           "high_threshold/Din"
         ]
       },
-      "high_threshold_Dout": {
-        "ports": [
-          "high_threshold/Dout",
-          "high_threshold_0/input_high"
-        ]
-      },
       "reset_dout": {
         "ports": [
           "reset/dout",
           "low_threshold_0/rst",
           "high_threshold_0/rst",
           "rising32_0/rst"
-        ]
-      },
-      "low_threshold_Dout": {
-        "ports": [
-          "low_threshold/Dout",
-          "low_threshold_0/input_low"
         ]
       },
       "slow_clock_generator_0_slow_clk": {
@@ -3972,8 +3980,7 @@
       "skim_voltage_Res": {
         "ports": [
           "skim_voltage/Res",
-          "led_concat/In4",
-          "xlconcat_0/In2"
+          "led_concat/In4"
         ]
       },
       "sign_Dout": {
@@ -4000,6 +4007,7 @@
           "xlconcat_0/In0",
           "led_concat/In5",
           "cycle_counter_0/skim",
+          "util_vector_logic_0/Op2",
           "event_count_0/fs"
         ]
       },
@@ -4009,6 +4017,7 @@
           "xlconcat_0/In1",
           "led_concat/In6",
           "cycle_counter_1/skim",
+          "util_vector_logic_0/Op1",
           "event_count_0/bs"
         ]
       },
@@ -4113,7 +4122,7 @@
         "ports": [
           "axi_gpio_5/gpio_io_o",
           "c_ht/Din",
-          "l_ht/Din"
+          "c_lt/Din"
         ]
       },
       "c_ht_Dout": {
@@ -4124,7 +4133,7 @@
       },
       "l_ht_Dout": {
         "ports": [
-          "l_ht/Dout",
+          "c_lt/Dout",
           "event_convert_0/low_threshold"
         ]
       },
@@ -4144,6 +4153,31 @@
         "ports": [
           "event_count_0/backward_count",
           "axi_gpio_4/gpio2_io_i"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "xlconcat_0/In2"
+        ]
+      },
+      "low_threshold_Dout": {
+        "ports": [
+          "low_threshold/Dout",
+          "low_threshold_0/input_low"
+        ]
+      },
+      "high_threshold_Dout": {
+        "ports": [
+          "high_threshold/Dout",
+          "high_threshold_0/input_high"
+        ]
+      },
+      "adc_smooth_mossbauer_0_axis_adc_a": {
+        "ports": [
+          "adc_smooth_mossbauer_0/axis_adc_a",
+          "high_threshold_0/adc_dat_a",
+          "low_threshold_0/adc_dat_a"
         ]
       }
     },

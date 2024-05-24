@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Thu May 23 13:37:13 2024
-//Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+//Date        : Thu May 23 20:45:47 2024
+//Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -1106,7 +1106,7 @@ module s00_couplers_imp_11SE3QO
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=55,numReposBlks=47,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=48,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -1234,6 +1234,7 @@ module system
   wire adc_clk_p_i_1;
   wire [13:0]adc_dat_a_i_1;
   wire [13:0]adc_dat_b_i_1;
+  wire [31:0]adc_smooth_mossbauer_0_axis_adc_a;
   wire [31:0]adc_smooth_mossbauer_0_smooth_data;
   wire [31:0]axi_gpio_2_gpio_io_o;
   wire [31:0]axi_gpio_3_gpio2_io_o;
@@ -1402,6 +1403,7 @@ module system
   wire [1:0]util_ds_buf_1_IBUF_OUT;
   wire [1:0]util_ds_buf_2_OBUF_DS_N;
   wire [1:0]util_ds_buf_2_OBUF_DS_P;
+  wire [0:0]util_vector_logic_0_Res;
   wire [7:0]xlconcat_0_dout;
   wire [31:0]xlconcat_1_dout;
   wire [7:0]xlconstant_0_dout;
@@ -1426,6 +1428,7 @@ module system
   system_adc_smooth_mossbauer_0_0 adc_smooth_mossbauer_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
         .adc_dat_a(xlconcat_1_dout),
+        .axis_adc_a(adc_smooth_mossbauer_0_axis_adc_a),
         .smooth_data(adc_smooth_mossbauer_0_smooth_data));
   system_axi_gpio_0_0 axi_gpio_0
        (.gpio2_io_i(adc_smooth_mossbauer_0_smooth_data),
@@ -1586,6 +1589,9 @@ module system
   system_xlslice_1_3 c_ht
        (.Din(axi_gpio_5_gpio_io_o),
         .Dout(c_ht_Dout));
+  system_xlslice_1_4 c_lt
+       (.Din(axi_gpio_5_gpio_io_o),
+        .Dout(l_ht_Dout));
   system_cycle_counter_0_0 cycle_counter_0
        (.clk(axis_red_pitaya_adc_0_adc_clk),
         .for_count(cycle_counter_0_for_count),
@@ -1628,13 +1634,10 @@ module system
         .Dout(high_threshold_Dout));
   system_high_threshold_0_0 high_threshold_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
-        .adc_dat_a(signal_split_0_M_AXIS_PORT1_tdata),
+        .adc_dat_a(adc_smooth_mossbauer_0_axis_adc_a),
         .input_high(high_threshold_Dout),
         .rst(reset_dout),
         .vlh(high_threshold_0_vlh));
-  system_xlslice_1_4 l_ht
-       (.Din(axi_gpio_5_gpio_io_o),
-        .Dout(l_ht_Dout));
   system_xlconcat_0_0 led_concat
        (.In0(low_threshold_0_vgl),
         .In1(high_threshold_0_vlh),
@@ -1650,7 +1653,7 @@ module system
         .Dout(low_threshold_Dout));
   system_low_threshold_0_0 low_threshold_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
-        .adc_dat_a(signal_split_0_M_AXIS_PORT1_tdata),
+        .adc_dat_a(adc_smooth_mossbauer_0_axis_adc_a),
         .input_low(low_threshold_Dout),
         .rst(reset_dout),
         .vgl(low_threshold_0_vgl));
@@ -1958,10 +1961,14 @@ module system
        (.OBUF_DS_N(util_ds_buf_2_OBUF_DS_N),
         .OBUF_DS_P(util_ds_buf_2_OBUF_DS_P),
         .OBUF_IN(util_ds_buf_1_IBUF_OUT));
+  system_util_vector_logic_0_1 util_vector_logic_0
+       (.Op1(back_skim_enable),
+        .Op2(forward_skim_enable),
+        .Res(util_vector_logic_0_Res));
   system_xlconcat_0_1 xlconcat_0
        (.In0(forward_skim_enable),
         .In1(back_skim_enable),
-        .In2(skim_voltage_Res),
+        .In2(util_vector_logic_0_Res),
         .In3(rising32_0_rising),
         .In4(rising32_0_falling),
         .In5(1'b0),

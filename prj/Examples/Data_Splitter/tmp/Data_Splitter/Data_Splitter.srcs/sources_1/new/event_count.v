@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module event_count #(
     parameter ADC_WIDTH= 14 ,
     parameter COUNT_WIDTH = 32 
@@ -49,27 +48,39 @@ module event_count #(
     reg [COUNT_WIDTH-1:0] bc ;
     
     always@ (posedge clk) begin 
+
+    end 
+
+    // Still use buffer to the schmitt trigger 
+    reg input_signal=0 ;
+    reg prev_signal =1  ;
+    reg sync_1 =0 ;
+    always@(posedge clk) begin 
+            sync_1 <= event_schmitt; 
+            input_signal <= sync_1 ;  
+    end 
+
+    
+    always@ (posedge clk) begin 
         if(~run_rst) begin 
             fc <= 0 ; // if we need to reset the value of the fc 
             bc <= 0 ; 
-        end 
+        end
+        else if (!prev_signal && input_signal) begin 
+            if (run_enable) begin 
+             if (fsl) begin 
+                  fc <= fc+ 1 ; 
+             end 
+            
+             if (bsl) begin 
+                  bc <= bc+ 1 ;
+             end 
+            end 
+        end
         
+        prev_signal <= input_signal ; 
         forward_count <= fc ;
         backward_count <= bc ; 
-    end 
-    // The run_rst should be based on the fast clock , instead of the event clock (schmitt )
-    
-    
-    
-    always@ (posedge event_schmitt) begin 
-        if (run_enable) begin 
-            if (fsl) begin 
-                fc <= fc+ 1 ; 
-            end 
-            else if (bsl) begin 
-                bc <= bc+ 1 ;
-            end 
-        end 
     end 
     
     

@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Wed May 22 16:41:14 2024
-// Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+// Date        : Thu May 23 14:57:58 2024
+// Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axi_gpio_2_0/system_axi_gpio_2_0_sim_netlist.v
 // Design      : system_axi_gpio_2_0
@@ -87,7 +87,7 @@ module system_axi_gpio_2_0
   (* C_ALL_INPUTS_2 = "0" *) 
   (* C_ALL_OUTPUTS = "1" *) 
   (* C_ALL_OUTPUTS_2 = "1" *) 
-  (* C_DOUT_DEFAULT = "37749024" *) 
+  (* C_DOUT_DEFAULT = "171966624" *) 
   (* C_DOUT_DEFAULT_2 = "312500000" *) 
   (* C_FAMILY = "zynq" *) 
   (* C_GPIO2_WIDTH = "32" *) 
@@ -1311,22 +1311,22 @@ module system_axi_gpio_2_0_GPIO_Core
         .D(s_axi_wdata[9]),
         .Q(gpio_io_o[9]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[23] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[8]),
         .Q(gpio_io_o[8]),
-        .S(SS));
-  FDRE #(
-    .INIT(1'b0)) 
+        .R(SS));
+  FDSE #(
+    .INIT(1'b1)) 
     \Dual.gpio_Data_Out_reg[24] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[7]),
         .Q(gpio_io_o[7]),
-        .R(SS));
+        .S(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[25] 
@@ -1399,14 +1399,14 @@ module system_axi_gpio_2_0_GPIO_Core
         .D(s_axi_wdata[28]),
         .Q(gpio_io_o[28]),
         .R(SS));
-  FDRE #(
-    .INIT(1'b0)) 
+  FDSE #(
+    .INIT(1'b1)) 
     \Dual.gpio_Data_Out_reg[4] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[27]),
         .Q(gpio_io_o[27]),
-        .R(SS));
+        .S(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[5] 
@@ -2376,7 +2376,7 @@ module system_axi_gpio_2_0_address_decoder
 endmodule
 
 (* C_ALL_INPUTS = "0" *) (* C_ALL_INPUTS_2 = "0" *) (* C_ALL_OUTPUTS = "1" *) 
-(* C_ALL_OUTPUTS_2 = "1" *) (* C_DOUT_DEFAULT = "37749024" *) (* C_DOUT_DEFAULT_2 = "312500000" *) 
+(* C_ALL_OUTPUTS_2 = "1" *) (* C_DOUT_DEFAULT = "171966624" *) (* C_DOUT_DEFAULT_2 = "312500000" *) 
 (* C_FAMILY = "zynq" *) (* C_GPIO2_WIDTH = "32" *) (* C_GPIO_WIDTH = "32" *) 
 (* C_INTERRUPT_PRESENT = "0" *) (* C_IS_DUAL = "1" *) (* C_S_AXI_ADDR_WIDTH = "9" *) 
 (* C_S_AXI_DATA_WIDTH = "32" *) (* C_TRI_DEFAULT = "-1" *) (* C_TRI_DEFAULT_2 = "-1" *) 

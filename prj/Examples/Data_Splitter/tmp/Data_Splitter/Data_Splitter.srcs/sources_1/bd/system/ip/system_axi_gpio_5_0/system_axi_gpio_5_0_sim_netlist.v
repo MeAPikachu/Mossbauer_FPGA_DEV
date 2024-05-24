@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Wed May 22 16:10:22 2024
-// Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+// Date        : Thu May 23 20:44:12 2024
+// Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axi_gpio_5_0/system_axi_gpio_5_0_sim_netlist.v
 // Design      : system_axi_gpio_5_0
@@ -87,7 +87,7 @@ module system_axi_gpio_5_0
   (* C_ALL_INPUTS_2 = "0" *) 
   (* C_ALL_OUTPUTS = "1" *) 
   (* C_ALL_OUTPUTS_2 = "1" *) 
-  (* C_DOUT_DEFAULT = "-23133856" *) 
+  (* C_DOUT_DEFAULT = "33554688" *) 
   (* C_DOUT_DEFAULT_2 = "0" *) 
   (* C_FAMILY = "zynq" *) 
   (* C_GPIO2_WIDTH = "32" *) 
@@ -1191,14 +1191,14 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[22]),
         .Q(gpio2_io_t[22]),
         .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[0] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[31]),
         .Q(gpio_io_o[31]),
-        .S(SS));
+        .R(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[10] 
@@ -1207,46 +1207,46 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[21]),
         .Q(gpio_io_o[21]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[11] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[20]),
         .Q(gpio_io_o[20]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[12] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[19]),
         .Q(gpio_io_o[19]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[13] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[18]),
         .Q(gpio_io_o[18]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[14] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[17]),
         .Q(gpio_io_o[17]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[15] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[16]),
         .Q(gpio_io_o[16]),
-        .S(SS));
+        .R(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[16] 
@@ -1279,14 +1279,14 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[12]),
         .Q(gpio_io_o[12]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[1] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[30]),
         .Q(gpio_io_o[30]),
-        .S(SS));
+        .R(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[20] 
@@ -1327,22 +1327,22 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[7]),
         .Q(gpio_io_o[7]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[25] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[6]),
         .Q(gpio_io_o[6]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[26] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[5]),
         .Q(gpio_io_o[5]),
-        .S(SS));
+        .R(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[27] 
@@ -1367,14 +1367,14 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[2]),
         .Q(gpio_io_o[2]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[2] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[29]),
         .Q(gpio_io_o[29]),
-        .S(SS));
+        .R(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[30] 
@@ -1391,30 +1391,30 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[0]),
         .Q(gpio_io_o[0]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[3] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[28]),
         .Q(gpio_io_o[28]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[4] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[27]),
         .Q(gpio_io_o[27]),
-        .S(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+        .R(SS));
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[5] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[26]),
         .Q(gpio_io_o[26]),
-        .S(SS));
+        .R(SS));
   FDSE #(
     .INIT(1'b1)) 
     \Dual.gpio_Data_Out_reg[6] 
@@ -1431,14 +1431,14 @@ module system_axi_gpio_5_0_GPIO_Core
         .D(s_axi_wdata[24]),
         .Q(gpio_io_o[24]),
         .R(SS));
-  FDSE #(
-    .INIT(1'b1)) 
+  FDRE #(
+    .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[8] 
        (.C(s_axi_aclk),
         .CE(E),
         .D(s_axi_wdata[23]),
         .Q(gpio_io_o[23]),
-        .S(SS));
+        .R(SS));
   FDRE #(
     .INIT(1'b0)) 
     \Dual.gpio_Data_Out_reg[9] 
@@ -2376,7 +2376,7 @@ module system_axi_gpio_5_0_address_decoder
 endmodule
 
 (* C_ALL_INPUTS = "0" *) (* C_ALL_INPUTS_2 = "0" *) (* C_ALL_OUTPUTS = "1" *) 
-(* C_ALL_OUTPUTS_2 = "1" *) (* C_DOUT_DEFAULT = "-23133856" *) (* C_DOUT_DEFAULT_2 = "0" *) 
+(* C_ALL_OUTPUTS_2 = "1" *) (* C_DOUT_DEFAULT = "33554688" *) (* C_DOUT_DEFAULT_2 = "0" *) 
 (* C_FAMILY = "zynq" *) (* C_GPIO2_WIDTH = "32" *) (* C_GPIO_WIDTH = "32" *) 
 (* C_INTERRUPT_PRESENT = "0" *) (* C_IS_DUAL = "1" *) (* C_S_AXI_ADDR_WIDTH = "9" *) 
 (* C_S_AXI_DATA_WIDTH = "32" *) (* C_TRI_DEFAULT = "-1" *) (* C_TRI_DEFAULT_2 = "-1" *) 
