@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "bessel_filter,Vivado 2020.1" *)
 (* CHECK_LICENSE_TYPE = "system_bessel_filter_1_0,bessel_filter,{}" *)
-(* CORE_GENERATION_INFO = "system_bessel_filter_1_0,bessel_filter,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=bessel_filter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_WIDTH=14,AXIS_TDATA_WIDTH=32,B=1079}" *)
+(* CORE_GENERATION_INFO = "system_bessel_filter_1_0,bessel_filter,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=bessel_filter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_WIDTH=14,AXIS_TDATA_WIDTH=32,B=2158}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_bessel_filter_1_0 (
@@ -74,7 +74,7 @@ output wire [13 : 0] adc_filt_a;
   bessel_filter #(
     .ADC_WIDTH(14),
     .AXIS_TDATA_WIDTH(32),
-    .B(1079)
+    .B(2158)
   ) inst (
     .clk(clk),
     .reset(reset),

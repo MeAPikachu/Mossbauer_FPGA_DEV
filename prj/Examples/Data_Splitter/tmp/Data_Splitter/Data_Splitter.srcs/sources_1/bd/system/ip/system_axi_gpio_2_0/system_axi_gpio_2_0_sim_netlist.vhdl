@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Thu May 23 14:57:58 2024
--- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axi_gpio_2_0/system_axi_gpio_2_0_sim_netlist.vhdl
+-- Date        : Wed May 22 16:41:14 2024
+-- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axi_gpio_2_0 -prefix
+--               system_axi_gpio_2_0_ system_axi_gpio_2_0_sim_netlist.vhdl
 -- Design      : system_axi_gpio_2_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -68,8 +68,6 @@ entity system_axi_gpio_2_0_GPIO_Core is
     \Dual.gpio_OE_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \Dual.gpio2_OE_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_gpio_2_0_GPIO_Core : entity is "GPIO_Core";
 end system_axi_gpio_2_0_GPIO_Core;
 
 architecture STRUCTURE of system_axi_gpio_2_0_GPIO_Core is
@@ -1477,27 +1475,27 @@ begin
       Q => \^gpio_io_o\(9),
       R => SS(0)
     );
-\Dual.gpio_Data_Out_reg[23]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => s_axi_aclk,
-      CE => E(0),
-      D => s_axi_wdata(8),
-      Q => \^gpio_io_o\(8),
-      R => SS(0)
-    );
-\Dual.gpio_Data_Out_reg[24]\: unisim.vcomponents.FDSE
+\Dual.gpio_Data_Out_reg[23]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => E(0),
+      D => s_axi_wdata(8),
+      Q => \^gpio_io_o\(8),
+      S => SS(0)
+    );
+\Dual.gpio_Data_Out_reg[24]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => E(0),
       D => s_axi_wdata(7),
       Q => \^gpio_io_o\(7),
-      S => SS(0)
+      R => SS(0)
     );
 \Dual.gpio_Data_Out_reg[25]\: unisim.vcomponents.FDRE
     generic map(
@@ -1598,16 +1596,16 @@ begin
       Q => \^gpio_io_o\(28),
       R => SS(0)
     );
-\Dual.gpio_Data_Out_reg[4]\: unisim.vcomponents.FDSE
+\Dual.gpio_Data_Out_reg[4]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '1'
+      INIT => '0'
     )
         port map (
       C => s_axi_aclk,
       CE => E(0),
       D => s_axi_wdata(27),
       Q => \^gpio_io_o\(27),
-      S => SS(0)
+      R => SS(0)
     );
 \Dual.gpio_Data_Out_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -2060,8 +2058,6 @@ entity system_axi_gpio_2_0_pselect_f is
     ce_expnd_i_3 : out STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_gpio_2_0_pselect_f : entity is "pselect_f";
 end system_axi_gpio_2_0_pselect_f;
 
 architecture STRUCTURE of system_axi_gpio_2_0_pselect_f is
@@ -2162,8 +2158,6 @@ entity system_axi_gpio_2_0_address_decoder is
     \Dual.ALLOUT0_ND_G1.READ_REG_GEN[1].reg1_reg\ : in STD_LOGIC;
     \Dual.ALLOUT0_ND_G1.READ_REG_GEN[0].reg1_reg\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_gpio_2_0_address_decoder : entity is "address_decoder";
 end system_axi_gpio_2_0_address_decoder;
 
 architecture STRUCTURE of system_axi_gpio_2_0_address_decoder is
@@ -2878,8 +2872,6 @@ entity system_axi_gpio_2_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_gpio_2_0_slave_attachment : entity is "slave_attachment";
 end system_axi_gpio_2_0_slave_attachment;
 
 architecture STRUCTURE of system_axi_gpio_2_0_slave_attachment is
@@ -3862,8 +3854,6 @@ entity system_axi_gpio_2_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_gpio_2_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end system_axi_gpio_2_0_axi_lite_ipif;
 
 architecture STRUCTURE of system_axi_gpio_2_0_axi_lite_ipif is
@@ -3975,7 +3965,7 @@ entity system_axi_gpio_2_0_axi_gpio is
   attribute C_ALL_OUTPUTS_2 : integer;
   attribute C_ALL_OUTPUTS_2 of system_axi_gpio_2_0_axi_gpio : entity is 1;
   attribute C_DOUT_DEFAULT : integer;
-  attribute C_DOUT_DEFAULT of system_axi_gpio_2_0_axi_gpio : entity is 171966624;
+  attribute C_DOUT_DEFAULT of system_axi_gpio_2_0_axi_gpio : entity is 37749024;
   attribute C_DOUT_DEFAULT_2 : integer;
   attribute C_DOUT_DEFAULT_2 of system_axi_gpio_2_0_axi_gpio : entity is 312500000;
   attribute C_FAMILY : string;
@@ -3996,8 +3986,6 @@ entity system_axi_gpio_2_0_axi_gpio is
   attribute C_TRI_DEFAULT of system_axi_gpio_2_0_axi_gpio : entity is -1;
   attribute C_TRI_DEFAULT_2 : integer;
   attribute C_TRI_DEFAULT_2 of system_axi_gpio_2_0_axi_gpio : entity is -1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_gpio_2_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_axi_gpio_2_0_axi_gpio : entity is "yes";
   attribute ip_group : string;
@@ -4578,7 +4566,7 @@ architecture STRUCTURE of system_axi_gpio_2_0 is
   attribute C_ALL_OUTPUTS_2 : integer;
   attribute C_ALL_OUTPUTS_2 of U0 : label is 1;
   attribute C_DOUT_DEFAULT : integer;
-  attribute C_DOUT_DEFAULT of U0 : label is 171966624;
+  attribute C_DOUT_DEFAULT of U0 : label is 37749024;
   attribute C_DOUT_DEFAULT_2 : integer;
   attribute C_DOUT_DEFAULT_2 of U0 : label is 312500000;
   attribute C_FAMILY : string;

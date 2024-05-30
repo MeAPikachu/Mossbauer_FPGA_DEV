@@ -3,8 +3,8 @@
 
 module bessel_filter #(
     parameter ADC_WIDTH=14 , 
-    parameter AXIS_TDATA_WIDTH=32 ,
-    parameter B=1079
+    parameter AXIS_TDATA_WIDTH=32, 
+    parameter B=2158
 )(
     input  clk,
     input  reset,
@@ -20,7 +20,8 @@ module bessel_filter #(
         .clk(clk),
         .reset(reset),
         .adc_dat_a(adc_dat_a),
-        .adc_filt_a(adc_filt_a) );
+        .adc_filt_a(adc_filt_a)
+        );
     
     
 endmodule

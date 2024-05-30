@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Thu May 16 16:13:03 2024
+-- Date        : Tue May 28 21:50:29 2024
 -- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_adc_smooth_mossbauer_0_0_sim_netlist.vhdl
@@ -16,17 +16,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer is
   port (
-    smooth_data : out STD_LOGIC_VECTOR ( 30 downto 0 );
+    smooth_data : out STD_LOGIC_VECTOR ( 27 downto 0 );
     adc_dat_a : in STD_LOGIC_VECTOR ( 13 downto 0 );
     adc_clk : in STD_LOGIC
   );
 end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer;
 
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer is
-  signal \acc_average_reg_n_0_[0]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[10]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[11]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[12]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[13]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[14]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[15]\ : STD_LOGIC;
@@ -34,7 +30,6 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_m
   signal \acc_average_reg_n_0_[17]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[18]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[19]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[1]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[20]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[21]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[22]\ : STD_LOGIC;
@@ -42,18 +37,6 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_m
   signal \acc_average_reg_n_0_[24]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[25]\ : STD_LOGIC;
   signal \acc_average_reg_n_0_[26]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[27]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[28]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[29]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[2]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[3]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[4]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[5]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[6]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[7]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[8]\ : STD_LOGIC;
-  signal \acc_average_reg_n_0_[9]\ : STD_LOGIC;
-  signal accumulator : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \accumulator0_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \accumulator0_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \accumulator0_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -163,9 +146,54 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_m
   signal accumulator0_carry_n_5 : STD_LOGIC;
   signal accumulator0_carry_n_6 : STD_LOGIC;
   signal accumulator0_carry_n_7 : STD_LOGIC;
+  signal \accumulator_reg_n_0_[0]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[10]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[11]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[12]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[13]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[14]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[15]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[16]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[17]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[18]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[19]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[1]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[20]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[21]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[22]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[23]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[24]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[25]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[26]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[27]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[28]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[29]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[2]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[30]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[3]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[4]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[5]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[6]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[7]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[8]\ : STD_LOGIC;
+  signal \accumulator_reg_n_0_[9]\ : STD_LOGIC;
+  signal p_0_in : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal p_0_in0 : STD_LOGIC;
-  signal \shift_reg_reg[0]\ : STD_LOGIC_VECTOR ( 13 downto 0 );
-  signal \shift_reg_reg[1]\ : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal \shift_reg_reg[14][0]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][10]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][11]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][12]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][13]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][1]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][2]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][3]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][4]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][5]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][6]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][7]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][8]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[14][9]_srl15_n_0\ : STD_LOGIC;
+  signal \shift_reg_reg[15]\ : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal \NLW_accumulator0_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of accumulator0_carry : label is 35;
@@ -203,6 +231,36 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_m
   attribute HLUTNM of accumulator0_carry_i_5 : label is "lutpair1";
   attribute HLUTNM of accumulator0_carry_i_6 : label is "lutpair0";
   attribute HLUTNM of accumulator0_carry_i_7 : label is "lutpair12";
+  attribute srl_bus_name : string;
+  attribute srl_bus_name of \shift_reg_reg[14][0]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name : string;
+  attribute srl_name of \shift_reg_reg[14][0]_srl15\ : label is "\inst/shift_reg_reg[14][0]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][10]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][10]_srl15\ : label is "\inst/shift_reg_reg[14][10]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][11]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][11]_srl15\ : label is "\inst/shift_reg_reg[14][11]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][12]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][12]_srl15\ : label is "\inst/shift_reg_reg[14][12]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][13]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][13]_srl15\ : label is "\inst/shift_reg_reg[14][13]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][1]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][1]_srl15\ : label is "\inst/shift_reg_reg[14][1]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][2]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][2]_srl15\ : label is "\inst/shift_reg_reg[14][2]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][3]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][3]_srl15\ : label is "\inst/shift_reg_reg[14][3]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][4]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][4]_srl15\ : label is "\inst/shift_reg_reg[14][4]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][5]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][5]_srl15\ : label is "\inst/shift_reg_reg[14][5]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][6]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][6]_srl15\ : label is "\inst/shift_reg_reg[14][6]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][7]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][7]_srl15\ : label is "\inst/shift_reg_reg[14][7]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][8]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][8]_srl15\ : label is "\inst/shift_reg_reg[14][8]_srl15 ";
+  attribute srl_bus_name of \shift_reg_reg[14][9]_srl15\ : label is "\inst/shift_reg_reg[14] ";
+  attribute srl_name of \shift_reg_reg[14][9]_srl15\ : label is "\inst/shift_reg_reg[14][9]_srl15 ";
 begin
 \acc_average_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -211,8 +269,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(1),
-      Q => \acc_average_reg_n_0_[0]\,
+      D => \accumulator_reg_n_0_[4]\,
+      Q => p_0_in(0),
       R => '0'
     );
 \acc_average_reg[10]\: unisim.vcomponents.FDRE
@@ -222,8 +280,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(11),
-      Q => \acc_average_reg_n_0_[10]\,
+      D => \accumulator_reg_n_0_[14]\,
+      Q => p_0_in(10),
       R => '0'
     );
 \acc_average_reg[11]\: unisim.vcomponents.FDRE
@@ -233,8 +291,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(12),
-      Q => \acc_average_reg_n_0_[11]\,
+      D => \accumulator_reg_n_0_[15]\,
+      Q => p_0_in(11),
       R => '0'
     );
 \acc_average_reg[12]\: unisim.vcomponents.FDRE
@@ -244,8 +302,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(13),
-      Q => \acc_average_reg_n_0_[12]\,
+      D => \accumulator_reg_n_0_[16]\,
+      Q => p_0_in(12),
       R => '0'
     );
 \acc_average_reg[13]\: unisim.vcomponents.FDRE
@@ -255,7 +313,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(14),
+      D => \accumulator_reg_n_0_[17]\,
       Q => \acc_average_reg_n_0_[13]\,
       R => '0'
     );
@@ -266,7 +324,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(15),
+      D => \accumulator_reg_n_0_[18]\,
       Q => \acc_average_reg_n_0_[14]\,
       R => '0'
     );
@@ -277,7 +335,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(16),
+      D => \accumulator_reg_n_0_[19]\,
       Q => \acc_average_reg_n_0_[15]\,
       R => '0'
     );
@@ -288,7 +346,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(17),
+      D => \accumulator_reg_n_0_[20]\,
       Q => \acc_average_reg_n_0_[16]\,
       R => '0'
     );
@@ -299,7 +357,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(18),
+      D => \accumulator_reg_n_0_[21]\,
       Q => \acc_average_reg_n_0_[17]\,
       R => '0'
     );
@@ -310,7 +368,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(19),
+      D => \accumulator_reg_n_0_[22]\,
       Q => \acc_average_reg_n_0_[18]\,
       R => '0'
     );
@@ -321,7 +379,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(20),
+      D => \accumulator_reg_n_0_[23]\,
       Q => \acc_average_reg_n_0_[19]\,
       R => '0'
     );
@@ -332,8 +390,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(2),
-      Q => \acc_average_reg_n_0_[1]\,
+      D => \accumulator_reg_n_0_[5]\,
+      Q => p_0_in(1),
       R => '0'
     );
 \acc_average_reg[20]\: unisim.vcomponents.FDRE
@@ -343,7 +401,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(21),
+      D => \accumulator_reg_n_0_[24]\,
       Q => \acc_average_reg_n_0_[20]\,
       R => '0'
     );
@@ -354,7 +412,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(22),
+      D => \accumulator_reg_n_0_[25]\,
       Q => \acc_average_reg_n_0_[21]\,
       R => '0'
     );
@@ -365,7 +423,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(23),
+      D => \accumulator_reg_n_0_[26]\,
       Q => \acc_average_reg_n_0_[22]\,
       R => '0'
     );
@@ -376,7 +434,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(24),
+      D => \accumulator_reg_n_0_[27]\,
       Q => \acc_average_reg_n_0_[23]\,
       R => '0'
     );
@@ -387,7 +445,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(25),
+      D => \accumulator_reg_n_0_[28]\,
       Q => \acc_average_reg_n_0_[24]\,
       R => '0'
     );
@@ -398,7 +456,7 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(26),
+      D => \accumulator_reg_n_0_[29]\,
       Q => \acc_average_reg_n_0_[25]\,
       R => '0'
     );
@@ -409,41 +467,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(27),
+      D => \accumulator_reg_n_0_[30]\,
       Q => \acc_average_reg_n_0_[26]\,
-      R => '0'
-    );
-\acc_average_reg[27]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => adc_clk,
-      CE => '1',
-      D => accumulator(28),
-      Q => \acc_average_reg_n_0_[27]\,
-      R => '0'
-    );
-\acc_average_reg[28]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => adc_clk,
-      CE => '1',
-      D => accumulator(29),
-      Q => \acc_average_reg_n_0_[28]\,
-      R => '0'
-    );
-\acc_average_reg[29]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => adc_clk,
-      CE => '1',
-      D => accumulator(30),
-      Q => \acc_average_reg_n_0_[29]\,
       R => '0'
     );
 \acc_average_reg[2]\: unisim.vcomponents.FDRE
@@ -453,8 +478,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(3),
-      Q => \acc_average_reg_n_0_[2]\,
+      D => \accumulator_reg_n_0_[6]\,
+      Q => p_0_in(2),
       R => '0'
     );
 \acc_average_reg[31]\: unisim.vcomponents.FDRE
@@ -464,8 +489,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(31),
-      Q => p_0_in0,
+      D => p_0_in0,
+      Q => p_0_in(13),
       R => '0'
     );
 \acc_average_reg[3]\: unisim.vcomponents.FDRE
@@ -475,8 +500,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(4),
-      Q => \acc_average_reg_n_0_[3]\,
+      D => \accumulator_reg_n_0_[7]\,
+      Q => p_0_in(3),
       R => '0'
     );
 \acc_average_reg[4]\: unisim.vcomponents.FDRE
@@ -486,8 +511,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(5),
-      Q => \acc_average_reg_n_0_[4]\,
+      D => \accumulator_reg_n_0_[8]\,
+      Q => p_0_in(4),
       R => '0'
     );
 \acc_average_reg[5]\: unisim.vcomponents.FDRE
@@ -497,8 +522,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(6),
-      Q => \acc_average_reg_n_0_[5]\,
+      D => \accumulator_reg_n_0_[9]\,
+      Q => p_0_in(5),
       R => '0'
     );
 \acc_average_reg[6]\: unisim.vcomponents.FDRE
@@ -508,8 +533,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(7),
-      Q => \acc_average_reg_n_0_[6]\,
+      D => \accumulator_reg_n_0_[10]\,
+      Q => p_0_in(6),
       R => '0'
     );
 \acc_average_reg[7]\: unisim.vcomponents.FDRE
@@ -519,8 +544,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(8),
-      Q => \acc_average_reg_n_0_[7]\,
+      D => \accumulator_reg_n_0_[11]\,
+      Q => p_0_in(7),
       R => '0'
     );
 \acc_average_reg[8]\: unisim.vcomponents.FDRE
@@ -530,8 +555,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(9),
-      Q => \acc_average_reg_n_0_[8]\,
+      D => \accumulator_reg_n_0_[12]\,
+      Q => p_0_in(8),
       R => '0'
     );
 \acc_average_reg[9]\: unisim.vcomponents.FDRE
@@ -541,8 +566,8 @@ begin
         port map (
       C => adc_clk,
       CE => '1',
-      D => accumulator(10),
-      Q => \acc_average_reg_n_0_[9]\,
+      D => \accumulator_reg_n_0_[13]\,
+      Q => p_0_in(9),
       R => '0'
     );
 accumulator0_carry: unisim.vcomponents.CARRY4
@@ -592,8 +617,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(6),
-      I1 => accumulator(6),
+      I0 => \shift_reg_reg[15]\(6),
+      I1 => \accumulator_reg_n_0_[6]\,
       I2 => adc_dat_a(6),
       O => \accumulator0_carry__0_i_1_n_0\
     );
@@ -602,8 +627,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(5),
-      I1 => accumulator(5),
+      I0 => \shift_reg_reg[15]\(5),
+      I1 => \accumulator_reg_n_0_[5]\,
       I2 => adc_dat_a(5),
       O => \accumulator0_carry__0_i_2_n_0\
     );
@@ -612,8 +637,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(4),
-      I1 => accumulator(4),
+      I0 => \shift_reg_reg[15]\(4),
+      I1 => \accumulator_reg_n_0_[4]\,
       I2 => adc_dat_a(4),
       O => \accumulator0_carry__0_i_3_n_0\
     );
@@ -622,8 +647,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(3),
-      I1 => accumulator(3),
+      I0 => \shift_reg_reg[15]\(3),
+      I1 => \accumulator_reg_n_0_[3]\,
       I2 => adc_dat_a(3),
       O => \accumulator0_carry__0_i_4_n_0\
     );
@@ -632,8 +657,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(7),
-      I1 => accumulator(7),
+      I0 => \shift_reg_reg[15]\(7),
+      I1 => \accumulator_reg_n_0_[7]\,
       I2 => adc_dat_a(7),
       I3 => \accumulator0_carry__0_i_1_n_0\,
       O => \accumulator0_carry__0_i_5_n_0\
@@ -643,8 +668,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(6),
-      I1 => accumulator(6),
+      I0 => \shift_reg_reg[15]\(6),
+      I1 => \accumulator_reg_n_0_[6]\,
       I2 => adc_dat_a(6),
       I3 => \accumulator0_carry__0_i_2_n_0\,
       O => \accumulator0_carry__0_i_6_n_0\
@@ -654,8 +679,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(5),
-      I1 => accumulator(5),
+      I0 => \shift_reg_reg[15]\(5),
+      I1 => \accumulator_reg_n_0_[5]\,
       I2 => adc_dat_a(5),
       I3 => \accumulator0_carry__0_i_3_n_0\,
       O => \accumulator0_carry__0_i_7_n_0\
@@ -665,8 +690,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(4),
-      I1 => accumulator(4),
+      I0 => \shift_reg_reg[15]\(4),
+      I1 => \accumulator_reg_n_0_[4]\,
       I2 => adc_dat_a(4),
       I3 => \accumulator0_carry__0_i_4_n_0\,
       O => \accumulator0_carry__0_i_8_n_0\
@@ -697,8 +722,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(10),
-      I1 => accumulator(10),
+      I0 => \shift_reg_reg[15]\(10),
+      I1 => \accumulator_reg_n_0_[10]\,
       I2 => adc_dat_a(10),
       O => \accumulator0_carry__1_i_1_n_0\
     );
@@ -707,8 +732,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(9),
-      I1 => accumulator(9),
+      I0 => \shift_reg_reg[15]\(9),
+      I1 => \accumulator_reg_n_0_[9]\,
       I2 => adc_dat_a(9),
       O => \accumulator0_carry__1_i_2_n_0\
     );
@@ -717,8 +742,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(8),
-      I1 => accumulator(8),
+      I0 => \shift_reg_reg[15]\(8),
+      I1 => \accumulator_reg_n_0_[8]\,
       I2 => adc_dat_a(8),
       O => \accumulator0_carry__1_i_3_n_0\
     );
@@ -727,8 +752,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(7),
-      I1 => accumulator(7),
+      I0 => \shift_reg_reg[15]\(7),
+      I1 => \accumulator_reg_n_0_[7]\,
       I2 => adc_dat_a(7),
       O => \accumulator0_carry__1_i_4_n_0\
     );
@@ -737,8 +762,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(11),
-      I1 => accumulator(11),
+      I0 => \shift_reg_reg[15]\(11),
+      I1 => \accumulator_reg_n_0_[11]\,
       I2 => adc_dat_a(11),
       I3 => \accumulator0_carry__1_i_1_n_0\,
       O => \accumulator0_carry__1_i_5_n_0\
@@ -748,8 +773,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(10),
-      I1 => accumulator(10),
+      I0 => \shift_reg_reg[15]\(10),
+      I1 => \accumulator_reg_n_0_[10]\,
       I2 => adc_dat_a(10),
       I3 => \accumulator0_carry__1_i_2_n_0\,
       O => \accumulator0_carry__1_i_6_n_0\
@@ -759,8 +784,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(9),
-      I1 => accumulator(9),
+      I0 => \shift_reg_reg[15]\(9),
+      I1 => \accumulator_reg_n_0_[9]\,
       I2 => adc_dat_a(9),
       I3 => \accumulator0_carry__1_i_3_n_0\,
       O => \accumulator0_carry__1_i_7_n_0\
@@ -770,8 +795,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(8),
-      I1 => accumulator(8),
+      I0 => \shift_reg_reg[15]\(8),
+      I1 => \accumulator_reg_n_0_[8]\,
       I2 => adc_dat_a(8),
       I3 => \accumulator0_carry__1_i_4_n_0\,
       O => \accumulator0_carry__1_i_8_n_0\
@@ -784,7 +809,7 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       CO(1) => \accumulator0_carry__2_n_2\,
       CO(0) => \accumulator0_carry__2_n_3\,
       CYINIT => '0',
-      DI(3) => accumulator(14),
+      DI(3) => \accumulator_reg_n_0_[14]\,
       DI(2) => \accumulator0_carry__2_i_1_n_0\,
       DI(1) => \accumulator0_carry__2_i_2_n_0\,
       DI(0) => \accumulator0_carry__2_i_3_n_0\,
@@ -802,8 +827,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"8E"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(13),
-      I1 => accumulator(13),
+      I0 => \shift_reg_reg[15]\(13),
+      I1 => \accumulator_reg_n_0_[13]\,
       I2 => adc_dat_a(13),
       O => \accumulator0_carry__2_i_1_n_0\
     );
@@ -812,8 +837,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(12),
-      I1 => accumulator(12),
+      I0 => \shift_reg_reg[15]\(12),
+      I1 => \accumulator_reg_n_0_[12]\,
       I2 => adc_dat_a(12),
       O => \accumulator0_carry__2_i_2_n_0\
     );
@@ -822,8 +847,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(11),
-      I1 => accumulator(11),
+      I0 => \shift_reg_reg[15]\(11),
+      I1 => \accumulator_reg_n_0_[11]\,
       I2 => adc_dat_a(11),
       O => \accumulator0_carry__2_i_3_n_0\
     );
@@ -832,8 +857,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(14),
-      I1 => accumulator(15),
+      I0 => \accumulator_reg_n_0_[14]\,
+      I1 => \accumulator_reg_n_0_[15]\,
       O => \accumulator0_carry__2_i_4_n_0\
     );
 \accumulator0_carry__2_i_5\: unisim.vcomponents.LUT4
@@ -842,9 +867,9 @@ accumulator0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => adc_dat_a(13),
-      I1 => accumulator(13),
-      I2 => \shift_reg_reg[1]\(13),
-      I3 => accumulator(14),
+      I1 => \accumulator_reg_n_0_[13]\,
+      I2 => \shift_reg_reg[15]\(13),
+      I3 => \accumulator_reg_n_0_[14]\,
       O => \accumulator0_carry__2_i_5_n_0\
     );
 \accumulator0_carry__2_i_6\: unisim.vcomponents.LUT4
@@ -853,8 +878,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => \accumulator0_carry__2_i_2_n_0\,
-      I1 => \shift_reg_reg[1]\(13),
-      I2 => accumulator(13),
+      I1 => \shift_reg_reg[15]\(13),
+      I2 => \accumulator_reg_n_0_[13]\,
       I3 => adc_dat_a(13),
       O => \accumulator0_carry__2_i_6_n_0\
     );
@@ -863,8 +888,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(12),
-      I1 => accumulator(12),
+      I0 => \shift_reg_reg[15]\(12),
+      I1 => \accumulator_reg_n_0_[12]\,
       I2 => adc_dat_a(12),
       I3 => \accumulator0_carry__2_i_3_n_0\,
       O => \accumulator0_carry__2_i_7_n_0\
@@ -877,7 +902,10 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       CO(1) => \accumulator0_carry__3_n_2\,
       CO(0) => \accumulator0_carry__3_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => accumulator(18 downto 15),
+      DI(3) => \accumulator_reg_n_0_[18]\,
+      DI(2) => \accumulator_reg_n_0_[17]\,
+      DI(1) => \accumulator_reg_n_0_[16]\,
+      DI(0) => \accumulator_reg_n_0_[15]\,
       O(3) => \accumulator0_carry__3_n_4\,
       O(2) => \accumulator0_carry__3_n_5\,
       O(1) => \accumulator0_carry__3_n_6\,
@@ -892,8 +920,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(18),
-      I1 => accumulator(19),
+      I0 => \accumulator_reg_n_0_[18]\,
+      I1 => \accumulator_reg_n_0_[19]\,
       O => \accumulator0_carry__3_i_1_n_0\
     );
 \accumulator0_carry__3_i_2\: unisim.vcomponents.LUT2
@@ -901,8 +929,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(17),
-      I1 => accumulator(18),
+      I0 => \accumulator_reg_n_0_[17]\,
+      I1 => \accumulator_reg_n_0_[18]\,
       O => \accumulator0_carry__3_i_2_n_0\
     );
 \accumulator0_carry__3_i_3\: unisim.vcomponents.LUT2
@@ -910,8 +938,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(16),
-      I1 => accumulator(17),
+      I0 => \accumulator_reg_n_0_[16]\,
+      I1 => \accumulator_reg_n_0_[17]\,
       O => \accumulator0_carry__3_i_3_n_0\
     );
 \accumulator0_carry__3_i_4\: unisim.vcomponents.LUT2
@@ -919,8 +947,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(15),
-      I1 => accumulator(16),
+      I0 => \accumulator_reg_n_0_[15]\,
+      I1 => \accumulator_reg_n_0_[16]\,
       O => \accumulator0_carry__3_i_4_n_0\
     );
 \accumulator0_carry__4\: unisim.vcomponents.CARRY4
@@ -931,7 +959,10 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       CO(1) => \accumulator0_carry__4_n_2\,
       CO(0) => \accumulator0_carry__4_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => accumulator(22 downto 19),
+      DI(3) => \accumulator_reg_n_0_[22]\,
+      DI(2) => \accumulator_reg_n_0_[21]\,
+      DI(1) => \accumulator_reg_n_0_[20]\,
+      DI(0) => \accumulator_reg_n_0_[19]\,
       O(3) => \accumulator0_carry__4_n_4\,
       O(2) => \accumulator0_carry__4_n_5\,
       O(1) => \accumulator0_carry__4_n_6\,
@@ -946,8 +977,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(22),
-      I1 => accumulator(23),
+      I0 => \accumulator_reg_n_0_[22]\,
+      I1 => \accumulator_reg_n_0_[23]\,
       O => \accumulator0_carry__4_i_1_n_0\
     );
 \accumulator0_carry__4_i_2\: unisim.vcomponents.LUT2
@@ -955,8 +986,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(21),
-      I1 => accumulator(22),
+      I0 => \accumulator_reg_n_0_[21]\,
+      I1 => \accumulator_reg_n_0_[22]\,
       O => \accumulator0_carry__4_i_2_n_0\
     );
 \accumulator0_carry__4_i_3\: unisim.vcomponents.LUT2
@@ -964,8 +995,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(20),
-      I1 => accumulator(21),
+      I0 => \accumulator_reg_n_0_[20]\,
+      I1 => \accumulator_reg_n_0_[21]\,
       O => \accumulator0_carry__4_i_3_n_0\
     );
 \accumulator0_carry__4_i_4\: unisim.vcomponents.LUT2
@@ -973,8 +1004,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(19),
-      I1 => accumulator(20),
+      I0 => \accumulator_reg_n_0_[19]\,
+      I1 => \accumulator_reg_n_0_[20]\,
       O => \accumulator0_carry__4_i_4_n_0\
     );
 \accumulator0_carry__5\: unisim.vcomponents.CARRY4
@@ -985,7 +1016,10 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       CO(1) => \accumulator0_carry__5_n_2\,
       CO(0) => \accumulator0_carry__5_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => accumulator(26 downto 23),
+      DI(3) => \accumulator_reg_n_0_[26]\,
+      DI(2) => \accumulator_reg_n_0_[25]\,
+      DI(1) => \accumulator_reg_n_0_[24]\,
+      DI(0) => \accumulator_reg_n_0_[23]\,
       O(3) => \accumulator0_carry__5_n_4\,
       O(2) => \accumulator0_carry__5_n_5\,
       O(1) => \accumulator0_carry__5_n_6\,
@@ -1000,8 +1034,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(26),
-      I1 => accumulator(27),
+      I0 => \accumulator_reg_n_0_[26]\,
+      I1 => \accumulator_reg_n_0_[27]\,
       O => \accumulator0_carry__5_i_1_n_0\
     );
 \accumulator0_carry__5_i_2\: unisim.vcomponents.LUT2
@@ -1009,8 +1043,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(25),
-      I1 => accumulator(26),
+      I0 => \accumulator_reg_n_0_[25]\,
+      I1 => \accumulator_reg_n_0_[26]\,
       O => \accumulator0_carry__5_i_2_n_0\
     );
 \accumulator0_carry__5_i_3\: unisim.vcomponents.LUT2
@@ -1018,8 +1052,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(24),
-      I1 => accumulator(25),
+      I0 => \accumulator_reg_n_0_[24]\,
+      I1 => \accumulator_reg_n_0_[25]\,
       O => \accumulator0_carry__5_i_3_n_0\
     );
 \accumulator0_carry__5_i_4\: unisim.vcomponents.LUT2
@@ -1027,8 +1061,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(23),
-      I1 => accumulator(24),
+      I0 => \accumulator_reg_n_0_[23]\,
+      I1 => \accumulator_reg_n_0_[24]\,
       O => \accumulator0_carry__5_i_4_n_0\
     );
 \accumulator0_carry__6\: unisim.vcomponents.CARRY4
@@ -1040,7 +1074,9 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       CO(0) => \accumulator0_carry__6_n_3\,
       CYINIT => '0',
       DI(3) => '0',
-      DI(2 downto 0) => accumulator(29 downto 27),
+      DI(2) => \accumulator_reg_n_0_[29]\,
+      DI(1) => \accumulator_reg_n_0_[28]\,
+      DI(0) => \accumulator_reg_n_0_[27]\,
       O(3) => \accumulator0_carry__6_n_4\,
       O(2) => \accumulator0_carry__6_n_5\,
       O(1) => \accumulator0_carry__6_n_6\,
@@ -1055,8 +1091,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(30),
-      I1 => accumulator(31),
+      I0 => \accumulator_reg_n_0_[30]\,
+      I1 => p_0_in0,
       O => \accumulator0_carry__6_i_1_n_0\
     );
 \accumulator0_carry__6_i_2\: unisim.vcomponents.LUT2
@@ -1064,8 +1100,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(29),
-      I1 => accumulator(30),
+      I0 => \accumulator_reg_n_0_[29]\,
+      I1 => \accumulator_reg_n_0_[30]\,
       O => \accumulator0_carry__6_i_2_n_0\
     );
 \accumulator0_carry__6_i_3\: unisim.vcomponents.LUT2
@@ -1073,8 +1109,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(28),
-      I1 => accumulator(29),
+      I0 => \accumulator_reg_n_0_[28]\,
+      I1 => \accumulator_reg_n_0_[29]\,
       O => \accumulator0_carry__6_i_3_n_0\
     );
 \accumulator0_carry__6_i_4\: unisim.vcomponents.LUT2
@@ -1082,8 +1118,8 @@ accumulator0_carry: unisim.vcomponents.CARRY4
       INIT => X"9"
     )
         port map (
-      I0 => accumulator(27),
-      I1 => accumulator(28),
+      I0 => \accumulator_reg_n_0_[27]\,
+      I1 => \accumulator_reg_n_0_[28]\,
       O => \accumulator0_carry__6_i_4_n_0\
     );
 accumulator0_carry_i_1: unisim.vcomponents.LUT3
@@ -1091,8 +1127,8 @@ accumulator0_carry_i_1: unisim.vcomponents.LUT3
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(2),
-      I1 => accumulator(2),
+      I0 => \shift_reg_reg[15]\(2),
+      I1 => \accumulator_reg_n_0_[2]\,
       I2 => adc_dat_a(2),
       O => accumulator0_carry_i_1_n_0
     );
@@ -1101,8 +1137,8 @@ accumulator0_carry_i_2: unisim.vcomponents.LUT3
       INIT => X"D4"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(1),
-      I1 => accumulator(1),
+      I0 => \shift_reg_reg[15]\(1),
+      I1 => \accumulator_reg_n_0_[1]\,
       I2 => adc_dat_a(1),
       O => accumulator0_carry_i_2_n_0
     );
@@ -1111,8 +1147,8 @@ accumulator0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"B"
     )
         port map (
-      I0 => accumulator(0),
-      I1 => \shift_reg_reg[1]\(0),
+      I0 => \accumulator_reg_n_0_[0]\,
+      I1 => \shift_reg_reg[15]\(0),
       O => accumulator0_carry_i_3_n_0
     );
 accumulator0_carry_i_4: unisim.vcomponents.LUT4
@@ -1120,8 +1156,8 @@ accumulator0_carry_i_4: unisim.vcomponents.LUT4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(3),
-      I1 => accumulator(3),
+      I0 => \shift_reg_reg[15]\(3),
+      I1 => \accumulator_reg_n_0_[3]\,
       I2 => adc_dat_a(3),
       I3 => accumulator0_carry_i_1_n_0,
       O => accumulator0_carry_i_4_n_0
@@ -1131,8 +1167,8 @@ accumulator0_carry_i_5: unisim.vcomponents.LUT4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(2),
-      I1 => accumulator(2),
+      I0 => \shift_reg_reg[15]\(2),
+      I1 => \accumulator_reg_n_0_[2]\,
       I2 => adc_dat_a(2),
       I3 => accumulator0_carry_i_2_n_0,
       O => accumulator0_carry_i_5_n_0
@@ -1142,8 +1178,8 @@ accumulator0_carry_i_6: unisim.vcomponents.LUT4
       INIT => X"9669"
     )
         port map (
-      I0 => \shift_reg_reg[1]\(1),
-      I1 => accumulator(1),
+      I0 => \shift_reg_reg[15]\(1),
+      I1 => \accumulator_reg_n_0_[1]\,
       I2 => adc_dat_a(1),
       I3 => accumulator0_carry_i_3_n_0,
       O => accumulator0_carry_i_6_n_0
@@ -1153,8 +1189,8 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       INIT => X"96"
     )
         port map (
-      I0 => accumulator(0),
-      I1 => \shift_reg_reg[1]\(0),
+      I0 => \accumulator_reg_n_0_[0]\,
+      I1 => \shift_reg_reg[15]\(0),
       I2 => adc_dat_a(0),
       O => accumulator0_carry_i_7_n_0
     );
@@ -1166,7 +1202,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => accumulator0_carry_n_7,
-      Q => accumulator(0),
+      Q => \accumulator_reg_n_0_[0]\,
       R => '0'
     );
 \accumulator_reg[10]\: unisim.vcomponents.FDRE
@@ -1177,7 +1213,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__1_n_5\,
-      Q => accumulator(10),
+      Q => \accumulator_reg_n_0_[10]\,
       R => '0'
     );
 \accumulator_reg[11]\: unisim.vcomponents.FDRE
@@ -1188,7 +1224,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__1_n_4\,
-      Q => accumulator(11),
+      Q => \accumulator_reg_n_0_[11]\,
       R => '0'
     );
 \accumulator_reg[12]\: unisim.vcomponents.FDRE
@@ -1199,7 +1235,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__2_n_7\,
-      Q => accumulator(12),
+      Q => \accumulator_reg_n_0_[12]\,
       R => '0'
     );
 \accumulator_reg[13]\: unisim.vcomponents.FDRE
@@ -1210,7 +1246,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__2_n_6\,
-      Q => accumulator(13),
+      Q => \accumulator_reg_n_0_[13]\,
       R => '0'
     );
 \accumulator_reg[14]\: unisim.vcomponents.FDRE
@@ -1221,7 +1257,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__2_n_5\,
-      Q => accumulator(14),
+      Q => \accumulator_reg_n_0_[14]\,
       R => '0'
     );
 \accumulator_reg[15]\: unisim.vcomponents.FDRE
@@ -1232,7 +1268,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__2_n_4\,
-      Q => accumulator(15),
+      Q => \accumulator_reg_n_0_[15]\,
       R => '0'
     );
 \accumulator_reg[16]\: unisim.vcomponents.FDRE
@@ -1243,7 +1279,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__3_n_7\,
-      Q => accumulator(16),
+      Q => \accumulator_reg_n_0_[16]\,
       R => '0'
     );
 \accumulator_reg[17]\: unisim.vcomponents.FDRE
@@ -1254,7 +1290,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__3_n_6\,
-      Q => accumulator(17),
+      Q => \accumulator_reg_n_0_[17]\,
       R => '0'
     );
 \accumulator_reg[18]\: unisim.vcomponents.FDRE
@@ -1265,7 +1301,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__3_n_5\,
-      Q => accumulator(18),
+      Q => \accumulator_reg_n_0_[18]\,
       R => '0'
     );
 \accumulator_reg[19]\: unisim.vcomponents.FDRE
@@ -1276,7 +1312,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__3_n_4\,
-      Q => accumulator(19),
+      Q => \accumulator_reg_n_0_[19]\,
       R => '0'
     );
 \accumulator_reg[1]\: unisim.vcomponents.FDRE
@@ -1287,7 +1323,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => accumulator0_carry_n_6,
-      Q => accumulator(1),
+      Q => \accumulator_reg_n_0_[1]\,
       R => '0'
     );
 \accumulator_reg[20]\: unisim.vcomponents.FDRE
@@ -1298,7 +1334,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__4_n_7\,
-      Q => accumulator(20),
+      Q => \accumulator_reg_n_0_[20]\,
       R => '0'
     );
 \accumulator_reg[21]\: unisim.vcomponents.FDRE
@@ -1309,7 +1345,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__4_n_6\,
-      Q => accumulator(21),
+      Q => \accumulator_reg_n_0_[21]\,
       R => '0'
     );
 \accumulator_reg[22]\: unisim.vcomponents.FDRE
@@ -1320,7 +1356,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__4_n_5\,
-      Q => accumulator(22),
+      Q => \accumulator_reg_n_0_[22]\,
       R => '0'
     );
 \accumulator_reg[23]\: unisim.vcomponents.FDRE
@@ -1331,7 +1367,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__4_n_4\,
-      Q => accumulator(23),
+      Q => \accumulator_reg_n_0_[23]\,
       R => '0'
     );
 \accumulator_reg[24]\: unisim.vcomponents.FDRE
@@ -1342,7 +1378,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__5_n_7\,
-      Q => accumulator(24),
+      Q => \accumulator_reg_n_0_[24]\,
       R => '0'
     );
 \accumulator_reg[25]\: unisim.vcomponents.FDRE
@@ -1353,7 +1389,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__5_n_6\,
-      Q => accumulator(25),
+      Q => \accumulator_reg_n_0_[25]\,
       R => '0'
     );
 \accumulator_reg[26]\: unisim.vcomponents.FDRE
@@ -1364,7 +1400,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__5_n_5\,
-      Q => accumulator(26),
+      Q => \accumulator_reg_n_0_[26]\,
       R => '0'
     );
 \accumulator_reg[27]\: unisim.vcomponents.FDRE
@@ -1375,7 +1411,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__5_n_4\,
-      Q => accumulator(27),
+      Q => \accumulator_reg_n_0_[27]\,
       R => '0'
     );
 \accumulator_reg[28]\: unisim.vcomponents.FDRE
@@ -1386,7 +1422,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__6_n_7\,
-      Q => accumulator(28),
+      Q => \accumulator_reg_n_0_[28]\,
       R => '0'
     );
 \accumulator_reg[29]\: unisim.vcomponents.FDRE
@@ -1397,7 +1433,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__6_n_6\,
-      Q => accumulator(29),
+      Q => \accumulator_reg_n_0_[29]\,
       R => '0'
     );
 \accumulator_reg[2]\: unisim.vcomponents.FDRE
@@ -1408,7 +1444,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => accumulator0_carry_n_5,
-      Q => accumulator(2),
+      Q => \accumulator_reg_n_0_[2]\,
       R => '0'
     );
 \accumulator_reg[30]\: unisim.vcomponents.FDRE
@@ -1419,7 +1455,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__6_n_5\,
-      Q => accumulator(30),
+      Q => \accumulator_reg_n_0_[30]\,
       R => '0'
     );
 \accumulator_reg[31]\: unisim.vcomponents.FDRE
@@ -1430,7 +1466,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__6_n_4\,
-      Q => accumulator(31),
+      Q => p_0_in0,
       R => '0'
     );
 \accumulator_reg[3]\: unisim.vcomponents.FDRE
@@ -1441,7 +1477,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => accumulator0_carry_n_4,
-      Q => accumulator(3),
+      Q => \accumulator_reg_n_0_[3]\,
       R => '0'
     );
 \accumulator_reg[4]\: unisim.vcomponents.FDRE
@@ -1452,7 +1488,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__0_n_7\,
-      Q => accumulator(4),
+      Q => \accumulator_reg_n_0_[4]\,
       R => '0'
     );
 \accumulator_reg[5]\: unisim.vcomponents.FDRE
@@ -1463,7 +1499,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__0_n_6\,
-      Q => accumulator(5),
+      Q => \accumulator_reg_n_0_[5]\,
       R => '0'
     );
 \accumulator_reg[6]\: unisim.vcomponents.FDRE
@@ -1474,7 +1510,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__0_n_5\,
-      Q => accumulator(6),
+      Q => \accumulator_reg_n_0_[6]\,
       R => '0'
     );
 \accumulator_reg[7]\: unisim.vcomponents.FDRE
@@ -1485,7 +1521,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__0_n_4\,
-      Q => accumulator(7),
+      Q => \accumulator_reg_n_0_[7]\,
       R => '0'
     );
 \accumulator_reg[8]\: unisim.vcomponents.FDRE
@@ -1496,7 +1532,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__1_n_7\,
-      Q => accumulator(8),
+      Q => \accumulator_reg_n_0_[8]\,
       R => '0'
     );
 \accumulator_reg[9]\: unisim.vcomponents.FDRE
@@ -1507,238 +1543,280 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       C => adc_clk,
       CE => '1',
       D => \accumulator0_carry__1_n_6\,
-      Q => accumulator(9),
+      Q => \accumulator_reg_n_0_[9]\,
       R => '0'
     );
-\shift_reg_reg[0][0]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][0]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(0),
-      Q => \shift_reg_reg[0]\(0),
-      R => '0'
+      Q => \shift_reg_reg[14][0]_srl15_n_0\
     );
-\shift_reg_reg[0][10]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][10]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(10),
-      Q => \shift_reg_reg[0]\(10),
-      R => '0'
+      Q => \shift_reg_reg[14][10]_srl15_n_0\
     );
-\shift_reg_reg[0][11]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][11]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(11),
-      Q => \shift_reg_reg[0]\(11),
-      R => '0'
+      Q => \shift_reg_reg[14][11]_srl15_n_0\
     );
-\shift_reg_reg[0][12]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][12]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(12),
-      Q => \shift_reg_reg[0]\(12),
-      R => '0'
+      Q => \shift_reg_reg[14][12]_srl15_n_0\
     );
-\shift_reg_reg[0][13]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][13]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(13),
-      Q => \shift_reg_reg[0]\(13),
-      R => '0'
+      Q => \shift_reg_reg[14][13]_srl15_n_0\
     );
-\shift_reg_reg[0][1]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][1]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(1),
-      Q => \shift_reg_reg[0]\(1),
-      R => '0'
+      Q => \shift_reg_reg[14][1]_srl15_n_0\
     );
-\shift_reg_reg[0][2]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][2]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(2),
-      Q => \shift_reg_reg[0]\(2),
-      R => '0'
+      Q => \shift_reg_reg[14][2]_srl15_n_0\
     );
-\shift_reg_reg[0][3]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][3]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(3),
-      Q => \shift_reg_reg[0]\(3),
-      R => '0'
+      Q => \shift_reg_reg[14][3]_srl15_n_0\
     );
-\shift_reg_reg[0][4]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][4]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(4),
-      Q => \shift_reg_reg[0]\(4),
-      R => '0'
+      Q => \shift_reg_reg[14][4]_srl15_n_0\
     );
-\shift_reg_reg[0][5]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][5]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(5),
-      Q => \shift_reg_reg[0]\(5),
-      R => '0'
+      Q => \shift_reg_reg[14][5]_srl15_n_0\
     );
-\shift_reg_reg[0][6]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][6]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(6),
-      Q => \shift_reg_reg[0]\(6),
-      R => '0'
+      Q => \shift_reg_reg[14][6]_srl15_n_0\
     );
-\shift_reg_reg[0][7]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][7]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(7),
-      Q => \shift_reg_reg[0]\(7),
-      R => '0'
+      Q => \shift_reg_reg[14][7]_srl15_n_0\
     );
-\shift_reg_reg[0][8]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][8]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(8),
-      Q => \shift_reg_reg[0]\(8),
-      R => '0'
+      Q => \shift_reg_reg[14][8]_srl15_n_0\
     );
-\shift_reg_reg[0][9]\: unisim.vcomponents.FDRE
+\shift_reg_reg[14][9]_srl15\: unisim.vcomponents.SRL16E
      port map (
-      C => adc_clk,
+      A0 => '0',
+      A1 => '1',
+      A2 => '1',
+      A3 => '1',
       CE => '1',
+      CLK => adc_clk,
       D => adc_dat_a(9),
-      Q => \shift_reg_reg[0]\(9),
-      R => '0'
+      Q => \shift_reg_reg[14][9]_srl15_n_0\
     );
-\shift_reg_reg[1][0]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][0]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(0),
-      Q => \shift_reg_reg[1]\(0),
+      D => \shift_reg_reg[14][0]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(0),
       R => '0'
     );
-\shift_reg_reg[1][10]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][10]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(10),
-      Q => \shift_reg_reg[1]\(10),
+      D => \shift_reg_reg[14][10]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(10),
       R => '0'
     );
-\shift_reg_reg[1][11]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][11]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(11),
-      Q => \shift_reg_reg[1]\(11),
+      D => \shift_reg_reg[14][11]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(11),
       R => '0'
     );
-\shift_reg_reg[1][12]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][12]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(12),
-      Q => \shift_reg_reg[1]\(12),
+      D => \shift_reg_reg[14][12]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(12),
       R => '0'
     );
-\shift_reg_reg[1][13]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][13]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(13),
-      Q => \shift_reg_reg[1]\(13),
+      D => \shift_reg_reg[14][13]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(13),
       R => '0'
     );
-\shift_reg_reg[1][1]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][1]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(1),
-      Q => \shift_reg_reg[1]\(1),
+      D => \shift_reg_reg[14][1]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(1),
       R => '0'
     );
-\shift_reg_reg[1][2]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][2]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(2),
-      Q => \shift_reg_reg[1]\(2),
+      D => \shift_reg_reg[14][2]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(2),
       R => '0'
     );
-\shift_reg_reg[1][3]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][3]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(3),
-      Q => \shift_reg_reg[1]\(3),
+      D => \shift_reg_reg[14][3]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(3),
       R => '0'
     );
-\shift_reg_reg[1][4]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][4]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(4),
-      Q => \shift_reg_reg[1]\(4),
+      D => \shift_reg_reg[14][4]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(4),
       R => '0'
     );
-\shift_reg_reg[1][5]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][5]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(5),
-      Q => \shift_reg_reg[1]\(5),
+      D => \shift_reg_reg[14][5]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(5),
       R => '0'
     );
-\shift_reg_reg[1][6]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][6]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(6),
-      Q => \shift_reg_reg[1]\(6),
+      D => \shift_reg_reg[14][6]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(6),
       R => '0'
     );
-\shift_reg_reg[1][7]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][7]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(7),
-      Q => \shift_reg_reg[1]\(7),
+      D => \shift_reg_reg[14][7]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(7),
       R => '0'
     );
-\shift_reg_reg[1][8]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][8]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(8),
-      Q => \shift_reg_reg[1]\(8),
+      D => \shift_reg_reg[14][8]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(8),
       R => '0'
     );
-\shift_reg_reg[1][9]\: unisim.vcomponents.FDRE
+\shift_reg_reg[15][9]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \shift_reg_reg[0]\(9),
-      Q => \shift_reg_reg[1]\(9),
+      D => \shift_reg_reg[14][9]_srl15_n_0\,
+      Q => \shift_reg_reg[15]\(9),
       R => '0'
     );
 \smooth_data_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[0]\,
+      D => p_0_in(0),
       Q => smooth_data(0),
       R => '0'
     );
@@ -1746,7 +1824,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[10]\,
+      D => p_0_in(10),
       Q => smooth_data(10),
       R => '0'
     );
@@ -1754,7 +1832,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[11]\,
+      D => p_0_in(11),
       Q => smooth_data(11),
       R => '0'
     );
@@ -1762,7 +1840,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[12]\,
+      D => p_0_in(12),
       Q => smooth_data(12),
       R => '0'
     );
@@ -1826,7 +1904,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[1]\,
+      D => p_0_in(1),
       Q => smooth_data(1),
       R => '0'
     );
@@ -1886,35 +1964,11 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
       Q => smooth_data(26),
       R => '0'
     );
-\smooth_data_reg[27]\: unisim.vcomponents.FDRE
-     port map (
-      C => adc_clk,
-      CE => '1',
-      D => \acc_average_reg_n_0_[27]\,
-      Q => smooth_data(27),
-      R => '0'
-    );
-\smooth_data_reg[28]\: unisim.vcomponents.FDRE
-     port map (
-      C => adc_clk,
-      CE => '1',
-      D => \acc_average_reg_n_0_[28]\,
-      Q => smooth_data(28),
-      R => '0'
-    );
-\smooth_data_reg[29]\: unisim.vcomponents.FDRE
-     port map (
-      C => adc_clk,
-      CE => '1',
-      D => \acc_average_reg_n_0_[29]\,
-      Q => smooth_data(29),
-      R => '0'
-    );
 \smooth_data_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[2]\,
+      D => p_0_in(2),
       Q => smooth_data(2),
       R => '0'
     );
@@ -1922,15 +1976,15 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => p_0_in0,
-      Q => smooth_data(30),
+      D => p_0_in(13),
+      Q => smooth_data(27),
       R => '0'
     );
 \smooth_data_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[3]\,
+      D => p_0_in(3),
       Q => smooth_data(3),
       R => '0'
     );
@@ -1938,7 +1992,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[4]\,
+      D => p_0_in(4),
       Q => smooth_data(4),
       R => '0'
     );
@@ -1946,7 +2000,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[5]\,
+      D => p_0_in(5),
       Q => smooth_data(5),
       R => '0'
     );
@@ -1954,7 +2008,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[6]\,
+      D => p_0_in(6),
       Q => smooth_data(6),
       R => '0'
     );
@@ -1962,7 +2016,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[7]\,
+      D => p_0_in(7),
       Q => smooth_data(7),
       R => '0'
     );
@@ -1970,7 +2024,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[8]\,
+      D => p_0_in(8),
       Q => smooth_data(8),
       R => '0'
     );
@@ -1978,7 +2032,7 @@ accumulator0_carry_i_7: unisim.vcomponents.LUT3
      port map (
       C => adc_clk,
       CE => '1',
-      D => \acc_average_reg_n_0_[9]\,
+      D => p_0_in(9),
       Q => smooth_data(9),
       R => '0'
     );
@@ -2038,13 +2092,18 @@ begin
   short_smooth(13) <= \^smooth_data\(30);
   short_smooth(12 downto 0) <= \^short_smooth\(12 downto 0);
   smooth_data(31) <= \^smooth_data\(30);
-  smooth_data(30 downto 13) <= \^smooth_data\(30 downto 13);
+  smooth_data(30) <= \^smooth_data\(30);
+  smooth_data(29) <= \^smooth_data\(30);
+  smooth_data(28) <= \^smooth_data\(30);
+  smooth_data(27) <= \^smooth_data\(30);
+  smooth_data(26 downto 13) <= \^smooth_data\(26 downto 13);
   smooth_data(12 downto 0) <= \^short_smooth\(12 downto 0);
 inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_adc_smooth_mossbauer
      port map (
       adc_clk => adc_clk,
       adc_dat_a(13 downto 0) => adc_dat_a(13 downto 0),
-      smooth_data(30 downto 13) => \^smooth_data\(30 downto 13),
+      smooth_data(27) => \^smooth_data\(30),
+      smooth_data(26 downto 13) => \^smooth_data\(26 downto 13),
       smooth_data(12 downto 0) => \^short_smooth\(12 downto 0)
     );
 end STRUCTURE;

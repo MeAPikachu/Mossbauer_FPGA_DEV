@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Thu May 23 14:51:10 2024
--- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+-- Date        : Wed May 29 18:41:30 2024
+-- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ system_rising32_0_0_sim_netlist.vhdl
 -- Design      : system_rising32_0_0
@@ -25,66 +25,95 @@ end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32;
 
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32 is
   signal \_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__0_i_1_n_1\ : STD_LOGIC;
+  signal \_carry__0_i_1_n_2\ : STD_LOGIC;
+  signal \_carry__0_i_1_n_3\ : STD_LOGIC;
   signal \_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \_carry__0_i_3_n_0\ : STD_LOGIC;
   signal \_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__0_i_5_n_0\ : STD_LOGIC;
   signal \_carry__0_n_0\ : STD_LOGIC;
   signal \_carry__0_n_1\ : STD_LOGIC;
   signal \_carry__0_n_2\ : STD_LOGIC;
   signal \_carry__0_n_3\ : STD_LOGIC;
   signal \_carry__1_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__1_i_1_n_1\ : STD_LOGIC;
+  signal \_carry__1_i_1_n_2\ : STD_LOGIC;
+  signal \_carry__1_i_1_n_3\ : STD_LOGIC;
   signal \_carry__1_i_2_n_0\ : STD_LOGIC;
   signal \_carry__1_i_3_n_0\ : STD_LOGIC;
   signal \_carry__1_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__1_i_5_n_0\ : STD_LOGIC;
   signal \_carry__1_n_0\ : STD_LOGIC;
   signal \_carry__1_n_1\ : STD_LOGIC;
   signal \_carry__1_n_2\ : STD_LOGIC;
   signal \_carry__1_n_3\ : STD_LOGIC;
   signal \_carry__2_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__2_i_1_n_1\ : STD_LOGIC;
+  signal \_carry__2_i_1_n_2\ : STD_LOGIC;
+  signal \_carry__2_i_1_n_3\ : STD_LOGIC;
   signal \_carry__2_i_2_n_0\ : STD_LOGIC;
   signal \_carry__2_i_3_n_0\ : STD_LOGIC;
   signal \_carry__2_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__2_i_5_n_0\ : STD_LOGIC;
   signal \_carry__2_n_0\ : STD_LOGIC;
   signal \_carry__2_n_1\ : STD_LOGIC;
   signal \_carry__2_n_2\ : STD_LOGIC;
   signal \_carry__2_n_3\ : STD_LOGIC;
   signal \_carry__3_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__3_i_1_n_1\ : STD_LOGIC;
+  signal \_carry__3_i_1_n_2\ : STD_LOGIC;
+  signal \_carry__3_i_1_n_3\ : STD_LOGIC;
   signal \_carry__3_i_2_n_0\ : STD_LOGIC;
   signal \_carry__3_i_3_n_0\ : STD_LOGIC;
   signal \_carry__3_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__3_i_5_n_0\ : STD_LOGIC;
   signal \_carry__3_n_0\ : STD_LOGIC;
   signal \_carry__3_n_1\ : STD_LOGIC;
   signal \_carry__3_n_2\ : STD_LOGIC;
   signal \_carry__3_n_3\ : STD_LOGIC;
   signal \_carry__4_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__4_i_1_n_1\ : STD_LOGIC;
+  signal \_carry__4_i_1_n_2\ : STD_LOGIC;
+  signal \_carry__4_i_1_n_3\ : STD_LOGIC;
   signal \_carry__4_i_2_n_0\ : STD_LOGIC;
   signal \_carry__4_i_3_n_0\ : STD_LOGIC;
   signal \_carry__4_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__4_i_5_n_0\ : STD_LOGIC;
   signal \_carry__4_n_0\ : STD_LOGIC;
   signal \_carry__4_n_1\ : STD_LOGIC;
   signal \_carry__4_n_2\ : STD_LOGIC;
   signal \_carry__4_n_3\ : STD_LOGIC;
   signal \_carry__5_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__5_i_1_n_1\ : STD_LOGIC;
+  signal \_carry__5_i_1_n_2\ : STD_LOGIC;
+  signal \_carry__5_i_1_n_3\ : STD_LOGIC;
   signal \_carry__5_i_2_n_0\ : STD_LOGIC;
   signal \_carry__5_i_3_n_0\ : STD_LOGIC;
   signal \_carry__5_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__5_i_5_n_0\ : STD_LOGIC;
   signal \_carry__5_n_0\ : STD_LOGIC;
   signal \_carry__5_n_1\ : STD_LOGIC;
   signal \_carry__5_n_2\ : STD_LOGIC;
   signal \_carry__5_n_3\ : STD_LOGIC;
-  signal \_carry__6_i_1_n_0\ : STD_LOGIC;
+  signal \_carry__6_i_1_n_3\ : STD_LOGIC;
   signal \_carry__6_i_2_n_0\ : STD_LOGIC;
   signal \_carry__6_i_3_n_0\ : STD_LOGIC;
   signal \_carry__6_i_4_n_0\ : STD_LOGIC;
+  signal \_carry__6_i_5_n_0\ : STD_LOGIC;
   signal \_carry__6_n_0\ : STD_LOGIC;
   signal \_carry__6_n_1\ : STD_LOGIC;
   signal \_carry__6_n_2\ : STD_LOGIC;
   signal \_carry__6_n_3\ : STD_LOGIC;
   signal \_carry_i_1_n_0\ : STD_LOGIC;
+  signal \_carry_i_1_n_1\ : STD_LOGIC;
+  signal \_carry_i_1_n_2\ : STD_LOGIC;
+  signal \_carry_i_1_n_3\ : STD_LOGIC;
   signal \_carry_i_2_n_0\ : STD_LOGIC;
   signal \_carry_i_3_n_0\ : STD_LOGIC;
   signal \_carry_i_4_n_0\ : STD_LOGIC;
   signal \_carry_i_5_n_0\ : STD_LOGIC;
+  signal \_carry_i_6_n_0\ : STD_LOGIC;
   signal \_carry_n_0\ : STD_LOGIC;
   signal \_carry_n_1\ : STD_LOGIC;
   signal \_carry_n_2\ : STD_LOGIC;
@@ -142,38 +171,7 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32 is
   signal rising0_carry_n_1 : STD_LOGIC;
   signal rising0_carry_n_2 : STD_LOGIC;
   signal rising0_carry_n_3 : STD_LOGIC;
-  signal rising1 : STD_LOGIC_VECTOR ( 31 downto 1 );
-  signal \rising1__60_carry__0_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry__0_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry__0_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__0_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry__1_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry__1_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry__1_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__1_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry__2_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry__2_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry__2_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__2_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry__3_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry__3_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry__3_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__3_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry__4_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry__4_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry__4_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__4_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry__5_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry__5_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry__5_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__5_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry__6_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry__6_n_3\ : STD_LOGIC;
-  signal \rising1__60_carry_i_1_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry_n_0\ : STD_LOGIC;
-  signal \rising1__60_carry_n_1\ : STD_LOGIC;
-  signal \rising1__60_carry_n_2\ : STD_LOGIC;
-  signal \rising1__60_carry_n_3\ : STD_LOGIC;
+  signal rising1 : STD_LOGIC_VECTOR ( 31 downto 2 );
   signal \rising1_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \rising1_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \rising1_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -248,10 +246,7 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32 is
   signal \rising1_carry__5_n_7\ : STD_LOGIC;
   signal \rising1_carry__6_i_1_n_0\ : STD_LOGIC;
   signal \rising1_carry__6_i_2_n_0\ : STD_LOGIC;
-  signal \rising1_carry__6_i_3_n_0\ : STD_LOGIC;
-  signal \rising1_carry__6_n_2\ : STD_LOGIC;
   signal \rising1_carry__6_n_3\ : STD_LOGIC;
-  signal \rising1_carry__6_n_5\ : STD_LOGIC;
   signal \rising1_carry__6_n_6\ : STD_LOGIC;
   signal \rising1_carry__6_n_7\ : STD_LOGIC;
   signal rising1_carry_i_1_n_0 : STD_LOGIC;
@@ -264,7 +259,6 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32 is
   signal rising1_carry_n_4 : STD_LOGIC;
   signal rising1_carry_n_5 : STD_LOGIC;
   signal rising1_carry_n_6 : STD_LOGIC;
-  signal rising1_carry_n_7 : STD_LOGIC;
   signal rising_i_1_n_0 : STD_LOGIC;
   signal \NLW__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW__carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -274,16 +268,26 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32 is
   signal \NLW__carry__4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW__carry__5_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW__carry__6_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW__carry__6_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW__carry__6_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW__carry__7_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW__carry__7_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW__carry_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_rising0_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_rising0_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_rising0_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_rising0_carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_rising1__60_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
-  signal \NLW_rising1__60_carry__6_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal \NLW_rising1_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
-  signal \NLW_rising1_carry__6_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rising1_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW_rising1_carry__6_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  attribute ADDER_THRESHOLD : integer;
+  attribute ADDER_THRESHOLD of \_carry__0_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry__1_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry__2_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry__3_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry__4_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry__5_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry__6_i_1\ : label is 35;
+  attribute ADDER_THRESHOLD of \_carry_i_1\ : label is 35;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of falling_i_1 : label is "soft_lutpair0";
   attribute COMPARATOR_THRESHOLD : integer;
@@ -291,15 +295,6 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rising32 is
   attribute COMPARATOR_THRESHOLD of \rising0_carry__0\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \rising0_carry__1\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \rising0_carry__2\ : label is 11;
-  attribute ADDER_THRESHOLD : integer;
-  attribute ADDER_THRESHOLD of \rising1__60_carry\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__0\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__1\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__2\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__3\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__4\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__5\ : label is 35;
-  attribute ADDER_THRESHOLD of \rising1__60_carry__6\ : label is 35;
   attribute ADDER_THRESHOLD of rising1_carry : label is 35;
   attribute ADDER_THRESHOLD of \rising1_carry__0\ : label is 35;
   attribute ADDER_THRESHOLD of \rising1_carry__1\ : label is 35;
@@ -320,8 +315,8 @@ begin
       CO(1) => \_carry_n_2\,
       CO(0) => \_carry_n_3\,
       CYINIT => '1',
-      DI(3 downto 1) => rising1(3 downto 1),
-      DI(0) => \_carry_i_1_n_0\,
+      DI(3 downto 2) => rising1(3 downto 2),
+      DI(1 downto 0) => previous_data(1 downto 0),
       O(3 downto 0) => \NLW__carry_O_UNCONNECTED\(3 downto 0),
       S(3) => \_carry_i_2_n_0\,
       S(2) => \_carry_i_3_n_0\,
@@ -338,27 +333,30 @@ begin
       CYINIT => '0',
       DI(3 downto 0) => rising1(7 downto 4),
       O(3 downto 0) => \NLW__carry__0_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__0_i_1_n_0\,
-      S(2) => \_carry__0_i_2_n_0\,
-      S(1) => \_carry__0_i_3_n_0\,
-      S(0) => \_carry__0_i_4_n_0\
+      S(3) => \_carry__0_i_2_n_0\,
+      S(2) => \_carry__0_i_3_n_0\,
+      S(1) => \_carry__0_i_4_n_0\,
+      S(0) => \_carry__0_i_5_n_0\
     );
-\_carry__0_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(7),
-      I1 => adc_dat_a(7),
-      O => \_carry__0_i_1_n_0\
+\_carry__0_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry_i_1_n_0\,
+      CO(3) => \_carry__0_i_1_n_0\,
+      CO(2) => \_carry__0_i_1_n_1\,
+      CO(1) => \_carry__0_i_1_n_2\,
+      CO(0) => \_carry__0_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => rising1(9 downto 6),
+      S(3 downto 0) => previous_data(9 downto 6)
     );
 \_carry__0_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(6),
-      I1 => adc_dat_a(6),
+      I0 => rising1(7),
+      I1 => adc_dat_a(7),
       O => \_carry__0_i_2_n_0\
     );
 \_carry__0_i_3\: unisim.vcomponents.LUT2
@@ -366,8 +364,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(5),
-      I1 => adc_dat_a(5),
+      I0 => rising1(6),
+      I1 => adc_dat_a(6),
       O => \_carry__0_i_3_n_0\
     );
 \_carry__0_i_4\: unisim.vcomponents.LUT2
@@ -375,9 +373,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(5),
+      I1 => adc_dat_a(5),
+      O => \_carry__0_i_4_n_0\
+    );
+\_carry__0_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(4),
       I1 => adc_dat_a(4),
-      O => \_carry__0_i_4_n_0\
+      O => \_carry__0_i_5_n_0\
     );
 \_carry__1\: unisim.vcomponents.CARRY4
      port map (
@@ -389,27 +396,30 @@ begin
       CYINIT => '0',
       DI(3 downto 0) => rising1(11 downto 8),
       O(3 downto 0) => \NLW__carry__1_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__1_i_1_n_0\,
-      S(2) => \_carry__1_i_2_n_0\,
-      S(1) => \_carry__1_i_3_n_0\,
-      S(0) => \_carry__1_i_4_n_0\
+      S(3) => \_carry__1_i_2_n_0\,
+      S(2) => \_carry__1_i_3_n_0\,
+      S(1) => \_carry__1_i_4_n_0\,
+      S(0) => \_carry__1_i_5_n_0\
     );
-\_carry__1_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(11),
-      I1 => adc_dat_a(11),
-      O => \_carry__1_i_1_n_0\
+\_carry__1_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry__0_i_1_n_0\,
+      CO(3) => \_carry__1_i_1_n_0\,
+      CO(2) => \_carry__1_i_1_n_1\,
+      CO(1) => \_carry__1_i_1_n_2\,
+      CO(0) => \_carry__1_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => rising1(13 downto 10),
+      S(3 downto 0) => previous_data(13 downto 10)
     );
 \_carry__1_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(10),
-      I1 => adc_dat_a(10),
+      I0 => rising1(11),
+      I1 => adc_dat_a(11),
       O => \_carry__1_i_2_n_0\
     );
 \_carry__1_i_3\: unisim.vcomponents.LUT2
@@ -417,8 +427,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(9),
-      I1 => adc_dat_a(9),
+      I0 => rising1(10),
+      I1 => adc_dat_a(10),
       O => \_carry__1_i_3_n_0\
     );
 \_carry__1_i_4\: unisim.vcomponents.LUT2
@@ -426,9 +436,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(9),
+      I1 => adc_dat_a(9),
+      O => \_carry__1_i_4_n_0\
+    );
+\_carry__1_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(8),
       I1 => adc_dat_a(8),
-      O => \_carry__1_i_4_n_0\
+      O => \_carry__1_i_5_n_0\
     );
 \_carry__2\: unisim.vcomponents.CARRY4
      port map (
@@ -440,27 +459,30 @@ begin
       CYINIT => '0',
       DI(3 downto 0) => rising1(15 downto 12),
       O(3 downto 0) => \NLW__carry__2_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__2_i_1_n_0\,
-      S(2) => \_carry__2_i_2_n_0\,
-      S(1) => \_carry__2_i_3_n_0\,
-      S(0) => \_carry__2_i_4_n_0\
+      S(3) => \_carry__2_i_2_n_0\,
+      S(2) => \_carry__2_i_3_n_0\,
+      S(1) => \_carry__2_i_4_n_0\,
+      S(0) => \_carry__2_i_5_n_0\
     );
-\_carry__2_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(15),
-      I1 => adc_dat_a(15),
-      O => \_carry__2_i_1_n_0\
+\_carry__2_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry__1_i_1_n_0\,
+      CO(3) => \_carry__2_i_1_n_0\,
+      CO(2) => \_carry__2_i_1_n_1\,
+      CO(1) => \_carry__2_i_1_n_2\,
+      CO(0) => \_carry__2_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => rising1(17 downto 14),
+      S(3 downto 0) => previous_data(17 downto 14)
     );
 \_carry__2_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(14),
-      I1 => adc_dat_a(14),
+      I0 => rising1(15),
+      I1 => adc_dat_a(15),
       O => \_carry__2_i_2_n_0\
     );
 \_carry__2_i_3\: unisim.vcomponents.LUT2
@@ -468,8 +490,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(13),
-      I1 => adc_dat_a(13),
+      I0 => rising1(14),
+      I1 => adc_dat_a(14),
       O => \_carry__2_i_3_n_0\
     );
 \_carry__2_i_4\: unisim.vcomponents.LUT2
@@ -477,9 +499,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(13),
+      I1 => adc_dat_a(13),
+      O => \_carry__2_i_4_n_0\
+    );
+\_carry__2_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(12),
       I1 => adc_dat_a(12),
-      O => \_carry__2_i_4_n_0\
+      O => \_carry__2_i_5_n_0\
     );
 \_carry__3\: unisim.vcomponents.CARRY4
      port map (
@@ -491,27 +522,30 @@ begin
       CYINIT => '0',
       DI(3 downto 0) => rising1(19 downto 16),
       O(3 downto 0) => \NLW__carry__3_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__3_i_1_n_0\,
-      S(2) => \_carry__3_i_2_n_0\,
-      S(1) => \_carry__3_i_3_n_0\,
-      S(0) => \_carry__3_i_4_n_0\
+      S(3) => \_carry__3_i_2_n_0\,
+      S(2) => \_carry__3_i_3_n_0\,
+      S(1) => \_carry__3_i_4_n_0\,
+      S(0) => \_carry__3_i_5_n_0\
     );
-\_carry__3_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(19),
-      I1 => adc_dat_a(19),
-      O => \_carry__3_i_1_n_0\
+\_carry__3_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry__2_i_1_n_0\,
+      CO(3) => \_carry__3_i_1_n_0\,
+      CO(2) => \_carry__3_i_1_n_1\,
+      CO(1) => \_carry__3_i_1_n_2\,
+      CO(0) => \_carry__3_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => rising1(21 downto 18),
+      S(3 downto 0) => previous_data(21 downto 18)
     );
 \_carry__3_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(18),
-      I1 => adc_dat_a(18),
+      I0 => rising1(19),
+      I1 => adc_dat_a(19),
       O => \_carry__3_i_2_n_0\
     );
 \_carry__3_i_3\: unisim.vcomponents.LUT2
@@ -519,8 +553,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(17),
-      I1 => adc_dat_a(17),
+      I0 => rising1(18),
+      I1 => adc_dat_a(18),
       O => \_carry__3_i_3_n_0\
     );
 \_carry__3_i_4\: unisim.vcomponents.LUT2
@@ -528,9 +562,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(17),
+      I1 => adc_dat_a(17),
+      O => \_carry__3_i_4_n_0\
+    );
+\_carry__3_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(16),
       I1 => adc_dat_a(16),
-      O => \_carry__3_i_4_n_0\
+      O => \_carry__3_i_5_n_0\
     );
 \_carry__4\: unisim.vcomponents.CARRY4
      port map (
@@ -542,27 +585,30 @@ begin
       CYINIT => '0',
       DI(3 downto 0) => rising1(23 downto 20),
       O(3 downto 0) => \NLW__carry__4_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__4_i_1_n_0\,
-      S(2) => \_carry__4_i_2_n_0\,
-      S(1) => \_carry__4_i_3_n_0\,
-      S(0) => \_carry__4_i_4_n_0\
+      S(3) => \_carry__4_i_2_n_0\,
+      S(2) => \_carry__4_i_3_n_0\,
+      S(1) => \_carry__4_i_4_n_0\,
+      S(0) => \_carry__4_i_5_n_0\
     );
-\_carry__4_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(23),
-      I1 => adc_dat_a(23),
-      O => \_carry__4_i_1_n_0\
+\_carry__4_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry__3_i_1_n_0\,
+      CO(3) => \_carry__4_i_1_n_0\,
+      CO(2) => \_carry__4_i_1_n_1\,
+      CO(1) => \_carry__4_i_1_n_2\,
+      CO(0) => \_carry__4_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => rising1(25 downto 22),
+      S(3 downto 0) => previous_data(25 downto 22)
     );
 \_carry__4_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(22),
-      I1 => adc_dat_a(22),
+      I0 => rising1(23),
+      I1 => adc_dat_a(23),
       O => \_carry__4_i_2_n_0\
     );
 \_carry__4_i_3\: unisim.vcomponents.LUT2
@@ -570,8 +616,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(21),
-      I1 => adc_dat_a(21),
+      I0 => rising1(22),
+      I1 => adc_dat_a(22),
       O => \_carry__4_i_3_n_0\
     );
 \_carry__4_i_4\: unisim.vcomponents.LUT2
@@ -579,9 +625,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(21),
+      I1 => adc_dat_a(21),
+      O => \_carry__4_i_4_n_0\
+    );
+\_carry__4_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(20),
       I1 => adc_dat_a(20),
-      O => \_carry__4_i_4_n_0\
+      O => \_carry__4_i_5_n_0\
     );
 \_carry__5\: unisim.vcomponents.CARRY4
      port map (
@@ -593,27 +648,30 @@ begin
       CYINIT => '0',
       DI(3 downto 0) => rising1(27 downto 24),
       O(3 downto 0) => \NLW__carry__5_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__5_i_1_n_0\,
-      S(2) => \_carry__5_i_2_n_0\,
-      S(1) => \_carry__5_i_3_n_0\,
-      S(0) => \_carry__5_i_4_n_0\
+      S(3) => \_carry__5_i_2_n_0\,
+      S(2) => \_carry__5_i_3_n_0\,
+      S(1) => \_carry__5_i_4_n_0\,
+      S(0) => \_carry__5_i_5_n_0\
     );
-\_carry__5_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(27),
-      I1 => adc_dat_a(27),
-      O => \_carry__5_i_1_n_0\
+\_carry__5_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry__4_i_1_n_0\,
+      CO(3) => \_carry__5_i_1_n_0\,
+      CO(2) => \_carry__5_i_1_n_1\,
+      CO(1) => \_carry__5_i_1_n_2\,
+      CO(0) => \_carry__5_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => rising1(29 downto 26),
+      S(3 downto 0) => previous_data(29 downto 26)
     );
 \_carry__5_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(26),
-      I1 => adc_dat_a(26),
+      I0 => rising1(27),
+      I1 => adc_dat_a(27),
       O => \_carry__5_i_2_n_0\
     );
 \_carry__5_i_3\: unisim.vcomponents.LUT2
@@ -621,8 +679,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(25),
-      I1 => adc_dat_a(25),
+      I0 => rising1(26),
+      I1 => adc_dat_a(26),
       O => \_carry__5_i_3_n_0\
     );
 \_carry__5_i_4\: unisim.vcomponents.LUT2
@@ -630,9 +688,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(25),
+      I1 => adc_dat_a(25),
+      O => \_carry__5_i_4_n_0\
+    );
+\_carry__5_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(24),
       I1 => adc_dat_a(24),
-      O => \_carry__5_i_4_n_0\
+      O => \_carry__5_i_5_n_0\
     );
 \_carry__6\: unisim.vcomponents.CARRY4
      port map (
@@ -645,27 +712,30 @@ begin
       DI(3) => adc_dat_a(31),
       DI(2 downto 0) => rising1(30 downto 28),
       O(3 downto 0) => \NLW__carry__6_O_UNCONNECTED\(3 downto 0),
-      S(3) => \_carry__6_i_1_n_0\,
-      S(2) => \_carry__6_i_2_n_0\,
-      S(1) => \_carry__6_i_3_n_0\,
-      S(0) => \_carry__6_i_4_n_0\
+      S(3) => \_carry__6_i_2_n_0\,
+      S(2) => \_carry__6_i_3_n_0\,
+      S(1) => \_carry__6_i_4_n_0\,
+      S(0) => \_carry__6_i_5_n_0\
     );
-\_carry__6_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"9"
-    )
-        port map (
-      I0 => rising1(31),
-      I1 => adc_dat_a(31),
-      O => \_carry__6_i_1_n_0\
+\_carry__6_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \_carry__5_i_1_n_0\,
+      CO(3 downto 1) => \NLW__carry__6_i_1_CO_UNCONNECTED\(3 downto 1),
+      CO(0) => \_carry__6_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 2) => \NLW__carry__6_i_1_O_UNCONNECTED\(3 downto 2),
+      O(1 downto 0) => rising1(31 downto 30),
+      S(3 downto 2) => B"00",
+      S(1 downto 0) => previous_data(31 downto 30)
     );
 \_carry__6_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => rising1(30),
-      I1 => adc_dat_a(30),
+      I0 => rising1(31),
+      I1 => adc_dat_a(31),
       O => \_carry__6_i_2_n_0\
     );
 \_carry__6_i_3\: unisim.vcomponents.LUT2
@@ -673,8 +743,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(29),
-      I1 => adc_dat_a(29),
+      I0 => rising1(30),
+      I1 => adc_dat_a(30),
       O => \_carry__6_i_3_n_0\
     );
 \_carry__6_i_4\: unisim.vcomponents.LUT2
@@ -682,9 +752,18 @@ begin
       INIT => X"9"
     )
         port map (
+      I0 => rising1(29),
+      I1 => adc_dat_a(29),
+      O => \_carry__6_i_4_n_0\
+    );
+\_carry__6_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
       I0 => rising1(28),
       I1 => adc_dat_a(28),
-      O => \_carry__6_i_4_n_0\
+      O => \_carry__6_i_5_n_0\
     );
 \_carry__7\: unisim.vcomponents.CARRY4
      port map (
@@ -696,13 +775,22 @@ begin
       O(0) => rising0,
       S(3 downto 0) => B"0001"
     );
-\_carry_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => previous_data(0),
-      O => \_carry_i_1_n_0\
+\_carry_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \_carry_i_1_n_0\,
+      CO(2) => \_carry_i_1_n_1\,
+      CO(1) => \_carry_i_1_n_2\,
+      CO(0) => \_carry_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 2) => B"00",
+      DI(1) => previous_data(3),
+      DI(0) => '0',
+      O(3 downto 1) => rising1(5 downto 3),
+      O(0) => \NLW__carry_i_1_O_UNCONNECTED\(0),
+      S(3 downto 2) => previous_data(5 downto 4),
+      S(1) => \_carry_i_6_n_0\,
+      S(0) => previous_data(2)
     );
 \_carry_i_2\: unisim.vcomponents.LUT2
     generic map(
@@ -727,18 +815,26 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => rising1(1),
+      I0 => previous_data(1),
       I1 => adc_dat_a(1),
       O => \_carry_i_4_n_0\
     );
 \_carry_i_5\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"6"
+      INIT => X"9"
     )
         port map (
       I0 => previous_data(0),
       I1 => adc_dat_a(0),
       O => \_carry_i_5_n_0\
+    );
+\_carry_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => previous_data(3),
+      O => \_carry_i_6_n_0\
     );
 falling_i_1: unisim.vcomponents.LUT3
     generic map(
@@ -1055,10 +1151,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__2_n_6\,
+      I0 => \rising1_carry__2_n_7\,
       I1 => adc_dat_a(14),
       I2 => adc_dat_a(15),
-      I3 => \rising1_carry__2_n_5\,
+      I3 => \rising1_carry__2_n_6\,
       O => \rising0_carry__0_i_1_n_0\
     );
 \rising0_carry__0_i_2\: unisim.vcomponents.LUT4
@@ -1066,10 +1162,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__1_n_4\,
+      I0 => \rising1_carry__1_n_5\,
       I1 => adc_dat_a(12),
       I2 => adc_dat_a(13),
-      I3 => \rising1_carry__2_n_7\,
+      I3 => \rising1_carry__1_n_4\,
       O => \rising0_carry__0_i_2_n_0\
     );
 \rising0_carry__0_i_3\: unisim.vcomponents.LUT4
@@ -1077,10 +1173,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__1_n_6\,
+      I0 => \rising1_carry__1_n_7\,
       I1 => adc_dat_a(10),
       I2 => adc_dat_a(11),
-      I3 => \rising1_carry__1_n_5\,
+      I3 => \rising1_carry__1_n_6\,
       O => \rising0_carry__0_i_3_n_0\
     );
 \rising0_carry__0_i_4\: unisim.vcomponents.LUT4
@@ -1088,10 +1184,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__0_n_4\,
+      I0 => \rising1_carry__0_n_5\,
       I1 => adc_dat_a(8),
       I2 => adc_dat_a(9),
-      I3 => \rising1_carry__1_n_7\,
+      I3 => \rising1_carry__0_n_4\,
       O => \rising0_carry__0_i_4_n_0\
     );
 \rising0_carry__0_i_5\: unisim.vcomponents.LUT4
@@ -1099,9 +1195,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__2_n_6\,
+      I0 => \rising1_carry__2_n_7\,
       I1 => adc_dat_a(14),
-      I2 => \rising1_carry__2_n_5\,
+      I2 => \rising1_carry__2_n_6\,
       I3 => adc_dat_a(15),
       O => \rising0_carry__0_i_5_n_0\
     );
@@ -1110,9 +1206,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__1_n_4\,
+      I0 => \rising1_carry__1_n_5\,
       I1 => adc_dat_a(12),
-      I2 => \rising1_carry__2_n_7\,
+      I2 => \rising1_carry__1_n_4\,
       I3 => adc_dat_a(13),
       O => \rising0_carry__0_i_6_n_0\
     );
@@ -1121,9 +1217,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__1_n_6\,
+      I0 => \rising1_carry__1_n_7\,
       I1 => adc_dat_a(10),
-      I2 => \rising1_carry__1_n_5\,
+      I2 => \rising1_carry__1_n_6\,
       I3 => adc_dat_a(11),
       O => \rising0_carry__0_i_7_n_0\
     );
@@ -1132,9 +1228,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__0_n_4\,
+      I0 => \rising1_carry__0_n_5\,
       I1 => adc_dat_a(8),
-      I2 => \rising1_carry__1_n_7\,
+      I2 => \rising1_carry__0_n_4\,
       I3 => adc_dat_a(9),
       O => \rising0_carry__0_i_8_n_0\
     );
@@ -1161,10 +1257,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__4_n_6\,
+      I0 => \rising1_carry__4_n_7\,
       I1 => adc_dat_a(22),
       I2 => adc_dat_a(23),
-      I3 => \rising1_carry__4_n_5\,
+      I3 => \rising1_carry__4_n_6\,
       O => \rising0_carry__1_i_1_n_0\
     );
 \rising0_carry__1_i_2\: unisim.vcomponents.LUT4
@@ -1172,10 +1268,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__3_n_4\,
+      I0 => \rising1_carry__3_n_5\,
       I1 => adc_dat_a(20),
       I2 => adc_dat_a(21),
-      I3 => \rising1_carry__4_n_7\,
+      I3 => \rising1_carry__3_n_4\,
       O => \rising0_carry__1_i_2_n_0\
     );
 \rising0_carry__1_i_3\: unisim.vcomponents.LUT4
@@ -1183,10 +1279,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__3_n_6\,
+      I0 => \rising1_carry__3_n_7\,
       I1 => adc_dat_a(18),
       I2 => adc_dat_a(19),
-      I3 => \rising1_carry__3_n_5\,
+      I3 => \rising1_carry__3_n_6\,
       O => \rising0_carry__1_i_3_n_0\
     );
 \rising0_carry__1_i_4\: unisim.vcomponents.LUT4
@@ -1194,10 +1290,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__2_n_4\,
+      I0 => \rising1_carry__2_n_5\,
       I1 => adc_dat_a(16),
       I2 => adc_dat_a(17),
-      I3 => \rising1_carry__3_n_7\,
+      I3 => \rising1_carry__2_n_4\,
       O => \rising0_carry__1_i_4_n_0\
     );
 \rising0_carry__1_i_5\: unisim.vcomponents.LUT4
@@ -1205,9 +1301,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__4_n_6\,
+      I0 => \rising1_carry__4_n_7\,
       I1 => adc_dat_a(22),
-      I2 => \rising1_carry__4_n_5\,
+      I2 => \rising1_carry__4_n_6\,
       I3 => adc_dat_a(23),
       O => \rising0_carry__1_i_5_n_0\
     );
@@ -1216,9 +1312,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__3_n_4\,
+      I0 => \rising1_carry__3_n_5\,
       I1 => adc_dat_a(20),
-      I2 => \rising1_carry__4_n_7\,
+      I2 => \rising1_carry__3_n_4\,
       I3 => adc_dat_a(21),
       O => \rising0_carry__1_i_6_n_0\
     );
@@ -1227,9 +1323,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__3_n_6\,
+      I0 => \rising1_carry__3_n_7\,
       I1 => adc_dat_a(18),
-      I2 => \rising1_carry__3_n_5\,
+      I2 => \rising1_carry__3_n_6\,
       I3 => adc_dat_a(19),
       O => \rising0_carry__1_i_7_n_0\
     );
@@ -1238,9 +1334,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__2_n_4\,
+      I0 => \rising1_carry__2_n_5\,
       I1 => adc_dat_a(16),
-      I2 => \rising1_carry__3_n_7\,
+      I2 => \rising1_carry__2_n_4\,
       I3 => adc_dat_a(17),
       O => \rising0_carry__1_i_8_n_0\
     );
@@ -1267,9 +1363,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__6_n_6\,
+      I0 => \rising1_carry__6_n_7\,
       I1 => adc_dat_a(30),
-      I2 => \rising1_carry__6_n_5\,
+      I2 => \rising1_carry__6_n_6\,
       I3 => adc_dat_a(31),
       O => \rising0_carry__2_i_1_n_0\
     );
@@ -1278,10 +1374,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__5_n_4\,
+      I0 => \rising1_carry__5_n_5\,
       I1 => adc_dat_a(28),
       I2 => adc_dat_a(29),
-      I3 => \rising1_carry__6_n_7\,
+      I3 => \rising1_carry__5_n_4\,
       O => \rising0_carry__2_i_2_n_0\
     );
 \rising0_carry__2_i_3\: unisim.vcomponents.LUT4
@@ -1289,10 +1385,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__5_n_6\,
+      I0 => \rising1_carry__5_n_7\,
       I1 => adc_dat_a(26),
       I2 => adc_dat_a(27),
-      I3 => \rising1_carry__5_n_5\,
+      I3 => \rising1_carry__5_n_6\,
       O => \rising0_carry__2_i_3_n_0\
     );
 \rising0_carry__2_i_4\: unisim.vcomponents.LUT4
@@ -1300,10 +1396,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__4_n_4\,
+      I0 => \rising1_carry__4_n_5\,
       I1 => adc_dat_a(24),
       I2 => adc_dat_a(25),
-      I3 => \rising1_carry__5_n_7\,
+      I3 => \rising1_carry__4_n_4\,
       O => \rising0_carry__2_i_4_n_0\
     );
 \rising0_carry__2_i_5\: unisim.vcomponents.LUT4
@@ -1311,10 +1407,10 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__6_n_6\,
+      I0 => \rising1_carry__6_n_7\,
       I1 => adc_dat_a(30),
       I2 => adc_dat_a(31),
-      I3 => \rising1_carry__6_n_5\,
+      I3 => \rising1_carry__6_n_6\,
       O => \rising0_carry__2_i_5_n_0\
     );
 \rising0_carry__2_i_6\: unisim.vcomponents.LUT4
@@ -1322,9 +1418,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__5_n_4\,
+      I0 => \rising1_carry__5_n_5\,
       I1 => adc_dat_a(28),
-      I2 => \rising1_carry__6_n_7\,
+      I2 => \rising1_carry__5_n_4\,
       I3 => adc_dat_a(29),
       O => \rising0_carry__2_i_6_n_0\
     );
@@ -1333,9 +1429,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__5_n_6\,
+      I0 => \rising1_carry__5_n_7\,
       I1 => adc_dat_a(26),
-      I2 => \rising1_carry__5_n_5\,
+      I2 => \rising1_carry__5_n_6\,
       I3 => adc_dat_a(27),
       O => \rising0_carry__2_i_7_n_0\
     );
@@ -1344,9 +1440,9 @@ rising0_carry: unisim.vcomponents.CARRY4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__4_n_4\,
+      I0 => \rising1_carry__4_n_5\,
       I1 => adc_dat_a(24),
-      I2 => \rising1_carry__5_n_7\,
+      I2 => \rising1_carry__4_n_4\,
       I3 => adc_dat_a(25),
       O => \rising0_carry__2_i_8_n_0\
     );
@@ -1355,10 +1451,10 @@ rising0_carry_i_1: unisim.vcomponents.LUT4
       INIT => X"2F02"
     )
         port map (
-      I0 => \rising1_carry__0_n_6\,
+      I0 => \rising1_carry__0_n_7\,
       I1 => adc_dat_a(6),
       I2 => adc_dat_a(7),
-      I3 => \rising1_carry__0_n_5\,
+      I3 => \rising1_carry__0_n_6\,
       O => rising0_carry_i_1_n_0
     );
 rising0_carry_i_2: unisim.vcomponents.LUT4
@@ -1366,10 +1462,10 @@ rising0_carry_i_2: unisim.vcomponents.LUT4
       INIT => X"2F02"
     )
         port map (
-      I0 => rising1_carry_n_4,
+      I0 => rising1_carry_n_5,
       I1 => adc_dat_a(4),
       I2 => adc_dat_a(5),
-      I3 => \rising1_carry__0_n_7\,
+      I3 => rising1_carry_n_4,
       O => rising0_carry_i_2_n_0
     );
 rising0_carry_i_3: unisim.vcomponents.LUT4
@@ -1377,21 +1473,21 @@ rising0_carry_i_3: unisim.vcomponents.LUT4
       INIT => X"2F02"
     )
         port map (
-      I0 => rising1_carry_n_6,
+      I0 => previous_data(2),
       I1 => adc_dat_a(2),
       I2 => adc_dat_a(3),
-      I3 => rising1_carry_n_5,
+      I3 => rising1_carry_n_6,
       O => rising0_carry_i_3_n_0
     );
 rising0_carry_i_4: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1F01"
+      INIT => X"2F02"
     )
         port map (
-      I0 => adc_dat_a(0),
-      I1 => previous_data(0),
+      I0 => previous_data(0),
+      I1 => adc_dat_a(0),
       I2 => adc_dat_a(1),
-      I3 => rising1_carry_n_7,
+      I3 => previous_data(1),
       O => rising0_carry_i_4_n_0
     );
 rising0_carry_i_5: unisim.vcomponents.LUT4
@@ -1399,9 +1495,9 @@ rising0_carry_i_5: unisim.vcomponents.LUT4
       INIT => X"9009"
     )
         port map (
-      I0 => \rising1_carry__0_n_6\,
+      I0 => \rising1_carry__0_n_7\,
       I1 => adc_dat_a(6),
-      I2 => \rising1_carry__0_n_5\,
+      I2 => \rising1_carry__0_n_6\,
       I3 => adc_dat_a(7),
       O => rising0_carry_i_5_n_0
     );
@@ -1410,9 +1506,9 @@ rising0_carry_i_6: unisim.vcomponents.LUT4
       INIT => X"9009"
     )
         port map (
-      I0 => rising1_carry_n_4,
+      I0 => rising1_carry_n_5,
       I1 => adc_dat_a(4),
-      I2 => \rising1_carry__0_n_7\,
+      I2 => rising1_carry_n_4,
       I3 => adc_dat_a(5),
       O => rising0_carry_i_6_n_0
     );
@@ -1421,131 +1517,22 @@ rising0_carry_i_7: unisim.vcomponents.LUT4
       INIT => X"9009"
     )
         port map (
-      I0 => rising1_carry_n_6,
+      I0 => previous_data(2),
       I1 => adc_dat_a(2),
-      I2 => rising1_carry_n_5,
+      I2 => rising1_carry_n_6,
       I3 => adc_dat_a(3),
       O => rising0_carry_i_7_n_0
     );
 rising0_carry_i_8: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"6006"
+      INIT => X"9009"
     )
         port map (
       I0 => previous_data(0),
       I1 => adc_dat_a(0),
-      I2 => rising1_carry_n_7,
+      I2 => previous_data(1),
       I3 => adc_dat_a(1),
       O => rising0_carry_i_8_n_0
-    );
-\rising1__60_carry\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \rising1__60_carry_n_0\,
-      CO(2) => \rising1__60_carry_n_1\,
-      CO(1) => \rising1__60_carry_n_2\,
-      CO(0) => \rising1__60_carry_n_3\,
-      CYINIT => previous_data(0),
-      DI(3 downto 2) => B"00",
-      DI(1) => previous_data(2),
-      DI(0) => '0',
-      O(3 downto 0) => rising1(4 downto 1),
-      S(3 downto 2) => previous_data(4 downto 3),
-      S(1) => \rising1__60_carry_i_1_n_0\,
-      S(0) => previous_data(1)
-    );
-\rising1__60_carry__0\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry_n_0\,
-      CO(3) => \rising1__60_carry__0_n_0\,
-      CO(2) => \rising1__60_carry__0_n_1\,
-      CO(1) => \rising1__60_carry__0_n_2\,
-      CO(0) => \rising1__60_carry__0_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => rising1(8 downto 5),
-      S(3 downto 0) => previous_data(8 downto 5)
-    );
-\rising1__60_carry__1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry__0_n_0\,
-      CO(3) => \rising1__60_carry__1_n_0\,
-      CO(2) => \rising1__60_carry__1_n_1\,
-      CO(1) => \rising1__60_carry__1_n_2\,
-      CO(0) => \rising1__60_carry__1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => rising1(12 downto 9),
-      S(3 downto 0) => previous_data(12 downto 9)
-    );
-\rising1__60_carry__2\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry__1_n_0\,
-      CO(3) => \rising1__60_carry__2_n_0\,
-      CO(2) => \rising1__60_carry__2_n_1\,
-      CO(1) => \rising1__60_carry__2_n_2\,
-      CO(0) => \rising1__60_carry__2_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => rising1(16 downto 13),
-      S(3 downto 0) => previous_data(16 downto 13)
-    );
-\rising1__60_carry__3\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry__2_n_0\,
-      CO(3) => \rising1__60_carry__3_n_0\,
-      CO(2) => \rising1__60_carry__3_n_1\,
-      CO(1) => \rising1__60_carry__3_n_2\,
-      CO(0) => \rising1__60_carry__3_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => rising1(20 downto 17),
-      S(3 downto 0) => previous_data(20 downto 17)
-    );
-\rising1__60_carry__4\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry__3_n_0\,
-      CO(3) => \rising1__60_carry__4_n_0\,
-      CO(2) => \rising1__60_carry__4_n_1\,
-      CO(1) => \rising1__60_carry__4_n_2\,
-      CO(0) => \rising1__60_carry__4_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => rising1(24 downto 21),
-      S(3 downto 0) => previous_data(24 downto 21)
-    );
-\rising1__60_carry__5\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry__4_n_0\,
-      CO(3) => \rising1__60_carry__5_n_0\,
-      CO(2) => \rising1__60_carry__5_n_1\,
-      CO(1) => \rising1__60_carry__5_n_2\,
-      CO(0) => \rising1__60_carry__5_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => rising1(28 downto 25),
-      S(3 downto 0) => previous_data(28 downto 25)
-    );
-\rising1__60_carry__6\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \rising1__60_carry__5_n_0\,
-      CO(3 downto 2) => \NLW_rising1__60_carry__6_CO_UNCONNECTED\(3 downto 2),
-      CO(1) => \rising1__60_carry__6_n_2\,
-      CO(0) => \rising1__60_carry__6_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \NLW_rising1__60_carry__6_O_UNCONNECTED\(3),
-      O(2 downto 0) => rising1(31 downto 29),
-      S(3) => '0',
-      S(2 downto 0) => previous_data(31 downto 29)
-    );
-\rising1__60_carry_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => previous_data(2),
-      O => \rising1__60_carry_i_1_n_0\
     );
 rising1_carry: unisim.vcomponents.CARRY4
      port map (
@@ -1554,18 +1541,17 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(2) => rising1_carry_n_1,
       CO(1) => rising1_carry_n_2,
       CO(0) => rising1_carry_n_3,
-      CYINIT => previous_data(0),
-      DI(3 downto 2) => previous_data(4 downto 3),
-      DI(1) => '0',
-      DI(0) => previous_data(1),
+      CYINIT => '0',
+      DI(3 downto 1) => previous_data(5 downto 3),
+      DI(0) => '0',
       O(3) => rising1_carry_n_4,
       O(2) => rising1_carry_n_5,
       O(1) => rising1_carry_n_6,
-      O(0) => rising1_carry_n_7,
+      O(0) => rising1(2),
       S(3) => rising1_carry_i_1_n_0,
       S(2) => rising1_carry_i_2_n_0,
-      S(1) => previous_data(2),
-      S(0) => rising1_carry_i_3_n_0
+      S(1) => rising1_carry_i_3_n_0,
+      S(0) => previous_data(2)
     );
 \rising1_carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -1575,7 +1561,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(1) => \rising1_carry__0_n_2\,
       CO(0) => \rising1_carry__0_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => previous_data(8 downto 5),
+      DI(3 downto 0) => previous_data(9 downto 6),
       O(3) => \rising1_carry__0_n_4\,
       O(2) => \rising1_carry__0_n_5\,
       O(1) => \rising1_carry__0_n_6\,
@@ -1590,7 +1576,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(8),
+      I0 => previous_data(9),
       O => \rising1_carry__0_i_1_n_0\
     );
 \rising1_carry__0_i_2\: unisim.vcomponents.LUT1
@@ -1598,7 +1584,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(7),
+      I0 => previous_data(8),
       O => \rising1_carry__0_i_2_n_0\
     );
 \rising1_carry__0_i_3\: unisim.vcomponents.LUT1
@@ -1606,7 +1592,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(6),
+      I0 => previous_data(7),
       O => \rising1_carry__0_i_3_n_0\
     );
 \rising1_carry__0_i_4\: unisim.vcomponents.LUT1
@@ -1614,7 +1600,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(5),
+      I0 => previous_data(6),
       O => \rising1_carry__0_i_4_n_0\
     );
 \rising1_carry__1\: unisim.vcomponents.CARRY4
@@ -1625,7 +1611,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(1) => \rising1_carry__1_n_2\,
       CO(0) => \rising1_carry__1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => previous_data(12 downto 9),
+      DI(3 downto 0) => previous_data(13 downto 10),
       O(3) => \rising1_carry__1_n_4\,
       O(2) => \rising1_carry__1_n_5\,
       O(1) => \rising1_carry__1_n_6\,
@@ -1640,7 +1626,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(12),
+      I0 => previous_data(13),
       O => \rising1_carry__1_i_1_n_0\
     );
 \rising1_carry__1_i_2\: unisim.vcomponents.LUT1
@@ -1648,7 +1634,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(11),
+      I0 => previous_data(12),
       O => \rising1_carry__1_i_2_n_0\
     );
 \rising1_carry__1_i_3\: unisim.vcomponents.LUT1
@@ -1656,7 +1642,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(10),
+      I0 => previous_data(11),
       O => \rising1_carry__1_i_3_n_0\
     );
 \rising1_carry__1_i_4\: unisim.vcomponents.LUT1
@@ -1664,7 +1650,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(9),
+      I0 => previous_data(10),
       O => \rising1_carry__1_i_4_n_0\
     );
 \rising1_carry__2\: unisim.vcomponents.CARRY4
@@ -1675,7 +1661,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(1) => \rising1_carry__2_n_2\,
       CO(0) => \rising1_carry__2_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => previous_data(16 downto 13),
+      DI(3 downto 0) => previous_data(17 downto 14),
       O(3) => \rising1_carry__2_n_4\,
       O(2) => \rising1_carry__2_n_5\,
       O(1) => \rising1_carry__2_n_6\,
@@ -1690,7 +1676,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(16),
+      I0 => previous_data(17),
       O => \rising1_carry__2_i_1_n_0\
     );
 \rising1_carry__2_i_2\: unisim.vcomponents.LUT1
@@ -1698,7 +1684,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(15),
+      I0 => previous_data(16),
       O => \rising1_carry__2_i_2_n_0\
     );
 \rising1_carry__2_i_3\: unisim.vcomponents.LUT1
@@ -1706,7 +1692,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(14),
+      I0 => previous_data(15),
       O => \rising1_carry__2_i_3_n_0\
     );
 \rising1_carry__2_i_4\: unisim.vcomponents.LUT1
@@ -1714,7 +1700,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(13),
+      I0 => previous_data(14),
       O => \rising1_carry__2_i_4_n_0\
     );
 \rising1_carry__3\: unisim.vcomponents.CARRY4
@@ -1725,7 +1711,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(1) => \rising1_carry__3_n_2\,
       CO(0) => \rising1_carry__3_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => previous_data(20 downto 17),
+      DI(3 downto 0) => previous_data(21 downto 18),
       O(3) => \rising1_carry__3_n_4\,
       O(2) => \rising1_carry__3_n_5\,
       O(1) => \rising1_carry__3_n_6\,
@@ -1740,7 +1726,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(20),
+      I0 => previous_data(21),
       O => \rising1_carry__3_i_1_n_0\
     );
 \rising1_carry__3_i_2\: unisim.vcomponents.LUT1
@@ -1748,7 +1734,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(19),
+      I0 => previous_data(20),
       O => \rising1_carry__3_i_2_n_0\
     );
 \rising1_carry__3_i_3\: unisim.vcomponents.LUT1
@@ -1756,7 +1742,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(18),
+      I0 => previous_data(19),
       O => \rising1_carry__3_i_3_n_0\
     );
 \rising1_carry__3_i_4\: unisim.vcomponents.LUT1
@@ -1764,7 +1750,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(17),
+      I0 => previous_data(18),
       O => \rising1_carry__3_i_4_n_0\
     );
 \rising1_carry__4\: unisim.vcomponents.CARRY4
@@ -1775,7 +1761,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(1) => \rising1_carry__4_n_2\,
       CO(0) => \rising1_carry__4_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => previous_data(24 downto 21),
+      DI(3 downto 0) => previous_data(25 downto 22),
       O(3) => \rising1_carry__4_n_4\,
       O(2) => \rising1_carry__4_n_5\,
       O(1) => \rising1_carry__4_n_6\,
@@ -1790,7 +1776,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(24),
+      I0 => previous_data(25),
       O => \rising1_carry__4_i_1_n_0\
     );
 \rising1_carry__4_i_2\: unisim.vcomponents.LUT1
@@ -1798,7 +1784,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(23),
+      I0 => previous_data(24),
       O => \rising1_carry__4_i_2_n_0\
     );
 \rising1_carry__4_i_3\: unisim.vcomponents.LUT1
@@ -1806,7 +1792,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(22),
+      I0 => previous_data(23),
       O => \rising1_carry__4_i_3_n_0\
     );
 \rising1_carry__4_i_4\: unisim.vcomponents.LUT1
@@ -1814,7 +1800,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(21),
+      I0 => previous_data(22),
       O => \rising1_carry__4_i_4_n_0\
     );
 \rising1_carry__5\: unisim.vcomponents.CARRY4
@@ -1825,7 +1811,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       CO(1) => \rising1_carry__5_n_2\,
       CO(0) => \rising1_carry__5_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => previous_data(28 downto 25),
+      DI(3 downto 0) => previous_data(29 downto 26),
       O(3) => \rising1_carry__5_n_4\,
       O(2) => \rising1_carry__5_n_5\,
       O(1) => \rising1_carry__5_n_6\,
@@ -1840,7 +1826,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(28),
+      I0 => previous_data(29),
       O => \rising1_carry__5_i_1_n_0\
     );
 \rising1_carry__5_i_2\: unisim.vcomponents.LUT1
@@ -1848,7 +1834,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(27),
+      I0 => previous_data(28),
       O => \rising1_carry__5_i_2_n_0\
     );
 \rising1_carry__5_i_3\: unisim.vcomponents.LUT1
@@ -1856,7 +1842,7 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(26),
+      I0 => previous_data(27),
       O => \rising1_carry__5_i_3_n_0\
     );
 \rising1_carry__5_i_4\: unisim.vcomponents.LUT1
@@ -1864,26 +1850,23 @@ rising1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(25),
+      I0 => previous_data(26),
       O => \rising1_carry__5_i_4_n_0\
     );
 \rising1_carry__6\: unisim.vcomponents.CARRY4
      port map (
       CI => \rising1_carry__5_n_0\,
-      CO(3 downto 2) => \NLW_rising1_carry__6_CO_UNCONNECTED\(3 downto 2),
-      CO(1) => \rising1_carry__6_n_2\,
+      CO(3 downto 1) => \NLW_rising1_carry__6_CO_UNCONNECTED\(3 downto 1),
       CO(0) => \rising1_carry__6_n_3\,
       CYINIT => '0',
-      DI(3 downto 2) => B"00",
-      DI(1 downto 0) => previous_data(30 downto 29),
-      O(3) => \NLW_rising1_carry__6_O_UNCONNECTED\(3),
-      O(2) => \rising1_carry__6_n_5\,
+      DI(3 downto 1) => B"000",
+      DI(0) => previous_data(30),
+      O(3 downto 2) => \NLW_rising1_carry__6_O_UNCONNECTED\(3 downto 2),
       O(1) => \rising1_carry__6_n_6\,
       O(0) => \rising1_carry__6_n_7\,
-      S(3) => '0',
-      S(2) => \rising1_carry__6_i_1_n_0\,
-      S(1) => \rising1_carry__6_i_2_n_0\,
-      S(0) => \rising1_carry__6_i_3_n_0\
+      S(3 downto 2) => B"00",
+      S(1) => \rising1_carry__6_i_1_n_0\,
+      S(0) => \rising1_carry__6_i_2_n_0\
     );
 \rising1_carry__6_i_1\: unisim.vcomponents.LUT1
     generic map(
@@ -1901,20 +1884,12 @@ rising1_carry: unisim.vcomponents.CARRY4
       I0 => previous_data(30),
       O => \rising1_carry__6_i_2_n_0\
     );
-\rising1_carry__6_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => previous_data(29),
-      O => \rising1_carry__6_i_3_n_0\
-    );
 rising1_carry_i_1: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(4),
+      I0 => previous_data(5),
       O => rising1_carry_i_1_n_0
     );
 rising1_carry_i_2: unisim.vcomponents.LUT1
@@ -1922,7 +1897,7 @@ rising1_carry_i_2: unisim.vcomponents.LUT1
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(3),
+      I0 => previous_data(4),
       O => rising1_carry_i_2_n_0
     );
 rising1_carry_i_3: unisim.vcomponents.LUT1
@@ -1930,7 +1905,7 @@ rising1_carry_i_3: unisim.vcomponents.LUT1
       INIT => X"1"
     )
         port map (
-      I0 => previous_data(1),
+      I0 => previous_data(3),
       O => rising1_carry_i_3_n_0
     );
 rising_i_1: unisim.vcomponents.LUT3

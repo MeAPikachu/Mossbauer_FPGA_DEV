@@ -20,6 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+// To let this system apply to more general situation, 
+
+
 module trigger_mossbauer(
     input clk , 
     input trigger, 
@@ -28,6 +31,7 @@ module trigger_mossbauer(
     output reg enable
     );
     
+    // The mask is no longer used here; 
     
     wire data ; 
     assign data= trigger; 
@@ -47,25 +51,25 @@ module trigger_mossbauer(
     end 
     
     always@(posedge clk) begin
-        if (mask ) begin 
-            if (!prev_signal && input_signal) begin 
-                if (!active && mask) begin 
-                   enable <= 1'b1; 
-                   counter <= DURATION -1  ;
-                   active <= 1 ; 
-                 end
-              end 
-        
-            if(active) begin 
-              if( counter > 1 ) begin 
-                   counter <= counter -1 ;
-                end 
-              else begin 
-                enable <= 1'b0 ; 
-                active <= 1'b0 ; 
-               end 
-            end
-        prev_signal <= input_signal ; 
-    end
-    end         
+       // In this version, the mask is no longer required. 
+       if (!prev_signal && input_signal) begin 
+          if (!active && mask) begin 
+              enable <= 1'b1; 
+              counter <= DURATION -1  ;
+              active <= 1 ; 
+          end
+       end 
+       
+       if(active) begin 
+          if( counter > 1 ) begin 
+             counter <= counter -1 ;
+          end 
+          else begin 
+             enable <= 1'b0 ; 
+             active <= 1'b0 ; 
+          end 
+       end
+       
+       prev_signal <= input_signal ; 
+    end  
 endmodule

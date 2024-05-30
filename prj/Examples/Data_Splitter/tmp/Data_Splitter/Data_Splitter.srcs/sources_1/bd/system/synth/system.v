@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Thu May 23 20:45:47 2024
-//Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+//Date        : Wed May 29 18:41:01 2024
+//Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -1106,7 +1106,7 @@ module s00_couplers_imp_11SE3QO
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=48,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=55,numReposBlks=47,numNonXlnxBlks=1,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=15,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -1248,6 +1248,7 @@ module system
   wire back_skim_enable;
   wire [13:0]bessel_filter_0_adc_filt_a;
   wire [13:0]bessel_filter_1_adc_filt_a;
+  wire [13:0]bessel_filter_2_adc_filt_a;
   wire [13:0]c_ht_Dout;
   wire [31:0]cycle_counter_0_for_count;
   wire [31:0]cycle_counter_1_for_count;
@@ -1395,10 +1396,8 @@ module system
   wire rising32_0_rising;
   wire [0:0]run_enable_Dout;
   wire [0:0]run_reset_Dout;
-  wire [0:0]sign_Dout;
   wire [31:0]signal_split_0_M_AXIS_PORT1_tdata;
   wire [31:0]signal_split_0_M_AXIS_PORT2_tdata;
-  wire [0:0]skim_voltage_Res;
   wire slow_clock_generator_0_slow_clk;
   wire [1:0]util_ds_buf_1_IBUF_OUT;
   wire [1:0]util_ds_buf_2_OBUF_DS_N;
@@ -1586,6 +1585,11 @@ module system
         .adc_filt_a(bessel_filter_1_adc_filt_a),
         .clk(axis_red_pitaya_adc_0_adc_clk),
         .reset(reset1_dout));
+  system_bessel_filter_1_1 bessel_filter_2
+       (.adc_dat_a(bessel_filter_1_adc_filt_a),
+        .adc_filt_a(bessel_filter_2_adc_filt_a),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .reset(reset1_dout));
   system_xlslice_1_3 c_ht
        (.Din(axi_gpio_5_gpio_io_o),
         .Dout(c_ht_Dout));
@@ -1643,10 +1647,10 @@ module system
         .In1(high_threshold_0_vlh),
         .In2(rising32_0_rising),
         .In3(rising32_0_falling),
-        .In4(skim_voltage_Res),
+        .In4(util_vector_logic_0_Res),
         .In5(forward_skim_enable),
         .In6(back_skim_enable),
-        .In7(sign_Dout),
+        .In7(run_enable_Dout),
         .dout(led_concat_dout));
   system_xlslice_0_0 low_threshold
        (.Din(axi_gpio_2_gpio_io_o),
@@ -1937,18 +1941,11 @@ module system
   system_xlslice_1_1 run_reset
        (.Din(axi_gpio_3_gpio2_io_o),
         .Dout(run_reset_Dout));
-  system_sign_0 sign
-       (.Din(xlslice_CH1_Dout),
-        .Dout(sign_Dout));
   system_signal_split_0_0 signal_split_0
        (.M_AXIS_PORT1_tdata(signal_split_0_M_AXIS_PORT1_tdata),
         .M_AXIS_PORT2_tdata(signal_split_0_M_AXIS_PORT2_tdata),
         .S_AXIS_tdata(axis_red_pitaya_adc_0_M_AXIS_TDATA),
         .S_AXIS_tvalid(axis_red_pitaya_adc_0_M_AXIS_TVALID));
-  system_util_vector_logic_0_0 skim_voltage
-       (.Op1(low_threshold_0_vgl),
-        .Op2(high_threshold_0_vlh),
-        .Res(skim_voltage_Res));
   system_slow_clock_generator_0_0 slow_clock_generator_0
        (.adc_clk(axis_red_pitaya_adc_0_adc_clk),
         .max(axi_gpio_3_gpio_io_o),
@@ -1976,7 +1973,7 @@ module system
         .In7(1'b0),
         .dout(xlconcat_0_dout));
   system_xlconcat_1_0 xlconcat_1
-       (.In0(bessel_filter_1_adc_filt_a),
+       (.In0(bessel_filter_2_adc_filt_a),
         .In1(xlconstant_5_dout),
         .dout(xlconcat_1_dout));
   system_xlconstant_0_0 xlconstant_0

@@ -68,9 +68,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlslice_
 # IP: bd/system/ip/system_data_concat_0/system_data_concat_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_data_concat_0 || ORIG_REF_NAME==system_data_concat_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_sign_0/system_sign_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_sign_0 || ORIG_REF_NAME==system_sign_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_xlslice_0_0/system_xlslice_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlslice_0_0 || ORIG_REF_NAME==system_xlslice_0_0} -quiet] -quiet
 
@@ -91,9 +88,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_trigger_
 
 # IP: bd/system/ip/system_trigger_mossbauer_0_1/system_trigger_mossbauer_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_trigger_mossbauer_0_1 || ORIG_REF_NAME==system_trigger_mossbauer_0_1} -quiet] -quiet
-
-# IP: bd/system/ip/system_util_vector_logic_0_0/system_util_vector_logic_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_util_vector_logic_0_0 || ORIG_REF_NAME==system_util_vector_logic_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_xlconcat_0_0/system_xlconcat_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_xlconcat_0_0 || ORIG_REF_NAME==system_xlconcat_0_0} -quiet] -quiet
@@ -151,6 +145,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_event_co
 
 # IP: bd/system/ip/system_util_vector_logic_0_1/system_util_vector_logic_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_util_vector_logic_0_1 || ORIG_REF_NAME==system_util_vector_logic_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_bessel_filter_1_1/system_bessel_filter_1_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_bessel_filter_1_1 || ORIG_REF_NAME==system_bessel_filter_1_1} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

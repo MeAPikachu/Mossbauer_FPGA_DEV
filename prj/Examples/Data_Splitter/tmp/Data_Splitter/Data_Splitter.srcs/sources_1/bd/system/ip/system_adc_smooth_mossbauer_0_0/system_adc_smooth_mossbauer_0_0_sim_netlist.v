@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Thu May 16 16:13:03 2024
+// Date        : Tue May 28 21:50:30 2024
 // Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_adc_smooth_mossbauer_0_0/system_adc_smooth_mossbauer_0_0_sim_netlist.v
@@ -55,12 +55,16 @@ module system_adc_smooth_mossbauer_0_0
   assign short_smooth[13] = \^smooth_data [30];
   assign short_smooth[12:0] = \^short_smooth [12:0];
   assign smooth_data[31] = \^smooth_data [30];
-  assign smooth_data[30:13] = \^smooth_data [30:13];
+  assign smooth_data[30] = \^smooth_data [30];
+  assign smooth_data[29] = \^smooth_data [30];
+  assign smooth_data[28] = \^smooth_data [30];
+  assign smooth_data[27] = \^smooth_data [30];
+  assign smooth_data[26:13] = \^smooth_data [26:13];
   assign smooth_data[12:0] = \^short_smooth [12:0];
   system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer inst
        (.adc_clk(adc_clk),
         .adc_dat_a(adc_dat_a[13:0]),
-        .smooth_data({\^smooth_data ,\^short_smooth }));
+        .smooth_data({\^smooth_data [30],\^smooth_data [26:13],\^short_smooth }));
 endmodule
 
 (* ORIG_REF_NAME = "adc_smooth_mossbauer" *) 
@@ -68,14 +72,10 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
    (smooth_data,
     adc_dat_a,
     adc_clk);
-  output [30:0]smooth_data;
+  output [27:0]smooth_data;
   input [13:0]adc_dat_a;
   input adc_clk;
 
-  wire \acc_average_reg_n_0_[0] ;
-  wire \acc_average_reg_n_0_[10] ;
-  wire \acc_average_reg_n_0_[11] ;
-  wire \acc_average_reg_n_0_[12] ;
   wire \acc_average_reg_n_0_[13] ;
   wire \acc_average_reg_n_0_[14] ;
   wire \acc_average_reg_n_0_[15] ;
@@ -83,7 +83,6 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   wire \acc_average_reg_n_0_[17] ;
   wire \acc_average_reg_n_0_[18] ;
   wire \acc_average_reg_n_0_[19] ;
-  wire \acc_average_reg_n_0_[1] ;
   wire \acc_average_reg_n_0_[20] ;
   wire \acc_average_reg_n_0_[21] ;
   wire \acc_average_reg_n_0_[22] ;
@@ -91,18 +90,6 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   wire \acc_average_reg_n_0_[24] ;
   wire \acc_average_reg_n_0_[25] ;
   wire \acc_average_reg_n_0_[26] ;
-  wire \acc_average_reg_n_0_[27] ;
-  wire \acc_average_reg_n_0_[28] ;
-  wire \acc_average_reg_n_0_[29] ;
-  wire \acc_average_reg_n_0_[2] ;
-  wire \acc_average_reg_n_0_[3] ;
-  wire \acc_average_reg_n_0_[4] ;
-  wire \acc_average_reg_n_0_[5] ;
-  wire \acc_average_reg_n_0_[6] ;
-  wire \acc_average_reg_n_0_[7] ;
-  wire \acc_average_reg_n_0_[8] ;
-  wire \acc_average_reg_n_0_[9] ;
-  wire [31:0]accumulator;
   wire accumulator0_carry__0_i_1_n_0;
   wire accumulator0_carry__0_i_2_n_0;
   wire accumulator0_carry__0_i_3_n_0;
@@ -212,12 +199,57 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   wire accumulator0_carry_n_5;
   wire accumulator0_carry_n_6;
   wire accumulator0_carry_n_7;
+  wire \accumulator_reg_n_0_[0] ;
+  wire \accumulator_reg_n_0_[10] ;
+  wire \accumulator_reg_n_0_[11] ;
+  wire \accumulator_reg_n_0_[12] ;
+  wire \accumulator_reg_n_0_[13] ;
+  wire \accumulator_reg_n_0_[14] ;
+  wire \accumulator_reg_n_0_[15] ;
+  wire \accumulator_reg_n_0_[16] ;
+  wire \accumulator_reg_n_0_[17] ;
+  wire \accumulator_reg_n_0_[18] ;
+  wire \accumulator_reg_n_0_[19] ;
+  wire \accumulator_reg_n_0_[1] ;
+  wire \accumulator_reg_n_0_[20] ;
+  wire \accumulator_reg_n_0_[21] ;
+  wire \accumulator_reg_n_0_[22] ;
+  wire \accumulator_reg_n_0_[23] ;
+  wire \accumulator_reg_n_0_[24] ;
+  wire \accumulator_reg_n_0_[25] ;
+  wire \accumulator_reg_n_0_[26] ;
+  wire \accumulator_reg_n_0_[27] ;
+  wire \accumulator_reg_n_0_[28] ;
+  wire \accumulator_reg_n_0_[29] ;
+  wire \accumulator_reg_n_0_[2] ;
+  wire \accumulator_reg_n_0_[30] ;
+  wire \accumulator_reg_n_0_[3] ;
+  wire \accumulator_reg_n_0_[4] ;
+  wire \accumulator_reg_n_0_[5] ;
+  wire \accumulator_reg_n_0_[6] ;
+  wire \accumulator_reg_n_0_[7] ;
+  wire \accumulator_reg_n_0_[8] ;
+  wire \accumulator_reg_n_0_[9] ;
   wire adc_clk;
   wire [13:0]adc_dat_a;
+  wire [13:0]p_0_in;
   wire p_0_in0;
-  wire [13:0]\shift_reg_reg[0] ;
-  wire [13:0]\shift_reg_reg[1] ;
-  wire [30:0]smooth_data;
+  wire \shift_reg_reg[14][0]_srl15_n_0 ;
+  wire \shift_reg_reg[14][10]_srl15_n_0 ;
+  wire \shift_reg_reg[14][11]_srl15_n_0 ;
+  wire \shift_reg_reg[14][12]_srl15_n_0 ;
+  wire \shift_reg_reg[14][13]_srl15_n_0 ;
+  wire \shift_reg_reg[14][1]_srl15_n_0 ;
+  wire \shift_reg_reg[14][2]_srl15_n_0 ;
+  wire \shift_reg_reg[14][3]_srl15_n_0 ;
+  wire \shift_reg_reg[14][4]_srl15_n_0 ;
+  wire \shift_reg_reg[14][5]_srl15_n_0 ;
+  wire \shift_reg_reg[14][6]_srl15_n_0 ;
+  wire \shift_reg_reg[14][7]_srl15_n_0 ;
+  wire \shift_reg_reg[14][8]_srl15_n_0 ;
+  wire \shift_reg_reg[14][9]_srl15_n_0 ;
+  wire [13:0]\shift_reg_reg[15] ;
+  wire [27:0]smooth_data;
   wire [3:3]NLW_accumulator0_carry__6_CO_UNCONNECTED;
 
   FDRE #(
@@ -225,39 +257,39 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[0] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[1]),
-        .Q(\acc_average_reg_n_0_[0] ),
+        .D(\accumulator_reg_n_0_[4] ),
+        .Q(p_0_in[0]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[10] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[11]),
-        .Q(\acc_average_reg_n_0_[10] ),
+        .D(\accumulator_reg_n_0_[14] ),
+        .Q(p_0_in[10]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[11] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[12]),
-        .Q(\acc_average_reg_n_0_[11] ),
+        .D(\accumulator_reg_n_0_[15] ),
+        .Q(p_0_in[11]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[12] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[13]),
-        .Q(\acc_average_reg_n_0_[12] ),
+        .D(\accumulator_reg_n_0_[16] ),
+        .Q(p_0_in[12]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[13] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[14]),
+        .D(\accumulator_reg_n_0_[17] ),
         .Q(\acc_average_reg_n_0_[13] ),
         .R(1'b0));
   FDRE #(
@@ -265,7 +297,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[14] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[15]),
+        .D(\accumulator_reg_n_0_[18] ),
         .Q(\acc_average_reg_n_0_[14] ),
         .R(1'b0));
   FDRE #(
@@ -273,7 +305,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[15] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[16]),
+        .D(\accumulator_reg_n_0_[19] ),
         .Q(\acc_average_reg_n_0_[15] ),
         .R(1'b0));
   FDRE #(
@@ -281,7 +313,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[16] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[17]),
+        .D(\accumulator_reg_n_0_[20] ),
         .Q(\acc_average_reg_n_0_[16] ),
         .R(1'b0));
   FDRE #(
@@ -289,7 +321,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[17] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[18]),
+        .D(\accumulator_reg_n_0_[21] ),
         .Q(\acc_average_reg_n_0_[17] ),
         .R(1'b0));
   FDRE #(
@@ -297,7 +329,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[18] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[19]),
+        .D(\accumulator_reg_n_0_[22] ),
         .Q(\acc_average_reg_n_0_[18] ),
         .R(1'b0));
   FDRE #(
@@ -305,7 +337,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[19] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[20]),
+        .D(\accumulator_reg_n_0_[23] ),
         .Q(\acc_average_reg_n_0_[19] ),
         .R(1'b0));
   FDRE #(
@@ -313,15 +345,15 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[1] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[2]),
-        .Q(\acc_average_reg_n_0_[1] ),
+        .D(\accumulator_reg_n_0_[5] ),
+        .Q(p_0_in[1]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[20] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[21]),
+        .D(\accumulator_reg_n_0_[24] ),
         .Q(\acc_average_reg_n_0_[20] ),
         .R(1'b0));
   FDRE #(
@@ -329,7 +361,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[21] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[22]),
+        .D(\accumulator_reg_n_0_[25] ),
         .Q(\acc_average_reg_n_0_[21] ),
         .R(1'b0));
   FDRE #(
@@ -337,7 +369,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[22] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[23]),
+        .D(\accumulator_reg_n_0_[26] ),
         .Q(\acc_average_reg_n_0_[22] ),
         .R(1'b0));
   FDRE #(
@@ -345,7 +377,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[23] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[24]),
+        .D(\accumulator_reg_n_0_[27] ),
         .Q(\acc_average_reg_n_0_[23] ),
         .R(1'b0));
   FDRE #(
@@ -353,7 +385,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[24] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[25]),
+        .D(\accumulator_reg_n_0_[28] ),
         .Q(\acc_average_reg_n_0_[24] ),
         .R(1'b0));
   FDRE #(
@@ -361,7 +393,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[25] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[26]),
+        .D(\accumulator_reg_n_0_[29] ),
         .Q(\acc_average_reg_n_0_[25] ),
         .R(1'b0));
   FDRE #(
@@ -369,104 +401,80 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
     \acc_average_reg[26] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[27]),
+        .D(\accumulator_reg_n_0_[30] ),
         .Q(\acc_average_reg_n_0_[26] ),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \acc_average_reg[27] 
-       (.C(adc_clk),
-        .CE(1'b1),
-        .D(accumulator[28]),
-        .Q(\acc_average_reg_n_0_[27] ),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \acc_average_reg[28] 
-       (.C(adc_clk),
-        .CE(1'b1),
-        .D(accumulator[29]),
-        .Q(\acc_average_reg_n_0_[28] ),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \acc_average_reg[29] 
-       (.C(adc_clk),
-        .CE(1'b1),
-        .D(accumulator[30]),
-        .Q(\acc_average_reg_n_0_[29] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[2] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[3]),
-        .Q(\acc_average_reg_n_0_[2] ),
+        .D(\accumulator_reg_n_0_[6] ),
+        .Q(p_0_in[2]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[31] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[31]),
-        .Q(p_0_in0),
+        .D(p_0_in0),
+        .Q(p_0_in[13]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[3] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[4]),
-        .Q(\acc_average_reg_n_0_[3] ),
+        .D(\accumulator_reg_n_0_[7] ),
+        .Q(p_0_in[3]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[4] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[5]),
-        .Q(\acc_average_reg_n_0_[4] ),
+        .D(\accumulator_reg_n_0_[8] ),
+        .Q(p_0_in[4]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[5] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[6]),
-        .Q(\acc_average_reg_n_0_[5] ),
+        .D(\accumulator_reg_n_0_[9] ),
+        .Q(p_0_in[5]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[6] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[7]),
-        .Q(\acc_average_reg_n_0_[6] ),
+        .D(\accumulator_reg_n_0_[10] ),
+        .Q(p_0_in[6]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[7] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[8]),
-        .Q(\acc_average_reg_n_0_[7] ),
+        .D(\accumulator_reg_n_0_[11] ),
+        .Q(p_0_in[7]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[8] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[9]),
-        .Q(\acc_average_reg_n_0_[8] ),
+        .D(\accumulator_reg_n_0_[12] ),
+        .Q(p_0_in[8]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \acc_average_reg[9] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(accumulator[10]),
-        .Q(\acc_average_reg_n_0_[9] ),
+        .D(\accumulator_reg_n_0_[13] ),
+        .Q(p_0_in[9]),
         .R(1'b0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 accumulator0_carry
@@ -488,40 +496,40 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__0_i_1
-       (.I0(\shift_reg_reg[1] [6]),
-        .I1(accumulator[6]),
+       (.I0(\shift_reg_reg[15] [6]),
+        .I1(\accumulator_reg_n_0_[6] ),
         .I2(adc_dat_a[6]),
         .O(accumulator0_carry__0_i_1_n_0));
   (* HLUTNM = "lutpair4" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__0_i_2
-       (.I0(\shift_reg_reg[1] [5]),
-        .I1(accumulator[5]),
+       (.I0(\shift_reg_reg[15] [5]),
+        .I1(\accumulator_reg_n_0_[5] ),
         .I2(adc_dat_a[5]),
         .O(accumulator0_carry__0_i_2_n_0));
   (* HLUTNM = "lutpair3" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__0_i_3
-       (.I0(\shift_reg_reg[1] [4]),
-        .I1(accumulator[4]),
+       (.I0(\shift_reg_reg[15] [4]),
+        .I1(\accumulator_reg_n_0_[4] ),
         .I2(adc_dat_a[4]),
         .O(accumulator0_carry__0_i_3_n_0));
   (* HLUTNM = "lutpair2" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__0_i_4
-       (.I0(\shift_reg_reg[1] [3]),
-        .I1(accumulator[3]),
+       (.I0(\shift_reg_reg[15] [3]),
+        .I1(\accumulator_reg_n_0_[3] ),
         .I2(adc_dat_a[3]),
         .O(accumulator0_carry__0_i_4_n_0));
   (* HLUTNM = "lutpair6" *) 
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__0_i_5
-       (.I0(\shift_reg_reg[1] [7]),
-        .I1(accumulator[7]),
+       (.I0(\shift_reg_reg[15] [7]),
+        .I1(\accumulator_reg_n_0_[7] ),
         .I2(adc_dat_a[7]),
         .I3(accumulator0_carry__0_i_1_n_0),
         .O(accumulator0_carry__0_i_5_n_0));
@@ -529,8 +537,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__0_i_6
-       (.I0(\shift_reg_reg[1] [6]),
-        .I1(accumulator[6]),
+       (.I0(\shift_reg_reg[15] [6]),
+        .I1(\accumulator_reg_n_0_[6] ),
         .I2(adc_dat_a[6]),
         .I3(accumulator0_carry__0_i_2_n_0),
         .O(accumulator0_carry__0_i_6_n_0));
@@ -538,8 +546,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__0_i_7
-       (.I0(\shift_reg_reg[1] [5]),
-        .I1(accumulator[5]),
+       (.I0(\shift_reg_reg[15] [5]),
+        .I1(\accumulator_reg_n_0_[5] ),
         .I2(adc_dat_a[5]),
         .I3(accumulator0_carry__0_i_3_n_0),
         .O(accumulator0_carry__0_i_7_n_0));
@@ -547,8 +555,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__0_i_8
-       (.I0(\shift_reg_reg[1] [4]),
-        .I1(accumulator[4]),
+       (.I0(\shift_reg_reg[15] [4]),
+        .I1(\accumulator_reg_n_0_[4] ),
         .I2(adc_dat_a[4]),
         .I3(accumulator0_carry__0_i_4_n_0),
         .O(accumulator0_carry__0_i_8_n_0));
@@ -564,40 +572,40 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__1_i_1
-       (.I0(\shift_reg_reg[1] [10]),
-        .I1(accumulator[10]),
+       (.I0(\shift_reg_reg[15] [10]),
+        .I1(\accumulator_reg_n_0_[10] ),
         .I2(adc_dat_a[10]),
         .O(accumulator0_carry__1_i_1_n_0));
   (* HLUTNM = "lutpair8" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__1_i_2
-       (.I0(\shift_reg_reg[1] [9]),
-        .I1(accumulator[9]),
+       (.I0(\shift_reg_reg[15] [9]),
+        .I1(\accumulator_reg_n_0_[9] ),
         .I2(adc_dat_a[9]),
         .O(accumulator0_carry__1_i_2_n_0));
   (* HLUTNM = "lutpair7" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__1_i_3
-       (.I0(\shift_reg_reg[1] [8]),
-        .I1(accumulator[8]),
+       (.I0(\shift_reg_reg[15] [8]),
+        .I1(\accumulator_reg_n_0_[8] ),
         .I2(adc_dat_a[8]),
         .O(accumulator0_carry__1_i_3_n_0));
   (* HLUTNM = "lutpair6" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__1_i_4
-       (.I0(\shift_reg_reg[1] [7]),
-        .I1(accumulator[7]),
+       (.I0(\shift_reg_reg[15] [7]),
+        .I1(\accumulator_reg_n_0_[7] ),
         .I2(adc_dat_a[7]),
         .O(accumulator0_carry__1_i_4_n_0));
   (* HLUTNM = "lutpair10" *) 
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__1_i_5
-       (.I0(\shift_reg_reg[1] [11]),
-        .I1(accumulator[11]),
+       (.I0(\shift_reg_reg[15] [11]),
+        .I1(\accumulator_reg_n_0_[11] ),
         .I2(adc_dat_a[11]),
         .I3(accumulator0_carry__1_i_1_n_0),
         .O(accumulator0_carry__1_i_5_n_0));
@@ -605,8 +613,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__1_i_6
-       (.I0(\shift_reg_reg[1] [10]),
-        .I1(accumulator[10]),
+       (.I0(\shift_reg_reg[15] [10]),
+        .I1(\accumulator_reg_n_0_[10] ),
         .I2(adc_dat_a[10]),
         .I3(accumulator0_carry__1_i_2_n_0),
         .O(accumulator0_carry__1_i_6_n_0));
@@ -614,8 +622,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__1_i_7
-       (.I0(\shift_reg_reg[1] [9]),
-        .I1(accumulator[9]),
+       (.I0(\shift_reg_reg[15] [9]),
+        .I1(\accumulator_reg_n_0_[9] ),
         .I2(adc_dat_a[9]),
         .I3(accumulator0_carry__1_i_3_n_0),
         .O(accumulator0_carry__1_i_7_n_0));
@@ -623,8 +631,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__1_i_8
-       (.I0(\shift_reg_reg[1] [8]),
-        .I1(accumulator[8]),
+       (.I0(\shift_reg_reg[15] [8]),
+        .I1(\accumulator_reg_n_0_[8] ),
         .I2(adc_dat_a[8]),
         .I3(accumulator0_carry__1_i_4_n_0),
         .O(accumulator0_carry__1_i_8_n_0));
@@ -633,60 +641,60 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.CI(accumulator0_carry__1_n_0),
         .CO({accumulator0_carry__2_n_0,accumulator0_carry__2_n_1,accumulator0_carry__2_n_2,accumulator0_carry__2_n_3}),
         .CYINIT(1'b0),
-        .DI({accumulator[14],accumulator0_carry__2_i_1_n_0,accumulator0_carry__2_i_2_n_0,accumulator0_carry__2_i_3_n_0}),
+        .DI({\accumulator_reg_n_0_[14] ,accumulator0_carry__2_i_1_n_0,accumulator0_carry__2_i_2_n_0,accumulator0_carry__2_i_3_n_0}),
         .O({accumulator0_carry__2_n_4,accumulator0_carry__2_n_5,accumulator0_carry__2_n_6,accumulator0_carry__2_n_7}),
         .S({accumulator0_carry__2_i_4_n_0,accumulator0_carry__2_i_5_n_0,accumulator0_carry__2_i_6_n_0,accumulator0_carry__2_i_7_n_0}));
   LUT3 #(
     .INIT(8'h8E)) 
     accumulator0_carry__2_i_1
-       (.I0(\shift_reg_reg[1] [13]),
-        .I1(accumulator[13]),
+       (.I0(\shift_reg_reg[15] [13]),
+        .I1(\accumulator_reg_n_0_[13] ),
         .I2(adc_dat_a[13]),
         .O(accumulator0_carry__2_i_1_n_0));
   (* HLUTNM = "lutpair11" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__2_i_2
-       (.I0(\shift_reg_reg[1] [12]),
-        .I1(accumulator[12]),
+       (.I0(\shift_reg_reg[15] [12]),
+        .I1(\accumulator_reg_n_0_[12] ),
         .I2(adc_dat_a[12]),
         .O(accumulator0_carry__2_i_2_n_0));
   (* HLUTNM = "lutpair10" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry__2_i_3
-       (.I0(\shift_reg_reg[1] [11]),
-        .I1(accumulator[11]),
+       (.I0(\shift_reg_reg[15] [11]),
+        .I1(\accumulator_reg_n_0_[11] ),
         .I2(adc_dat_a[11]),
         .O(accumulator0_carry__2_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__2_i_4
-       (.I0(accumulator[14]),
-        .I1(accumulator[15]),
+       (.I0(\accumulator_reg_n_0_[14] ),
+        .I1(\accumulator_reg_n_0_[15] ),
         .O(accumulator0_carry__2_i_4_n_0));
   LUT4 #(
     .INIT(16'hD42B)) 
     accumulator0_carry__2_i_5
        (.I0(adc_dat_a[13]),
-        .I1(accumulator[13]),
-        .I2(\shift_reg_reg[1] [13]),
-        .I3(accumulator[14]),
+        .I1(\accumulator_reg_n_0_[13] ),
+        .I2(\shift_reg_reg[15] [13]),
+        .I3(\accumulator_reg_n_0_[14] ),
         .O(accumulator0_carry__2_i_5_n_0));
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__2_i_6
        (.I0(accumulator0_carry__2_i_2_n_0),
-        .I1(\shift_reg_reg[1] [13]),
-        .I2(accumulator[13]),
+        .I1(\shift_reg_reg[15] [13]),
+        .I2(\accumulator_reg_n_0_[13] ),
         .I3(adc_dat_a[13]),
         .O(accumulator0_carry__2_i_6_n_0));
   (* HLUTNM = "lutpair11" *) 
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry__2_i_7
-       (.I0(\shift_reg_reg[1] [12]),
-        .I1(accumulator[12]),
+       (.I0(\shift_reg_reg[15] [12]),
+        .I1(\accumulator_reg_n_0_[12] ),
         .I2(adc_dat_a[12]),
         .I3(accumulator0_carry__2_i_3_n_0),
         .O(accumulator0_carry__2_i_7_n_0));
@@ -695,158 +703,158 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.CI(accumulator0_carry__2_n_0),
         .CO({accumulator0_carry__3_n_0,accumulator0_carry__3_n_1,accumulator0_carry__3_n_2,accumulator0_carry__3_n_3}),
         .CYINIT(1'b0),
-        .DI(accumulator[18:15]),
+        .DI({\accumulator_reg_n_0_[18] ,\accumulator_reg_n_0_[17] ,\accumulator_reg_n_0_[16] ,\accumulator_reg_n_0_[15] }),
         .O({accumulator0_carry__3_n_4,accumulator0_carry__3_n_5,accumulator0_carry__3_n_6,accumulator0_carry__3_n_7}),
         .S({accumulator0_carry__3_i_1_n_0,accumulator0_carry__3_i_2_n_0,accumulator0_carry__3_i_3_n_0,accumulator0_carry__3_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__3_i_1
-       (.I0(accumulator[18]),
-        .I1(accumulator[19]),
+       (.I0(\accumulator_reg_n_0_[18] ),
+        .I1(\accumulator_reg_n_0_[19] ),
         .O(accumulator0_carry__3_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__3_i_2
-       (.I0(accumulator[17]),
-        .I1(accumulator[18]),
+       (.I0(\accumulator_reg_n_0_[17] ),
+        .I1(\accumulator_reg_n_0_[18] ),
         .O(accumulator0_carry__3_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__3_i_3
-       (.I0(accumulator[16]),
-        .I1(accumulator[17]),
+       (.I0(\accumulator_reg_n_0_[16] ),
+        .I1(\accumulator_reg_n_0_[17] ),
         .O(accumulator0_carry__3_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__3_i_4
-       (.I0(accumulator[15]),
-        .I1(accumulator[16]),
+       (.I0(\accumulator_reg_n_0_[15] ),
+        .I1(\accumulator_reg_n_0_[16] ),
         .O(accumulator0_carry__3_i_4_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 accumulator0_carry__4
        (.CI(accumulator0_carry__3_n_0),
         .CO({accumulator0_carry__4_n_0,accumulator0_carry__4_n_1,accumulator0_carry__4_n_2,accumulator0_carry__4_n_3}),
         .CYINIT(1'b0),
-        .DI(accumulator[22:19]),
+        .DI({\accumulator_reg_n_0_[22] ,\accumulator_reg_n_0_[21] ,\accumulator_reg_n_0_[20] ,\accumulator_reg_n_0_[19] }),
         .O({accumulator0_carry__4_n_4,accumulator0_carry__4_n_5,accumulator0_carry__4_n_6,accumulator0_carry__4_n_7}),
         .S({accumulator0_carry__4_i_1_n_0,accumulator0_carry__4_i_2_n_0,accumulator0_carry__4_i_3_n_0,accumulator0_carry__4_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__4_i_1
-       (.I0(accumulator[22]),
-        .I1(accumulator[23]),
+       (.I0(\accumulator_reg_n_0_[22] ),
+        .I1(\accumulator_reg_n_0_[23] ),
         .O(accumulator0_carry__4_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__4_i_2
-       (.I0(accumulator[21]),
-        .I1(accumulator[22]),
+       (.I0(\accumulator_reg_n_0_[21] ),
+        .I1(\accumulator_reg_n_0_[22] ),
         .O(accumulator0_carry__4_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__4_i_3
-       (.I0(accumulator[20]),
-        .I1(accumulator[21]),
+       (.I0(\accumulator_reg_n_0_[20] ),
+        .I1(\accumulator_reg_n_0_[21] ),
         .O(accumulator0_carry__4_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__4_i_4
-       (.I0(accumulator[19]),
-        .I1(accumulator[20]),
+       (.I0(\accumulator_reg_n_0_[19] ),
+        .I1(\accumulator_reg_n_0_[20] ),
         .O(accumulator0_carry__4_i_4_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 accumulator0_carry__5
        (.CI(accumulator0_carry__4_n_0),
         .CO({accumulator0_carry__5_n_0,accumulator0_carry__5_n_1,accumulator0_carry__5_n_2,accumulator0_carry__5_n_3}),
         .CYINIT(1'b0),
-        .DI(accumulator[26:23]),
+        .DI({\accumulator_reg_n_0_[26] ,\accumulator_reg_n_0_[25] ,\accumulator_reg_n_0_[24] ,\accumulator_reg_n_0_[23] }),
         .O({accumulator0_carry__5_n_4,accumulator0_carry__5_n_5,accumulator0_carry__5_n_6,accumulator0_carry__5_n_7}),
         .S({accumulator0_carry__5_i_1_n_0,accumulator0_carry__5_i_2_n_0,accumulator0_carry__5_i_3_n_0,accumulator0_carry__5_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__5_i_1
-       (.I0(accumulator[26]),
-        .I1(accumulator[27]),
+       (.I0(\accumulator_reg_n_0_[26] ),
+        .I1(\accumulator_reg_n_0_[27] ),
         .O(accumulator0_carry__5_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__5_i_2
-       (.I0(accumulator[25]),
-        .I1(accumulator[26]),
+       (.I0(\accumulator_reg_n_0_[25] ),
+        .I1(\accumulator_reg_n_0_[26] ),
         .O(accumulator0_carry__5_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__5_i_3
-       (.I0(accumulator[24]),
-        .I1(accumulator[25]),
+       (.I0(\accumulator_reg_n_0_[24] ),
+        .I1(\accumulator_reg_n_0_[25] ),
         .O(accumulator0_carry__5_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__5_i_4
-       (.I0(accumulator[23]),
-        .I1(accumulator[24]),
+       (.I0(\accumulator_reg_n_0_[23] ),
+        .I1(\accumulator_reg_n_0_[24] ),
         .O(accumulator0_carry__5_i_4_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 accumulator0_carry__6
        (.CI(accumulator0_carry__5_n_0),
         .CO({NLW_accumulator0_carry__6_CO_UNCONNECTED[3],accumulator0_carry__6_n_1,accumulator0_carry__6_n_2,accumulator0_carry__6_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,accumulator[29:27]}),
+        .DI({1'b0,\accumulator_reg_n_0_[29] ,\accumulator_reg_n_0_[28] ,\accumulator_reg_n_0_[27] }),
         .O({accumulator0_carry__6_n_4,accumulator0_carry__6_n_5,accumulator0_carry__6_n_6,accumulator0_carry__6_n_7}),
         .S({accumulator0_carry__6_i_1_n_0,accumulator0_carry__6_i_2_n_0,accumulator0_carry__6_i_3_n_0,accumulator0_carry__6_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__6_i_1
-       (.I0(accumulator[30]),
-        .I1(accumulator[31]),
+       (.I0(\accumulator_reg_n_0_[30] ),
+        .I1(p_0_in0),
         .O(accumulator0_carry__6_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__6_i_2
-       (.I0(accumulator[29]),
-        .I1(accumulator[30]),
+       (.I0(\accumulator_reg_n_0_[29] ),
+        .I1(\accumulator_reg_n_0_[30] ),
         .O(accumulator0_carry__6_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__6_i_3
-       (.I0(accumulator[28]),
-        .I1(accumulator[29]),
+       (.I0(\accumulator_reg_n_0_[28] ),
+        .I1(\accumulator_reg_n_0_[29] ),
         .O(accumulator0_carry__6_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     accumulator0_carry__6_i_4
-       (.I0(accumulator[27]),
-        .I1(accumulator[28]),
+       (.I0(\accumulator_reg_n_0_[27] ),
+        .I1(\accumulator_reg_n_0_[28] ),
         .O(accumulator0_carry__6_i_4_n_0));
   (* HLUTNM = "lutpair1" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry_i_1
-       (.I0(\shift_reg_reg[1] [2]),
-        .I1(accumulator[2]),
+       (.I0(\shift_reg_reg[15] [2]),
+        .I1(\accumulator_reg_n_0_[2] ),
         .I2(adc_dat_a[2]),
         .O(accumulator0_carry_i_1_n_0));
   (* HLUTNM = "lutpair0" *) 
   LUT3 #(
     .INIT(8'hD4)) 
     accumulator0_carry_i_2
-       (.I0(\shift_reg_reg[1] [1]),
-        .I1(accumulator[1]),
+       (.I0(\shift_reg_reg[15] [1]),
+        .I1(\accumulator_reg_n_0_[1] ),
         .I2(adc_dat_a[1]),
         .O(accumulator0_carry_i_2_n_0));
   (* HLUTNM = "lutpair12" *) 
   LUT2 #(
     .INIT(4'hB)) 
     accumulator0_carry_i_3
-       (.I0(accumulator[0]),
-        .I1(\shift_reg_reg[1] [0]),
+       (.I0(\accumulator_reg_n_0_[0] ),
+        .I1(\shift_reg_reg[15] [0]),
         .O(accumulator0_carry_i_3_n_0));
   (* HLUTNM = "lutpair2" *) 
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry_i_4
-       (.I0(\shift_reg_reg[1] [3]),
-        .I1(accumulator[3]),
+       (.I0(\shift_reg_reg[15] [3]),
+        .I1(\accumulator_reg_n_0_[3] ),
         .I2(adc_dat_a[3]),
         .I3(accumulator0_carry_i_1_n_0),
         .O(accumulator0_carry_i_4_n_0));
@@ -854,8 +862,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry_i_5
-       (.I0(\shift_reg_reg[1] [2]),
-        .I1(accumulator[2]),
+       (.I0(\shift_reg_reg[15] [2]),
+        .I1(\accumulator_reg_n_0_[2] ),
         .I2(adc_dat_a[2]),
         .I3(accumulator0_carry_i_2_n_0),
         .O(accumulator0_carry_i_5_n_0));
@@ -863,8 +871,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT4 #(
     .INIT(16'h9669)) 
     accumulator0_carry_i_6
-       (.I0(\shift_reg_reg[1] [1]),
-        .I1(accumulator[1]),
+       (.I0(\shift_reg_reg[15] [1]),
+        .I1(\accumulator_reg_n_0_[1] ),
         .I2(adc_dat_a[1]),
         .I3(accumulator0_carry_i_3_n_0),
         .O(accumulator0_carry_i_6_n_0));
@@ -872,8 +880,8 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   LUT3 #(
     .INIT(8'h96)) 
     accumulator0_carry_i_7
-       (.I0(accumulator[0]),
-        .I1(\shift_reg_reg[1] [0]),
+       (.I0(\accumulator_reg_n_0_[0] ),
+        .I1(\shift_reg_reg[15] [0]),
         .I2(adc_dat_a[0]),
         .O(accumulator0_carry_i_7_n_0));
   FDRE #(
@@ -882,7 +890,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry_n_7),
-        .Q(accumulator[0]),
+        .Q(\accumulator_reg_n_0_[0] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -890,7 +898,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__1_n_5),
-        .Q(accumulator[10]),
+        .Q(\accumulator_reg_n_0_[10] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -898,7 +906,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__1_n_4),
-        .Q(accumulator[11]),
+        .Q(\accumulator_reg_n_0_[11] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -906,7 +914,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__2_n_7),
-        .Q(accumulator[12]),
+        .Q(\accumulator_reg_n_0_[12] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -914,7 +922,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__2_n_6),
-        .Q(accumulator[13]),
+        .Q(\accumulator_reg_n_0_[13] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -922,7 +930,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__2_n_5),
-        .Q(accumulator[14]),
+        .Q(\accumulator_reg_n_0_[14] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -930,7 +938,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__2_n_4),
-        .Q(accumulator[15]),
+        .Q(\accumulator_reg_n_0_[15] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -938,7 +946,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__3_n_7),
-        .Q(accumulator[16]),
+        .Q(\accumulator_reg_n_0_[16] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -946,7 +954,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__3_n_6),
-        .Q(accumulator[17]),
+        .Q(\accumulator_reg_n_0_[17] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -954,7 +962,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__3_n_5),
-        .Q(accumulator[18]),
+        .Q(\accumulator_reg_n_0_[18] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -962,7 +970,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__3_n_4),
-        .Q(accumulator[19]),
+        .Q(\accumulator_reg_n_0_[19] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -970,7 +978,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry_n_6),
-        .Q(accumulator[1]),
+        .Q(\accumulator_reg_n_0_[1] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -978,7 +986,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__4_n_7),
-        .Q(accumulator[20]),
+        .Q(\accumulator_reg_n_0_[20] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -986,7 +994,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__4_n_6),
-        .Q(accumulator[21]),
+        .Q(\accumulator_reg_n_0_[21] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -994,7 +1002,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__4_n_5),
-        .Q(accumulator[22]),
+        .Q(\accumulator_reg_n_0_[22] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1002,7 +1010,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__4_n_4),
-        .Q(accumulator[23]),
+        .Q(\accumulator_reg_n_0_[23] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1010,7 +1018,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__5_n_7),
-        .Q(accumulator[24]),
+        .Q(\accumulator_reg_n_0_[24] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1018,7 +1026,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__5_n_6),
-        .Q(accumulator[25]),
+        .Q(\accumulator_reg_n_0_[25] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1026,7 +1034,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__5_n_5),
-        .Q(accumulator[26]),
+        .Q(\accumulator_reg_n_0_[26] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1034,7 +1042,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__5_n_4),
-        .Q(accumulator[27]),
+        .Q(\accumulator_reg_n_0_[27] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1042,7 +1050,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__6_n_7),
-        .Q(accumulator[28]),
+        .Q(\accumulator_reg_n_0_[28] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1050,7 +1058,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__6_n_6),
-        .Q(accumulator[29]),
+        .Q(\accumulator_reg_n_0_[29] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1058,7 +1066,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry_n_5),
-        .Q(accumulator[2]),
+        .Q(\accumulator_reg_n_0_[2] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1066,7 +1074,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__6_n_5),
-        .Q(accumulator[30]),
+        .Q(\accumulator_reg_n_0_[30] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1074,7 +1082,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__6_n_4),
-        .Q(accumulator[31]),
+        .Q(p_0_in0),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1082,7 +1090,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry_n_4),
-        .Q(accumulator[3]),
+        .Q(\accumulator_reg_n_0_[3] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1090,7 +1098,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__0_n_7),
-        .Q(accumulator[4]),
+        .Q(\accumulator_reg_n_0_[4] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1098,7 +1106,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__0_n_6),
-        .Q(accumulator[5]),
+        .Q(\accumulator_reg_n_0_[5] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1106,7 +1114,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__0_n_5),
-        .Q(accumulator[6]),
+        .Q(\accumulator_reg_n_0_[6] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1114,7 +1122,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__0_n_4),
-        .Q(accumulator[7]),
+        .Q(\accumulator_reg_n_0_[7] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1122,7 +1130,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__1_n_7),
-        .Q(accumulator[8]),
+        .Q(\accumulator_reg_n_0_[8] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1130,198 +1138,268 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
        (.C(adc_clk),
         .CE(1'b1),
         .D(accumulator0_carry__1_n_6),
-        .Q(accumulator[9]),
+        .Q(\accumulator_reg_n_0_[9] ),
         .R(1'b0));
-  FDRE \shift_reg_reg[0][0] 
-       (.C(adc_clk),
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][0]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][0]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[0]),
-        .Q(\shift_reg_reg[0] [0]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][10] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][0]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][10]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][10]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[10]),
-        .Q(\shift_reg_reg[0] [10]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][11] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][10]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][11]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][11]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[11]),
-        .Q(\shift_reg_reg[0] [11]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][12] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][11]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][12]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][12]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[12]),
-        .Q(\shift_reg_reg[0] [12]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][13] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][12]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][13]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][13]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[13]),
-        .Q(\shift_reg_reg[0] [13]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][1] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][13]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][1]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][1]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[1]),
-        .Q(\shift_reg_reg[0] [1]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][2] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][1]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][2]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][2]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[2]),
-        .Q(\shift_reg_reg[0] [2]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][3] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][2]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][3]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][3]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[3]),
-        .Q(\shift_reg_reg[0] [3]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][4] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][3]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][4]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][4]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[4]),
-        .Q(\shift_reg_reg[0] [4]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][5] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][4]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][5]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][5]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[5]),
-        .Q(\shift_reg_reg[0] [5]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][6] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][5]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][6]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][6]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[6]),
-        .Q(\shift_reg_reg[0] [6]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][7] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][6]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][7]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][7]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[7]),
-        .Q(\shift_reg_reg[0] [7]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][8] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][7]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][8]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][8]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[8]),
-        .Q(\shift_reg_reg[0] [8]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[0][9] 
-       (.C(adc_clk),
+        .Q(\shift_reg_reg[14][8]_srl15_n_0 ));
+  (* srl_bus_name = "\inst/shift_reg_reg[14] " *) 
+  (* srl_name = "\inst/shift_reg_reg[14][9]_srl15 " *) 
+  SRL16E \shift_reg_reg[14][9]_srl15 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b1),
+        .A3(1'b1),
         .CE(1'b1),
+        .CLK(adc_clk),
         .D(adc_dat_a[9]),
-        .Q(\shift_reg_reg[0] [9]),
-        .R(1'b0));
-  FDRE \shift_reg_reg[1][0] 
+        .Q(\shift_reg_reg[14][9]_srl15_n_0 ));
+  FDRE \shift_reg_reg[15][0] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [0]),
-        .Q(\shift_reg_reg[1] [0]),
+        .D(\shift_reg_reg[14][0]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [0]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][10] 
+  FDRE \shift_reg_reg[15][10] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [10]),
-        .Q(\shift_reg_reg[1] [10]),
+        .D(\shift_reg_reg[14][10]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [10]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][11] 
+  FDRE \shift_reg_reg[15][11] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [11]),
-        .Q(\shift_reg_reg[1] [11]),
+        .D(\shift_reg_reg[14][11]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [11]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][12] 
+  FDRE \shift_reg_reg[15][12] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [12]),
-        .Q(\shift_reg_reg[1] [12]),
+        .D(\shift_reg_reg[14][12]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [12]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][13] 
+  FDRE \shift_reg_reg[15][13] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [13]),
-        .Q(\shift_reg_reg[1] [13]),
+        .D(\shift_reg_reg[14][13]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [13]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][1] 
+  FDRE \shift_reg_reg[15][1] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [1]),
-        .Q(\shift_reg_reg[1] [1]),
+        .D(\shift_reg_reg[14][1]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [1]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][2] 
+  FDRE \shift_reg_reg[15][2] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [2]),
-        .Q(\shift_reg_reg[1] [2]),
+        .D(\shift_reg_reg[14][2]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [2]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][3] 
+  FDRE \shift_reg_reg[15][3] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [3]),
-        .Q(\shift_reg_reg[1] [3]),
+        .D(\shift_reg_reg[14][3]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [3]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][4] 
+  FDRE \shift_reg_reg[15][4] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [4]),
-        .Q(\shift_reg_reg[1] [4]),
+        .D(\shift_reg_reg[14][4]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [4]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][5] 
+  FDRE \shift_reg_reg[15][5] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [5]),
-        .Q(\shift_reg_reg[1] [5]),
+        .D(\shift_reg_reg[14][5]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [5]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][6] 
+  FDRE \shift_reg_reg[15][6] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [6]),
-        .Q(\shift_reg_reg[1] [6]),
+        .D(\shift_reg_reg[14][6]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [6]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][7] 
+  FDRE \shift_reg_reg[15][7] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [7]),
-        .Q(\shift_reg_reg[1] [7]),
+        .D(\shift_reg_reg[14][7]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [7]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][8] 
+  FDRE \shift_reg_reg[15][8] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [8]),
-        .Q(\shift_reg_reg[1] [8]),
+        .D(\shift_reg_reg[14][8]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [8]),
         .R(1'b0));
-  FDRE \shift_reg_reg[1][9] 
+  FDRE \shift_reg_reg[15][9] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\shift_reg_reg[0] [9]),
-        .Q(\shift_reg_reg[1] [9]),
+        .D(\shift_reg_reg[14][9]_srl15_n_0 ),
+        .Q(\shift_reg_reg[15] [9]),
         .R(1'b0));
   FDRE \smooth_data_reg[0] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[0] ),
+        .D(p_0_in[0]),
         .Q(smooth_data[0]),
         .R(1'b0));
   FDRE \smooth_data_reg[10] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[10] ),
+        .D(p_0_in[10]),
         .Q(smooth_data[10]),
         .R(1'b0));
   FDRE \smooth_data_reg[11] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[11] ),
+        .D(p_0_in[11]),
         .Q(smooth_data[11]),
         .R(1'b0));
   FDRE \smooth_data_reg[12] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[12] ),
+        .D(p_0_in[12]),
         .Q(smooth_data[12]),
         .R(1'b0));
   FDRE \smooth_data_reg[13] 
@@ -1369,7 +1447,7 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
   FDRE \smooth_data_reg[1] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[1] ),
+        .D(p_0_in[1]),
         .Q(smooth_data[1]),
         .R(1'b0));
   FDRE \smooth_data_reg[20] 
@@ -1414,76 +1492,58 @@ module system_adc_smooth_mossbauer_0_0_adc_smooth_mossbauer
         .D(\acc_average_reg_n_0_[26] ),
         .Q(smooth_data[26]),
         .R(1'b0));
-  FDRE \smooth_data_reg[27] 
-       (.C(adc_clk),
-        .CE(1'b1),
-        .D(\acc_average_reg_n_0_[27] ),
-        .Q(smooth_data[27]),
-        .R(1'b0));
-  FDRE \smooth_data_reg[28] 
-       (.C(adc_clk),
-        .CE(1'b1),
-        .D(\acc_average_reg_n_0_[28] ),
-        .Q(smooth_data[28]),
-        .R(1'b0));
-  FDRE \smooth_data_reg[29] 
-       (.C(adc_clk),
-        .CE(1'b1),
-        .D(\acc_average_reg_n_0_[29] ),
-        .Q(smooth_data[29]),
-        .R(1'b0));
   FDRE \smooth_data_reg[2] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[2] ),
+        .D(p_0_in[2]),
         .Q(smooth_data[2]),
         .R(1'b0));
   FDRE \smooth_data_reg[31] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(p_0_in0),
-        .Q(smooth_data[30]),
+        .D(p_0_in[13]),
+        .Q(smooth_data[27]),
         .R(1'b0));
   FDRE \smooth_data_reg[3] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[3] ),
+        .D(p_0_in[3]),
         .Q(smooth_data[3]),
         .R(1'b0));
   FDRE \smooth_data_reg[4] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[4] ),
+        .D(p_0_in[4]),
         .Q(smooth_data[4]),
         .R(1'b0));
   FDRE \smooth_data_reg[5] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[5] ),
+        .D(p_0_in[5]),
         .Q(smooth_data[5]),
         .R(1'b0));
   FDRE \smooth_data_reg[6] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[6] ),
+        .D(p_0_in[6]),
         .Q(smooth_data[6]),
         .R(1'b0));
   FDRE \smooth_data_reg[7] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[7] ),
+        .D(p_0_in[7]),
         .Q(smooth_data[7]),
         .R(1'b0));
   FDRE \smooth_data_reg[8] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[8] ),
+        .D(p_0_in[8]),
         .Q(smooth_data[8]),
         .R(1'b0));
   FDRE \smooth_data_reg[9] 
        (.C(adc_clk),
         .CE(1'b1),
-        .D(\acc_average_reg_n_0_[9] ),
+        .D(p_0_in[9]),
         .Q(smooth_data[9]),
         .R(1'b0));
 endmodule

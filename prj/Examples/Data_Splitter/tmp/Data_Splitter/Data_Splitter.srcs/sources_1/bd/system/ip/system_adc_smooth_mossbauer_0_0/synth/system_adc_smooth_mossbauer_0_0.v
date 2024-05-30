@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "adc_smooth_mossbauer,Vivado 2020.1" *)
 (* CHECK_LICENSE_TYPE = "system_adc_smooth_mossbauer_0_0,adc_smooth_mossbauer,{}" *)
-(* CORE_GENERATION_INFO = "system_adc_smooth_mossbauer_0_0,adc_smooth_mossbauer,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=adc_smooth_mossbauer,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_WIDTH=14,AXIS_TDATA_WIDTH=32,ACC_WIDTH=32,N=2}" *)
+(* CORE_GENERATION_INFO = "system_adc_smooth_mossbauer_0_0,adc_smooth_mossbauer,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=adc_smooth_mossbauer,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_WIDTH=14,AXIS_TDATA_WIDTH=32,ACC_WIDTH=32,N=16}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_adc_smooth_mossbauer_0_0 (
@@ -75,7 +75,7 @@ output wire [31 : 0] axis_adc_a;
     .ADC_WIDTH(14),
     .AXIS_TDATA_WIDTH(32),
     .ACC_WIDTH(32),
-    .N(2)
+    .N(16)
   ) inst (
     .adc_clk(adc_clk),
     .adc_dat_a(adc_dat_a),

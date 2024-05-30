@@ -45,7 +45,7 @@ always@(posedge adc_clk)
 begin 
     if (~rst)
         vgl <= 1'b0;
-    else if (data > d_low_t + 10 )
+    else if (data > d_low_t + 20 )
         vgl <= 1;
     else if  (data < d_low_t )
         vgl <= 0 ; 

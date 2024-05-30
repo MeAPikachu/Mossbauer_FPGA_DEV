@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Thu May 23 20:44:12 2024
--- Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+-- Date        : Wed May 29 13:55:28 2024
+-- Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_axi_gpio_5_0/system_axi_gpio_5_0_sim_netlist.vhdl
 -- Design      : system_axi_gpio_5_0
@@ -751,16 +751,16 @@ begin
       Q => \^gpio2_io_o\(11),
       R => SS(0)
     );
-\Dual.gpio2_Data_Out_reg[21]\: unisim.vcomponents.FDRE
+\Dual.gpio2_Data_Out_reg[21]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => \Dual.gpio2_Data_Out_reg[0]_0\(0),
       D => s_axi_wdata(10),
       Q => \^gpio2_io_o\(10),
-      R => SS(0)
+      S => SS(0)
     );
 \Dual.gpio2_Data_Out_reg[22]\: unisim.vcomponents.FDRE
     generic map(
@@ -806,27 +806,27 @@ begin
       Q => \^gpio2_io_o\(6),
       R => SS(0)
     );
-\Dual.gpio2_Data_Out_reg[26]\: unisim.vcomponents.FDRE
+\Dual.gpio2_Data_Out_reg[26]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => \Dual.gpio2_Data_Out_reg[0]_0\(0),
       D => s_axi_wdata(5),
       Q => \^gpio2_io_o\(5),
-      R => SS(0)
+      S => SS(0)
     );
-\Dual.gpio2_Data_Out_reg[27]\: unisim.vcomponents.FDRE
+\Dual.gpio2_Data_Out_reg[27]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => \Dual.gpio2_Data_Out_reg[0]_0\(0),
       D => s_axi_wdata(4),
       Q => \^gpio2_io_o\(4),
-      R => SS(0)
+      S => SS(0)
     );
 \Dual.gpio2_Data_Out_reg[28]\: unisim.vcomponents.FDRE
     generic map(
@@ -839,16 +839,16 @@ begin
       Q => \^gpio2_io_o\(3),
       R => SS(0)
     );
-\Dual.gpio2_Data_Out_reg[29]\: unisim.vcomponents.FDRE
+\Dual.gpio2_Data_Out_reg[29]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => \Dual.gpio2_Data_Out_reg[0]_0\(0),
       D => s_axi_wdata(2),
       Q => \^gpio2_io_o\(2),
-      R => SS(0)
+      S => SS(0)
     );
 \Dual.gpio2_Data_Out_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -861,27 +861,27 @@ begin
       Q => \^gpio2_io_o\(29),
       R => SS(0)
     );
-\Dual.gpio2_Data_Out_reg[30]\: unisim.vcomponents.FDRE
+\Dual.gpio2_Data_Out_reg[30]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => \Dual.gpio2_Data_Out_reg[0]_0\(0),
       D => s_axi_wdata(1),
       Q => \^gpio2_io_o\(1),
-      R => SS(0)
+      S => SS(0)
     );
-\Dual.gpio2_Data_Out_reg[31]\: unisim.vcomponents.FDRE
+\Dual.gpio2_Data_Out_reg[31]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '1'
     )
         port map (
       C => s_axi_aclk,
       CE => \Dual.gpio2_Data_Out_reg[0]_0\(0),
       D => s_axi_wdata(0),
       Q => \^gpio2_io_o\(0),
-      R => SS(0)
+      S => SS(0)
     );
 \Dual.gpio2_Data_Out_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -3977,7 +3977,7 @@ entity system_axi_gpio_5_0_axi_gpio is
   attribute C_DOUT_DEFAULT : integer;
   attribute C_DOUT_DEFAULT of system_axi_gpio_5_0_axi_gpio : entity is 33554688;
   attribute C_DOUT_DEFAULT_2 : integer;
-  attribute C_DOUT_DEFAULT_2 of system_axi_gpio_5_0_axi_gpio : entity is 0;
+  attribute C_DOUT_DEFAULT_2 of system_axi_gpio_5_0_axi_gpio : entity is 1079;
   attribute C_FAMILY : string;
   attribute C_FAMILY of system_axi_gpio_5_0_axi_gpio : entity is "zynq";
   attribute C_GPIO2_WIDTH : integer;
@@ -4580,7 +4580,7 @@ architecture STRUCTURE of system_axi_gpio_5_0 is
   attribute C_DOUT_DEFAULT : integer;
   attribute C_DOUT_DEFAULT of U0 : label is 33554688;
   attribute C_DOUT_DEFAULT_2 : integer;
-  attribute C_DOUT_DEFAULT_2 of U0 : label is 0;
+  attribute C_DOUT_DEFAULT_2 of U0 : label is 1079;
   attribute C_FAMILY : string;
   attribute C_FAMILY of U0 : label is "zynq";
   attribute C_GPIO2_WIDTH : integer;

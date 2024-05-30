@@ -47,7 +47,7 @@ begin
         vlh <= 1'b0;
     else if ( data < d_high_t )
         vlh <= 1'b1 ;
-    else if ( data > d_high_t + 10 )
+    else if ( data > d_high_t + 20 )
         vlh <= 1'b0 ; 
 
 end

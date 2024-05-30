@@ -25,7 +25,7 @@ module adc_smooth_mossbauer #
     parameter ADC_WIDTH = 14,
     parameter AXIS_TDATA_WIDTH = 32,
     parameter ACC_WIDTH= 32, 
-    parameter N = 2
+    parameter N = 16
 )
 (   
     input wire adc_clk ,
@@ -56,7 +56,7 @@ begin
     end 
     
     shift_reg[0] <= data; 
-    acc_average <= accumulator >>> 1;
+    acc_average <= accumulator >>> 4;
     smooth_data <= acc_average ; 
     short_smooth <= {acc_average[ACC_WIDTH-1],acc_average[ADC_WIDTH-2:0]};
     axis_adc_a <= {{(AXIS_TDATA_WIDTH-ADC_WIDTH+1){acc_average[ACC_WIDTH-1]}},acc_average[ADC_WIDTH-2:0]} ; 

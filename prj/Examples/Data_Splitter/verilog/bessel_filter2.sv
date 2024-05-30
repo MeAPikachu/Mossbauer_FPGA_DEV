@@ -22,7 +22,7 @@
 module bessel_filter2 #(
     parameter int ADC_WIDTH = 14,
     parameter int AXIS_TDATA_WIDTH = 32,
-    parameter int B = 1079
+    parameter int B=2158
 )(
     input logic clk,
     input logic reset,

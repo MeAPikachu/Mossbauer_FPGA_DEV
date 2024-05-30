@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Wed May  8 23:28:46 2024
-// Host        : chengjie-RedmiBook-14-II running 64-bit Ubuntu 20.04.6 LTS
+// Date        : Wed May 29 18:41:30 2024
+// Host        : chengjie-MS-7D76 running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/chengjie/Mossbauer_FPGA_DEV/prj/Examples/Data_Splitter/tmp/Data_Splitter/Data_Splitter.srcs/sources_1/bd/system/ip/system_low_threshold_0_0/system_low_threshold_0_0_sim_netlist.v
 // Design      : system_low_threshold_0_0
@@ -54,36 +54,36 @@ module system_low_threshold_0_0_low_threshold
   input [13:0]input_low;
   input adc_clk;
 
-  wire __27_carry__0_i_1_n_0;
-  wire __27_carry__0_i_2_n_0;
-  wire __27_carry__0_i_3_n_0;
-  wire __27_carry__0_i_4_n_0;
-  wire __27_carry__0_n_0;
-  wire __27_carry__0_n_1;
-  wire __27_carry__0_n_2;
-  wire __27_carry__0_n_3;
-  wire __27_carry__1_i_1_n_0;
-  wire __27_carry__1_i_2_n_0;
-  wire __27_carry__1_i_3_n_0;
-  wire __27_carry__1_i_4_n_0;
-  wire __27_carry__1_n_0;
-  wire __27_carry__1_n_1;
-  wire __27_carry__1_n_2;
-  wire __27_carry__1_n_3;
-  wire __27_carry__2_i_1_n_0;
-  wire __27_carry__2_i_2_n_0;
-  wire __27_carry__2_i_3_n_0;
-  wire __27_carry__2_n_1;
-  wire __27_carry__2_n_2;
-  wire __27_carry__2_n_3;
-  wire __27_carry_i_1_n_0;
-  wire __27_carry_i_2_n_0;
-  wire __27_carry_i_3_n_0;
-  wire __27_carry_i_4_n_0;
-  wire __27_carry_n_0;
-  wire __27_carry_n_1;
-  wire __27_carry_n_2;
-  wire __27_carry_n_3;
+  wire __25_carry__0_i_1_n_0;
+  wire __25_carry__0_i_2_n_0;
+  wire __25_carry__0_i_3_n_0;
+  wire __25_carry__0_i_4_n_0;
+  wire __25_carry__0_n_0;
+  wire __25_carry__0_n_1;
+  wire __25_carry__0_n_2;
+  wire __25_carry__0_n_3;
+  wire __25_carry__1_i_1_n_0;
+  wire __25_carry__1_i_2_n_0;
+  wire __25_carry__1_i_3_n_0;
+  wire __25_carry__1_i_4_n_0;
+  wire __25_carry__1_n_0;
+  wire __25_carry__1_n_1;
+  wire __25_carry__1_n_2;
+  wire __25_carry__1_n_3;
+  wire __25_carry__2_i_1_n_0;
+  wire __25_carry__2_i_2_n_0;
+  wire __25_carry__2_i_3_n_0;
+  wire __25_carry__2_n_1;
+  wire __25_carry__2_n_2;
+  wire __25_carry__2_n_3;
+  wire __25_carry_i_1_n_0;
+  wire __25_carry_i_2_n_0;
+  wire __25_carry_i_3_n_0;
+  wire __25_carry_i_4_n_0;
+  wire __25_carry_n_0;
+  wire __25_carry_n_1;
+  wire __25_carry_n_2;
+  wire __25_carry_n_3;
   wire _carry__0_n_0;
   wire _carry__0_n_1;
   wire _carry__0_n_2;
@@ -92,8 +92,7 @@ module system_low_threshold_0_0_low_threshold
   wire _carry__1_n_1;
   wire _carry__1_n_2;
   wire _carry__1_n_3;
-  wire _carry__2_n_1;
-  wire _carry__2_n_3;
+  wire _carry__2_n_2;
   wire _carry_i_1_n_0;
   wire _carry_i_2_n_0;
   wire _carry_n_0;
@@ -127,174 +126,174 @@ module system_low_threshold_0_0_low_threshold
   wire vgl0_carry_n_1;
   wire vgl0_carry_n_2;
   wire vgl0_carry_n_3;
-  wire [13:0]vgl1;
+  wire [13:1]vgl1;
   wire vgl_i_1_n_0;
-  wire [3:0]NLW___27_carry_O_UNCONNECTED;
-  wire [3:0]NLW___27_carry__0_O_UNCONNECTED;
-  wire [3:0]NLW___27_carry__1_O_UNCONNECTED;
-  wire [3:3]NLW___27_carry__2_CO_UNCONNECTED;
-  wire [2:0]NLW___27_carry__2_O_UNCONNECTED;
-  wire [3:1]NLW__carry__2_CO_UNCONNECTED;
-  wire [3:2]NLW__carry__2_O_UNCONNECTED;
+  wire [3:0]NLW___25_carry_O_UNCONNECTED;
+  wire [3:0]NLW___25_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW___25_carry__1_O_UNCONNECTED;
+  wire [3:3]NLW___25_carry__2_CO_UNCONNECTED;
+  wire [2:0]NLW___25_carry__2_O_UNCONNECTED;
+  wire [3:0]NLW__carry__2_CO_UNCONNECTED;
+  wire [3:1]NLW__carry__2_O_UNCONNECTED;
   wire [3:0]NLW_vgl0_carry_O_UNCONNECTED;
   wire [3:3]NLW_vgl0_carry__0_CO_UNCONNECTED;
   wire [3:0]NLW_vgl0_carry__0_O_UNCONNECTED;
 
-  CARRY4 __27_carry
+  CARRY4 __25_carry
        (.CI(1'b0),
-        .CO({__27_carry_n_0,__27_carry_n_1,__27_carry_n_2,__27_carry_n_3}),
+        .CO({__25_carry_n_0,__25_carry_n_1,__25_carry_n_2,__25_carry_n_3}),
         .CYINIT(1'b1),
-        .DI(vgl1[3:0]),
-        .O(NLW___27_carry_O_UNCONNECTED[3:0]),
-        .S({__27_carry_i_1_n_0,__27_carry_i_2_n_0,__27_carry_i_3_n_0,__27_carry_i_4_n_0}));
-  CARRY4 __27_carry__0
-       (.CI(__27_carry_n_0),
-        .CO({__27_carry__0_n_0,__27_carry__0_n_1,__27_carry__0_n_2,__27_carry__0_n_3}),
+        .DI({vgl1[3:1],input_low[0]}),
+        .O(NLW___25_carry_O_UNCONNECTED[3:0]),
+        .S({__25_carry_i_1_n_0,__25_carry_i_2_n_0,__25_carry_i_3_n_0,__25_carry_i_4_n_0}));
+  CARRY4 __25_carry__0
+       (.CI(__25_carry_n_0),
+        .CO({__25_carry__0_n_0,__25_carry__0_n_1,__25_carry__0_n_2,__25_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI(vgl1[7:4]),
-        .O(NLW___27_carry__0_O_UNCONNECTED[3:0]),
-        .S({__27_carry__0_i_1_n_0,__27_carry__0_i_2_n_0,__27_carry__0_i_3_n_0,__27_carry__0_i_4_n_0}));
+        .O(NLW___25_carry__0_O_UNCONNECTED[3:0]),
+        .S({__25_carry__0_i_1_n_0,__25_carry__0_i_2_n_0,__25_carry__0_i_3_n_0,__25_carry__0_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__0_i_1
+    __25_carry__0_i_1
        (.I0(vgl1[7]),
         .I1(adc_dat_a[7]),
-        .O(__27_carry__0_i_1_n_0));
+        .O(__25_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__0_i_2
+    __25_carry__0_i_2
        (.I0(vgl1[6]),
         .I1(adc_dat_a[6]),
-        .O(__27_carry__0_i_2_n_0));
+        .O(__25_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__0_i_3
+    __25_carry__0_i_3
        (.I0(vgl1[5]),
         .I1(adc_dat_a[5]),
-        .O(__27_carry__0_i_3_n_0));
+        .O(__25_carry__0_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__0_i_4
+    __25_carry__0_i_4
        (.I0(vgl1[4]),
         .I1(adc_dat_a[4]),
-        .O(__27_carry__0_i_4_n_0));
-  CARRY4 __27_carry__1
-       (.CI(__27_carry__0_n_0),
-        .CO({__27_carry__1_n_0,__27_carry__1_n_1,__27_carry__1_n_2,__27_carry__1_n_3}),
+        .O(__25_carry__0_i_4_n_0));
+  CARRY4 __25_carry__1
+       (.CI(__25_carry__0_n_0),
+        .CO({__25_carry__1_n_0,__25_carry__1_n_1,__25_carry__1_n_2,__25_carry__1_n_3}),
         .CYINIT(1'b0),
         .DI(vgl1[11:8]),
-        .O(NLW___27_carry__1_O_UNCONNECTED[3:0]),
-        .S({__27_carry__1_i_1_n_0,__27_carry__1_i_2_n_0,__27_carry__1_i_3_n_0,__27_carry__1_i_4_n_0}));
+        .O(NLW___25_carry__1_O_UNCONNECTED[3:0]),
+        .S({__25_carry__1_i_1_n_0,__25_carry__1_i_2_n_0,__25_carry__1_i_3_n_0,__25_carry__1_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__1_i_1
+    __25_carry__1_i_1
        (.I0(vgl1[11]),
         .I1(adc_dat_a[11]),
-        .O(__27_carry__1_i_1_n_0));
+        .O(__25_carry__1_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__1_i_2
+    __25_carry__1_i_2
        (.I0(vgl1[10]),
         .I1(adc_dat_a[10]),
-        .O(__27_carry__1_i_2_n_0));
+        .O(__25_carry__1_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__1_i_3
+    __25_carry__1_i_3
        (.I0(vgl1[9]),
         .I1(adc_dat_a[9]),
-        .O(__27_carry__1_i_3_n_0));
+        .O(__25_carry__1_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__1_i_4
+    __25_carry__1_i_4
        (.I0(vgl1[8]),
         .I1(adc_dat_a[8]),
-        .O(__27_carry__1_i_4_n_0));
-  CARRY4 __27_carry__2
-       (.CI(__27_carry__1_n_0),
-        .CO({NLW___27_carry__2_CO_UNCONNECTED[3],__27_carry__2_n_1,__27_carry__2_n_2,__27_carry__2_n_3}),
+        .O(__25_carry__1_i_4_n_0));
+  CARRY4 __25_carry__2
+       (.CI(__25_carry__1_n_0),
+        .CO({NLW___25_carry__2_CO_UNCONNECTED[3],__25_carry__2_n_1,__25_carry__2_n_2,__25_carry__2_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,adc_dat_a[13],vgl1[13:12]}),
-        .O({vgl0,NLW___27_carry__2_O_UNCONNECTED[2:0]}),
-        .S({1'b1,__27_carry__2_i_1_n_0,__27_carry__2_i_2_n_0,__27_carry__2_i_3_n_0}));
+        .O({vgl0,NLW___25_carry__2_O_UNCONNECTED[2:0]}),
+        .S({1'b1,__25_carry__2_i_1_n_0,__25_carry__2_i_2_n_0,__25_carry__2_i_3_n_0}));
   LUT2 #(
     .INIT(4'h6)) 
-    __27_carry__2_i_1
+    __25_carry__2_i_1
        (.I0(adc_dat_a[13]),
-        .I1(_carry__2_n_1),
-        .O(__27_carry__2_i_1_n_0));
+        .I1(_carry__2_n_2),
+        .O(__25_carry__2_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__2_i_2
+    __25_carry__2_i_2
        (.I0(adc_dat_a[13]),
         .I1(vgl1[13]),
-        .O(__27_carry__2_i_2_n_0));
+        .O(__25_carry__2_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry__2_i_3
+    __25_carry__2_i_3
        (.I0(vgl1[12]),
         .I1(adc_dat_a[12]),
-        .O(__27_carry__2_i_3_n_0));
+        .O(__25_carry__2_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry_i_1
+    __25_carry_i_1
        (.I0(vgl1[3]),
         .I1(adc_dat_a[3]),
-        .O(__27_carry_i_1_n_0));
+        .O(__25_carry_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry_i_2
+    __25_carry_i_2
        (.I0(vgl1[2]),
         .I1(adc_dat_a[2]),
-        .O(__27_carry_i_2_n_0));
+        .O(__25_carry_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry_i_3
+    __25_carry_i_3
        (.I0(vgl1[1]),
         .I1(adc_dat_a[1]),
-        .O(__27_carry_i_3_n_0));
+        .O(__25_carry_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
-    __27_carry_i_4
-       (.I0(vgl1[0]),
+    __25_carry_i_4
+       (.I0(input_low[0]),
         .I1(adc_dat_a[0]),
-        .O(__27_carry_i_4_n_0));
+        .O(__25_carry_i_4_n_0));
   CARRY4 _carry
        (.CI(1'b0),
         .CO({_carry_n_0,_carry_n_1,_carry_n_2,_carry_n_3}),
         .CYINIT(1'b0),
-        .DI({input_low[3],1'b0,input_low[1],1'b0}),
-        .O(vgl1[3:0]),
-        .S({_carry_i_1_n_0,input_low[2],_carry_i_2_n_0,input_low[0]}));
+        .DI({input_low[4],1'b0,input_low[2],1'b0}),
+        .O(vgl1[4:1]),
+        .S({_carry_i_1_n_0,input_low[3],_carry_i_2_n_0,input_low[1]}));
   CARRY4 _carry__0
        (.CI(_carry_n_0),
         .CO({_carry__0_n_0,_carry__0_n_1,_carry__0_n_2,_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(vgl1[7:4]),
-        .S(input_low[7:4]));
+        .O(vgl1[8:5]),
+        .S(input_low[8:5]));
   CARRY4 _carry__1
        (.CI(_carry__0_n_0),
         .CO({_carry__1_n_0,_carry__1_n_1,_carry__1_n_2,_carry__1_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(vgl1[11:8]),
-        .S(input_low[11:8]));
+        .O(vgl1[12:9]),
+        .S(input_low[12:9]));
   CARRY4 _carry__2
        (.CI(_carry__1_n_0),
-        .CO({NLW__carry__2_CO_UNCONNECTED[3],_carry__2_n_1,NLW__carry__2_CO_UNCONNECTED[1],_carry__2_n_3}),
+        .CO({NLW__carry__2_CO_UNCONNECTED[3:2],_carry__2_n_2,NLW__carry__2_CO_UNCONNECTED[0]}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b1,1'b0}),
-        .O({NLW__carry__2_O_UNCONNECTED[3:2],vgl1[13:12]}),
-        .S({1'b0,1'b1,input_low[13:12]}));
+        .DI({1'b0,1'b0,1'b0,1'b1}),
+        .O({NLW__carry__2_O_UNCONNECTED[3:1],vgl1[13]}),
+        .S({1'b0,1'b0,1'b1,input_low[13]}));
   LUT1 #(
     .INIT(2'h1)) 
     _carry_i_1
-       (.I0(input_low[3]),
+       (.I0(input_low[4]),
         .O(_carry_i_1_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     _carry_i_2
-       (.I0(input_low[1]),
+       (.I0(input_low[2]),
         .O(_carry_i_2_n_0));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 vgl0_carry

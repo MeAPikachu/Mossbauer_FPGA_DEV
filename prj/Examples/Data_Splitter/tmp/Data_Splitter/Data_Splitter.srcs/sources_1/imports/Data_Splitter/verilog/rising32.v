@@ -59,16 +59,16 @@ reg signed [ADC_WIDTH-1:0] previous_data;
 
 // time 0x400000/125M = 0.02s , Each Volt is about 400 , so the difference is at least 8   
 // Noise : 0.8 ;  
-// So, here we use another schmitt trigger to solve this , to judge the direction precisely .
+// The 5 here will not be changed , but the frequency or we say the clock will be changed based on the frequency . 
 always@(posedge slow_clk) begin
-    if ( input_signal > previous_data + 5 ) 
+    if ( input_signal > previous_data + 8 ) 
         rising <= 1'b1 ; 
-    else if ( input_signal < previous_data - 5 )
+    else if ( input_signal < previous_data - 8 )
         rising <= 1'b0 ; 
     
-    if (input_signal < previous_data - 5) 
+    if (input_signal < previous_data - 8) 
         falling <= 1'b1; 
-    else if (input_signal > previous_data + 5 )
+    else if (input_signal > previous_data + 8 )
         falling <= 1'b0 ;     
     
     previous_data <= input_signal ; 

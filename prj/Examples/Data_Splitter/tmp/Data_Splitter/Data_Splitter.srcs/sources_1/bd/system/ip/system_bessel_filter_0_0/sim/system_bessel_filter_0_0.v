@@ -73,7 +73,7 @@ output wire [13 : 0] adc_filt_a;
   bessel_filter #(
     .ADC_WIDTH(14),
     .AXIS_TDATA_WIDTH(32),
-    .B(1079)
+    .B(2158)
   ) inst (
     .clk(clk),
     .reset(reset),

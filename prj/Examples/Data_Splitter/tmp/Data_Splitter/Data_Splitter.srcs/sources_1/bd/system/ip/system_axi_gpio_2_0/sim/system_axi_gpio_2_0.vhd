@@ -174,7 +174,7 @@ BEGIN
       C_ALL_OUTPUTS => 1,
       C_ALL_OUTPUTS_2 => 1,
       C_INTERRUPT_PRESENT => 0,
-      C_DOUT_DEFAULT => X"0a4000a0",
+      C_DOUT_DEFAULT => X"02400120",
       C_TRI_DEFAULT => X"FFFFFFFF",
       C_IS_DUAL => 1,
       C_DOUT_DEFAULT_2 => X"12a05f20",

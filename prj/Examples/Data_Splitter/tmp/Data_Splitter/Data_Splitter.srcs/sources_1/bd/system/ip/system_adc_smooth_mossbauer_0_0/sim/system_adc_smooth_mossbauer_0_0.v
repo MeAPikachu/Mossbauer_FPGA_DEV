@@ -74,7 +74,7 @@ output wire [31 : 0] axis_adc_a;
     .ADC_WIDTH(14),
     .AXIS_TDATA_WIDTH(32),
     .ACC_WIDTH(32),
-    .N(2)
+    .N(16)
   ) inst (
     .adc_clk(adc_clk),
     .adc_dat_a(adc_dat_a),
