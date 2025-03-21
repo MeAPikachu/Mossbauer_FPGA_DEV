@@ -1,0 +1,9 @@
+wget -qO - https://www.xilinx.com/support/download/2020-2/xilinx-master-signing-key.asc \
+  | gpg --dearmor | sudo tee /usr/share/keyrings/xilinx-archive-keyring.gpg > /dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/xilinx-archive-keyring.gpg] https://packages.xilinx.com/artifactory/debian-packages $(lsb_release -cs) main" \
+  | sudo tee /etc/apt/sources.list.d/xilinx.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install -y xilinx-xrt
+sudo reboot
